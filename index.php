@@ -1,0 +1,304 @@
+       
+<?php 
+include 'header.php';
+?>
+<!-- Start Home Page Slider -->
+<section id="home">
+    <!-- Carousel -->
+    <div id="main-slide" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#main-slide" data-slide-to="0" class="active"></li>
+            <li data-target="#main-slide" data-slide-to="1"></li>
+            <li data-target="#main-slide" data-slide-to="2"></li>
+        </ol>
+        <!--/ Indicators end-->
+
+        <!-- Carousel inner -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img class="img-responsive" src="images/slider/bg1.jpg" alt="slider">
+                <div class="slider-content">
+                    <div class="col-md-12 text-center">
+                        <h2 class="animated2">
+                            <span>Welcome to <strong>Margo</strong></span>
+                        </h2>
+                        <h3 class="animated3">
+                          <span>The ultimate aim of your business</span>
+                      </h3>
+                      <p class="animated4"><a href="#" class="slider btn btn-primary">Check Now</a>
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <!--/ Carousel item end -->
+          <div class="item">
+            <img class="img-responsive" src="images/slider/bg2.jpg" alt="slider">
+            <div class="slider-content">
+                <div class="col-md-12 text-center">
+                    <h2 class="animated4">
+                        <span><strong>Margo</strong> for the highest</span>
+                    </h2>
+                    <h3 class="animated5">
+                        <span>The Key of your Success</span>
+                    </h3>   
+                    <p class="animated6"><a href="#" class="slider btn btn-primary">Buy Now</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--/ Carousel item end -->
+        <div class="item">
+            <img class="img-responsive" src="images/slider/bg3.jpg" alt="slider">
+            <div class="slider-content">
+                <div class="col-md-12 text-center">
+                    <h2 class="animated7 white">
+                        <span>The way of <strong>Success</strong></span>
+                    </h2>
+                    <h3 class="animated8 white">
+                        <span>Why you are waiting</span>
+                    </h3>   
+                    <div class="">
+                        <a class="animated4 slider btn btn-primary btn-min-block" href="#">Get Now</a><a class="animated4 slider btn btn-default btn-min-block" href="#">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ Carousel item end -->
+    </div>
+    <!-- Carousel inner end-->
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#main-slide" data-slide="prev">
+        <span><i class="fa fa-angle-left"></i></span>
+    </a>
+    <a class="right carousel-control" href="#main-slide" data-slide="next">
+        <span><i class="fa fa-angle-right"></i></span>
+    </a>
+</div>
+<!-- /carousel -->
+</section>
+<!-- End Home Page Slider -->
+
+
+<div id="content">
+    <div class="container">
+
+            <div class="row">
+                    <div class="big-title text-center animated fadeInDown delay-01" data-animation="fadeInDown" data-animation-delay="01">
+                <h1>Why  <strong>MET Academy</strong></h1>
+            </div>
+        <!-- Start Service Icon 1 -->
+        <div class="col-md-3 col-sm-6 service-box service-center">
+           <div class="service-boxed">
+              <div class="service-icon" style="margin-top:-25px;">
+                <i class="fa fa-magic icon-medium-effect icon-effect-2"></i>
+            </div>
+            <div class="service-content">
+                <h4>High Quality Theme</h4>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+            </div>
+        </div>
+    </div>
+    <!-- End Service Icon 1 -->
+    
+    <!-- Start Service Icon 2 -->
+    <div class="col-md-3 col-sm-6 service-box service-center">
+     <div class="service-boxed">
+        <div class="service-icon" style="margin-top:-25px;">
+          <i class="fa fa-eye icon-medium-effect icon-effect-2"></i>
+      </div>
+      <div class="service-content">
+          <h4>Retina Display Ready</h4>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+      </div>
+  </div>
+</div>
+<!-- End Service Icon 2 -->
+
+<!-- Start Service Icon 3 -->
+<div class="col-md-3 col-sm-6 service-box service-center">
+   <div class="service-boxed">
+      <div class="service-icon" style="margin-top:-25px;">
+        <i class="fa fa-code icon-medium-effect icon-effect-1"></i>
+    </div>
+    <div class="service-content">
+        <h4>Clean Modern Code</h4>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+    </div>
+</div>
+</div>
+<!-- End Service Icon 3 -->
+
+<!-- Start Service Icon 4 -->
+<div class="col-md-3 col-sm-6 service-box service-center">
+   <div class="service-boxed">
+      <div class="service-icon" style="margin-top:-25px;">
+        <i class="fa fa-rocket icon-medium-effect icon-effect-1"></i>
+    </div>
+    <div class="service-content">
+        <h4>Fast &amp; Light Theme</h4>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+    </div>
+</div>
+</div>
+<!-- End Service Icon 4 -->
+
+</div>  <!-- the end of row -->
+
+<div class="section" style="padding-top:60px; padding-bottom:60px; border-top:1px solid #eee; border-bottom:1px solid #eee; background:#f9f9f9;">
+                <div class="container">
+                    
+                    <div class="row">
+                        
+                        <!-- Start Left Side -->
+                        <div class="col-md-6">
+                            
+                            <!-- Start Big Heading -->
+                            <div class="big-title">
+                                <h1><strong>More</strong> About Us</h1>
+                                <p class="title-desc">Some Words About Our Company</p>
+                            </div>
+                            <!-- End Big Heading -->
+                            
+                            <!-- Some Text -->
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            
+                            <!-- Divider -->
+                            <div class="hr1" style="margin-bottom:14px;"></div>
+                            
+                            <!-- Start Icons Lists -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="icons-list">
+                                        <li><i class="fa fa-check-circle"></i> Duis aute irure dolor in reprehenderit.</li>
+                                        <li><i class="fa fa-check-circle"></i> Lorem Ipsum is simply dummy text.</li>
+                                        <li><i class="fa fa-check-circle"></i> Excepteur sint occaecat cupidatat.</li>
+                                        <li><i class="fa fa-check-circle"></i> Sed ut perspiciatis unde omnis.</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="icons-list">
+                                        <li><i class="fa fa-check-circle"></i> Duis aute irure dolor in reprehenderit.</li>
+                                        <li><i class="fa fa-check-circle"></i> Lorem Ipsum is simply dummy text.</li>
+                                        <li><i class="fa fa-check-circle"></i> Excepteur sint occaecat cupidatat.</li>
+                                        <li><i class="fa fa-check-circle"></i> Sed ut perspiciatis unde omnis.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Icons Lists -->
+                            
+                            <!-- Divider -->
+                            <div class="hr1" style="margin-bottom:20px;"></div>
+                            
+                            <!-- Button -->
+                            <a href="#" class="btn-system btn-small">Read More About Us</a>
+                        </div>
+                        <!-- End Left Side -->
+                        
+                        <!-- Vimeo Iframe -->
+                        <div class="col-md-6">
+                            <div class="fluid-width-video-wrapper" style="padding-top: 56.25%;"><iframe src="https://player.vimeo.com/video/63322694?title=0&amp;byline=0&amp;portrait=0" id="fitvid227256"></iframe></div>  
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        <!-- Start Recent Posts Carousel -->
+        <div class="latest-posts">
+            <h4 class="classic-title"><span>Latest News</span></h4>
+            <div class="latest-posts-classic custom-carousel touch-carousel" data-appeared-items="3">
+
+                <!-- Post 1 -->
+                <div class="post-row item">
+                    <div class="left-meta-post">
+                        <div class="post-date"><span class="day">28</span><span class="month">Dec</span></div>
+                        <div class="post-type"><i class="fa fa-picture-o"></i></div>
+                    </div>
+                    <h3 class="post-title"><a href="#">Standard Post With Image</a></h3>
+                    <div class="post-content">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. <a class="read-more" href="#">Read More...</a></p>
+                    </div>
+                </div>
+                
+                <!-- Post 2 -->
+                <div class="post-row item">
+                    <div class="left-meta-post">
+                        <div class="post-date"><span class="day">26</span><span class="month">Dec</span></div>
+                        <div class="post-type"><i class="fa fa-picture-o"></i></div>
+                    </div>
+                    <h3 class="post-title"><a href="#">Link Post</a></h3>
+                    <div class="post-content">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. <a class="read-more" href="#">Read More...</a></p>
+                    </div>
+                </div>
+                
+                <!-- Post 3 -->
+                <div class="post-row item">
+                    <div class="left-meta-post">
+                        <div class="post-date"><span class="day">26</span><span class="month">Dec</span></div>
+                        <div class="post-type"><i class="fa fa-picture-o"></i></div>
+                    </div>
+                    <h3 class="post-title"><a href="#">Iframe Video Post</a></h3>
+                    <div class="post-content">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. <a class="read-more" href="#">Read More...</a></p>
+                    </div>
+                </div>
+                
+                <!-- Post 4 -->
+                <div class="post-row item">
+                    <div class="left-meta-post">
+                        <div class="post-date"><span class="day">26</span><span class="month">Dec</span></div>
+                        <div class="post-type"><i class="fa fa-picture-o"></i></div>
+                    </div>
+                    <h3 class="post-title"><a href="#">Gallery Post</a></h3>
+                    <div class="post-content">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. <a class="read-more" href="#">Read More...</a></p>
+                    </div>
+                </div>
+                
+                <!-- Post 5 -->
+                <div class="post-row item">
+                    <div class="left-meta-post">
+                        <div class="post-date"><span class="day">26</span><span class="month">Dec</span></div>
+                        <div class="post-type"><i class="fa fa-picture-o"></i></div>
+                    </div>
+                    <h3 class="post-title"><a href="#">Standard Post without Image</a></h3>
+                    <div class="post-content">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. <a class="read-more" href="#">Read More...</a></p>
+                    </div>
+                </div>
+                
+                <!-- Post 6 -->
+                <div class="post-row item">
+                    <div class="left-meta-post">
+                        <div class="post-date"><span class="day">26</span><span class="month">Dec</span></div>
+                        <div class="post-type"><i class="fa fa-picture-o"></i></div>
+                    </div>
+                    <h3 class="post-title"><a href="#">Iframe Audio Post</a></h3>
+                    <div class="post-content">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. <a class="read-more" href="#">Read More...</a></p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- End Recent Posts Carousel -->
+    </div> <!-- end of container -->
+</div> <!-- end of content -->
+
+
+<!-- Start Testimonials Section -->
+
+<?php 
+include 'footer.php';
+require 'scripts.php';
+
+?>
+
+
+</body>
+
+</html>
