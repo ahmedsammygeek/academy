@@ -12,6 +12,7 @@ foreach ($inputs as $key_input => $input_value) {
 }
 extract($inputs);
 //put elements in variables
+$password=hash('ripemd160', "$password");
 include 'connection.php';
 //conection with databasemet
 $sql="INSERT INTO admin VALUES('',?,?) ";

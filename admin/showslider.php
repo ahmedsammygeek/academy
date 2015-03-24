@@ -69,6 +69,8 @@ require 'sidebar.php';
             <th>IMAGE</th>
             <th>TITLE</th>
             <th>LINK</th>
+            <th>options</th>
+
 
           </tr>
           <?php
@@ -83,7 +85,9 @@ require 'sidebar.php';
            <td><img src='image/".$image."' width='50px' height='50px'></td>
            <td>$title</td>
            <td><a href='http://$link'>$link</a></td>
-           <td><a href='deleteslider.php?id=$id&img=$image' class='btn btn-danger btn-sm'>DELETE</a></td>
+           <td><a href='deleteslider.php?id=$id&img=$image' class='btn btn-danger btn-sm'>DELETE</a>
+                <a href='editslider.php?id=$id&img=$image' class='btn btn-warning btn-sm'>update</a>
+           </td>
            
 
            

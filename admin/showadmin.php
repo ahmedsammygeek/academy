@@ -3,7 +3,7 @@
 require 'sidebar.php';
 
 ?>
-
+<section class="content">  
 <div class="row">
     <div class="col-xs-12">
         <div class="box">
@@ -52,6 +52,7 @@ require 'sidebar.php';
                     <th>ID</th>
                     <th>name</th>
                     <th>password</th>
+                    <th>OPTIONS</th>
 
 
                 </tr>
@@ -69,7 +70,7 @@ require 'sidebar.php';
                    echo " <tr>
                    <td>$i</td>
                    <td>$name</td>
-                   <td>$password</td>
+                   <td>*********</td>
                    <td><a href='deleteadmin.php?msg=$id' class='btn btn-danger btn-sm'>DELETE</a></td>
 
                    </tr>";

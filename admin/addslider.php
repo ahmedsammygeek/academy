@@ -1,7 +1,7 @@
 <?php  session_start();
 
 if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
- header('location: login.php'); die();
+	header('location: login.php'); die();
 }
 
 
@@ -16,16 +16,22 @@ if (isset($_POST['submit'])) {
 			//go to inputs page again and show alert about this case (some data is an empty)
 			header('location: slider.php?msg=empty_data'); die();
 		}
+		else
+		{
+			$img_name=$_FILES['file']['name'];
+			$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
+			$img_name=$randomstring.'.jpg' ;
+		}
 	}
 	$location="image/"; // the image uploaded file 
-	move_uploaded_file($_FILES['file']['tmp_name'] , $location.$_FILES['file']['name']);
+	move_uploaded_file($_FILES['file']['tmp_name'] , $location.$img_name);
 	// this function used to save image in folder we make ($location)
-	list($width,$height) = getimagesize($location.$_FILES['file']['name']);
+	list($width,$height) = getimagesize($location.$img_name);
 		// this function return information about image we need to use width,height only
 	if ($width < 250 || $height < 180) {
 			//if image width or height is small 
 			//go to inputs page again and show alert about this case (this image is small enter other)
-		unlink($location.$_FILES['file']['name']);
+		unlink($location.$img_name);
 		header('location: slider.php?msg=small_image');
 		die();
 	}
@@ -38,7 +44,7 @@ if (isset($_POST['submit'])) {
 	//add values in table (slider) 
 	$query=$conn->prepare($sql);
 	//prepare the sql request
-	$query->bindValue(1,$_FILES['file']['name'],PDO::PARAM_STR);
+	$query->bindValue(1,$img_name,PDO::PARAM_STR);
 	//bind the information about image to send it to db (met) table(slider)
 	$query->bindValue(2,$title,PDO::PARAM_STR);
 	//bind the information about title to send it to db (met) table(slider)
