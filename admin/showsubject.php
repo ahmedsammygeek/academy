@@ -60,10 +60,13 @@ require 'sidebar.php';
 
           <tbody><tr>
             <th>ID</th>
+            <th>DOCTOR_ID</th>
             <th>SUBJECT NAME</th>
             <th>DESCRIPTION</th>
             <th>YEAR_ID</th>
             <th>DEPARTMENT_ID</th>
+            <th>TERM</th>
+            <th>options</th>
 
           </tr>
           <?php
@@ -75,10 +78,12 @@ require 'sidebar.php';
            extract($result);
            echo " <tr>
            <td>$i</td>
+           <td>$doctor_id</td>
            <td>$name</td>
            <td>$description</td>
            <td>$year</td>
-           <td>$department</td>          
+           <td>$department</td> 
+           <td>$term</td>         
            <td><a href='deletesubject.php?id=$id' class='btn btn-danger btn-sm'>DELETE</a></td>
            
 

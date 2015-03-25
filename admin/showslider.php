@@ -54,7 +54,7 @@ require 'sidebar.php';
             break;
 
             default:
-                                      # code...
+                  
             break;
           }
         }

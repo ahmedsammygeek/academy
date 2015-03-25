@@ -57,16 +57,33 @@
 
                 <form role="form" action="addsubject.php" method="post" enctype="multipart/form-data" ><br>
                     <div class="box-body">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">subject name</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter title of slider">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">description</label>
-                            <input type="text" class="form-control" name="description" id="exampleInputPassword1" placeholder="enter description">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">year  :</label>
+                             <div class="form-group">
+                            <label for="exampleInputPassword1">doctor :</label>
+                            <div class="btn-group">
+                                <select name="doctor" id="" class="btn btn-default dropdown-toggle">
+                                   <?php 
+                                   //connection with db(met)
+                                   include 'connection.php';
+                                   $sql="SELECT * FROM staff WHERE type=0";
+                                   $query=$conn->query($sql);
+                                   while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
+                                     extract($result);
+                                     echo "<option value='$id'>$name</option>";
+
+                                 }
+
+                                 ?>
+                             </select>
+                         </div>
+                          <label for="exampleInputPassword1">term :</label>
+                            <div class="btn-group">
+                                <select name="term" id="" class="btn btn-default dropdown-toggle">
+                                   <option value="1">term 1</option>
+                                   <option value="2">term 2</option>
+                                   
+                                </select>
+                            </div>
+                             <label for="exampleInputPassword1">year  :</label>
                             <div class="btn-group">
                                 <select name="year" id="" class="btn btn-default dropdown-toggle">
                                    <option value="1">class 1</option>
@@ -75,10 +92,7 @@
                                    <option value="4">class 4</option>
                                 </select>
                             </div>
-                            
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">department :</label>
+                                <label for="exampleInputPassword1">department :</label>
                             <div class="btn-group">
                                 <select name="department" id="" class="btn btn-default dropdown-toggle">
                                    <?php 
@@ -97,6 +111,18 @@
                          </div>
 
                      </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">subject name</label>
+                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter title of slider">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">description</label>
+                            <input type="text" class="form-control" name="description" id="exampleInputPassword1" placeholder="enter description">
+                        </div>
+                        
+                       
+                      
+
 
 
 
