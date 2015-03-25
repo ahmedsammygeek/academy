@@ -70,6 +70,7 @@ require 'sidebar.php';
             <th>CONTENT</th>
             <th>IMAGE</th>
             <th>DATA</th>
+            <th>OPTIONS</th>
 
           </tr>
           <?php
@@ -85,7 +86,9 @@ require 'sidebar.php';
            <td>$content</td>
            <td><img src='image/".$image."' width='50px' height='50px'></td>
            <td>$date</td>
-           <td><a href='deletenews.php?id=$id&img=$image' class='btn btn-danger btn-sm'>DELETE</a></td>
+           <td><a href='deletenews.php?id=$id&img=$image' class='btn btn-danger btn-sm'>DELETE</a>
+            <a href='editnews.php?id=$id' class='btn btn-warning btn-sm'>update</a>
+            </td>
 
 
            </tr>";

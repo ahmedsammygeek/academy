@@ -30,23 +30,18 @@ if ($width < 200 || $height < 150) {
 }
 
 extract($inputs);
+if (isset($_GET['id'])) {
+	$id=$_GET['id'];
+}
 include 'connection.php';
-// connection with db (met)
-$sql="INSERT INTO news VALUES('',?,?,?,?) ";
+$sql="UPDATE news SET title='$title',content='$content',image='$img_name' WHERE id=$id ";
 $query=$conn->prepare($sql);
-$query->bindValue(1,$title,PDO::PARAM_STR);
-$query->bindValue(2,$content,PDO::PARAM_STR);
-$query->bindValue(3,$img_name,PDO::PARAM_STR);
-$query->bindValue(4,$_POST['date'],PDO::PARAM_STR);
 if ($query->execute()) {
-	header('location: shownews.php?msg=data_inserted');
-	die();
+	header("location: shownews.php?msg=updated");die();
 }
 else
 {
-	header('location: news.php?msg=error_data'); die();
+	header("location: editnews.php?msg=error_update");die();
 }
-
-
 
  ?>
