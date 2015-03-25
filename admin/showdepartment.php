@@ -61,6 +61,7 @@ require 'sidebar.php';
             <th>ID</th>
             <th>NAME</th>
             <th>DESCRIPTION</th>
+            <th>OPTIONS</th>
             
 
           </tr>
@@ -75,7 +76,10 @@ require 'sidebar.php';
            <td>$i</td>
            <td>$name</td>
            <td>$description</td>
-           <td><a href='deletedepartment.php?msg=$id' class='btn btn-danger btn-sm'>DELETE</a></td>
+           <td><a href='deletedepartment.php?msg=$id' class='btn btn-danger btn-sm'>DELETE</a>
+           <a href='editdepartment.php?id=$id' class='btn btn-warning btn-sm'>update</a>
+
+           </td>
 
 
            </tr>";
