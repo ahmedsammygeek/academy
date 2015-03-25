@@ -21,10 +21,14 @@ if (isset($_POST['submit'])) {
 		else
 		{
 			$img_name=$_FILES['file']['name'];
-			move_uploaded_file($_FILES['file']['tmp_name'] , 'image/'.$img_name);
+			$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
+			$img_name=$randomstring.'.jpg' ;
+			
 		}
 	}
 }
+			move_uploaded_file($_FILES['file']['tmp_name'] , 'image/'.$img_name);
+
 extract($inputs);
 require 'connection.php';
 $sql="UPDATE slider SET image='$img_name',title='$title',link='$link' WHERE id=$id ";

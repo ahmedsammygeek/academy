@@ -9,7 +9,7 @@ foreach ($inputs as $key_input => $value_input) {
 }
 
 extract($inputs);
-$password=hash('ripemd160', "$password")
+$password=hash('ripemd160', "$password");
 include 'connection.php';
 $sql="SELECT * FROM admin WHERE name = '$userid' && password= '$password' " ;
 $query=$conn->query($sql);

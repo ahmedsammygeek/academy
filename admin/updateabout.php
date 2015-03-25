@@ -30,7 +30,7 @@ foreach ($inputs as $value) {
 	if (empty($value)) {
 		//if eny variable empty 
 		//go to add page to enter and compelet inputs and show alert about this case 
-		header('location: about.php?msg=empty_data'); die();
+		header('location: editabout.php?msg=empty_data'); die();
 	}
 }
 $location="image/";
@@ -53,7 +53,7 @@ foreach ($size_width as $value_width) {
 	if ($value_width < 200) {
 		//if this image width smaller than 200
 		//go to input page to enter another image 
-		header('location: about.php?msg=small_image'); die();
+		header('location: editabout.php?msg=small_image'); die();
 	}
 }
 $size_height = array($height1,$height2,$height3 );
@@ -62,33 +62,20 @@ foreach ($size_height as  $value_height) {
 	if ($value_height < 150) {
 		//if this image height smaller than 150
 		//go to input page to enter another image 
-		header('location: about.php?msg=small_image'); die();
+		header('location: editabout.php?msg=small_image'); die();
 
 	}
 }
+$id=$_GET['id'];
 require 'connection.php';
-//connection with database (met)
-$sql="INSERT INTO about VALUES('',?,?,?,?) ";
-//insert values($content,image1,image2,image3) in table(about)
+$sql="UPDATE about SET content='$content',image1='$name1',image2='$name2',image3='$name3' WHERE id=$id "; 
 $query=$conn->prepare($sql);
-//prepare sql request 
-$query->bindValue(1,$content,PDO::PARAM_STR);
-//bind the value of $content and send it to database
-$query->bindValue(2,$name1,PDO::PARAM_STR);
-//bind the value of image1 and send it to database
-$query->bindValue(3,$name2,PDO::PARAM_STR);
-//bind the value of image2 and send it to database
-$query->bindValue(4,$name3,PDO::PARAM_STR);
-//bind the value of image3 and send it to database
 if ($query->execute()) {
-	//execute sql request 
-	// go to about gallery and show alert about data inserted
-	header('location: showabout.php?msg=data_inserted'); die();
+	header("location: showabout.php?msg=updated");die();
 }
 else
 {
-	header('location: about.php?msg=error_data'); die();
+	header("location: editabout.php?msg=error_update");die();
 }
 
-
-?>
+ ?>

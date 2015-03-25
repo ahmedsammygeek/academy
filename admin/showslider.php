@@ -88,11 +88,6 @@ require 'sidebar.php';
            <td><a href='deleteslider.php?id=$id&img=$image' class='btn btn-danger btn-sm'>DELETE</a>
                 <a href='editslider.php?id=$id&img=$image' class='btn btn-warning btn-sm'>update</a>
            </td>
-           
-
-           
-
-
            </tr>";
            $i++;
 
