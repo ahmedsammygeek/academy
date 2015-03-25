@@ -84,7 +84,9 @@ require 'sidebar.php';
            <td>$year</td>
            <td>$department</td> 
            <td>$term</td>         
-           <td><a href='deletesubject.php?id=$id' class='btn btn-danger btn-sm'>DELETE</a></td>
+           <td><a href='deletesubject.php?id=$id' class='btn btn-danger btn-sm'>DELETE</a><br><br>
+           <a href='editsubject.php?id=$id' class='btn btn-warning btn-sm'>update</a>
+           </td>
            
 
            
