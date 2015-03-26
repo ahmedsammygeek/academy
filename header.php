@@ -1,3 +1,4 @@
+
 <!doctype html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
@@ -155,20 +156,18 @@
                            </li>
                            <!-- departments page -->
                            <li>
-                            <a  href="index.html">Departments</a>
+                            <a  href="#">Departments</a>
                             <ul class="dropdown">
-                                <li><a href="comp.php">Computer Science</a>
-                                </li>
-                                <li><a href="nzom.php">Management Information Systems</a>
-                                </li>
-                                <li><a href="mang.php">Business Administration</a>
-                                </li>
-                                <li><a href="acc.php">Accounting</a>
-                                </li>
-
+                                <?php
+                                $departments = $conn->prepare("SELECT id , name FROM departments") ;
+                                $departments->execute();
+                                while ($department = $departments->fetch(PDO::FETCH_OBJ)) {
+                                    echo '<li><a href="department.php?id='.$department->id.'">'.$department->name.'</a>
+                                </li>';
+                                }
+                                 ?>
                             </ul>
                         </li>
-
                         <li>
                             <a  href="index.html">Stuff</a>
                             <ul class="dropdown">

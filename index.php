@@ -1,8 +1,8 @@
-       
 <?php 
+require 'admin/connection.php';
+
 include 'header.php';
 
-require 'admin/connection.php';
 
 
 $slides = $conn->prepare("SELECT * FROM slider");
@@ -65,7 +65,6 @@ $slides->execute();
 
     </div>
     <!-- Carousel inner end-->
-
     <!-- Controls -->
     <a class="left carousel-control" href="#main-slide" data-slide="prev">
         <span><i class="fa fa-angle-left"></i></span>
