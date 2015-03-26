@@ -22,7 +22,11 @@ if (isset($_POST['submit'])) {
 	}
 }
 $location="image/";//location to save images
-move_uploaded_file($_FILES['file']['tmp_name'], $location.$img_name);
+$up=move_uploaded_file($_FILES['file']['tmp_name'], $location.$img_name);
+if (!$up) {
+	header('location: news.php?msg=empty_data'); die();
+
+}
 list($width,$height)=getimagesize($location.$img_name);
 // tr return width and height image admin use it 
 if ($width < 200 || $height < 150) {

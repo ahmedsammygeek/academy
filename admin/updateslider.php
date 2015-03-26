@@ -1,7 +1,7 @@
 <?php session_start();
 
 if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
- header('location: login.php'); die();
+	header('location: login.php'); die();
 }
 
 if (isset($_GET['id'])) {
@@ -27,8 +27,10 @@ if (isset($_POST['submit'])) {
 		}
 	}
 }
-			move_uploaded_file($_FILES['file']['tmp_name'] , 'image/'.$img_name);
-
+$up=move_uploaded_file($_FILES['file']['tmp_name'] , 'image/'.$img_name);
+if (!$up) {
+	header("location: editslider.php?msg=empty_data");die();
+}
 extract($inputs);
 require 'connection.php';
 $sql="UPDATE slider SET image='$img_name',title='$title',link='$link' WHERE id=$id ";
@@ -41,4 +43,4 @@ else
 	header("location: editslider.php?msg=error_update"); die();
 }
 
-	 ?>
+?>
