@@ -16,25 +16,21 @@ if (isset($_POST['submit'])) {
 			//go to inputs page again and show alert about this case (some data is an empty)
 			header('location: slider.php?msg=empty_data'); die();
 		}
-		else
-		{
-			$img_name=$_FILES['file']['name'];
-			$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-			$img_name=$randomstring.'.jpg' ;
-		}
 	}
-	$location="image/"; // the image uploaded file 
-	move_uploaded_file($_FILES['file']['tmp_name'] , $location.$img_name);
+	// $location="image/"; // the image uploaded file 
+	$img_name=$_FILES['file']['name'];
+	require_once '../classimage/ImageManipulator.php';
+	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
+	$img_name=$randomstring.'.jpg' ;
+	$newName= time() . '_';
+	$img=new ImageManipulator($_FILES['file']['tmp_name']);
+	$newimg=$img->resample(100,100);
+	$img->save('image/'.$img_name);
+	 
+
+	// $up=move_uploaded_file($_FILES['file']['tmp_name'] , "image/".$img_name);
 	// this function used to save image in folder we make ($location)
-	list($width,$height) = getimagesize($location.$img_name);
-		// this function return information about image we need to use width,height only
-	if ($width < 250 || $height < 180) {
-			//if image width or height is small 
-			//go to inputs page again and show alert about this case (this image is small enter other)
-		unlink($location.$img_name);
-		header('location: slider.php?msg=small_image');
-		die();
-	}
+	
 
 	extract($inputs);
 	//this function to make elemets in this array($inputs) variables

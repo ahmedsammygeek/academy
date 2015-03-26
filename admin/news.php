@@ -71,7 +71,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">content</label>
-                            <input type="text" name="content" class="form-control" id="exampleInputEmail1" placeholder="Enter content of news">
+                            <textarea type="text" name="content" class="form-control" id="exampleInputEmail1" placeholder="Enter content of news" cols="30" rows="5"></textarea>
                         </div>
                         <div class="form-group">
                             <!-- <label for="exampleInputFile">add image</label> -->
