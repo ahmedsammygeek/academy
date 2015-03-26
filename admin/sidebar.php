@@ -351,22 +351,22 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-edit"></i> <span>Forms</span>
+                                <i class="fa fa-edit"></i> <span>subjects</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="pages/forms/general.html"><i class="fa fa-angle-double-right"></i> General Elements</a></li>
+                                <li><a href="showsubject.php"><i class="fa fa-angle-double-right"></i> subjects</a></li>
                                 <li><a href="pages/forms/advanced.html"><i class="fa fa-angle-double-right"></i> Advanced Elements</a></li>
                                 <li><a href="pages/forms/editors.html"><i class="fa fa-angle-double-right"></i> Editors</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-table"></i> <span>Tables</span>
+                                <i class="fa fa-table"></i> <span>news</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="pages/tables/simple.html"><i class="fa fa-angle-double-right"></i> Simple tables</a></li>
+                                <li><a href="shownews.php"><i class="fa fa-angle-double-right"></i> news</a></li>
                                 <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i> Data tables</a></li>
                             </ul>
                         </li>

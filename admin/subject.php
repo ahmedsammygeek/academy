@@ -83,7 +83,8 @@
                            ?>
                        </select>
                    </div>
-                   <label for="exampleInputPassword1">term :</label>
+
+                   <label for="exampleInputPassword1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;term :</label>
                    <div class="btn-group">
                     <select name="term" id="" class="btn btn-default dropdown-toggle">
                      <option value="1">term 1</option>
@@ -91,7 +92,7 @@
                      
                  </select>
              </div>
-             <label for="exampleInputPassword1">year  :</label>
+             <label for="exampleInputPassword1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;year  :</label>
              <div class="btn-group">
                 <select name="year" id="" class="btn btn-default dropdown-toggle">
                  <option value="1">class 1</option>
@@ -100,7 +101,7 @@
                  <option value="4">class 4</option>
              </select>
          </div>
-         <label for="exampleInputPassword1">department :</label>
+         <label for="exampleInputPassword1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;department :</label>
          <div class="btn-group">
             <select name="department" id="" class="btn btn-default dropdown-toggle">
              <?php 
