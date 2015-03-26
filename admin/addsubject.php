@@ -6,7 +6,7 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
 if (isset($_POST['submit'])) {
 	//validate data recived
 	$args=array('name'=>FILTER_SANITIZE_STRING,'description'=>FILTER_SANITIZE_STRING,'year'=>FILTER_VALIDATE_INT,
-		'department'=>FILTER_VALIDATE_INT,'term'=>FILTER_VALIDATE_INT,'doctor'=>FILTER_VALIDATE_INT);
+		'department'=>FILTER_VALIDATE_INT,'term'=>FILTER_VALIDATE_INT,'doctor'=>FILTER_VALIDATE_INT,'domenstrator'=>FILTER_VALIDATE_INT);
 	//recived data with post method
 	$inputs=filter_input_array(INPUT_POST,$args);
 	foreach ($inputs as $key_input => $input_value) {
@@ -15,6 +15,7 @@ if (isset($_POST['submit'])) {
 		}
 	}
 }
+
 extract($inputs);
 //connection with db (met)
 include 'connection.php';
@@ -31,7 +32,16 @@ $query->bindValue(4,$year,PDO::PARAM_INT);
 $query->bindValue(5,$department,PDO::PARAM_INT);
 $query->bindValue(6,$term,PDO::PARAM_INT);
 if ($query->execute()) {
-	header('location: showsubject.php?msg=data_inserted'); die();
+	$lastid = $conn->lastInsertId();
+	$sql2="INSERT INTO demonstrator_subjects values('',?,?) ";
+	$query2=$conn->prepare($sql2);
+	$query2->bindValue(1,$lastid,PDO::PARAM_INT);
+	$query2->bindValue(2,$domenstrator,PDO::PARAM_INT);
+	if ($query2->execute()) {
+		header('location: showsubject.php?msg=data_inserted'); die();
+	}
+
+	
 }
 else
 {

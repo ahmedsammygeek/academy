@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
 	$inputs=filter_input_array(INPUT_POST,$args);
 	//by post method
 	foreach ($inputs as $key_input => $input_value) {
-		if (empty($input_value) || empty( $_FILES['file']['name']) ||empty($_POST['date'])) {
+		if (empty($input_value) || empty( $_FILES['file']['name'])) {
 			//if eny input place is empty go to empty data to show alert
 			header('location: news.php?msg=empty_data'); die();
 		}
@@ -28,7 +28,8 @@ list($width,$height)=getimagesize($location.$img_name);
 if ($width < 200 || $height < 150) {
 	header('location: news.php?msg=small_image'); die();
 }
-
+date_default_timezone_set('UTC');
+$today = date("M j, Y"); 
 extract($inputs);
 include 'connection.php';
 // connection with db (met)
@@ -37,7 +38,7 @@ $query=$conn->prepare($sql);
 $query->bindValue(1,$title,PDO::PARAM_STR);
 $query->bindValue(2,$content,PDO::PARAM_STR);
 $query->bindValue(3,$img_name,PDO::PARAM_STR);
-$query->bindValue(4,$_POST['date'],PDO::PARAM_STR);
+$query->bindValue(4,$today,PDO::PARAM_STR);
 if ($query->execute()) {
 	header('location: shownews.php?msg=data_inserted');
 	die();

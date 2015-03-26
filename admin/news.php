@@ -78,11 +78,11 @@
                             <input type="file" name="file" id="exampleInputFile">
                             <p class="help-block">click to choose image</p>
                         </div>
-                        <div class="form-group">
+                       <!--  <div class="form-group">
                             <label for="exampleInputEmail1">date of this news</label>
                             <input type="date" name="date" class="form-control" id="exampleInputEmail1" placeholder="Enter date of news">
                         </div>
-                        
+                         -->
 
 
                     </div><!-- /.box-body -->

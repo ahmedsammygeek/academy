@@ -54,6 +54,7 @@
 
                 ?>
                 <a href="showsubject.php"> <button class="btn btn-primary" >gellery of subjects</button></a>
+                     
 
                 <form role="form" action="addsubject.php" method="post" enctype="multipart/form-data" ><br>
                     <div class="box-body">
@@ -83,6 +84,25 @@
                            ?>
                        </select>
                    </div>
+                    <label for="exampleInputPassword1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domenstrator :</label>
+                        <div class="btn-group">
+                            <select name="domenstrator" id="" class="btn btn-default dropdown-toggle">
+                             <?php 
+                                   //connection with db(met)
+                             include 'connection.php';
+                             $sql="SELECT * FROM staff WHERE type=1";
+                             $query=$conn->query($sql);
+                             while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
+                               extract($result);
+                               echo "<option value='$id'>$name</option>";
+
+                           }
+
+                           ?>
+                       </select>
+                   </div>
+               
+
 
                    <label for="exampleInputPassword1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;term :</label>
                    <div class="btn-group">
