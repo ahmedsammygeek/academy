@@ -23,7 +23,6 @@ if (isset($_POST['submit'])) {
 			$img_name=$_FILES['file']['name'];
 			$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
 			$img_name=$randomstring.'.jpg' ;
-			
 		}
 	}
 }
