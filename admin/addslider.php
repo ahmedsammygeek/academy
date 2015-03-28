@@ -17,15 +17,20 @@ if (isset($_POST['submit'])) {
 			header('location: slider.php?msg=empty_data'); die();
 		}
 	}
-	// $location="image/"; // the image uploaded file 
+	//name of image
 	$img_name=$_FILES['file']['name'];
+	//function used to be sure this is image
 	require '../classes/filevalidate.php';
 	if (!validation($img_name,array('jpg','png','jpeg'))) {
+		// function return false 
 		header("location: slider.php?msg=error_data");die();
 	}
+	require '../classes/filetype.php';
+	$type=type($img_name);
+	//class used to resize images
 	require_once '../classes/ImageManipulator.php';
 	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
-	$img_name=$randomstring.'.jpg' ;
+	$img_name=$randomstring.".$type" ;
 	$newName= time() . '_';
 	$img=new ImageManipulator($_FILES['file']['tmp_name']);
 	$newimg=$img->resample(100,100);

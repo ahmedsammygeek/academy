@@ -18,14 +18,21 @@ if (isset($_POST['submit'])) {
 			//go to inputs page again and show alert about this case (some data is an empty)
 			header('location: editslider.php?msg=empty_data'); die();
 		}
-		else
-		{
-			$img_name=$_FILES['file']['name'];
-			$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-			$img_name=$randomstring.'.jpg' ;
-		}
+		
 	}
 }
+$img_name=$_FILES['file']['name'];
+require '../classes/filevalidate.php';
+if (!validation($img_name,array('jpg','png','jpeg'))) {
+	header("location: slider.php?msg=error_data");die();
+}
+require_once '../classes/ImageManipulator.php';
+$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
+$img_name=$randomstring.'.jpg' ;
+$newName= time() . '_';
+$img=new ImageManipulator($_FILES['file']['tmp_name']);
+$newimg=$img->resample(100,100);
+$img->save('image/'.$img_name);
 $up=move_uploaded_file($_FILES['file']['tmp_name'] , 'image/'.$img_name);
 if (!$up) {
 	header("location: editslider.php?msg=empty_data");die();
