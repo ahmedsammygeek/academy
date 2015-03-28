@@ -12,9 +12,5 @@ function validation($filename,$type = array())
 		return false;
 	}
 	return true;
-
-
-
-
 }
  ?>

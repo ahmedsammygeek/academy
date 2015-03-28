@@ -25,22 +25,20 @@ if (isset($_POST['submit'])) {
 		// function return false 
 		header("location: slider.php?msg=error_data");die();
 	}
+	//function used to know file type
 	require '../classes/filetype.php';
-	$type=type($img_name);
+	$type=get_type($img_name);
 	//class used to resize images
 	require_once '../classes/ImageManipulator.php';
+	//to make random name
 	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
 	$img_name=$randomstring.".$type" ;
 	$newName= time() . '_';
 	$img=new ImageManipulator($_FILES['file']['tmp_name']);
+	//resize image
 	$newimg=$img->resample(100,100);
+	//put image in file "image"
 	$img->save('image/'.$img_name);
-	 
-
-	// $up=move_uploaded_file($_FILES['file']['tmp_name'] , "image/".$img_name);
-	// this function used to save image in folder we make ($location)
-	
-
 	extract($inputs);
 	//this function to make elemets in this array($inputs) variables
 	include 'connection.php';

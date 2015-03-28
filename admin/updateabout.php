@@ -10,16 +10,36 @@ if (isset($_POST['submit'])) {
 	$content=htmlspecialchars($_POST['content']);
 	//put the content admin added in this variable
 	$name1=$_FILES['image1']['name'];
+	require '../classes/filevalidate.php';
+	if (!validation($name1,array('jpg','png','jpeg'))) {
+		// function return false 
+		header("location: slider.php?msg=error_data");die();
+	}
+	//function used to know file type
+	require '../classes/filetype.php';
+	$type=get_type($name1);
 	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-	$name1=$randomstring.'.jpg' ;
+	$name1=$randomstring.".$type" ;
 	// frist image admin add 
 	$name2=$_FILES['image2']['name'];
+	if (!validation($name2,array('jpg','png','jpeg'))) {
+		// function return false 
+		header("location: slider.php?msg=error_data");die();
+	}
+	//function used to know file type
+	$type=get_type($name2);
 	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-	$name2=$randomstring.'.jpg' ;
+	$name2=$randomstring.".$type" ;
 	//second image
 	$name3=$_FILES['image3']['name'];
+	if (!validation($name3,array('jpg','png','jpeg'))) {
+		// function return false 
+		header("location: slider.php?msg=error_data");die();
+	}
+	//function used to know file type
+	$type=get_type($name3);
 	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-	$name3=$randomstring.'.jpg' ;
+	$name3=$randomstring.".$type" ;
 	//third image
 	// echo "$content" . "<br>" . "$name1" . "<br>" . "$name2" . "<br>" . "$name3" ;
 }
@@ -50,7 +70,7 @@ list($width3,$height3) = getimagesize($location.$name3);
 $size_width = array($width1,$width2,$width3);
 //put the images width in this array to make sure this width isn't small
 foreach ($size_width as $value_width) {
-	if ($value_width < 200) {
+	if ($value_width < 100) {
 		//if this image width smaller than 200
 		//go to input page to enter another image 
 		header('location: editabout.php?msg=small_image'); die();
@@ -59,7 +79,7 @@ foreach ($size_width as $value_width) {
 $size_height = array($height1,$height2,$height3 );
 //put the images height in this array to make sure this width isn't small
 foreach ($size_height as  $value_height) {
-	if ($value_height < 150) {
+	if ($value_height < 50) {
 		//if this image height smaller than 150
 		//go to input page to enter another image 
 		header('location: editabout.php?msg=small_image'); die();
@@ -78,4 +98,4 @@ else
 	header("location: editabout.php?msg=error_update");die();
 }
 
- ?>
+?>

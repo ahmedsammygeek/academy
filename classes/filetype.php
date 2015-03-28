@@ -1,6 +1,6 @@
 <?php 
 
-function type($filename)
+function get_type($filename)
 {
 	$type=explode(".", $filename);
 	$type=end($type);
