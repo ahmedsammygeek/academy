@@ -45,6 +45,13 @@ require 'sidebar.php';
             <b>Alert!</b> ssful in your data deleted.
             </div>' ;
             break;
+            case 'updated':
+            echo '<div class="alert alert-success alert-dismissable">
+            <i class="fa fa-check"></i>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <b>Alert!</b> successful in your data updated.
+            </div>';
+            break;
 
             default:
                                       # code...

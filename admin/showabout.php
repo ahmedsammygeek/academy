@@ -49,6 +49,13 @@ require 'sidebar.php';
             <b>Alert!</b>  this image not exist in this file.
             </div>';
             break;
+            case 'updated':
+            echo '<div class="alert alert-success alert-dismissable">
+            <i class="fa fa-check"></i>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <b>Alert!</b> successful in your data updated.
+            </div>';  
+            break;
 
             default:
                                       # code...
@@ -84,7 +91,7 @@ require 'sidebar.php';
            <td><img src='image/".$image2."' width='60px' height='60px'></td>
            <td><img src='image/".$image3."' width='60px' height='60px'></td>
            <td><a href='deleteabout.php?id=$id&img1=$image1&img2=$image2&img3=$image3' class='btn btn-danger btn-sm'>DELETE</a>
-                <a href='editabout.php?id=$id&img1=$image1&img2=$image2&img3=$image3' class='btn btn-warning btn-sm'>update</a>
+           <a href='editabout.php?id=$id&img1=$image1&img2=$image2&img3=$image3' class='btn btn-warning btn-sm'>update</a>
            </td>
            </tr>" ;
            $i++;

@@ -6,42 +6,14 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
 
 
 if (isset($_POST['submit'])) {
+	if (isset($_GET['id'])) {
+		$id=$_GET['id'];
+	}
 	//recieved data admin add it in form 
 	$content=htmlspecialchars($_POST['content']);
-	//put the content admin added in this variable
 	$name1=$_FILES['image1']['name'];
-	require '../classes/filevalidate.php';
-	if (!validation($name1,array('jpg','png','jpeg'))) {
-		// function return false 
-		header("location: slider.php?msg=error_data");die();
-	}
-	//function used to know file type
-	require '../classes/filetype.php';
-	$type=get_type($name1);
-	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-	$name1=$randomstring.".$type" ;
-	// frist image admin add 
 	$name2=$_FILES['image2']['name'];
-	if (!validation($name2,array('jpg','png','jpeg'))) {
-		// function return false 
-		header("location: slider.php?msg=error_data");die();
-	}
-	//function used to know file type
-	$type=get_type($name2);
-	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-	$name2=$randomstring.".$type" ;
-	//second image
 	$name3=$_FILES['image3']['name'];
-	if (!validation($name3,array('jpg','png','jpeg'))) {
-		// function return false 
-		header("location: slider.php?msg=error_data");die();
-	}
-	//function used to know file type
-	$type=get_type($name3);
-	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-	$name3=$randomstring.".$type" ;
-	//third image
-	// echo "$content" . "<br>" . "$name1" . "<br>" . "$name2" . "<br>" . "$name3" ;
 }
 
 $inputs = array($content,$name1,$name2,$name3);
@@ -50,9 +22,40 @@ foreach ($inputs as $value) {
 	if (empty($value)) {
 		//if eny variable empty 
 		//go to add page to enter and compelet inputs and show alert about this case 
-		header('location: editabout.php?msg=empty_data'); die();
+		header("location: editabout.php?id=$id&msg=empty_data"); die();
 	}
 }
+
+	require '../classes/filevalidate.php';
+	if (!validation($name1,array('jpg','png','jpeg'))) {
+		// function return false 
+		header("location: editabout.php?id=$id&msg=error_data");die();
+	}
+	//function used to know file type
+	require '../classes/filetype.php';
+	$type=get_type($name1);
+	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
+	$name1=$randomstring.".$type" ;
+	// frist image admin add 
+
+	if (!validation($name2,array('jpg','png','jpeg'))) {
+		// function return false 
+		header("location: editabout.php?id=$id&msg=error_data");die();
+	}
+	//function used to know file type
+	$type=get_type($name2);
+	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
+	$name2=$randomstring.".$type" ;
+	//second image
+	
+	if (!validation($name3,array('jpg','png','jpeg'))) {
+		// function return false 
+		header("location: editabout.php?id=$id&msg=error_data");die();
+	}
+	//function used to know file type
+	$type=get_type($name3);
+	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
+	$name3=$randomstring.".$type";
 $location="image/";
 //this folder is a location images save in it 
 move_uploaded_file($_FILES['image1']['tmp_name'] , $location.$name1);
@@ -86,7 +89,6 @@ foreach ($size_height as  $value_height) {
 
 	}
 }
-$id=$_GET['id'];
 require 'connection.php';
 $sql="UPDATE about SET content='$content',image1='$name1',image2='$name2',image3='$name3' WHERE id=$id "; 
 $query=$conn->prepare($sql);

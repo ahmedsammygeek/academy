@@ -46,12 +46,18 @@ require 'sidebar.php';
             </div>' ;
             break;
             case 'not_exist':
-               echo '<div class="alert alert-danger alert-dismissable">
+            echo '<div class="alert alert-danger alert-dismissable">
             <i class="fa fa-ban"></i>
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <b>Alert!</b>  this image not exist in this file.
             </div>';
-              break;
+            break;
+            case 'updated':
+            echo '<div class="alert alert-success alert-dismissable">
+            <i class="fa fa-check"></i>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <b>Alert!</b> successful in your data updated.
+            </div>';                break;
 
             default:
                                       # code...
@@ -85,8 +91,8 @@ require 'sidebar.php';
            <td>$content</td>
            <td><img src='image/".$image."' width='50px' height='50px'></td>
            <td><a href='deletenews.php?id=$id&img=$image' class='btn btn-danger btn-sm'>DELETE</a>
-            <a href='editnews.php?id=$id' class='btn btn-warning btn-sm'>update</a>
-            </td>
+           <a href='editnews.php?id=$id' class='btn btn-warning btn-sm'>update</a>
+           </td>
 
 
            </tr>";

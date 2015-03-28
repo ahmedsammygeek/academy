@@ -27,7 +27,7 @@ $img_name=$_FILES['file']['name'];
 require '../classes/filevalidate.php';
 if (!validation($img_name,array('jpg','png','jpeg'))) {
 		// function return false 
-	header("location: slider.php?msg=error_data");die();
+	header("location: editslider.php?id=$id&msg=error_data");die();
 }
 	//function used to know file type
 require '../classes/filetype.php';
@@ -48,11 +48,11 @@ require 'connection.php';
 $sql="UPDATE slider SET image='$img_name',title='$title',link='$link' WHERE id=$id ";
 $query=$conn->prepare($sql);
 if ($query->execute()) {
-	header("location: showslider.php?msg=data_updated"); die();
+	header("location: showslider.php?id=$id&msg=data_updated"); die();
 }
 else
 {
-	header("location: editslider.php?msg=error_update"); die();
+	header("location: editslider.php?id=$id&msg=error_update"); die();
 }
 
 ?>

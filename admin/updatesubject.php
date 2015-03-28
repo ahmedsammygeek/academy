@@ -8,18 +8,18 @@ if (isset($_POST['submit'])) {
 	$args=array('name'=>FILTER_SANITIZE_STRING,'description'=>FILTER_SANITIZE_STRING,'year'=>FILTER_VALIDATE_INT,
 		'department'=>FILTER_VALIDATE_INT,'term'=>FILTER_VALIDATE_INT,'doctor'=>FILTER_VALIDATE_INT);
 	//recived data with post method
+	if (isset($_GET['id'])) {
+		$id=$_GET['id'];
+	}
 	$inputs=filter_input_array(INPUT_POST,$args);
 	foreach ($inputs as $key_input => $input_value) {
 		if (empty($input_value)) {
-			header('location: subject.php?msg=empty_data'); die();
+			header("location: editsubject.php?id=$id&msg=empty_data"); die();
 		}
 	}
 }
 extract($inputs);
 //connection with db (met)
-if (isset($_GET['id'])) {
-	$id=$_GET['id'];
-}
 include 'connection.php';
 $sql="UPDATE subjects SET name='$name',description='$description',year='$year',department=$department
 ,term='$term',doctor_id='$doctor' WHERE id=$id ";
@@ -29,7 +29,7 @@ if ($query->execute()) {
 }
 else
 {
-	header("location: editsubject.php?msg=error_update"); die();
+	header("location: editsubject.php?id=$id&msg=error_update"); die();
 }
 
- ?>
+?>
