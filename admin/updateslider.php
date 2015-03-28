@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
 		if (empty($input_value) || empty($_FILES['file']['name'])) {
 			// if user leave eny inputs empty without enter eny thing in this case 
 			//go to inputs page again and show alert about this case (some data is an empty)
-			header('location: editslider.php?msg=empty_data'); die();
+			header("location: editslider.php?id=$id&msg=empty_data"); die();
 		}
 		
 	}

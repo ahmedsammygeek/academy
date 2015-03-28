@@ -25,7 +25,9 @@
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 <?php 
-               $id=$_GET['id'];
+               if (isset($_GET['id'])) {
+                   $id=$_GET['id'];
+               }
                
                require 'connection.php';
                $sql="SELECT * FROM slider WHERE id=$id ";
