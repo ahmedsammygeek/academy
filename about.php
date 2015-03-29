@@ -1,11 +1,8 @@
 <?php 
 require 'admin/connection.php';
-<<<<<<< HEAD
-require 'header.php';
-=======
-include  'header.php';
 
->>>>>>> 223f41e5ffff0a7cfe244404d1828e5278c5d159
+require 'header.php';
+
  ?>
 		
 		
