@@ -1,5 +1,6 @@
        
 <?php 
+require 'admin/connection.php';
 include 'header.php';
 ?>
 
