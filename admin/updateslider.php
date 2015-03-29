@@ -6,6 +6,7 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
 
 if (isset($_GET['id'])) {
 	$id=$_GET['id'];
+	$img=$_GET['img'];
 }
 $args = array('title' =>FILTER_SANITIZE_STRING ,'link' =>FILTER_SANITIZE_STRING );
 // this array to validate data recieved slider.php 
@@ -13,7 +14,7 @@ $inputs=filter_input_array(INPUT_POST,$args);
 // this function to recieve data from args array by post method
 if (isset($_POST['submit'])) {
 	foreach ($inputs as $input_key => $input_value) {
-		if (empty($input_value) || empty($_FILES['file']['name'])) {
+		if (empty($input_value)) {
 			// if user leave eny inputs empty without enter eny thing in this case 
 			//go to inputs page again and show alert about this case (some data is an empty)
 			header("location: editslider.php?id=$id&msg=empty_data"); die();
@@ -21,8 +22,16 @@ if (isset($_POST['submit'])) {
 		
 	}
 }
+if (empty($_FILES['file']['name'])) {
+	$img_name=$img;
+	//function used to be sure this is image
+}
 //name of image
-$img_name=$_FILES['file']['name'];
+else{
+	if (file_exists('image/'.$img)) {
+		unlink('image/'.$img);
+	}
+	$img_name=$_FILES['file']['name'];
 	//function used to be sure this is image
 require '../classes/filevalidate.php';
 if (!validation($img_name,array('jpg','png','jpeg'))) {
@@ -43,6 +52,8 @@ $img=new ImageManipulator($_FILES['file']['tmp_name']);
 $newimg=$img->resample(100,100);
 	//put image in file "image"
 $img->save('image/'.$img_name);
+}
+
 extract($inputs);
 require 'connection.php';
 $sql="UPDATE slider SET image='$img_name',title='$title',link='$link' WHERE id=$id ";

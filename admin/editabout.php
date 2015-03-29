@@ -34,7 +34,7 @@ require 'sidebar.php';
 
 
        ?>
-       <form role="form" action="updateabout.php<?php echo "?id=$id"; ?>" method="post" enctype="multipart/form-data" >
+       <form role="form" action="updateabout.php<?php echo "?id=$id&img1=$image1&img2=$image2&img3=$image3"; ?>" method="post" enctype="multipart/form-data" >
         <div class="box-body">
           <?php
           if (isset($_GET['msg'])) {

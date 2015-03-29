@@ -26,53 +26,53 @@
                 <!-- form start -->
                 <?php 
                 if (isset($_GET['id'])) {
-                   $id=$_GET['id'];
-               }
+                 $id=$_GET['id'];
+             }
 
-               require 'connection.php';
-               $sql="SELECT * FROM slider WHERE id=$id ";
-               $query=$conn->query($sql);
-               while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
-                   extract($result);
-               }
-               ?>
-               <a href="showslider.php"> <button class="btn btn-primary" >gellery of sliders</button></a>
+             require 'connection.php';
+             $sql="SELECT * FROM slider WHERE id=$id ";
+             $query=$conn->query($sql);
+             while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
+                 extract($result);
+             }
+             ?>
+             <a href="showslider.php"> <button class="btn btn-primary" >gellery of sliders</button></a>
 
-               <form role="form" action="updateslider.php<?php echo "?id=$id"; ?>" method="post" enctype="multipart/form-data" ><br>
+             <form role="form" action="updateslider.php<?php echo "?id=$id&&img=$image"; ?>" method="post" enctype="multipart/form-data" ><br>
                 <div class="box-body">
                     <?php
                     if (isset($_GET['msg'])) {
-                     switch ($_GET['msg']) {
-                         case 'empty_data':
-                         echo '<div class="alert alert-danger alert-dismissable">
-                         <i class="fa fa-ban"></i>
-                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                         <b>Alert!</b>   you leave input empty please complete inputs and try again.
-                         </div>';
-                         break;
-                         case 'error_data':
-                         echo '<div class="alert alert-danger alert-dismissable">
-                         <i class="fa fa-ban"></i>
-                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                         <b>Alert!</b> enter this file as image .
-                         </div>';
-                         break;
-                         case 'error_update':
-                         echo '<div class="alert alert-danger alert-dismissable">
-                         <i class="fa fa-ban"></i>
-                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                         <b>Alert!</b>   an error in your update please try again.
-                         </div>';
-                         break;
+                       switch ($_GET['msg']) {
+                           case 'empty_data':
+                           echo '<div class="alert alert-danger alert-dismissable">
+                           <i class="fa fa-ban"></i>
+                           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                           <b>Alert!</b>   you leave input empty please complete inputs and try again.
+                           </div>';
+                           break;
+                           case 'error_data':
+                           echo '<div class="alert alert-danger alert-dismissable">
+                           <i class="fa fa-ban"></i>
+                           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                           <b>Alert!</b> enter this file as image .
+                           </div>';
+                           break;
+                           case 'error_update':
+                           echo '<div class="alert alert-danger alert-dismissable">
+                           <i class="fa fa-ban"></i>
+                           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                           <b>Alert!</b>   an error in your update please try again.
+                           </div>';
+                           break;
 
-                         default:
+                           default:
                                      # code...
-                         break;
-                     }
-                 } 
-                 ?>
+                           break;
+                       }
+                   } 
+                   ?>
 
-                 <div class="form-group">
+                   <div class="form-group">
                     <label for="exampleInputFile">add image</label>
                     <input type="file" name="file" id="exampleInputFile">
                     <p class="help-block">click to choose image</p>
@@ -91,10 +91,10 @@
             </div><!-- /.box-body -->
 
             <div class="box-footer">
-               <button  name="submit" type="submit" class="btn btn-primary">update</button>
-           </div>
-       </form>
-   </div><!-- /.box -->
+             <button  name="submit" type="submit" class="btn btn-primary">update</button>
+         </div>
+     </form>
+ </div><!-- /.box -->
 
 
 </div><!--/.col (right) -->

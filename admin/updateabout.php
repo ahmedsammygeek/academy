@@ -8,6 +8,9 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
 if (isset($_POST['submit'])) {
 	if (isset($_GET['id'])) {
 		$id=$_GET['id'];
+		$img1=$_GET['img1'];
+		$img2=$_GET['img2'];
+		$img3=$_GET['img3'];
 	}
 	//recieved data admin add it in form 
 	$content=htmlspecialchars($_POST['content']);
@@ -16,7 +19,7 @@ if (isset($_POST['submit'])) {
 	$name3=$_FILES['image3']['name'];
 }
 
-$inputs = array($content,$name1,$name2,$name3);
+$inputs = array($content);
 //put variables in array to use it to make sure this variables not empty 
 foreach ($inputs as $value) {
 	if (empty($value)) {
@@ -25,70 +28,105 @@ foreach ($inputs as $value) {
 		header("location: editabout.php?id=$id&msg=empty_data"); die();
 	}
 }
-
-	require '../classes/filevalidate.php';
-	if (!validation($name1,array('jpg','png','jpeg'))) {
-		// function return false 
-		header("location: editabout.php?id=$id&msg=error_data");die();
+require '../classes/filevalidate.php';
+require '../classes/filetype.php';
+require_once '../classes/ImageManipulator.php';
+	if (empty($_FILES['image1']['name'])) {
+	$name1=$img1;
+	//function used to be sure this is image
+}
+//name of image
+else{
+	if (file_exists('image/'.$img1)) {
+		unlink('image/'.$img1);
 	}
-	//function used to know file type
-	require '../classes/filetype.php';
-	$type=get_type($name1);
-	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-	$name1=$randomstring.".$type" ;
-	// frist image admin add 
+	$name1=$_FILES['image1']['name'];
+	//function used to be sure this is image
 
-	if (!validation($name2,array('jpg','png','jpeg'))) {
+if (!validation($name1,array('jpg','png','jpeg'))) {
 		// function return false 
-		header("location: editabout.php?id=$id&msg=error_data");die();
-	}
+	header("location: editabout.php?id=$id&msg=error_data");die();
+}
 	//function used to know file type
-	$type=get_type($name2);
-	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-	$name2=$randomstring.".$type" ;
-	//second image
+
+$type=get_type($name1);
+	//class used to resize images
+
+	//to make random name
+$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
+$name1=$randomstring.".$type" ;
+$newName= time() . '_';
+$img=new ImageManipulator($_FILES['image1']['tmp_name']);
+	//resize image
+$newimg=$img->resample(100,100);
+	//put image in file "image"
+$img->save('image/'.$name1);
+}
+
+	if (empty($_FILES['image2']['name'])) {
+	$name2=$img2;
+	//function used to be sure this is image
+}
+//name of image
+else{
+	if (file_exists('image/'.$img2)) {
+		unlink('image/'.$img2);
+	}
+	$name2=$_FILES['image2']['name'];
+	//function used to be sure this is image
+
+if (!validation($name2,array('jpg','png','jpeg'))) {
+		// function return false 
+	header("location: editabout.php?id=$id&msg=error_data");die();
+}
+	//function used to know file type
+
+$type=get_type($name2);
+	//class used to resize images
+
+	//to make random name
+$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
+$name2=$randomstring.".$type" ;
+$newName= time() . '_';
+$img=new ImageManipulator($_FILES['image2']['tmp_name']);
+	//resize image
+$newimg=$img->resample(100,100);
+	//put image in file "image"
+$img->save('image/'.$name2);
+}
 	
-	if (!validation($name3,array('jpg','png','jpeg'))) {
-		// function return false 
-		header("location: editabout.php?id=$id&msg=error_data");die();
-	}
-	//function used to know file type
-	$type=get_type($name3);
-	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-	$name3=$randomstring.".$type";
-$location="image/";
-//this folder is a location images save in it 
-move_uploaded_file($_FILES['image1']['tmp_name'] , $location.$name1);
-// put frist image in file we made it ($location)
-move_uploaded_file($_FILES['image2']['tmp_name'] , $location.$name2);
-// put second image in file we made it ($location)
-move_uploaded_file($_FILES['image3']['tmp_name'] , $location.$name3);
-// put third image in file we made it ($location)
-list($width1,$height1) = getimagesize($location.$name1);
-//get  frist image width and height
-list($width2,$height2) = getimagesize($location.$name2);
-//get  second image width and height
-list($width3,$height3) = getimagesize($location.$name3);
-//get third image width and height
-$size_width = array($width1,$width2,$width3);
-//put the images width in this array to make sure this width isn't small
-foreach ($size_width as $value_width) {
-	if ($value_width < 100) {
-		//if this image width smaller than 200
-		//go to input page to enter another image 
-		header('location: editabout.php?msg=small_image'); die();
-	}
+	if (empty($_FILES['image3']['name'])) {
+	$name3=$img3;
+	//function used to be sure this is image
 }
-$size_height = array($height1,$height2,$height3 );
-//put the images height in this array to make sure this width isn't small
-foreach ($size_height as  $value_height) {
-	if ($value_height < 50) {
-		//if this image height smaller than 150
-		//go to input page to enter another image 
-		header('location: editabout.php?msg=small_image'); die();
+//name of image
+else{
+	if (file_exists('image/'.$img3)) {
+		unlink('image/'.$img3);
+	}
+	$name3=$_FILES['image3']['name'];
+	//function used to be sure this is image
 
-	}
+if (!validation($name3,array('jpg','png','jpeg'))) {
+		// function return false 
+	header("location: editabout.php?id=$id&msg=error_data");die();
 }
+	//function used to know file type
+
+$type=get_type($name3);
+	//class used to resize images
+
+	//to make random name
+$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
+$name3=$randomstring.".$type" ;
+$newName= time() . '_';
+$img=new ImageManipulator($_FILES['image3']['tmp_name']);
+	//resize image
+$newimg=$img->resample(100,100);
+	//put image in file "image"
+$img->save('image/'.$name3);
+}
+
 require 'connection.php';
 $sql="UPDATE about SET content='$content',image1='$name1',image2='$name2',image3='$name3' WHERE id=$id "; 
 $query=$conn->prepare($sql);

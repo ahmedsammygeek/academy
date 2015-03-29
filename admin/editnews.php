@@ -40,7 +40,7 @@
              ?>
              <a href="shownews.php"> <button class="btn btn-primary" >gellery of news</button></a>
 
-             <form role="form" action="updatenews.php<?php echo "?id=$id"; ?>" method="post" enctype="multipart/form-data" >
+             <form role="form" action="updatenews.php<?php echo "?id=$id&&img=$image"; ?>" method="post" enctype="multipart/form-data" >
                 <div class="box-body">
                   <?php
                   if (isset($_GET['msg'])) {
