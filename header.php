@@ -7,7 +7,7 @@
 <head>
 
     <!-- Basic -->
-    <title>Margo | Home</title>
+    <title>MET Academy| Home</title>
 
     <!-- Define Charset -->
     <meta charset="utf-8">
