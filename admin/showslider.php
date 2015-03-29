@@ -52,9 +52,16 @@ require 'sidebar.php';
             <b>Alert!</b>  this image not exist in this file.
             </div>';
             break;
+            case 'data_updated':
+            echo '<div class="alert alert-success alert-dismissable">
+            <i class="fa fa-check"></i>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <b>Alert!</b> successful in your data update.
+            </div>';
+            break;
 
             default:
-                  
+
             break;
           }
         }
@@ -86,7 +93,7 @@ require 'sidebar.php';
            <td>$title</td>
            <td><a href='http://$link'>$link</a></td>
            <td><a href='deleteslider.php?id=$id&img=$image' class='btn btn-danger btn-sm'>DELETE</a>
-                <a href='editslider.php?id=$id&img=$image' class='btn btn-warning btn-sm'>update</a>
+           <a href='editslider.php?id=$id&img=$image' class='btn btn-warning btn-sm'>update</a>
            </td>
            </tr>";
            $i++;

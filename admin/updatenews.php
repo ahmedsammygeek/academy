@@ -7,36 +7,50 @@ if (isset($_POST['submit'])) {
 	$args = array('title' =>FILTER_SANITIZE_STRING ,'content'=>FILTER_SANITIZE_STRING);
 	//recived data
 	$inputs=filter_input_array(INPUT_POST,$args);
+	if (isset($_GET['id'])) {
+		$id=$_GET['id'];
+		$img=$_GET['img'];
+	}
 	//by post method
 	foreach ($inputs as $key_input => $input_value) {
-		if (empty($input_value) || empty( $_FILES['file']['name']) ||empty($_POST['date'])) {
+		if (empty($input_value)) {
 			//if eny input place is empty go to empty data to show alert
-			header('location: news.php?msg=empty_data'); die();
-		}
-		else
-		{
-			$img_name=$_FILES['file']['name'];
-			$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-			$img_name=$randomstring.'.jpg' ;
+			header("location: editnews.php?id=$id&msg=empty_data"); die();
 		}
 	}
 }
-$location="image/";//location to save images
-$up=move_uploaded_file($_FILES['file']['tmp_name'], $location.$img_name);
-if (!$up) {
-	header('location: news.php?msg=empty_data'); die();
-
+if (empty($_FILES['file']['name'])) {
+	$img_name=$img;
+	//function used to be sure this is image
 }
-list($width,$height)=getimagesize($location.$img_name);
-// tr return width and height image admin use it 
-if ($width < 200 || $height < 150) {
-	header('location: news.php?msg=small_image'); die();
+//name of image
+else{
+	if (file_exists('image/'.$img)) {
+		unlink('image/'.$img);
+	}
+	$img_name=$_FILES['file']['name'];
+	//function used to be sure this is image
+require '../classes/filevalidate.php';
+if (!validation($img_name,array('jpg','png','jpeg'))) {
+		// function return false 
+	header("location: editnews.php?id=$id&msg=error_data");die();
 }
-
+	//function used to know file type
+require '../classes/filetype.php';
+$type=get_type($img_name);
+	//class used to resize images
+require_once '../classes/ImageManipulator.php';
+	//to make random name
+$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
+$img_name=$randomstring.".$type" ;
+$newName= time() . '_';
+$img=new ImageManipulator($_FILES['file']['tmp_name']);
+	//resize image
+$newimg=$img->resample(100,100);
+	//put image in file "image"
+$img->save('image/'.$img_name);
+}
 extract($inputs);
-if (isset($_GET['id'])) {
-	$id=$_GET['id'];
-}
 include 'connection.php';
 $sql="UPDATE news SET title='$title',content='$content',image='$img_name' WHERE id=$id ";
 $query=$conn->prepare($sql);
@@ -45,7 +59,7 @@ if ($query->execute()) {
 }
 else
 {
-	header("location: editnews.php?msg=error_update");die();
+	header("location: editnews.php?id=$id&msg=error_update");die();
 }
 
  ?>

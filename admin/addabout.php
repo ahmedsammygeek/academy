@@ -8,18 +8,37 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
 if (isset($_POST['submit'])) {
 	//recieved data admin add it in form 
 	$content=htmlspecialchars($_POST['content']);
-	//put the content admin added in this variable
 	$name1=$_FILES['image1']['name'];
+	require '../classes/filevalidate.php';
+	if (!validation($name1,array('jpg','png','jpeg'))) {
+		// function return false 
+		header("location: about.php?msg=error_data");die();
+	}
+	//function used to know file type
+	require '../classes/filetype.php';
+	$type=get_type($name1);
 	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-	$name1=$randomstring.'.jpg' ;
+	$name1=$randomstring.".$type" ;
 	// frist image admin add 
 	$name2=$_FILES['image2']['name'];
+	if (!validation($name2,array('jpg','png','jpeg'))) {
+		// function return false 
+		header("location: about.php?msg=error_data");die();
+	}
+	//function used to know file type
+	$type=get_type($name2);
 	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-	$name2=$randomstring.'.jpg' ;
+	$name2=$randomstring.".$type" ;
 	//second image
 	$name3=$_FILES['image3']['name'];
+	if (!validation($name3,array('jpg','png','jpeg'))) {
+		// function return false 
+		header("location: about.php?msg=error_data");die();
+	}
+	//function used to know file type
+	$type=get_type($name3);
 	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-	$name3=$randomstring.'.jpg' ;
+	$name3=$randomstring.".$type" ;
 	//third image
 	// echo "$content" . "<br>" . "$name1" . "<br>" . "$name2" . "<br>" . "$name3" ;
 }
