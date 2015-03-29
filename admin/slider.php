@@ -82,7 +82,7 @@
                     </div><!-- /.box-body -->
 
                     <div class="box-footer">
-                        <button type="submit" name="submit" class="btn btn-primary">add slide</button>
+                        <input type="submit" name="submit" class="btn btn-primary" value="add slide">
                     </div>
                 </form>
             </div><!-- /.box -->
