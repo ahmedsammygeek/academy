@@ -8,7 +8,7 @@
             
             
             <!-- Start Subscribe & Social Links Widget -->
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-4 col-xs-12">
                 <div class="footer-widget mail-subscribe-widget">
                     <h4>Get in touch<span class="head-line"></span></h4>
                     <p>Join our mailing list to stay up to date and get notices about our new releases!</p>
@@ -29,58 +29,16 @@
                         <li>
                             <a class="google" href="#"><i class="fa fa-google-plus"></i></a>
                         </li>
-                        <li>
-                            <a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a>
-                        </li>
-                        <li>
-                            <a class="linkdin" href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                        <li>
-                            <a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-                        </li>
-                        <li>
-                            <a class="tumblr" href="#"><i class="fa fa-tumblr"></i></a>
-                        </li>
-                        <li>
-                            <a class="instgram" href="#"><i class="fa fa-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a class="vimeo" href="#"><i class="fa fa-vimeo-square"></i></a>
-                        </li>
-                        <li>
-                            <a class="skype" href="#"><i class="fa fa-skype"></i></a>
-                        </li>
+                        
                     </ul>
                 </div>
             </div><!-- .col-md-3 -->
             <!-- End Subscribe & Social Links Widget -->
             
-            
-            <!-- Start Twitter Widget -->
-            <div class="col-md-3 col-xs-12">
-                <div class="footer-widget twitter-widget">
-                    <h4>Twitter Feed<span class="head-line"></span></h4>
-                    <ul>
-                        <li>
-                            <p><a href="#">@ithemeslab </a> Lorem ipsum dolor et, consectetur adipiscing eli.</p>
-                            <span>28 February 2014</span>
-                        </li>
-                        <li>
-                            <p><a href="#">@ithemeslab </a> Lorem ipsum dolor et, consectetur adipiscing eli.An Fusce eleifend aliquet nis application.</p>
-                            <span>26 February 2014</span>
-                        </li>
-                        <li>
-                            <p><a href="#">@ithemeslab </a> Lorem ipsum dolor et, consectetur adipiscing eli.</p>
-                            <span>28 February 2014</span>
-                        </li>
-                    </ul>
-                </div>
-            </div><!-- .col-md-3 -->
-            <!-- End Twitter Widget -->
-
+           
 
             <!-- Start Flickr Widget -->
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-4 col-xs-12">
                 <div class="footer-widget flickr-widget">
                     <h4>Flicker Feed<span class="head-line"></span></h4>
                     <ul class="flickr-list">
@@ -136,7 +94,7 @@
 
             
             <!-- Start Contact Widget -->
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-4 col-xs-12">
                 <div class="footer-widget contact-widget">
                     <h4><img src="images/footer-margo.png" class="img-responsive" alt="Footer Logo" /></h4>
                     <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>

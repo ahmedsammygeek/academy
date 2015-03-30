@@ -43,6 +43,8 @@ include 'header.php';
 
 				<?php $sql="SELECT * FROM news";
 				$news=$conn->query($sql);
+				$count = $news->rowCount();
+				echo $count;
 				while ($topic=$news->fetch(PDO::FETCH_OBJ)) {
 					echo '<div class="blog-post image-post">
 					<!-- Post Thumb -->
@@ -65,13 +67,13 @@ include 'header.php';
 
 
 				<!-- Start Pagination -->
-				<div id="pagination">
+				<!-- <div id="pagination">
 					<span class="all-pages">Page 1 of 3</span>
 					<span class="current page-num">1</span>
 					<a class="page-num" href="#">2</a>
 					<a class="page-num" href="#">3</a>
 					<a class="next-page" href="#">Next</a>
-				</div>
+				</div> -->
 				<!-- End Pagination -->
 
 			</div>
