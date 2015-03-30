@@ -5,21 +5,14 @@ require 'header.php';
 require 'admin/connection.php';
 ?>
 
-
-
 <!-- Start Content -->
 <div id="content">
 	<div class="container">
 		<div class="page-content">
-
-
 			<div class="row">
-
 				<div class="col-md-7">
-
 					<!-- Classic Heading -->
 					<h4 class="classic-title"><span>MET Academy </span></h4>
-
 					<!-- Some Text -->
 					<?php
 					$sql="SELECT * FROM about";
@@ -28,11 +21,8 @@ require 'admin/connection.php';
 						extract($result);
 						echo "$content" ;
 					}
-
-
-
 					?>
-					
+
 					
 
 				</div>
@@ -46,9 +36,9 @@ require 'admin/connection.php';
 						$query=$conn->query($sql);
 						while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
 							extract($result);
-							echo "<div class='item'><img alt='' src='admin/image/".$image1."'></div>
-							<div class='item'><img alt='' src='admin/image/".$image2."'></div>
-							<div class='item'><img alt='' src='admin/image/".$image3."'></div>";
+							echo "<div class='item center-block'><img width='100%' class='center-block' alt='' src='admin/image/".$image1."'></div>
+							<div class='item center-block'><img alt='' width='100%' class='center-block' src='admin/image/".$image2."'></div>
+							<div class='item center-block'><img alt='' width='100%' class='center-block' src='admin/image/".$image3."'></div>";
 						}
 
 
