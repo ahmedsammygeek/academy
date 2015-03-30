@@ -34,7 +34,7 @@ if ($width < 100 || $height < 50) {
 	header('location: news.php?msg=small_image'); die();
 }
 date_default_timezone_set('UTC');
-$today = date("M j, Y"); 
+$today = date("M j Y"); 
 extract($inputs);
 include 'connection.php';
 // connection with db (met)

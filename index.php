@@ -19,11 +19,11 @@ $slides->execute();
 
         <!-- Carousel inner -->
         <div class="carousel-inner">
-         <?php 
-         $i = 0;
-         while ($row = $slides->fetch(PDO::FETCH_OBJ)) {
+           <?php 
+           $i = 0;
+           while ($row = $slides->fetch(PDO::FETCH_OBJ)) {
 
-             if($i == 0) {
+               if($i == 0) {
                 echo '<div class="item active">
                 <img class="img-responsive" src="admin/image/'.$row->image.'" alt="slider">
                 <div class="slider-content">
@@ -41,37 +41,37 @@ $slides->execute();
                 $i++;
             }
             else {
-               echo '<div class="item ">
-                <img class="img-responsive" src="admin/image/'.$row->image.'" alt="slider">
-                <div class="slider-content">
-                <div class="col-md-12 text-center">
-                <h2 class="animated4">
-                </h2>
-                <h3 class="animated5">
-                <span>'.$row->title.'</span>
-                </h3>   
-                
-                
-                </div>
-                </div>
-                </div>';
-            
-            }
-        }
-        ?>
-        <!--/ Carousel item end -->
+             echo '<div class="item ">
+             <img class="img-responsive" src="admin/image/'.$row->image.'" alt="slider">
+             <div class="slider-content">
+             <div class="col-md-12 text-center">
+             <h2 class="animated4">
+             </h2>
+             <h3 class="animated5">
+             <span>'.$row->title.'</span>
+             </h3>   
 
-        <!--/ Carousel item end -->
 
-    </div>
-    <!-- Carousel inner end-->
-    <!-- Controls -->
-    <a class="left carousel-control" href="#main-slide" data-slide="prev">
-        <span><i class="fa fa-angle-left"></i></span>
-    </a>
-    <a class="right carousel-control" href="#main-slide" data-slide="next">
-        <span><i class="fa fa-angle-right"></i></span>
-    </a>
+             </div>
+             </div>
+             </div>';
+
+         }
+     }
+     ?>
+     <!--/ Carousel item end -->
+
+     <!--/ Carousel item end -->
+
+ </div>
+ <!-- Carousel inner end-->
+ <!-- Controls -->
+ <a class="left carousel-control" href="#main-slide" data-slide="prev">
+    <span><i class="fa fa-angle-left"></i></span>
+</a>
+<a class="right carousel-control" href="#main-slide" data-slide="next">
+    <span><i class="fa fa-angle-right"></i></span>
+</a>
 </div>
 <!-- /carousel -->
 </section>
@@ -87,56 +87,56 @@ $slides->execute();
             </div>
             <!-- Start Service Icon 1 -->
             <div class="col-md-3 col-sm-6 service-box service-center">
-             <div class="service-boxed">
-              <div class="service-icon" style="margin-top:-25px;">
-                <i class="fa fa-magic icon-medium-effect icon-effect-2"></i>
-            </div>
-            <div class="service-content">
-                <h4>High Quality Theme</h4>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+               <div class="service-boxed">
+                  <div class="service-icon" style="margin-top:-25px;">
+                    <i class="fa fa-magic icon-medium-effect icon-effect-2"></i>
+                </div>
+                <div class="service-content">
+                    <h4>High Quality Theme</h4>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- End Service Icon 1 -->
-    
-    <!-- Start Service Icon 2 -->
-    <div class="col-md-3 col-sm-6 service-box service-center">
-       <div class="service-boxed">
-        <div class="service-icon" style="margin-top:-25px;">
-          <i class="fa fa-eye icon-medium-effect icon-effect-2"></i>
-      </div>
-      <div class="service-content">
-          <h4>Retina Display Ready</h4>
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+        <!-- End Service Icon 1 -->
+
+        <!-- Start Service Icon 2 -->
+        <div class="col-md-3 col-sm-6 service-box service-center">
+         <div class="service-boxed">
+            <div class="service-icon" style="margin-top:-25px;">
+              <i class="fa fa-eye icon-medium-effect icon-effect-2"></i>
+          </div>
+          <div class="service-content">
+              <h4>Retina Display Ready</h4>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+          </div>
       </div>
   </div>
-</div>
-<!-- End Service Icon 2 -->
+  <!-- End Service Icon 2 -->
 
-<!-- Start Service Icon 3 -->
-<div class="col-md-3 col-sm-6 service-box service-center">
- <div class="service-boxed">
-  <div class="service-icon" style="margin-top:-25px;">
-    <i class="fa fa-code icon-medium-effect icon-effect-1"></i>
-</div>
-<div class="service-content">
-    <h4>Clean Modern Code</h4>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
-</div>
+  <!-- Start Service Icon 3 -->
+  <div class="col-md-3 col-sm-6 service-box service-center">
+   <div class="service-boxed">
+      <div class="service-icon" style="margin-top:-25px;">
+        <i class="fa fa-code icon-medium-effect icon-effect-1"></i>
+    </div>
+    <div class="service-content">
+        <h4>Clean Modern Code</h4>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+    </div>
 </div>
 </div>
 <!-- End Service Icon 3 -->
 
 <!-- Start Service Icon 4 -->
 <div class="col-md-3 col-sm-6 service-box service-center">
- <div class="service-boxed">
-  <div class="service-icon" style="margin-top:-25px;">
-    <i class="fa fa-rocket icon-medium-effect icon-effect-1"></i>
-</div>
-<div class="service-content">
-    <h4>Fast &amp; Light Theme</h4>
-    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
-</div>
+   <div class="service-boxed">
+      <div class="service-icon" style="margin-top:-25px;">
+        <i class="fa fa-rocket icon-medium-effect icon-effect-1"></i>
+    </div>
+    <div class="service-content">
+        <h4>Fast &amp; Light Theme</h4>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+    </div>
 </div>
 </div>
 <!-- End Service Icon 4 -->
@@ -207,77 +207,26 @@ $slides->execute();
     <h4 class="classic-title"><span>Latest News</span></h4>
     <div class="latest-posts-classic custom-carousel touch-carousel" data-appeared-items="3">
 
-        <!-- Post 1 -->
-        <div class="post-row item">
+
+        <?php $sql="SELECT * FROM news";
+        $news=$conn->query($sql);
+        while ($topic=$news->fetch(PDO::FETCH_OBJ)) {
+            $date = $topic->date;
+            $date = explode(" ", $date);
+            echo ' <div class="post-row item">
             <div class="left-meta-post">
-                <div class="post-date"><span class="day">28</span><span class="month">Dec</span></div>
+                <div class="post-date"><span class="day">'.$date[1].'</span><span class="month">'.$date[0].'</span></div>
                 <div class="post-type"><i class="fa fa-picture-o"></i></div>
             </div>
-            <h3 class="post-title"><a href="#">Standard Post With Image</a></h3>
+            <h3 class="post-title"><a href="topic.php?id='.$topic->id.'">'.substr($topic->title , 0,80 ).'</a></h3>
             <div class="post-content">
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. <a class="read-more" href="#">Read More...</a></p>
+                <p>'.substr($topic->content , 0 , 125 ).' <a class="read-more" href="topic.php?id='.$topic->id.'">Read More...</a></p>
             </div>
-        </div>
-
-        <!-- Post 2 -->
-        <div class="post-row item">
-            <div class="left-meta-post">
-                <div class="post-date"><span class="day">26</span><span class="month">Dec</span></div>
-                <div class="post-type"><i class="fa fa-picture-o"></i></div>
-            </div>
-            <h3 class="post-title"><a href="#">Link Post</a></h3>
-            <div class="post-content">
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. <a class="read-more" href="#">Read More...</a></p>
-            </div>
-        </div>
-
-        <!-- Post 3 -->
-        <div class="post-row item">
-            <div class="left-meta-post">
-                <div class="post-date"><span class="day">26</span><span class="month">Dec</span></div>
-                <div class="post-type"><i class="fa fa-picture-o"></i></div>
-            </div>
-            <h3 class="post-title"><a href="#">Iframe Video Post</a></h3>
-            <div class="post-content">
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. <a class="read-more" href="#">Read More...</a></p>
-            </div>
-        </div>
-
-        <!-- Post 4 -->
-        <div class="post-row item">
-            <div class="left-meta-post">
-                <div class="post-date"><span class="day">26</span><span class="month">Dec</span></div>
-                <div class="post-type"><i class="fa fa-picture-o"></i></div>
-            </div>
-            <h3 class="post-title"><a href="#">Gallery Post</a></h3>
-            <div class="post-content">
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. <a class="read-more" href="#">Read More...</a></p>
-            </div>
-        </div>
-
-        <!-- Post 5 -->
-        <div class="post-row item">
-            <div class="left-meta-post">
-                <div class="post-date"><span class="day">26</span><span class="month">Dec</span></div>
-                <div class="post-type"><i class="fa fa-picture-o"></i></div>
-            </div>
-            <h3 class="post-title"><a href="#">Standard Post without Image</a></h3>
-            <div class="post-content">
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. <a class="read-more" href="#">Read More...</a></p>
-            </div>
-        </div>
-
+        </div>';
+            
+        } ?>
         <!-- Post 6 -->
-        <div class="post-row item">
-            <div class="left-meta-post">
-                <div class="post-date"><span class="day">26</span><span class="month">Dec</span></div>
-                <div class="post-type"><i class="fa fa-picture-o"></i></div>
-            </div>
-            <h3 class="post-title"><a href="#">Iframe Audio Post</a></h3>
-            <div class="post-content">
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit. <a class="read-more" href="#">Read More...</a></p>
-            </div>
-        </div>
+       
 
     </div>
 </div>
