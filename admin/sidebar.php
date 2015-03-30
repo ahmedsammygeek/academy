@@ -318,50 +318,70 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 <i class="fa fa-dashboard"></i> <span>admins</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="showslider.php">
-                                <i class="fa fa-th"></i> <span>slider</span> 
-                            </a>
-                        </li>
-                        <li>
-                            <a href="showabout.php">
-                                <i class="fa fa-bar-chart-o"></i>
-                                <span>about us</span>
-                                
-                            </a>
-
-                        </li>
-                        <li>
-                            <a href="showdepartment.php">
-                                <i class="fa fa-laptop"></i>
-                                <span>departments</span>
-                            </a>
-                        
-                        </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-edit"></i> <span>subjects</span>
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>slider</span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="showsubject.php"><i class="fa fa-angle-double-right"></i> subjects</a></li>
-                               
+                                <li><a href="showaslider.php"><i class="fa fa-angle-double-right"></i> slider gellery</a></li>
+                                <li><a href="addslider.php"><i class="fa fa-angle-double-right"></i> add slider</a></li>
+                                <li><a href="../index.php"><i class="fa fa-angle-double-right"></i> slider in website</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-table"></i> <span>news</span>
-                               
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>about us</span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="shownews.php"><i class="fa fa-angle-double-right"></i> news</a></li>
-                                <li><a href="pages/tables/data.html"><i class="fa fa-angle-double-right"></i> Data tables</a></li>
+                                <li><a href="showabout.php"><i class="fa fa-angle-double-right"></i> about academy</a></li>
+                                <li><a href="addabout.php"><i class="fa fa-angle-double-right"></i>add to about</a></li>
+                                <li><a href="../about.php"><i class="fa fa-angle-double-right"></i>about us in website</a></li>
+                            </ul>
+                        </li>
+                         <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>departments</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="showadepartment.php"><i class="fa fa-angle-double-right"></i> departments gellery</a></li>
+                                <li><a href="addadepartment.php"><i class="fa fa-angle-double-right"></i>add new department</a></li>
+                                <li><a href="../department.php"><i class="fa fa-angle-double-right"></i>departments in website</a></li>
+                            </ul>
+                        </li>
+                         <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>subjects</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="showsubject.php"><i class="fa fa-angle-double-right"></i> subjects gellery</a></li>
+                                <li><a href="addsubject.php"><i class="fa fa-angle-double-right"></i>add to subjects</a></li>
+                                
+                            </ul>
+                        </li>
+                         <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>news</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="shownews.php"><i class="fa fa-angle-double-right"></i>news gellery</a></li>
+                                <li><a href="addnews.php"><i class="fa fa-angle-double-right"></i>add news</a></li>
+                                <li><a href="../blog.php"><i class="fa fa-angle-double-right"></i>our news in website</a></li>
                             </ul>
                         </li>
                         
                         <li>
                             <a href="message.php">
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                                
                             </a>
                         </li>
                         
