@@ -43,10 +43,13 @@ include 'header.php';
 						<div class="blog-post image-post">
 							<!-- Post Thumb -->
 							<div class="post-head">
-								<a class="lightbox" title="This is an image title" href="images/blog-01.jpg">
-									<div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-									<img alt="" src="images/blog-01.jpg">
-								</a>
+								<?php $sql="SELECT * FROM news";
+								$query=$conn->query($sql);
+								while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
+								 	extract($result);
+								 	echo "<img alt='' src='admin/image/".$image."'>";
+								 } ?>
+								
 							</div>
 							<!-- Post Content -->
 							<div class="post-content">

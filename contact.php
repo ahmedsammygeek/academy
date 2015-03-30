@@ -43,16 +43,12 @@ require 'header.php';
 								<span class="email-missing">Please enter a valid e-mail</span> 
 								<input id="e-mail" name="email" type="text" value="" size="30">
 							</div>
-							<div class="col-md-4">
-								<label for="url">Website</label>
-								<input id="url" name="url" type="text" value="" size="30">
-							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-12">
 								<label for="message">Add Your Comment</label>
 								<span class="message-missing">Say something!</span>
-								<textarea id="message" name="message" cols="45" rows="10"></textarea>
+								<textarea id="message" name="content" cols="45" rows="10"></textarea>
 								<input type="submit" name="submit" class="button" id="submit_btn" value="Send Message">
 							</div>
 						</div>
