@@ -80,30 +80,11 @@
                                 <li>
                                     <a class="twitter itl-tooltip" data-placement="bottom" title="Twitter" href="#"><i class="fa fa-twitter"></i></a>
                                 </li>
-                                <li>
-                                    <a class="google itl-tooltip" data-placement="bottom" title="Google Plus" href="#"><i class="fa fa-google-plus"></i></a>
-                                </li>
-                                <li>
-                                    <a class="dribbble itl-tooltip" data-placement="bottom" title="Dribble" href="#"><i class="fa fa-dribbble"></i></a>
-                                </li>
+                               
                                 <li>
                                     <a class="linkdin itl-tooltip" data-placement="bottom" title="Linkedin" href="#"><i class="fa fa-linkedin"></i></a>
                                 </li>
-                                <li>
-                                    <a class="flickr itl-tooltip" data-placement="bottom" title="Flickr" href="#"><i class="fa fa-flickr"></i></a>
-                                </li>
-                                <li>
-                                    <a class="tumblr itl-tooltip" data-placement="bottom" title="Tumblr" href="#"><i class="fa fa-tumblr"></i></a>
-                                </li>
-                                <li>
-                                    <a class="instgram itl-tooltip" data-placement="bottom" title="Instagram" href="#"><i class="fa fa-instagram"></i></a>
-                                </li>
-                                <li>
-                                    <a class="vimeo itl-tooltip" data-placement="bottom" title="vimeo" href="#"><i class="fa fa-vimeo-square"></i></a>
-                                </li>
-                                <li>
-                                    <a class="skype itl-tooltip" data-placement="bottom" title="Skype" href="#"><i class="fa fa-skype"></i></a>
-                                </li>
+                                
                             </ul>
                             <!-- End Social Links -->
                         </div><!-- .col-md-6 -->
@@ -122,7 +103,7 @@
                             <i class="fa fa-bars"></i>
                         </button>
                         <!-- End Toggle Nav Link For Mobiles -->
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="index.php">
                             <img alt="" src="images/margo.png">
                         </a>
                     </div>
@@ -150,7 +131,7 @@
                                        <a  href="faq.php">FAQ</a>
                                    </li>
                                    <li>
-                                       <a  href="index.html">Student Affairs</a>
+                                       <a  href="index.php">Student Affairs</a>
                                    </li>
                                </ul>
                            </li>
@@ -169,7 +150,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a  href="index.html">Stuff</a>
+                            <a  href="index.php">Stuff</a>
                             <ul class="dropdown">
                                
                                 <li><a href="stuff.php">stuff</a>
