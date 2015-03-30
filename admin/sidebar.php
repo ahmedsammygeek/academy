@@ -342,6 +342,18 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 <li><a href="../about.php"><i class="fa fa-angle-double-right"></i>about us in website</a></li>
                             </ul>
                         </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>questions</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="showquestion.php"><i class="fa fa-angle-double-right"></i> questions</a></li>
+                                <li><a href="question.php"><i class="fa fa-angle-double-right"></i>add question</a></li>
+                                <li><a href="../news.php"><i class="fa fa-angle-double-right"></i>question in website</a></li>
+                            </ul>
+                        </li>
                          <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-bar-chart-o"></i>
