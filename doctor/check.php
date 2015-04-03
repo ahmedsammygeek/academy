@@ -15,6 +15,7 @@ if (isset($_POST['submit'])) {
 	}
 
 	extract($inputs);
+	$password = hash('ripemd160', $password);
 	require '../admin/connection.php';
 	$query = $conn->prepare("SELECT * FROM staff WHERE username = ? && password= ? ");
 	$query->bindValue(1,$userid,PDO::PARAM_STR);

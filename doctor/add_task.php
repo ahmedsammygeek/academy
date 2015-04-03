@@ -36,10 +36,12 @@ require 'header.php';
                                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Task Title">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Task attachments (Optional)</label>
-                                    <input type="file" id="exampleInputFile">
-                                    <p class="help-block"></p>
+                          
+
+                                  <div class="form-group files">
+                                   <label for="exampleInputFile">Task attachments (Optional)</label>
+                                    <input type="file"  name="task_files[]">
+                                    <a class="btn btn-primary pull-right add_more_files" href="">add more files</a>
                                 </div>
 
                                 <div class="form-group">
@@ -131,6 +133,17 @@ require 'header.php';
 
 $(function () {
     $('#reservation').daterangepicker();
+});
+
+$(function () {
+    $('a.add_more_files').on('click'  , function(event) {
+        event.preventDefault();
+
+        $("div.files").append('<input type="file" class="lecture_files" name="task_files[]">');
+
+
+    });
+
 });
 </script>
 

@@ -104,7 +104,7 @@
                         </button>
                         <!-- End Toggle Nav Link For Mobiles -->
                         <a class="navbar-brand" href="index.php">
-                            <img alt="" src="images/margo.png">
+                            <img alt="" width="40" src="images/logo.png">
                         </a>
                     </div>
                     <div class="navbar-collapse collapse">

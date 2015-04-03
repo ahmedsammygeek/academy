@@ -1,5 +1,5 @@
 <?php  
-require 'check_user.php';
+// require 'check_user.php';
 require 'header.php';
 
 require '../admin/connection.php';
