@@ -2,10 +2,10 @@
 // require 'check_user.php';
 require 'header.php';
 
-require '../admin/connection.php';
-$subjects = $conn->prepare("SELECT name ,  id FROM subjects WHERE doctor_id = ?");
-$subjects->bindValue(1,$_SESSION['system_user_id'],PDO::PARAM_INT);
-$subjects->execute();
+// require '../admin/connection.php';
+// $subjects = $conn->prepare("SELECT name ,  id FROM subjects WHERE doctor_id = ?");
+// $subjects->bindValue(1,$_SESSION['system_user_id'],PDO::PARAM_INT);
+// $subjects->execute();
 
 
 ?>
@@ -68,16 +68,16 @@ $subjects->execute();
         </div>
         <div class="box-body">
             <?php 
-            if($subjects->rowCount()) {
-                while ($user_subjects = $subjects->fetch(PDO::FETCH_OBJ)) {
-                    echo '<a href="subject.php?id='.$user_subjects->id.'" class="btn btn-app ">
-                <i class="fa fa-book"></i> '.$user_subjects->name.'
-            </a>';
-                }
-            }
-            else {
-                echo "sorry ! no subject now you teach it to be shown here";
-            }
+            // if($subjects->rowCount()) {
+            //     while ($user_subjects = $subjects->fetch(PDO::FETCH_OBJ)) {
+            //         echo '<a href="subject.php?id='.$user_subjects->id.'" class="btn btn-app ">
+            //     <i class="fa fa-book"></i> '.$user_subjects->name.'
+            // </a>';
+            //     }
+            // }
+            // else {
+            //     echo "sorry ! no subject now you teach it to be shown here";
+            // }
              ?>
         </div><!-- /.box-body -->
     </div>
