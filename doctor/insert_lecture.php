@@ -5,6 +5,7 @@
 require 'check_user.php';
 // lood my library
 require 'function.php';
+require '../classes/helper.php';
 //check the subject if if send and lecutre summary of files
 if((isset($_GET['subject_id']) && !empty($_GET['subject_id']))	&&	(!empty($_POST['lecture_summary']) || !empty($_FILES['lecture_files']['name']) ) ) {
 	$lecture_summary =   filter_input(INPUT_POST, 'lecture_summary') ? : $lecture_summary = '';
@@ -17,9 +18,9 @@ if((isset($_GET['subject_id']) && !empty($_GET['subject_id']))	&&	(!empty($_POST
 	}
 	$date = date('Y-m-d');
 	// save lecture content in databse
-		$conn->beginTransaction();
+	$conn->beginTransaction();
 	try {
-	
+
 		$insert = $conn->prepare("INSERT INTO lectures VALUES('' , ? , ? , ? , ? , ?) ");
 		$insert->bindValue(1,$lecture_summary,PDO::PARAM_STR);
 		$insert->bindValue(2,$date,PDO::PARAM_STR);
@@ -36,17 +37,14 @@ if((isset($_GET['subject_id']) && !empty($_GET['subject_id']))	&&	(!empty($_POST
 			$uplaoded_files = array();
 			for ($i=0; $i <count($_FILES['lecture_files']['tmp_name']) ; $i++) { 
 			// get uploded file type
-				$file_ex = pathinfo($_FILES['lecture_files']['name'][$i], PATHINFO_EXTENSION);
-				$file_ex = strtolower($file_ex);
-			//valid exetension
-				$valid_ex = array('pdf','doc' , 'ppt' , 'pptx' , 'docx' , 'rar','jpg' , 'jpeg' , 'txt'  , 'zip');
-				if(in_array($file_ex,$valid_ex)) {
-					$new_name = generateRandomString(20).'_'.$subject_id.'.'.$file_ex;
-					$move = move_uploaded_file($_FILES['lecture_files']['tmp_name'][$i], "../uploaded/lectures/".$new_name);
-					
-					
+				$file_name = $_FILES['lecture_files']['name'][$i];
+				if(is_valid_type($file_name)) {
+					if(file_exists('../uploaded/lectures/'.$file_name)) {
+						$file_name = md5(date('h:m:s:i')).'_'.$file_name;
+					}
+						$move = move_uploaded_file($_FILES['lecture_files']['tmp_name'][$i], "../uploaded/lectures/".$file_name);
 					if($move) {
-						$uplaoded_files[] = $new_name; 
+						$uplaoded_files[] = $file_name; 
 					}	
 				}
 				else {
@@ -56,7 +54,6 @@ if((isset($_GET['subject_id']) && !empty($_GET['subject_id']))	&&	(!empty($_POST
 			}
 		}
 
-		// var_dump($uplaoded_files); die();
 	// insert uplaoded file namse in database
 		foreach ($uplaoded_files as  $one) {
 			$file = $conn->prepare("INSERT INTO lectures_files VALUES('' , ? , ? ) ");

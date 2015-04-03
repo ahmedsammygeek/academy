@@ -14,9 +14,24 @@ function rand_string($length = 10) {
     return $randomString;
 }
 
+// /**
+//  * Redirect to main page
+//  * @param  string $msg
+//  * @return void
+//  */
+// function safe_redirect($page  , $msg = "" )
+// {
+// 	header( "location: $page.php?msg=". $msg, true, 302 );
+// 	die();
+// }
 
-function is_valid_type($ex , $valid= array()) {
-
+function is_valid_type($ex , $valid= array('pdf','doc' , 'ppt' , 'pptx' , 'docx' , 'rar','jpg' , 'jpeg' , 'txt'  , 'png' , 'zip')) {
+	$ex = explode('.', $ex);
+	$ex = end($ex);
+	if(in_array($ex, $valid)) {
+		return TRUE;
+	}
+	return FALSE;
 }
 
 
