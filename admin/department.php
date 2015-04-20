@@ -60,7 +60,7 @@ require 'sidebar.php';
 						</div>
 							<div class="form-group">
 							<label for="exampleInputEmail1">descreption of department</label>
-							<input type="text" name="description" class="form-control" id="exampleInputEmail1" placeholder="Enter description of department"> 
+							<textarea rows="4" cols="50" name="description" class="form-control" id="exampleInputEmail1" placeholder="Enter description of department"></textarea> 
 
 						</div>
 						

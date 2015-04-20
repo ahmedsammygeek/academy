@@ -44,18 +44,6 @@ $(document).ready(function ($) {
 	
 	
 	
-    /*--------------------------------------------------*/
-    /* Counter
-    /*--------------------------------------------------*/
-    
-    
-    
-    $('.timer').countTo();
-
-    $('.counter-item').appear(function() {
-        $('.timer').countTo();
-    },{accY: -100});
-    
     
 	
 	/*----------------------------------------------------*/
@@ -235,21 +223,7 @@ $(document).ready(function ($) {
 	});
 	
 	
-	
-	////------- Testimonials Carousel
-	$(".testimonials-carousel").owlCarousel({
-		navigation : true,
-		pagination: false,
-		slideSpeed : 2500,
-		stopOnHover: true,
-    	autoPlay: 3000,
-    	singleItem:true,
-		autoHeight : true,
-		transitionStyle : "fade"
-	});
-	
-	
-	
+
 	
 	
 	
@@ -347,79 +321,7 @@ $(document).ready(function ($) {
 	
 	
 	
-	
-	/*----------------------------------------------------*/
-	/*	Pie Charts
-	/*----------------------------------------------------*/
-	
-	var pieChartClass = 'pieChart',
-        pieChartLoadedClass = 'pie-chart-loaded';
-		
-	function initPieCharts() {
-		var chart = $('.' + pieChartClass);
-		chart.each(function() {
-			$(this).appear(function() {
-				var $this = $(this),
-					chartBarColor = ($this.data('bar-color')) ? $this.data('bar-color') : "#F54F36",
-					chartBarWidth = ($this.data('bar-width')) ? ($this.data('bar-width')) : 150
-				if( !$this.hasClass(pieChartLoadedClass) ) {
-					$this.easyPieChart({
-						animate: 2000,
-						size: chartBarWidth,
-						lineWidth: 2,
-						scaleColor: false,
-						trackColor: "#eee",
-						barColor: chartBarColor,
-					}).addClass(pieChartLoadedClass);
-				}
-			});
-		});
-	}
-	initPieCharts();
-	
-	
-	
-	
-	
-	/*----------------------------------------------------*/
-	/*	Animation Progress Bars
-	/*----------------------------------------------------*/
-	
-	$("[data-progress-animation]").each(function() {
-		
-		var $this = $(this);
-		
-		$this.appear(function() {
-			
-			var delay = ($this.attr("data-appear-animation-delay") ? $this.attr("data-appear-animation-delay") : 1);
-			
-			if(delay > 1) $this.css("animation-delay", delay + "ms");
-			
-			setTimeout(function() { $this.animate({width: $this.attr("data-progress-animation")}, 800);}, delay);
 
-		}, {accX: 0, accY: -50});
-
-	});
-	
-	
-	
-	
-	
-	/*----------------------------------------------------*/
-	/*	Milestone Counter
-	/*----------------------------------------------------*/
-	
-	jQuery('.milestone-block').each(function() {
-		jQuery(this).appear(function() {
-			var $endNum = parseInt(jQuery(this).find('.milestone-number').text());
-			jQuery(this).find('.milestone-number').countTo({
-				from: 0,
-				to: $endNum,
-				speed: 4000,
-				refreshInterval: 60,
-			});
-		},{accX: 0, accY: 0});
-	});
 	
 	
 	
@@ -456,9 +358,8 @@ $(document).ready(function ($) {
 	/*	Tooltips & Fit Vids & Parallax & Text Animations
 	/*----------------------------------------------------*/
 	
-	$("body").fitVids();
 	
-	$('.itl-tooltip').tooltip();
+	
 	
 	$('.bg-parallax').each(function() {
 		$(this).parallax("30%", 0.2);
@@ -595,3 +496,4 @@ jQuery(window).load(function(){
 	
 });
 /* ----------------- End JS Document ----------------- */
+

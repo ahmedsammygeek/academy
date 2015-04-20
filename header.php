@@ -24,6 +24,7 @@
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="screen">
+           <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- Margo CSS Styles  -->
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
@@ -36,6 +37,11 @@
 
 
     <link rel="stylesheet" type="text/css" href="css/colors/blue.css" title="blue" media="screen" />
+
+ 
+        <link rel="stylesheet" href="css/bpHS.min.css">
+               <link rel="stylesheet" href="css/custom.css">
+
 
 
     <!-- Margo JS  -->

@@ -47,6 +47,49 @@
 
             default:
                                             # code...
+<<<<<<< HEAD
+                        break;
+                    }
+                }
+
+
+                ?>
+                <a href="showsubject.php"> <button class="btn btn-primary" >gellery of subjects</button></a>
+                     
+
+                <form role="form" action="addsubject.php" method="post" enctype="multipart/form-data" ><br>
+                    <div class="box-body">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">subject name</label>
+                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter name of subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">description</label>
+                        <input type="text" class="form-control" name="description" id="exampleInputPassword1" placeholder="enter description">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">doctor :</label>
+                        <div class="btn-group">
+                            <select name="doctor" id="" class="btn btn-default dropdown-toggle">
+                             <?php 
+                                   //connection with db(met)
+                             include 'connection.php';
+                             $sql="SELECT * FROM staff WHERE type=0";
+                             $query=$conn->query($sql);
+                             while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
+                               extract($result);
+                               echo "<option value='$id'>$name</option>";
+
+                           }
+
+                           ?>
+                       </select>
+                   </div>
+                    <label for="exampleInputPassword1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;domenstrator :</label>
+                        <div class="btn-group">
+                            <select name="domenstrator" id="" class="btn btn-default dropdown-toggle">
+                             <?php 
+=======
             break;
           }
         }
@@ -71,6 +114,7 @@
               <div class="btn-group">
                 <select name="doctor" id="" class="btn btn-default dropdown-toggle">
                  <?php 
+>>>>>>> eda45d2e846097b277fc5e11d61fa784c9bcfbb6
                                    //connection with db(met)
                  $sql="SELECT * FROM staff WHERE type=0";
                  $query=$conn->query($sql);
