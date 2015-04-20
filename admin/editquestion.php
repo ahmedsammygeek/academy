@@ -67,7 +67,7 @@ require 'sidebar.php';
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">answer</label>
-							<input type="text" name="answer" value='<?php echo "$answer"; ?>' class="form-control" id="exampleInputEmail1" placeholder="Enter answer of question"> 
+							<textarea type="text" name="answer"  class="form-control" id="exampleInputEmail1" placeholder="Enter answer of question" cols="30"  rows="5"><?php echo "$answer"; ?></textarea>
 
 						</div>
 						
