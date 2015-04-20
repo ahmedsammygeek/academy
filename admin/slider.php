@@ -33,7 +33,7 @@
                         echo '<div class="alert alert-danger alert-dismissable">
                         <i class="fa fa-ban"></i>
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <b>Alert!</b> you leave some data an empty please complete inputs and try again.
+                        <b>Alert!</b> please complete required data.
                         </div>';
                         break;
                         case 'error_data':
@@ -75,7 +75,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">link</label>
-                            <input type="text" class="form-control" name="link" id="exampleInputPassword1" placeholder="www.exampel.com">
+                            <input type="text" class="form-control" name="link" id="exampleInputPassword1" placeholder="www.example.com">
                         </div>
 
 

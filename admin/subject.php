@@ -60,7 +60,7 @@
                     <div class="box-body">
                       <div class="form-group">
                         <label for="exampleInputEmail1">subject name</label>
-                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter title of slider">
+                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter name of subject">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">description</label>

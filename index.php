@@ -92,8 +92,8 @@ $slides->execute();
                     <i class="fa fa-magic icon-medium-effect icon-effect-2"></i>
                 </div>
                 <div class="service-content">
-                    <h4>High Quality Theme</h4>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+                    <h4>live right</h4>
+                    <p>Our university is a sophisticated University are developing programs to comply with the requirements of the market, and choose lecturers listen to the needs of their students. The university believes in the importance of knowledge and understanding comes from experience that allows to adapt and employ what I have learned to take advantage of the opportunities that can be found. Because when your role is not limited to just life in this world, you live right.</p>
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@ $slides->execute();
           </div>
           <div class="service-content">
               <h4>Retina Display Ready</h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+              <p>Our university is a sophisticated University are developing programs to comply with the requirements of the market, and choose lecturers listen to the needs of their students. The university believes in the importance of knowledge and understanding comes from experience that allows to adapt and employ what I have learned to take advantage of the opportunities that can be found. Because when your role is not limited to just life in this world, you live right.</p>
           </div>
       </div>
   </div>
@@ -121,7 +121,7 @@ $slides->execute();
     </div>
     <div class="service-content">
         <h4>Clean Modern Code</h4>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+        <p>Our university is a sophisticated University are developing programs to comply with the requirements of the market, and choose lecturers listen to the needs of their students. The university believes in the importance of knowledge and understanding comes from experience that allows to adapt and employ what I have learned to take advantage of the opportunities that can be found. Because when your role is not limited to just life in this world, you live right.</p>
     </div>
 </div>
 </div>
@@ -135,7 +135,7 @@ $slides->execute();
     </div>
     <div class="service-content">
         <h4>Fast &amp; Light Theme</h4>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+        <p>Our university is a sophisticated University are developing programs to comply with the requirements of the market, and choose lecturers listen to the needs of their students. The university believes in the importance of knowledge and understanding comes from experience that allows to adapt and employ what I have learned to take advantage of the opportunities that can be found. Because when your role is not limited to just life in this world, you live right.</p>
     </div>
 </div>
 </div>

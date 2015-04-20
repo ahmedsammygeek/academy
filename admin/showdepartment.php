@@ -34,7 +34,7 @@ require 'sidebar.php';
             echo '<div class="alert alert-success alert-dismissable">
             <i class="fa fa-check"></i>
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <b>Alert!</b> successful in your data inserted.
+            <b>Alert!</b> data inserted successfully.
             </div>';
             break;
             case 'deleted':
@@ -42,14 +42,14 @@ require 'sidebar.php';
             echo '<div class="alert alert-success alert-dismissable">
             <i class="fa fa-check"></i>
 
-            <b>Alert!</b> ssful in your data deleted.
+            <b>Alert!</b> data deleted successfully.
             </div>' ;
             break;
             case 'updated':
             echo '<div class="alert alert-success alert-dismissable">
             <i class="fa fa-check"></i>
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <b>Alert!</b> successful in your data updated.
+            <b>Alert!</b> data updated successfully.
             </div>';
             break;
 
