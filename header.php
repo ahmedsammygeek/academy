@@ -62,11 +62,11 @@
                         <div class="col-md-7">
                             <!-- Start Contact Info -->
                             <ul class="contact-details">
-                                <li><a href="#"><i class="fa fa-map-marker"></i> House-54/A, London, UK</a>
+                                <li><a href="#"><i class="fa fa-map-marker"></i> mansoura,sndoub-road</a>
                                 </li>
-                                <li><a href="#"><i class="fa fa-envelope-o"></i> info@yourcompany.com</a>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>metmansoura.com</a>
                                 </li>
-                                <li><a href="#"><i class="fa fa-phone"></i> +12 345 678 000</a>
+                                <li><a href="#"><i class="fa fa-phone"></i> +1062300489</a>
                                 </li>
                             </ul>
                             <!-- End Contact Info -->
@@ -75,7 +75,7 @@
                             <!-- Start Social Links -->
                             <ul class="social-list">
                                 <li>
-                                    <a class="facebook itl-tooltip" data-placement="bottom" title="Facebook" href="#"><i class="fa fa-facebook"></i></a>
+                                    <a class="facebook itl-tooltip" data-placement="bottom" title="Facebook" href="https://www.facebook.com/groups/met.cs3/"><i class="fa fa-facebook"></i></a>
                                 </li>
                                 <li>
                                     <a class="twitter itl-tooltip" data-placement="bottom" title="Twitter" href="#"><i class="fa fa-twitter"></i></a>

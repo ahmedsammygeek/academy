@@ -5,8 +5,8 @@
 <footer>
     <div class="container">
         <div class="row footer-widgets">
-            
-            
+
+
             <!-- Start Subscribe & Social Links Widget -->
             <div class="col-md-4 col-xs-12">
                 <div class="footer-widget mail-subscribe-widget">
@@ -35,102 +35,60 @@
             </div><!-- .col-md-3 -->
             <!-- End Subscribe & Social Links Widget -->
             
-           
+
 
             <!-- Start Flickr Widget -->
             <div class="col-md-4 col-xs-12">
                 <div class="footer-widget flickr-widget">
-                    <h4>Flicker Feed<span class="head-line"></span></h4>
-                    <ul class="flickr-list">
-                        <li>
-                            <a href="images/flickr-01.jpg" class="lightbox">
-                                <img alt="" src="images/flickr-01.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/flickr-02.jpg" class="lightbox">
-                                <img alt="" src="images/flickr-02.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/flickr-03.jpg" class="lightbox">
-                                <img alt="" src="images/flickr-03.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/flickr-04.jpg" class="lightbox">
-                                <img alt="" src="images/flickr-04.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/flickr-05.jpg" class="lightbox">
-                                <img alt="" src="images/flickr-05.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/flickr-06.jpg" class="lightbox">
-                                <img alt="" src="images/flickr-06.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/flickr-07.jpg" class="lightbox">
-                                <img alt="" src="images/flickr-07.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/flickr-08.jpg" class="lightbox">
-                                <img alt="" src="images/flickr-08.jpg">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/flickr-09.jpg" class="lightbox">
-                                <img alt="" src="images/flickr-09.jpg">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div><!-- .col-md-3 -->
-            <!-- End Flickr Widget -->
-
-            
-            <!-- Start Contact Widget -->
-            <div class="col-md-4 col-xs-12">
-                <div class="footer-widget contact-widget">
-                    <h4><img src="images/footer-margo.png" class="img-responsive" alt="Footer Logo" /></h4>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-                    <ul>
-                        <li><span>Phone Number:</span> +01 234 567 890</li>
-                        <li><span>Email:</span> company@company.com</li>
-                        <li><span>Website:</span> www.yourdomain.com</li>
-                    </ul>
-                </div>
-            </div><!-- .col-md-3 -->
-            <!-- End Contact Widget -->
-
-            
-        </div><!-- .row -->
-
-        <!-- Start Copyright -->
-        <div class="copyright-section">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; 2014 Margo -  All Rights Reserved <a href="http://graygrids.com">GrayGrids</a> </p>
-                </div><!-- .col-md-6 -->
-                <div class="col-md-6">
-                    <ul class="footer-nav">
-                        <li><a href="#">Sitemap</a>
-                        </li>
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div><!-- .col-md-6 -->
-            </div><!-- .row -->
+                    <h4>go-to<span class="head-line"></span></h4>
+                     <a href="about.php"><h4>- about-us</h4></a><br>
+                      <a href="department.php"> <h4>- department</h4></a><br>
+                      <a href="blog.php"><h4>- our-news</h4></a><br>
+                      <a href="contact.php"><h4>- contact-us</h4></a><br>
+               
         </div>
-        <!-- End Copyright -->
+    </div> 
 
+
+    <!-- Start Contact Widget -->
+    <div class="col-md-4 col-xs-12">
+        <div class="footer-widget contact-widget">
+            <h4>M.E.T<span class="head-line"></span></h4>
+            <p>how arrive to us :
+                mansoura-Ring road(sndoub road)</p>
+                <ul>
+                    <li><span>Phone Number:</span> +01 062300489</li>
+                    <li><span>Email:</span> alaaelgndy21@yahoo.com</li>
+                    <li><span>Website:</span> www.metmansoura.com</li>
+                </ul>
+            </div>
+        </div><!-- .col-md-3 -->
+        <!-- End Contact Widget -->
+
+
+    </div><!-- .row -->
+
+    <!-- Start Copyright -->
+    <div class="copyright-section">
+        <div class="row">
+            <div class="col-md-6">
+                <p>&copy; graduation project 4 cs .. <a>students</a> </p>
+            </div><!-- .col-md-6 -->
+            <div class="col-md-6">
+                <ul class="footer-nav">
+                    <li><a href="#">Sitemap</a>
+                    </li>
+                    <li><a href="#">Privacy Policy</a>
+                    </li>
+                    <li><a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div><!-- .col-md-6 -->
+        </div><!-- .row -->
     </div>
+    <!-- End Copyright -->
+
+</div>
 </footer>
 <!-- End Footer Section -->
 
