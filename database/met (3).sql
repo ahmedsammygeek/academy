@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2015 at 11:20 PM
+-- Generation Time: Apr 20, 2015 at 01:38 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `about` (
 --
 
 INSERT INTO `about` (`id`, `content`, `image1`, `image2`, `image3`) VALUES
-(1, 'alaa elgndyy is amazing developer', '34deqtx8oybnhm2.jpg', 'w9pcznel871tosi.jpg', 'x3wnkrjs4cemiht.jpg');
+(1, 'alaa elgndyy is amazing developer aaaaa ', '34deqtx8oybnhm2.jpg', 'w9pcznel871tosi.jpg', '392l8hsy4od5w7e.jpg');
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `departments` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `departments`
@@ -104,7 +104,8 @@ CREATE TABLE IF NOT EXISTS `departments` (
 
 INSERT INTO `departments` (`id`, `name`, `description`) VALUES
 (3, 'cs', 'fjvbdjkbvfjkv'),
-(4, 'is', 'sopjidfnvoidnvtrotbtejkdbfvdfbjkdbf');
+(4, 'is', 'sopjidfnvoidnvtrotbtejkdbfvdfbjkdbf'),
+(5, 'bahaa', 'jadcnijrciernievrnier');
 
 -- --------------------------------------------------------
 
@@ -222,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `contant` text NOT NULL,
   `time` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `messages`
@@ -230,7 +231,9 @@ CREATE TABLE IF NOT EXISTS `messages` (
 
 INSERT INTO `messages` (`id`, `name`, `email`, `contant`, `time`) VALUES
 (9, 'amira', 'amira@yahoo.com', 'nadklcndklsdc', '30-03-2015 & 20:00:20'),
-(10, 'nora', 'alaaelgndy21@yahoo.com', 'jebvjkvbervbovierbveivbeorrev', '30-03-2015 & 23:07:50');
+(10, 'nora', 'alaaelgndy21@yahoo.com', 'jebvjkvbervbovierbveivbeorrev', '30-03-2015 & 23:07:50'),
+(11, 'alaa', 'alaaelgndy21@yahoo.com', 'kdchkdscsd', '31-03-2015 & 11:18:01'),
+(12, 'bahaa', 'bedo_bedo2014@yahoo.com', 'ibhveeiutvuibtruibvtruibrtvuibtrui', '11-04-2015 & 23:32:44');
 
 -- --------------------------------------------------------
 
@@ -300,7 +303,7 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `title` varchar(500) NOT NULL,
   `link` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `slider`
@@ -310,7 +313,9 @@ INSERT INTO `slider` (`id`, `image`, `title`, `link`) VALUES
 (6, '3g2p8v1hiwfa7jk.jpg', 'White God', 'www.google.com'),
 (7, 'wu3shc68yqkdrvm.jpg', 'White God', 'www.facebook.com'),
 (8, 'zq4tw9jhyx5epik.jpg', 'fjvfbjbsdkvbjerjk', 'www.youtube.com'),
-(9, 'zla7tjmfc5bqwx9.jpg', 'Abraham Lincoln: Vampire Hunter', 'www.facebook.com');
+(9, 'zla7tjmfc5bqwx9.jpg', 'Abraham Lincoln: Vampire Hunter', 'www.facebook.com'),
+(10, 'qpvnzagk6jd5ul8.jpg', 'alaalal', 'www.google.com'),
+(11, 'wdqlsf60txgrke1.jpg', ';fdl', 'nsdlks');
 
 -- --------------------------------------------------------
 
