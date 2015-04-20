@@ -64,52 +64,44 @@ require 'sidebar.php';
 
         ?>
 
-        <table class="table table-hover">
-
-          <tbody><tr>
+        <table id="example1" class="table table-hover">
+          <thead>
+                 <tr>
             <th>ID</th>
-            <th>DOCTOR_ID</th>
+            <th>DOCTOR</th>
             <th>SUBJECT NAME</th>
             <th>DESCRIPTION</th>
             <th>YEAR_ID</th>
-            <th>DEPARTMENT_ID</th>
+            <th>DEPARTMENT</th>
             <th>TERM</th>
             <th>options</th>
 
           </tr>
+          </thead>
+          <tbody>
+
           <?php
           include 'connection.php';
-          $sql="SELECT * FROM subjects ";
+          $sql="SELECT st.name as doctor_name , s.* ,  d.name as dept_name FROM departments as d  JOIN  subjects as s on d.id = s.department  inner JOIN staff as st on s.doctor_id = st.id";
           $query=$conn->query($sql);
           $i=1;
           while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
            extract($result);
-           echo " <tr>
+           echo "<tr>
            <td>$i</td>
-           <td>$doctor_id</td>
+           <td>$doctor_name</td>
            <td>$name</td>
            <td>$description</td>
            <td>$year</td>
-           <td>$department</td> 
+           <td>$dept_name</td> 
            <td>$term</td>         
            <td><a href='deletesubject.php?id=$id' class='btn btn-danger btn-sm'>DELETE</a><br><br>
            <a href='editsubject.php?id=$id' class='btn btn-warning btn-sm'>update</a>
-           </td>
-           
-
-           
-
-
+           </td>           
            </tr>";
            $i++;
-
          } 
-
-
-
          ?>
-
-
        </tbody></table>
      </div><!-- /.box-body -->
    </div><!-- /.box -->
