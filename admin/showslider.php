@@ -34,7 +34,7 @@ require 'sidebar.php';
             echo '<div class="alert alert-success alert-dismissable">
             <i class="fa fa-check"></i>
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <b>Alert!</b> successful in your data inserted.
+            <b>Alert!</b>  data inserted successfully.
             </div>';
             break;
             case 'deleted':
@@ -42,7 +42,7 @@ require 'sidebar.php';
             echo '<div class="alert alert-success alert-dismissable">
             <i class="fa fa-check"></i>
 
-            <b>Alert!</b> ssful in your data deleted.
+            <b>Alert!</b> data deleted successfully.
             </div>' ;
             break;
             case 'not_exist':
@@ -56,7 +56,7 @@ require 'sidebar.php';
             echo '<div class="alert alert-success alert-dismissable">
             <i class="fa fa-check"></i>
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <b>Alert!</b> successful in your data update.
+            <b>Alert!</b> data updated successfully.
             </div>';
             break;
 
@@ -108,7 +108,7 @@ require 'sidebar.php';
        </tbody></table>
      </div><!-- /.box-body -->
    </div><!-- /.box -->
-   <a href="slider.php"> <button class="btn btn-success btn-lg">insert new data</button></a>
+   <a href="slider.php"> <button class="btn btn-success btn-lg">insert new slide</button></a>
 
  </div>
 </div>
