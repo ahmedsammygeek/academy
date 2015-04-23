@@ -169,7 +169,7 @@ $slides->execute();
 
             <!-- Vimeo Iframe -->
             <div class="col-md-6">
-                <div class="fluid-width-video-wrapper" style="padding-top: 56.25%;"><iframe src="https://player.vimeo.com/video/63322694?title=0&amp;byline=0&amp;portrait=0" id="fitvid227256"></iframe></div>  
+                <div class="fluid-width-video-wrapper" ><iframe  width="560" height="315" src="https://youtu.be/VxcbppCX6Rk" ></iframe></div>  
             </div>
 
         </div>
