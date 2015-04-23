@@ -1,7 +1,7 @@
 <?php session_start();
 
 if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
- header('location: login.php'); die();
+   header('location: login.php'); die();
 }
 
 ?>
@@ -354,7 +354,7 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 <li><a href="../news.php"><i class="fa fa-angle-double-right"></i>question in website</a></li>
                             </ul>
                         </li>
-                         <li class="treeview">
+                        <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-bar-chart-o"></i>
                                 <span>departments</span>
@@ -366,7 +366,7 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 <li><a href="../department.php"><i class="fa fa-angle-double-right"></i>departments in website</a></li>
                             </ul>
                         </li>
-                         <li class="treeview">
+                        <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-bar-chart-o"></i>
                                 <span>subjects</span>
@@ -378,7 +378,7 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 
                             </ul>
                         </li>
-                         <li class="treeview">
+                        <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-bar-chart-o"></i>
                                 <span>news</span>
@@ -388,6 +388,17 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 <li><a href="shownews.php"><i class="fa fa-angle-double-right"></i>news gellery</a></li>
                                 <li><a href="news.php"><i class="fa fa-angle-double-right"></i>add news</a></li>
                                 <li><a href="../blog.php"><i class="fa fa-angle-double-right"></i>our news in website</a></li>
+                            </ul>
+                        </li>
+                         <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>tables</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="showtable.php"><i class="fa fa-angle-double-right"></i>tables gellery</a></li>
+                                <li><a href="table.php"><i class="fa fa-angle-double-right"></i>add table</a></li>
                             </ul>
                         </li>
                         
@@ -401,4 +412,4 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                 </section>
                 <!-- /.sidebar -->
             </aside>
-<aside class="right-side">
+            <aside class="right-side">
