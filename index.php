@@ -206,7 +206,7 @@ $slides->execute();
 </div>
 <!-- End Recent Posts Carousel -->
 </div> <!-- end of container -->
->>>>>>> da75e597477fb1d47d49ed54a80429ae47b14cc4
+
 </div> <!-- end of content -->
 
 

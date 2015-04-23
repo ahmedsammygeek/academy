@@ -9,8 +9,7 @@
     <script type="text/javascript" src="js/jquery.textillate.js"></script>
     <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
     <script type="text/javascript" src="js/jquery.parallax.js"></script>
-    <!-- // <script type="text/javascript" src="js/jquery.themepunch.plugins.min.js"></script> -->
-    <!-- // <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script> -->
+    <script type="text/javascript" src="js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script src="js/vendors/jquery.touchSwipe.min.js"></script> <!-- optional (required for touchSwipe option) -->
     <script src="js/bpHS.min.js"></script>
