@@ -23,10 +23,8 @@ if (isset($_POST['submit'])) {
 	}
 }
 if (empty($_FILES['file']['name'])) {
-	$img_name=$img;
-	//function used to be sure this is image
+	$img_name=$img;	
 }
-//name of image
 else{
 	if (file_exists('image/'.$img)) {
 		unlink('image/'.$img);
