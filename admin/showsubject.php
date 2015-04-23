@@ -82,7 +82,7 @@ require 'sidebar.php';
 
           <?php
           include 'connection.php';
-          $sql="SELECT st.name as doctor_name , s.* ,  d.name as dept_name FROM departments as d  JOIN  subjects as s on d.id = s.department  inner JOIN staff as st on s.doctor_id = st.id";
+          $sql="SELECT st.name as doctor_name , s.* ,  d.name as dept_name FROM departments as d  right JOIN  subjects as s on d.id = s.department  left JOIN staff as st on s.doctor_id = st.id";
           $query=$conn->query($sql);
           $i=1;
           while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
