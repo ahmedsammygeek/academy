@@ -128,7 +128,7 @@ require 'sidebar.php';
               </div>
             </div><!-- /.box-body -->
           </div><!-- /.box -->
-          <a href="subject.php"> <button class="btn btn-success btn-lg">insert new data</button></a>
+          <a href="staff.php"> <button class="btn btn-success btn-lg">insert new data</button></a>
 
         </div>
       </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2015 at 09:24 PM
+-- Generation Time: Apr 24, 2015 at 04:57 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `about` (
   `image2` text NOT NULL,
   `image3` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -112,6 +112,35 @@ CREATE TABLE IF NOT EXISTS `department_doctor` (
   `subject_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `last_exams`
+--
+
+CREATE TABLE IF NOT EXISTS `last_exams` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `department_id` int(11) NOT NULL,
+  `year` int(11) NOT NULL,
+  `term` int(11) NOT NULL,
+  `exam_file` text NOT NULL,
+  `subject_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `last_exams`
+--
+
+INSERT INTO `last_exams` (`id`, `department_id`, `year`, `term`, `exam_file`, `subject_id`) VALUES
+(5, 3, 1, 1, '0fabzc37i1eu54r.jpg', 1),
+(6, 3, 1, 1, 'tkan2pz836hg0yr.html', 1),
+(7, 3, 1, 1, '31smowzjqg5th0i.html', 1),
+(8, 3, 1, 1, 'q13y4uwmlskt57b.html', 1),
+(9, 3, 1, 1, 'ayac.html', 1),
+(10, 3, 1, 1, 'ayac.html', 1),
+(11, 3, 1, 1, 'ayac.html', 1);
 
 -- --------------------------------------------------------
 
@@ -241,7 +270,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `image` text NOT NULL,
   `date` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -315,7 +344,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
   `password` varchar(40) NOT NULL,
   `type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

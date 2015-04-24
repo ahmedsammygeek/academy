@@ -11,7 +11,7 @@ require 'sidebar.php';
       <div class="box">
         <div class="box-header">
 
-          <h3 class="box-title">tables</h3>
+          <h3 class="box-title">last exams</h3>
 
         </div><!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
@@ -37,13 +37,6 @@ require 'sidebar.php';
             <b>Alert!</b> data deleted successfully.
             </div>' ;
             break;
-            case 'data_updated':
-            echo '<div class="alert alert-success alert-dismissable">
-            <i class="fa fa-check"></i>
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <b>Alert!</b> data updated successfully.
-            </div>';
-            break;
 
             default:
 
@@ -61,44 +54,52 @@ require 'sidebar.php';
             <th>IMAGE</th>
             <th>DEPARTMENT</th>
             <th>YEAR</th>
+            <th>TERM</th>
+            <th>SUBJECT</th>
             <th>options</th>
 
 
           </tr>
           <?php
           include 'connection.php';
-          $sql="SELECT * FROM tables";
+          $sql="SELECT * FROM last_exams";
           $query=$conn->query($sql);
           $i=1;
           while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
            extract($result);
-           $query2=$conn->query("SELECT name FROM departments WHERE id=$department_id");
-           $result2=$query2->fetch(PDO::FETCH_ASSOC);
-           extract($result2);
-           echo " <tr>
-           <td>$i</td>
-           <td><img src='image/".$table_image."' width='50px' height='50px'></td>
-           <td>$name</td>
-           <td>year$year_id</td>
-           <td>
-           <a href='edittable.php?id=$id&img=$table_image' class='btn btn-warning btn-sm'>update</a>
-           </td>
-           </tr>";
-           $i++;
+          $query2=$conn->query("SELECT name FROM departments WHERE id=$department_id");
+          $result2=$query2->fetch(PDO::FETCH_ASSOC);
+          extract($result2);
+          $department=$name;
+          $query3=$conn->query("SELECT name FROM subjects WHERE id=$subject_id");
+          $result3=$query3->fetch(PDO::FETCH_ASSOC);
+          extract($result3);
+          echo " <tr>
+          <td>$i</td>
+          <td><img src='image/".$exam_file."' alt='this is file' width='50px' height='50px'></td>
+          <td>$department</td>
+          <td>year$year</td>
+          <td>term$term</td>
+          <td>$name</td>
+          <td>
+          <a href='deletelastexam.php?id=$id&img=$exam_file' class='btn btn-danger btn-sm'>DELETE</a>
+          </td>
+          </tr>";
+          $i++;
 
-         } 
+        } 
 
 
 
-         ?>
+        ?>
 
 
-       </tbody></table>
-     </div><!-- /.box-body -->
-   </div><!-- /.box -->
-   <a href="table.php"> <button class="btn btn-success btn-lg">insert new table</button></a>
+      </tbody></table>
+    </div><!-- /.box-body -->
+  </div><!-- /.box -->
+  <a href="lastexam.php"> <button class="btn btn-success btn-lg">insert new exam</button></a>
 
- </div>
+</div>
 </div>
 </section><!-- /.content --> 
 
