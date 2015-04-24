@@ -119,18 +119,28 @@ require 'header.php';
                 <div class="row">   
                     <div class="col-md-12">
                         <ul class="timeline">
+
+                            <?php 
+                            $lectures = $conn->prepare("SELECT l.id , l.summary , l.date  , s.name as doctor_name FROM lectures as l left join staff as s on l.doctor_id = s.id WHERE subject_id = ?");
+                            $lectures->bindValue(1,$subject_id , PDO::PARAM_INT);
+                            $lectures->execute();
+
+                            
+                            while ($lecture = $lectures->fetch(PDO::FETCH_OBJ)) {
+                                
+                            
+
+
+                             ?>
                          <li>
                             <i class="fa fa-envelope bg-blue"></i>
                             <div class="timeline-item">
 
-                                <span class="time"> Lecture date <i class="fa
-                                   fa-calendar-o"></i> 12:05</span>
-                                   <h3 class="timeline-header"><a href="#">Doctor name</a> </h3>
+                                <span class="time"> <i class="fa
+                                   fa-calendar-o"></i> <?php echo $lecture->date ?></span>
+                                   <h3 class="timeline-header"><a href="#"> <?php echo $lecture->doctor_name ?></a> </h3>
                                    <div class="timeline-body">
-                                    Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                                    weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                                    jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                                    quora plaxo ideeli hulu weebly balihoo...
+                                     <?php echo $lecture->summary ?>
                                 </div>
                                 <div class="attachment"> 
                                     <h4>Attachments:</h4>
@@ -140,14 +150,10 @@ require 'header.php';
                                     </ul>
 
                                 </div>
-
-                                <div class="timeline-footer">
-                                    <a class="btn btn-primary btn-xs">Dwonload All</a>
-
-                                </div>
                             </div>
                         </li>
 
+                        <?php } ?>
 
                     </ul>
                 </div>

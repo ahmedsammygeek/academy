@@ -35,4 +35,6 @@ function is_valid_type($ex , $valid= array('pdf','doc' , 'ppt' , 'pptx' , 'docx'
 }
 
 
+
+
  ?>
