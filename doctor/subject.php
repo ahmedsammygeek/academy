@@ -94,7 +94,7 @@ require 'header.php';
                     }
                     ?>
                     <div class="tab-pane active" id="lecture">
-                       <div class="row">
+                     <div class="row">
                         <div class="col-md-12">
                           <form role="form" enctype="multipart/form-data" method="post" action="insert_lecture.php?subject_id=<?php echo $subject_id; ?>">
                             <div class="box-body">
@@ -109,7 +109,7 @@ require 'header.php';
                                 </div>
                                 <div class="form-group">
                                     <label> Lecture summary </label>
-                                    <textarea name="lecture_summary" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    <textarea id="textarea3" name="lecture_summary" class="form-control" rows="3" placeholder="Enter ..."></textarea>
                                 </div>
                             </div><!-- /.box-body -->
                             <div class="box-footer">
@@ -135,203 +135,196 @@ require 'header.php';
 
 
 
-                               ?>
-                               <li>
+                             ?>
+                             <li>
                                 <i class="fa fa-envelope bg-blue"></i>
                                 <div class="timeline-item">
 
                                     <span class="time"> <i class="fa
-                                     fa-calendar-o"></i> <?php echo $lecture->date ?></span>
-                                     <h3 class="timeline-header"><a href="#"> <?php echo $lecture->doctor_name ?></a> </h3>
-                                     <div class="timeline-body">
-                                       <?php echo $lecture->summary ?>
-                                   </div>
-                                   <div class="attachment"> 
-                                    <?php if($lecture->has_file == 1) {echo "<h4>Attachments:</h4>";} ?>
-                                    <ul>
-                                        <?php echo get_lecture_files($lecture->id , $lecture->has_file); ?>
+                                       fa-calendar-o"></i> <?php echo $lecture->date ?></span>
+                                       <h3 class="timeline-header"><a href="#"> <?php echo $lecture->doctor_name ?></a> </h3>
+                                       <div class="timeline-body">
+                                         <?php echo $lecture->summary ?>
+                                     </div>
+                                     <div class="attachment"> 
+                                        <?php if($lecture->has_file == 1) {echo "<h4>Attachments:</h4>";} ?>
+                                        <ul>
+                                            <?php echo get_lecture_files($lecture->id , $lecture->has_file); ?>
 
-                                    </ul>
+                                        </ul>
 
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
 
-                        <?php } ?>
+                            <?php } ?>
 
-                    </ul>
-                </div>
-
-            </div>
-        </div> <!--lecutre tab -->
-        <!-- ask questions tab ection -->
-        <div class="tab-pane" id="ask">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <!-- form start -->
-                    <form role="form">
-                        <div class="box-body">
-
-                            <div class="form-group">
-                                <label>Write the question</label>
-                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                            </div>
-
-                        </div><!-- /.box-body -->
-
-                        <div class="box-footer">
-                            <input type="submit" class="btn btn-primary" value="ask">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="box-header">
-                <h3 class="box-title">The Questions</h3>
-            </div><!-- /.box-header -->
-            <blockquote>
-                <p>doctor please till me how to do this ?!.</p>
-                <div class="callout callout-info">
-
-                    <p>the nswer of the doctor will be showen here .</p>
-                    <small><span class="time"><i class="fa fa-clock-o"></i> 12:05</span></small>
-                    <div class="attachment">
-                        <h4>Attachments:</h4>
-                        <ul>
-                            <li><a href="">Lorem ipsum dolor sit amet</a></li>
-                            <li>Consectetur adipiscing elit</li>
                         </ul>
+                    </div>
 
+                </div>
+            </div> <!--lecutre tab -->
+            <!-- ask questions tab ection -->
+            <div class="tab-pane" id="ask">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- form start -->
+                        <form role="form">
+                            <div class="box-body">
+
+                                <div class="form-group">
+                                    <label>Write the question</label>
+                                    <textarea id="textarea" cols="20" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                </div>
+
+                            </div><!-- /.box-body -->
+
+                            <div class="box-footer">
+                                <input type="submit" class="btn btn-primary" value="ask">
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </blockquote>
-        </div> <!-- ask questions tab ection -->
+                <div class="box-header">
+                    <h3 class="box-title">The Questions</h3>
+                </div><!-- /.box-header -->
+                <blockquote>
+                    <p>doctor please till me how to do this ?!.</p>
+                    <div class="callout callout-info">
 
-        <div class="tab-pane" id="task">
+                        <p>the nswer of the doctor will be showen here .</p>
+                        <small><span class="time"><i class="fa fa-clock-o"></i> 12:05</span></small>
+                     
+                    </div>
+                </blockquote>
+            </div> <!-- ask questions tab ection -->
 
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">Responsive Hover Table</h3>
-                            
-                        </div><!-- /.box-header -->
-                        <div class="box-body table-responsive no-padding">
-                            <table class="table table-hover">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>User</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
-                                    <th>Reason</th>
-                                </tr>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>219</td>
-                                    <td>Jane Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-warning">Pending</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>657</td>
-                                    <td>Bob Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-primary">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>Mike Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-danger">Denied</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                            </table>
-                        </div><!-- /.box-body -->
-                    </div><!-- /.box -->
+            <div class="tab-pane" id="task">
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Responsive Hover Table</h3>
+
+                            </div><!-- /.box-header -->
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>User</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Reason</th>
+                                    </tr>
+                                    <tr>
+                                        <td>183</td>
+                                        <td>John Doe</td>
+                                        <td>11-7-2014</td>
+                                        <td><span class="label label-success">Approved</span></td>
+                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>219</td>
+                                        <td>Jane Doe</td>
+                                        <td>11-7-2014</td>
+                                        <td><span class="label label-warning">Pending</span></td>
+                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>657</td>
+                                        <td>Bob Doe</td>
+                                        <td>11-7-2014</td>
+                                        <td><span class="label label-primary">Approved</span></td>
+                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>175</td>
+                                        <td>Mike Doe</td>
+                                        <td>11-7-2014</td>
+                                        <td><span class="label label-danger">Denied</span></td>
+                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    </tr>
+                                </table>
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+                    </div>
                 </div>
-            </div>
-        </div><!-- /.tab-pane -->
+            </div><!-- /.tab-pane -->
 
 
-        <!-- section tab -->
-        <div class="tab-pane" id="section">
-          <div class="row">
-            <div class="col-md-12">
-              <form role="form" enctype="multipart/form-data" method="post" action="insert_section.php?subject_id=<?php echo $subject_id; ?>">
-                <div class="box-body">
-                   <div class="callout callout-warning">
+            <!-- section tab -->
+            <div class="tab-pane" id="section">
+              <div class="row">
+                <div class="col-md-12">
+                  <form role="form" enctype="multipart/form-data" method="post" action="insert_section.php?subject_id=<?php echo $subject_id; ?>">
+                    <div class="box-body">
+                     <div class="callout callout-warning">
 
-                    <p>we only accpet those type (jpg , jpeg , png , rar , zip , doc , docx ,ppt , ppxt)</p>
+                        <p>we only accpet those type (jpg , jpeg , png , rar , zip , doc , docx ,ppt , ppxt)</p>
+                    </div>
+                    <div class="form-group files">
+                        <label>Lecture' files </label>
+                        <input type="file"  name="lecture_files[]">
+                        <a class="btn btn-primary pull-right add_more_files" href="">add more files</a>
+                    </div>
+                    <div class="form-group">
+                        <label> Lecture summary </label>
+                        <textarea id="textarea2" name="lecture_summary" class="form-control" rows="3" cols="30"></textarea>
+                    </div>
+                </div><!-- /.box-body -->
+                <div class="box-footer">
+                    <input type="submit" class="btn btn-primary pull-right" value="Add section">
                 </div>
-                <div class="form-group files">
-                    <label>Lecture' files </label>
-                    <input type="file"  name="lecture_files[]">
-                    <a class="btn btn-primary pull-right add_more_files" href="">add more files</a>
-                </div>
-                <div class="form-group">
-                    <label> Lecture summary </label>
-                    <textarea name="lecture_summary" class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                </div>
-            </div><!-- /.box-body -->
-            <div class="box-footer">
-                <input type="submit" class="btn btn-primary pull-right" value="Add section">
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
-<div class="row">   
-    <div class="col-md-12">
-        <ul class="timeline">
-         <?php 
-                            $Sections = $conn->prepare("SELECT l.type , l.has_file ,
-                             l.id , l.summary , l.date  , s.name as doctor_name FROM 
-                             lectures as l left join staff as s on l.doctor_id = s.id WHERE subject_id = ? AND l.type= 'section' ");
-                            $Sections->bindValue(1,$subject_id , PDO::PARAM_INT);
-                            $Sections->execute();
+    <div class="row">   
+        <div class="col-md-12">
+            <ul class="timeline">
+               <?php 
+               $Sections = $conn->prepare("SELECT l.type , l.has_file ,
+                   l.id , l.summary , l.date  , s.name as doctor_name FROM 
+                   lectures as l left join staff as s on l.doctor_id = s.id WHERE subject_id = ? AND l.type= 'section' ");
+               $Sections->bindValue(1,$subject_id , PDO::PARAM_INT);
+               $Sections->execute();
 
-                            
-                            while ($Section = $Sections->fetch(PDO::FETCH_OBJ)) {
 
+               while ($Section = $Sections->fetch(PDO::FETCH_OBJ)) {
 
 
 
-                               ?>
-                               <li>
-                                <i class="fa fa-envelope bg-blue"></i>
-                                <div class="timeline-item">
 
-                                    <span class="time"> <i class="fa
-                                     fa-calendar-o"></i> <?php echo $Section->date ?></span>
-                                     <h3 class="timeline-header"><a href="#"> <?php echo $Section->doctor_name ?></a> </h3>
-                                     <div class="timeline-body">
-                                       <?php echo $Section->summary ?>
-                                   </div>
-                                   <div class="attachment"> 
-                                    <?php if($Section->has_file == 1) {echo "<h4>Attachments:</h4>";} ?>
-                                    <ul>
-                                        <?php echo get_lecture_files($Section->id , $Section->has_file); ?>
+                 ?>
+                 <li>
+                    <i class="fa fa-envelope bg-blue"></i>
+                    <div class="timeline-item">
 
-                                    </ul>
+                        <span class="time"> <i class="fa
+                           fa-calendar-o"></i> <?php echo $Section->date ?></span>
+                           <h3 class="timeline-header"><a href="#"> <?php echo $Section->doctor_name ?></a> </h3>
+                           <div class="timeline-body">
+                             <?php echo $Section->summary ?>
+                         </div>
+                         <div class="attachment"> 
+                            <?php if($Section->has_file == 1) {echo "<h4>Attachments:</h4>";} ?>
+                            <ul>
+                                <?php echo get_lecture_files($Section->id , $Section->has_file); ?>
 
-                                </div>
-                            </div>
-                        </li>
+                            </ul>
 
-                        <?php } ?>
+                        </div>
+                    </div>
+                </li>
+
+                <?php } ?>
 
 
-    </ul>
-</div>
+            </ul>
+        </div>
 
-</div>
+    </div>
 </div><!-- section tab -->
 </div><!-- /.tab-content -->
 </div><!-- nav-tabs-custom -->
@@ -344,10 +337,27 @@ require 'header.php';
 <script src="../admin/js/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="../admin/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../admin/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
 
 <script>
 $(function () {
-    $('a.add_more_files').on('click'  , function(event) {
+
+$("#textarea").wysihtml5();
+$("#textarea2").wysihtml5();
+$("#textarea3").wysihtml5();
+    var url = document.location.toString();
+     if (url.match('#')) {
+        $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
+    } 
+
+// Change hash for page-reload
+$('.nav-tabs a').on('shown', function (e) {
+    window.location.hash = e.target.hash;
+})
+
+     
+
+     $('a.add_more_files').on('click'  , function(event) {
         event.preventDefault();
 
         $("div.files").append('<input type="file" class="lecture_files" name="lecture_files[]">');
@@ -356,15 +366,7 @@ $(function () {
     });
 
 
-    var url = document.location.toString();
-    if (url.match('#')) {
-        $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
-    } 
 
-// Change hash for page-reload
-$('.nav-tabs a').on('shown', function (e) {
-    window.location.hash = e.target.hash;
-})
 
 });
 

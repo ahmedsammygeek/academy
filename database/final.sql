@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2015 at 10:32 PM
+-- Generation Time: Apr 24, 2015 at 11:09 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -260,6 +260,21 @@ INSERT INTO `questions` (`id`, `question`, `answer`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `question_answers`
+--
+
+CREATE TABLE IF NOT EXISTS `question_answers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `question_id` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `date` datetime NOT NULL,
+  `made_by` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sh2oneltlbah`
 --
 
@@ -315,6 +330,23 @@ CREATE TABLE IF NOT EXISTS `staff` (
 INSERT INTO `staff` (`id`, `name`, `image`, `title`, `description`, `facebook`, `email`, `username`, `password`, `type`) VALUES
 (1, 'bahaa', 'm0ergcaions45zv.jpg', 'doctor', 'jfbvkdfjbj', 'bjksfbvjkdfbv', 'alaaelgndy21@yahoo.com', 'bahaa', 'bahaa', 2),
 (2, 'adham', 'klqtgh8sbnxp30u.jpg', 'domenestor', 'kvhjhfhf', 'jhfjhfhgfhg', 'adham@yahoo.com', 'adham', '86b2a01d075b44052b51bd0e6c1cf31afc2a4092', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_questions`
+--
+
+CREATE TABLE IF NOT EXISTS `student_questions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `student_id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `answered` tinyint(4) NOT NULL DEFAULT '0',
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
