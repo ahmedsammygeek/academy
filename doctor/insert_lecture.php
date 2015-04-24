@@ -7,16 +7,26 @@ require 'check_user.php';
 require 'function.php';
 require '../classes/helper.php';
 //check the subject if if send and lecutre summary of files
-if((isset($_GET['subject_id']) && !empty($_GET['subject_id']))	&&	(!empty($_POST['lecture_summary']) || !empty($_FILES['lecture_files']['name']) ) ) {
-	$lecture_summary =   filter_input(INPUT_POST, 'lecture_summary') ? : $lecture_summary = '';
+if(isset($_GET['subject_id']) && !empty($_GET['subject_id'])) {
+	//get suject id
 	$subject_id = $_GET['subject_id'];
-	// DB connection
-	require '../admin/connection.php';
+
+
+	if(empty($_POST['lecture_summary']) && empty($_FILES['lecture_files']['name'][0]))  {
+		header("Location: subject.php?id=$subject_id&msg=missing");
+		die();
+	}
+	$lecture_summary =   filter_input(INPUT_POST, 'lecture_summary') ? : $lecture_summary = '';
+	
 	$has_file = 0;
-	if(isset($_FILES['lecture_files']['name']) && !empty($_FILES['lecture_files']['name'])) {
+
+	if(isset($_FILES['lecture_files']['name']) && !empty($_FILES['lecture_files']['name'][0])) {
 		$has_file = 1;
 	}
 	$date = date('Y-m-d');
+
+	// DB connection
+	require '../admin/connection.php';
 	// save lecture content in databse
 	$conn->beginTransaction();
 	try {
@@ -32,7 +42,7 @@ if((isset($_GET['subject_id']) && !empty($_GET['subject_id']))	&&	(!empty($_POST
 	// get lecture id after inserting it 
 		$lecture_id = $conn->lastInsertId();
 	// check the lecture if it is has files to uplaod it 
-		if(isset($_FILES['lecture_files']['name']) && !empty($_FILES['lecture_files']['name'])) {
+		if(isset($_FILES['lecture_files']['name']) && !empty($_FILES['lecture_files']['name'][0])) {
 
 			$uplaoded_files = array();
 			for ($i=0; $i <count($_FILES['lecture_files']['tmp_name']) ; $i++) { 
@@ -42,7 +52,7 @@ if((isset($_GET['subject_id']) && !empty($_GET['subject_id']))	&&	(!empty($_POST
 					if(file_exists('../uploaded/lectures/'.$file_name)) {
 						$file_name = md5(date('h:m:s:i')).'_'.$file_name;
 					}
-						$move = move_uploaded_file($_FILES['lecture_files']['tmp_name'][$i], "../uploaded/lectures/".$file_name);
+					$move = move_uploaded_file($_FILES['lecture_files']['tmp_name'][$i], "../uploaded/lectures/".$file_name);
 					if($move) {
 						$uplaoded_files[] = $file_name; 
 					}	
@@ -52,32 +62,26 @@ if((isset($_GET['subject_id']) && !empty($_GET['subject_id']))	&&	(!empty($_POST
 					die();
 				}
 			}
+			// insert uplaoded file namse in database
+			foreach ($uplaoded_files as  $one) {
+				$file = $conn->prepare("INSERT INTO lectures_files VALUES('' , ? , ? ) ");
+				$file->bindValue(1,$lecture_id,PDO::PARAM_INT);
+				$file->bindValue(2,$one,PDO::PARAM_STR);
+				$file->execute();
+			}
 		}
-
-	// insert uplaoded file namse in database
-		foreach ($uplaoded_files as  $one) {
-			$file = $conn->prepare("INSERT INTO lectures_files VALUES('' , ? , ? ) ");
-			$file->bindValue(1,$lecture_id,PDO::PARAM_INT);
-			$file->bindValue(2,$one,PDO::PARAM_STR);
-			$file->execute();
+		if($conn->commit()) {
+			header("Location: subject.php?id=$subject_id&msg=done");
+			die();
 		}
-
-		$conn->commit();
-		header("Location: subject.php?id=$subject_id&msg=done");
-		die();
 	} catch (PDOException $e) {
 		$conn->rollback();
 		header("Location: index.php?msg=tryagain");
 		die();
 	} 
-
-
 }
 else {
-	header("Location: index.php?msg=missing");
+	header("Location: index.php");
 	die();
 }
-
-
-
 ?>
