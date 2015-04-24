@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2015 at 08:20 PM
+-- Generation Time: Apr 24, 2015 at 10:32 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -155,58 +155,19 @@ CREATE TABLE IF NOT EXISTS `lectures` (
   `doctor_id` int(11) NOT NULL,
   `subject_id` int(11) NOT NULL,
   `has_file` int(11) NOT NULL,
+  `type` enum('section','lecture') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=56 ;
 
 --
 -- Dumping data for table `lectures`
 --
 
-INSERT INTO `lectures` (`id`, `summary`, `date`, `doctor_id`, `subject_id`, `has_file`) VALUES
-(1, 'dfdfds', '2015-03-15', 1, 1, 0),
-(2, 'dfdfds', '2015-03-15', 1, 1, 0),
-(3, 'dfdfds', '2015-03-15', 1, 1, 0),
-(4, 'dfdfds', '2015-03-15', 1, 1, 0),
-(5, '', '2015-03-15', 1, 1, 1),
-(6, '', '2015-03-15', 1, 1, 1),
-(7, '', '2015-03-16', 1, 1, 1),
-(8, '', '2015-03-16', 1, 1, 1),
-(9, 'sdfsdfds\r\n', '2015-03-16', 1, 1, 1),
-(10, '', '2015-03-16', 1, 1, 1),
-(11, '', '2015-03-16', 1, 1, 1),
-(12, '', '2015-03-16', 1, 1, 1),
-(13, '', '2015-03-16', 1, 1, 1),
-(14, '', '2015-03-16', 1, 1, 1),
-(15, '', '2015-03-16', 1, 1, 1),
-(16, '', '2015-03-16', 1, 1, 1),
-(17, 'dfdfds', '2015-03-16', 1, 1, 1),
-(18, 'dfdfds', '2015-03-16', 1, 1, 1),
-(19, 'dfdfds', '2015-03-16', 1, 1, 1),
-(20, '', '2015-03-16', 1, 1, 1),
-(21, '', '2015-03-16', 1, 1, 1),
-(22, '', '2015-03-16', 1, 1, 1),
-(23, '', '2015-03-16', 1, 1, 1),
-(24, '', '2015-03-16', 1, 1, 1),
-(25, '', '2015-03-16', 1, 1, 1),
-(26, '', '2015-03-16', 1, 1, 1),
-(27, '', '2015-03-16', 1, 1, 1),
-(28, '', '2015-03-16', 1, 1, 1),
-(29, '', '2015-03-16', 1, 1, 1),
-(30, '', '2015-03-16', 1, 1, 1),
-(31, 'some kkkkkk', '2015-03-16', 1, 1, 1),
-(32, 'ffff', '2015-03-16', 1, 1, 1),
-(33, 'ffff', '2015-03-16', 1, 1, 1),
-(34, 'ffffasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddnnn', '2015-03-16', 1, 1, 1),
-(35, 'safdsf;sldf;lsd''f;ldsfllllllllllll', '2015-03-16', 1, 1, 1),
-(36, 'dfd', '2015-03-16', 1, 1, 1),
-(37, 'dfd', '2015-03-16', 1, 1, 1),
-(38, 'dfd', '2015-03-16', 1, 1, 1),
-(39, 'dfd', '2015-03-16', 1, 1, 1),
-(40, 'dfd', '2015-03-16', 1, 1, 1),
-(41, 'dfd', '2015-03-16', 1, 1, 1),
-(42, 'dfd', '2015-03-16', 1, 1, 1),
-(43, 'dfd', '2015-03-16', 1, 1, 1),
-(44, 'txt test ', '2015-03-16', 1, 1, 1);
+INSERT INTO `lectures` (`id`, `summary`, `date`, `doctor_id`, `subject_id`, `has_file`, `type`) VALUES
+(50, 'jsut test ', '2015-04-24', 1, 1, 0, 'lecture'),
+(51, 'a nother test with fils', '2015-04-24', 1, 1, 1, 'lecture'),
+(52, 'test section part', '2015-04-24', 1, 1, 0, 'section'),
+(55, 'test section with uploading files', '2015-04-24', 1, 1, 1, 'section');
 
 -- --------------------------------------------------------
 
@@ -219,18 +180,15 @@ CREATE TABLE IF NOT EXISTS `lectures_files` (
   `lecture_id` int(11) NOT NULL,
   `file` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `lectures_files`
 --
 
 INSERT INTO `lectures_files` (`id`, `lecture_id`, `file`) VALUES
-(1, 42, 'lZQdpWFRQpurg6ErKfZN.jpg'),
-(2, 43, 'OQ8aYf21nR9mm7AoMZWR.jpg'),
-(3, 43, 'XXiXLZfpwyTr5CPMMD9C.jpg'),
-(4, 44, 'TzQ0Nh4135ZjKetRtqR7_1.txt'),
-(5, 44, 'lSY4VjbalWjo9uIctbfz_1.doc');
+(8, 51, 'lists.txt'),
+(9, 55, '7aed53c29b912859ff49f6f29a76a3a6_test.png');
 
 -- --------------------------------------------------------
 
@@ -321,7 +279,7 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `image` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `slider`
@@ -355,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
 --
 
 INSERT INTO `staff` (`id`, `name`, `image`, `title`, `description`, `facebook`, `email`, `username`, `password`, `type`) VALUES
-(1, 'knddklvndk', 'm0ergcaions45zv.jpg', 'doctor', 'jfbvkdfjbj', 'bjksfbvjkdfbv', 'alaaelgndy21@yahoo.com', 'bahaa', 'bahaa', 2),
+(1, 'bahaa', 'm0ergcaions45zv.jpg', 'doctor', 'jfbvkdfjbj', 'bjksfbvjkdfbv', 'alaaelgndy21@yahoo.com', 'bahaa', 'bahaa', 2),
 (2, 'adham', 'klqtgh8sbnxp30u.jpg', 'domenestor', 'kvhjhfhf', 'jhfjhfhgfhg', 'adham@yahoo.com', 'adham', '86b2a01d075b44052b51bd0e6c1cf31afc2a4092', 1);
 
 -- --------------------------------------------------------
