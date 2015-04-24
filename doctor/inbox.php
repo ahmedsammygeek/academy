@@ -37,7 +37,7 @@ require 'header.php';
                                 <table class="table table-mailbox">
                                     <tr class="unread">
                                         <td class="small-col"><input type="checkbox" name="msg_check[]" /></td>
-                                 
+                                        
                                         <td class="name"><a href="#">John Doe</a></td>
                                         <td class="subject"><a href="#">Urgent! Please read</a></td>
                                         <td> <button data-toggle="modal" data-target="#more-modal" class="btn btn-primary btn-sm">more</button></td>
@@ -47,9 +47,9 @@ require 'header.php';
                                         <td class="time">12:30 PM</td>
                                     </tr>
 
-                                     <tr class="unread">
+                                    <tr class="unread">
                                         <td class="small-col"><input type="checkbox" name="msg_check[]" /></td>
-                                 
+                                        
                                         <td class="name"><a href="#">John Doe</a></td>
                                         <td class="subject"><a href="#">Urgent! Please read</a></td>
                                         <td> <button data-toggle="modal" data-target="#more-modal" class="btn btn-primary btn-sm">more</button></td>
@@ -59,9 +59,9 @@ require 'header.php';
                                         <td class="time">12:30 PM</td>
                                     </tr>
 
-                                     <tr class="unread">
+                                    <tr class="unread">
                                         <td class="small-col"><input type="checkbox" name="msg_check[]" /></td>
-                                 
+                                        
                                         <td class="name"><a href="#">John Doe</a></td>
                                         <td class="subject"><a href="#">Urgent! Please read</a></td>
                                         <td> <button data-toggle="modal" data-target="#more-modal" class="btn btn-primary btn-sm">more</button></td>
@@ -71,9 +71,9 @@ require 'header.php';
                                         <td class="time">12:30 PM</td>
                                     </tr>
 
-                                     <tr class="unread">
+                                    <tr class="unread">
                                         <td class="small-col"><input type="checkbox" name="msg_check[]" /></td>
-                                 
+                                        
                                         <td class="name"><a href="#">John Doe</a></td>
                                         <td class="subject"><a href="#">Urgent! Please read</a></td>
                                         <td> <button data-toggle="modal" data-target="#more-modal" class="btn btn-primary btn-sm">more</button></td>
@@ -83,9 +83,9 @@ require 'header.php';
                                         <td class="time">12:30 PM</td>
                                     </tr>
 
-                                     <tr >
+                                    <tr >
                                         <td class="small-col"><input type="checkbox" name="msg_check[]" /></td>
-                                 
+                                        
                                         <td class="name"><a href="#">John Doe</a></td>
                                         <td class="subject"><a href="#">Urgent! Please read</a></td>
                                         <td> <button data-toggle="modal" data-target="#more-modal" class="btn btn-primary btn-sm">more</button></td>
@@ -95,8 +95,8 @@ require 'header.php';
                                         <td class="time">12:30 PM</td>
                                     </tr>
 
-                                  
-                        
+                                    
+                                    
                                 </table>
                             </div><!-- /.table-responsive -->
                         </div><!-- /.col (RIGHT) -->
@@ -225,17 +225,17 @@ require 'header.php';
                 <h4 class="modal-title"><i class="fa fa-envelope-o"></i> Compose New Message</h4>
             </div>
             <div class="box box-solid">
-                                <div class="box-header">
-                                    <i class="fa fa-text-width"></i>
-                                    <h3 class="box-title">Block Quotes</h3>
-                                </div><!-- /.box-header -->
-                                <div class="box-body">
-                                    <blockquote>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                                        <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                                    </blockquote>
-                                </div><!-- /.box-body -->
-                            </div>
+                <div class="box-header">
+                    <i class="fa fa-text-width"></i>
+                    <h3 class="box-title">Block Quotes</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <blockquote>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                    </blockquote>
+                </div><!-- /.box-body -->
+            </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
@@ -244,11 +244,10 @@ require 'header.php';
 </div><!-- ./wrapper -->
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
-<script src="js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
-<script src="js/AdminLTE/app.js" type="text/javascript"></script>
+<script src="../admin/js/jquery.min.js"></script>
+<script src="../admin/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="../admin/js/AdminLTE/app.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function() {
 

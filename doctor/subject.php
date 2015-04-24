@@ -92,14 +92,14 @@ require 'header.php';
                     }
                     ?>
                     <div class="tab-pane active" id="lecture">
-                       <div class="row">
+                     <div class="row">
                         <div class="col-md-12">
                           <form role="form" enctype="multipart/form-data" method="post" action="insert_lecture.php?subject_id=<?php echo $subject_id; ?>">
                             <div class="box-body">
                                 <div class="callout callout-warning">
-                                        
-                                        <p>we only accpet those type (jpg , jpeg , png , rar , zip , doc , docx ,ppt , ppxt)</p>
-                                    </div>
+                                    
+                                    <p>we only accpet those type (jpg , jpeg , png , rar , zip , doc , docx ,ppt , ppxt)</p>
+                                </div>
                                 <div class="form-group files">
                                     <label>Lecture' files </label>
                                     <input type="file"  name="lecture_files[]">
@@ -119,14 +119,14 @@ require 'header.php';
                 <div class="row">   
                     <div class="col-md-12">
                         <ul class="timeline">
-                           <li>
+                         <li>
                             <i class="fa fa-envelope bg-blue"></i>
                             <div class="timeline-item">
 
                                 <span class="time"> Lecture date <i class="fa
-                                 fa-calendar-o"></i> 12:05</span>
-                                 <h3 class="timeline-header"><a href="#">Doctor name</a> </h3>
-                                 <div class="timeline-body">
+                                   fa-calendar-o"></i> 12:05</span>
+                                   <h3 class="timeline-header"><a href="#">Doctor name</a> </h3>
+                                   <div class="timeline-body">
                                     Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
                                     weebly ning heekya handango imeem plugg dopplr jibjab, movity
                                     jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
@@ -275,14 +275,14 @@ require 'header.php';
     <div class="row">   
         <div class="col-md-12">
             <ul class="timeline">
-               <li>
+             <li>
                 <i class="fa fa-envelope bg-blue"></i>
                 <div class="timeline-item">
 
                     <span class="time"> Lecture date <i class="fa
-                     fa-calendar-o"></i> 12:05</span>
-                     <h3 class="timeline-header"><a href="#">Doctor name</a> </h3>
-                     <div class="timeline-body">
+                       fa-calendar-o"></i> 12:05</span>
+                       <h3 class="timeline-header"><a href="#">Doctor name</a> </h3>
+                       <div class="timeline-body">
                         Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
                         weebly ning heekya handango imeem plugg dopplr jibjab, movity
                         jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
@@ -318,9 +318,9 @@ require 'header.php';
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 
-<?php 
-require 'scripts.php';
-?>
+<script src="../admin/js/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../admin/js/bootstrap.min.js" type="text/javascript"></script>
 
 <script>
 $(function () {

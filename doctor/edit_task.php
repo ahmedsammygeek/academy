@@ -36,10 +36,11 @@ require 'header.php';
                                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Task Title">
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group files">
                                     <label for="exampleInputFile">Task attachments (Optional)</label>
-                                    <input type="file" id="exampleInputFile">
-                                    <p class="help-block"></p>
+                                    <input type="file"  name="task_files[]" >
+                                    <a class="btn btn-primary pull-right add_more_files" href="">add more files</a>
+                                    
                                 </div>
 
                                 <div class="form-group">
@@ -114,24 +115,33 @@ require 'header.php';
 </section><!-- /.content -->
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="../admin/js/jquery.min.js"></script>
 <!-- Bootstrap -->
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../admin/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- AdminLTE App -->
-<script src="js/AdminLTE/app.js" type="text/javascript"></script>
+<script src="../admin/js/AdminLTE/app.js" type="text/javascript"></script>
+ <script src="../admin/js/AdminLTE/dashboard.js" type="text/javascript"></script>
 <!-- Bootstrap WYSIHTML5 -->
 
-<script src="js/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
-<script src="js/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
-<script src="js/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
 <!-- date-range-picker -->
-<script src="js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+<script src="../admin/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 
 $(function () {
     $('#reservation').daterangepicker();
+
+    $('a.add_more_files').on('click'  , function(event) {
+        event.preventDefault();
+
+        $("div.files").append('<input type="file" class="lecture_files" name="task_files[]">');
+
+
+    });
 });
+
+
+
 </script>
 
 </body>

@@ -116,19 +116,14 @@ require 'header.php';
 </section><!-- /.content -->
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="../admin/js/jquery.min.js"></script>
 <!-- Bootstrap -->
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../admin/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- AdminLTE App -->
-<script src="js/AdminLTE/app.js" type="text/javascript"></script>
+<script src="../admin/js/AdminLTE/app.js" type="text/javascript"></script>
+ <script src="../admin/js/AdminLTE/dashboard.js" type="text/javascript"></script>
 <!-- Bootstrap WYSIHTML5 -->
-
-<script src="js/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
-<script src="js/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
-<script src="js/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
-<!-- date-range-picker -->
-<script src="js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
-
+<script src="../admin/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
 <script type="text/javascript">
 
 $(function () {

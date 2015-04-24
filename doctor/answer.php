@@ -43,14 +43,14 @@ require 'header.php';
                     
                     <br>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti nostrum porro earum numquam voluptatem corporis nisi eius eaque impedit delectus dolorem consequatur a doloribus sequi, asperiores iste facilis quo animi!
-            
-             <br>
+                    
+                    <br>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti nostrum porro earum numquam voluptatem corporis nisi eius eaque impedit delectus dolorem consequatur a doloribus sequi, asperiores iste facilis quo animi!
-            
+                    
 
-             <br>
+                    <br>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti nostrum porro earum numquam voluptatem corporis nisi eius eaque impedit delectus dolorem consequatur a doloribus sequi, asperiores iste facilis quo animi!
-            
+                    
                 </p>
             </div><!-- /.col -->
 
@@ -60,52 +60,49 @@ require 'header.php';
         <div class="row no-print">
 
             <div class="col-xs-12">
-                  <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">Give The Mark</h3>
-                        </div><!-- /.box-header -->
-                        <!-- form start -->
-                        <form role="form">
-                            <div class="box-body">
+              <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">Give The Mark</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <form role="form">
+                    <div class="box-body">
 
-                              <div class="form-group">
-                                            <label>Select</label>
-                                            <select class="form-control">
-                                                <option>option 1</option>
-                                                <option>option 2</option>
-                                                <option>option 3</option>
-                                                <option>option 4</option>
-                                                <option>option 5</option>
-                                            </select>
-                                        </div>
-                            </div><!-- /.box-body -->
+                      <div class="form-group">
+                        <label>Select</label>
+                        <select class="form-control">
+                            <option>option 1</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                            <option>option 5</option>
+                        </select>
+                    </div>
+                </div><!-- /.box-body -->
 
-                            <div class="box-footer">
-                                <input type="submit" class="btn btn-primary" value="Rank">
-                            </div>
-                        </form>
-                    </div><!-- /.box -->
-
-
-
-                <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Print sheet  </button>
+                <div class="box-footer">
+                    <input type="submit" class="btn btn-primary" value="Rank">
+                </div>
+            </form>
+        </div><!-- /.box -->
 
 
-            </div>
-        </div>
-    </section><!-- /.content -->
+
+
+    </div>
+</div>
+</section><!-- /.content -->
 
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="../admin/js/jquery.min.js"></script>
 <!-- Bootstrap -->
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../admin/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../admin/js/AdminLTE/app.js" type="text/javascript"></script>
+<script src="../admin/js/AdminLTE/dashboard.js" type="text/javascript"></script>
 
 
-<?php 
-require 'scripts.php';
-?>
 </body>
 </html>
