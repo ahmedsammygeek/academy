@@ -86,7 +86,7 @@
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">image</label>
-              <input type="file" class="form-control" name="file" id="exampleInputPassword1" >
+              <input type="file" name="file" class="form-control" name="file" id="exampleInputPassword1" >
             </div>
             <div>
               <label for="exampleInputEmail1">description</label>
