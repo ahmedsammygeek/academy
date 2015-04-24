@@ -13,7 +13,7 @@ if(isset($_GET['subject_id']) && !empty($_GET['subject_id'])) {
 
 
 	if(empty($_POST['lecture_summary']) && empty($_FILES['lecture_files']['name'][0]))  {
-		header("Location: subject.php?id=$subject_id&msg=missing");
+		header("Location: subject.php?id=$subject_id&msg=missing#section");
 		die();
 	}
 	$lecture_summary =   filter_input(INPUT_POST, 'lecture_summary') ? : $lecture_summary = '';
@@ -59,7 +59,7 @@ if(isset($_GET['subject_id']) && !empty($_GET['subject_id'])) {
 					}	
 				}
 				else {
-					header("Location: subject.php?id=$subject_id&msg=invalid");
+					header("Location: subject.php?id=$subject_id&msg=invalid#section");
 					die();
 				}
 			}
@@ -72,7 +72,7 @@ if(isset($_GET['subject_id']) && !empty($_GET['subject_id'])) {
 			}
 		}
 		if($conn->commit()) {
-			header("Location: subject.php?id=$subject_id&msg=done");
+			header("Location: subject.php?id=$subject_id&msg=done#section");
 			die();
 		}
 	} catch (PDOException $e) {

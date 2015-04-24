@@ -79,11 +79,11 @@ require 'header.php';
                             </div>';
                             break;
 
-                            case 'done':
-                            echo '<div class="alert alert-success alert-dismissable">
+                            case 'missing':
+                            echo '<div class="alert alert-danger alert-dismissable">
                             <i class="fa fa-check"></i>
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            <b>Alert!</b> Success alert preview. This alert is dismissable.
+                            <b>Alert!</b> please enter all required data
                             </div>';
                             break;
 
@@ -168,6 +168,7 @@ require 'header.php';
                     <!-- form start -->
                     <form role="form">
                         <div class="box-body">
+
                             <div class="form-group">
                                 <label>Write the question</label>
                                 <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
@@ -262,6 +263,10 @@ require 'header.php';
             <div class="col-md-12">
               <form role="form" enctype="multipart/form-data" method="post" action="insert_lecture.php?subject_id=<?php echo $subject_id; ?>">
                 <div class="box-body">
+                     <div class="callout callout-warning">
+                                    
+                                    <p>we only accpet those type (jpg , jpeg , png , rar , zip , doc , docx ,ppt , ppxt)</p>
+                                </div>
                     <div class="form-group files">
                         <label>Lecture' files </label>
                         <input type="file"  name="lecture_files[]">
@@ -338,7 +343,19 @@ $(function () {
 
     });
 
+
+    var url = document.location.toString();
+if (url.match('#')) {
+    $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
+} 
+
+// Change hash for page-reload
+$('.nav-tabs a').on('shown', function (e) {
+    window.location.hash = e.target.hash;
+})
+
 });
+
 </script>
 </body>
 </html>
