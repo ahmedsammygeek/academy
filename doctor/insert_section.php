@@ -37,7 +37,7 @@ if(isset($_GET['subject_id']) && !empty($_GET['subject_id'])) {
 		$insert->bindValue(3,$_SESSION['system_user_id'],PDO::PARAM_INT);
 		$insert->bindValue(4,$subject_id,PDO::PARAM_INT);
 		$insert->bindValue(5,$has_file,PDO::PARAM_INT);
-		$insert->bindValue(6,'lecture',PDO::PARAM_STR);
+		$insert->bindValue(6,'section',PDO::PARAM_STR);
 	// execute query
 		$insert->execute();
 	// get lecture id after inserting it 

@@ -2,6 +2,8 @@
 
 require 'check_user.php';
 require 'functions.php';
+require '../classes/helper.php';
+
 if(isset($_GET['id']) && !empty($_GET['id'])) {
     $subject_id = $_GET['id'];
     $doctor_id = $_SESSION['system_user_id'];
@@ -92,12 +94,12 @@ require 'header.php';
                     }
                     ?>
                     <div class="tab-pane active" id="lecture">
-                     <div class="row">
+                       <div class="row">
                         <div class="col-md-12">
                           <form role="form" enctype="multipart/form-data" method="post" action="insert_lecture.php?subject_id=<?php echo $subject_id; ?>">
                             <div class="box-body">
                                 <div class="callout callout-warning">
-                                    
+
                                     <p>we only accpet those type (jpg , jpeg , png , rar , zip , doc , docx ,ppt , ppxt)</p>
                                 </div>
                                 <div class="form-group files">
@@ -121,32 +123,34 @@ require 'header.php';
                         <ul class="timeline">
 
                             <?php 
-                            $lectures = $conn->prepare("SELECT l.id , l.summary , l.date  , s.name as doctor_name FROM lectures as l left join staff as s on l.doctor_id = s.id WHERE subject_id = ?");
+                            $lectures = $conn->prepare("SELECT l.type ,  l.has_file , l.id , l.summary , 
+                                l.date  , s.name as doctor_name FROM lectures as l 
+                                left join staff as s on l.doctor_id = s.id WHERE subject_id = ? AND l.type='lecture'");
                             $lectures->bindValue(1,$subject_id , PDO::PARAM_INT);
                             $lectures->execute();
 
                             
                             while ($lecture = $lectures->fetch(PDO::FETCH_OBJ)) {
-                                
-                            
 
 
-                             ?>
-                         <li>
-                            <i class="fa fa-envelope bg-blue"></i>
-                            <div class="timeline-item">
 
-                                <span class="time"> <i class="fa
-                                   fa-calendar-o"></i> <?php echo $lecture->date ?></span>
-                                   <h3 class="timeline-header"><a href="#"> <?php echo $lecture->doctor_name ?></a> </h3>
-                                   <div class="timeline-body">
-                                     <?php echo $lecture->summary ?>
-                                </div>
-                                <div class="attachment"> 
-                                    <h4>Attachments:</h4>
+
+                               ?>
+                               <li>
+                                <i class="fa fa-envelope bg-blue"></i>
+                                <div class="timeline-item">
+
+                                    <span class="time"> <i class="fa
+                                     fa-calendar-o"></i> <?php echo $lecture->date ?></span>
+                                     <h3 class="timeline-header"><a href="#"> <?php echo $lecture->doctor_name ?></a> </h3>
+                                     <div class="timeline-body">
+                                       <?php echo $lecture->summary ?>
+                                   </div>
+                                   <div class="attachment"> 
+                                    <?php if($lecture->has_file == 1) {echo "<h4>Attachments:</h4>";} ?>
                                     <ul>
-                                        <li><a href="">Lorem ipsum dolor sit amet</a></li>
-                                        <li>Consectetur adipiscing elit</li>
+                                        <?php echo get_lecture_files($lecture->id , $lecture->has_file); ?>
+
                                     </ul>
 
                                 </div>
@@ -261,63 +265,71 @@ require 'header.php';
         <div class="tab-pane" id="section">
           <div class="row">
             <div class="col-md-12">
-              <form role="form" enctype="multipart/form-data" method="post" action="insert_lecture.php?subject_id=<?php echo $subject_id; ?>">
+              <form role="form" enctype="multipart/form-data" method="post" action="insert_section.php?subject_id=<?php echo $subject_id; ?>">
                 <div class="box-body">
-                     <div class="callout callout-warning">
-                                    
-                                    <p>we only accpet those type (jpg , jpeg , png , rar , zip , doc , docx ,ppt , ppxt)</p>
+                   <div class="callout callout-warning">
+
+                    <p>we only accpet those type (jpg , jpeg , png , rar , zip , doc , docx ,ppt , ppxt)</p>
+                </div>
+                <div class="form-group files">
+                    <label>Lecture' files </label>
+                    <input type="file"  name="lecture_files[]">
+                    <a class="btn btn-primary pull-right add_more_files" href="">add more files</a>
+                </div>
+                <div class="form-group">
+                    <label> Lecture summary </label>
+                    <textarea name="lecture_summary" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                </div>
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                <input type="submit" class="btn btn-primary pull-right" value="Add section">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">   
+    <div class="col-md-12">
+        <ul class="timeline">
+         <?php 
+                            $Sections = $conn->prepare("SELECT l.type , l.has_file ,
+                             l.id , l.summary , l.date  , s.name as doctor_name FROM 
+                             lectures as l left join staff as s on l.doctor_id = s.id WHERE subject_id = ? AND l.type= 'section' ");
+                            $Sections->bindValue(1,$subject_id , PDO::PARAM_INT);
+                            $Sections->execute();
+
+                            
+                            while ($Section = $Sections->fetch(PDO::FETCH_OBJ)) {
+
+
+
+
+                               ?>
+                               <li>
+                                <i class="fa fa-envelope bg-blue"></i>
+                                <div class="timeline-item">
+
+                                    <span class="time"> <i class="fa
+                                     fa-calendar-o"></i> <?php echo $Section->date ?></span>
+                                     <h3 class="timeline-header"><a href="#"> <?php echo $Section->doctor_name ?></a> </h3>
+                                     <div class="timeline-body">
+                                       <?php echo $Section->summary ?>
+                                   </div>
+                                   <div class="attachment"> 
+                                    <?php if($Section->has_file == 1) {echo "<h4>Attachments:</h4>";} ?>
+                                    <ul>
+                                        <?php echo get_lecture_files($Section->id , $Section->has_file); ?>
+
+                                    </ul>
+
                                 </div>
-                    <div class="form-group files">
-                        <label>Lecture' files </label>
-                        <input type="file"  name="lecture_files[]">
-                        <a class="btn btn-primary pull-right add_more_files" href="">add more files</a>
-                    </div>
-                    <div class="form-group">
-                        <label> Lecture summary </label>
-                        <textarea name="lecture_summary" class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                    </div>
-                </div><!-- /.box-body -->
-                <div class="box-footer">
-                    <input type="submit" class="btn btn-primary pull-right" value="Add Lectur">
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="row">   
-        <div class="col-md-12">
-            <ul class="timeline">
-             <li>
-                <i class="fa fa-envelope bg-blue"></i>
-                <div class="timeline-item">
+                            </div>
+                        </li>
 
-                    <span class="time"> Lecture date <i class="fa
-                       fa-calendar-o"></i> 12:05</span>
-                       <h3 class="timeline-header"><a href="#">Doctor name</a> </h3>
-                       <div class="timeline-body">
-                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                        quora plaxo ideeli hulu weebly balihoo...
-                    </div>
-                    <div class="attachment"> 
-                        <h4>Attachments:</h4>
-                        <ul>
-                            <li><a href="">Lorem ipsum dolor sit amet</a></li>
-                            <li>Consectetur adipiscing elit</li>
-                        </ul>
-
-                    </div>
-
-                    <div class="timeline-footer">
-                        <a class="btn btn-primary btn-xs">Dwonload All</a>
-
-                    </div>
-                </div>
-            </li>
+                        <?php } ?>
 
 
-        </ul>
-    </div>
+    </ul>
+</div>
 
 </div>
 </div><!-- section tab -->
@@ -345,9 +357,9 @@ $(function () {
 
 
     var url = document.location.toString();
-if (url.match('#')) {
-    $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
-} 
+    if (url.match('#')) {
+        $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
+    } 
 
 // Change hash for page-reload
 $('.nav-tabs a').on('shown', function (e) {
