@@ -9,30 +9,37 @@ if (isset($_POST['submit'])) {
 	$inputs=filter_input_array(INPUT_POST,$args);
 	//by post method
 	foreach ($inputs as $key_input => $input_value) {
-		if (empty($input_value) || empty( $_FILES['file']['name'])) {
+		if (empty($input_value)) {
 			//if eny input place is empty go to empty data to show alert
 			header('location: news.php?msg=empty_data'); die();
 		}
 	}
 }
-$img_name=$_FILES['file']['name'];
-require '../classes/filevalidate.php';
-if (!validation($img_name,array('jpg','png','jpeg'))) {
+if (!empty($_FILES['file']['name'])) {
+	$img_name=$_FILES['file']['name'];
+	require '../classes/filevalidate.php';
+	if (!validation($img_name,array('jpg','png','jpeg'))) {
 		// function return false 
-	header("location: news.php?msg=error_data");die();
-}
+		header("location: news.php?msg=error_data");die();
+	}
 	//function used to know file type
-require '../classes/filetype.php';
-$type=get_type($img_name);
-$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
-$img_name=$randomstring.".$type" ;
+	require '../classes/filetype.php';
+	$type=get_type($img_name);
+	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
+	$img_name=$randomstring.".$type" ;
 $location="image/";//location to save images
 move_uploaded_file($_FILES['file']['tmp_name'], $location.$img_name);
 list($width,$height)=getimagesize($location.$img_name);
 // tr return width and height image admin use it 
 if ($width < 100 || $height < 50) {
 	header('location: news.php?msg=small_image'); die();
+}	
 }
+else
+{
+	$img_name="news without image";
+}
+
 date_default_timezone_set('UTC');
 $today = date("M j Y"); 
 extract($inputs);

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2015 at 04:57 PM
+-- Generation Time: Apr 24, 2015 at 08:20 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -243,7 +243,8 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `name` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `contant` text NOT NULL,
-  `time` varchar(25) NOT NULL,
+  `time` datetime NOT NULL,
+  `viewed` enum('watched','not watched','','') NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
@@ -251,11 +252,9 @@ CREATE TABLE IF NOT EXISTS `messages` (
 -- Dumping data for table `messages`
 --
 
-INSERT INTO `messages` (`id`, `name`, `email`, `contant`, `time`) VALUES
-(9, 'amira', 'amira@yahoo.com', 'nadklcndklsdc', '30-03-2015 & 20:00:20'),
-(10, 'nora', 'alaaelgndy21@yahoo.com', 'jebvjkvbervbovierbveivbeorrev', '30-03-2015 & 23:07:50'),
-(11, 'alaa', 'alaaelgndy21@yahoo.com', 'kdchkdscsd', '31-03-2015 & 11:18:01'),
-(12, 'bahaa', 'bedo_bedo2014@yahoo.com', 'ibhveeiutvuibtruibvtruibrtvuibtrui', '11-04-2015 & 23:32:44');
+INSERT INTO `messages` (`id`, `name`, `email`, `contant`, `time`, `viewed`) VALUES
+(11, 'alaa', 'alaaelgndy21@yahoo.com', 'kdchkdscsd', '0000-00-00 00:00:00', ''),
+(12, 'bahaa', 'bedo_bedo2014@yahoo.com', 'ibhveeiutvuibtruibvtruibrtvuibtrui', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -270,7 +269,14 @@ CREATE TABLE IF NOT EXISTS `news` (
   `image` text NOT NULL,
   `date` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `content`, `image`, `date`) VALUES
+(1, 'lkdnfjdb', 'fdlkvbdjfbvdjkf', 'f2j67smrgl584qd.jpg', 'Apr 24 2015');
 
 -- --------------------------------------------------------
 
@@ -314,17 +320,15 @@ CREATE TABLE IF NOT EXISTS `sh2oneltlbah` (
 CREATE TABLE IF NOT EXISTS `slider` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `image` text NOT NULL,
-  `title` varchar(500) NOT NULL,
-  `link` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `slider`
 --
 
-INSERT INTO `slider` (`id`, `image`, `title`, `link`) VALUES
-(12, 'dfrlka6q308hxzj.jpg', 'sdm', 'jkjsb');
+INSERT INTO `slider` (`id`, `image`) VALUES
+(12, 'dfrlka6q308hxzj.jpg');
 
 -- --------------------------------------------------------
 
@@ -344,7 +348,15 @@ CREATE TABLE IF NOT EXISTS `staff` (
   `password` varchar(40) NOT NULL,
   `type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`id`, `name`, `image`, `title`, `description`, `facebook`, `email`, `username`, `password`, `type`) VALUES
+(1, 'knddklvndk', 'm0ergcaions45zv.jpg', 'doctor', 'jfbvkdfjbj', 'bjksfbvjkdfbv', 'alaaelgndy21@yahoo.com', 'bahaa', 'bahaa', 2),
+(2, 'adham', 'klqtgh8sbnxp30u.jpg', 'domenestor', 'kvhjhfhf', 'jhfjhfhgfhg', 'adham@yahoo.com', 'adham', '86b2a01d075b44052b51bd0e6c1cf31afc2a4092', 1);
 
 -- --------------------------------------------------------
 

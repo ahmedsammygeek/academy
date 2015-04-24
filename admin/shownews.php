@@ -11,9 +11,12 @@ require 'sidebar.php';
       <div class="box">
         <div class="box-header">
 
-          <h3 class="box-title">news in database</h3>
+          <h3 class="box-title">news in database</h3><br><br><br>
+          <a href="news.php"> <button class="btn btn-success btn-lg">add new news</button></a>
+
 
         </div><!-- /.box-header -->
+
         <div class="box-body table-responsive no-padding">
          <?php 
          if (isset($_GET['msg'])) {
@@ -108,7 +111,6 @@ require 'sidebar.php';
        </tbody></table>
      </div><!-- /.box-body -->
    </div><!-- /.box -->
-   <a href="news.php"> <button class="btn btn-success btn-lg">insert new news</button></a>
 
  </div>
 </div>

@@ -2,10 +2,10 @@
 require 'sidebar.php';
 ?>
 <section class="content-header no-margin">
-                    <h1 class="text-center">
-                        Mailbox
-                    </h1>
-                </section>
+	<h1 class="text-center">
+		Mailbox
+	</h1>
+</section>
 <section class="content">
 	<!-- MAILBOX BEGIN -->
 	<div class="mailbox row">
@@ -17,6 +17,39 @@ require 'sidebar.php';
 						<div class="col-md-12 col-sm-8">
 
 							<div class="table-responsive">
+								<?php 
+								if (isset($_GET['msg'])) {
+        //if exist msg in link get this message and do defferent action in every case and show alert
+
+									switch ($_GET['msg']) {
+
+										case 'error_delete':
+            //this case error in sql request to delete this data
+										echo '<div class="alert alert-danger alert-dismissable">
+										<i class="fa fa-ban"></i>
+										<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+										<b>Alert!</b>   an error in your delete please try again.
+										</div>';
+										break;
+										case 'data_deleted':
+            //this case data deleted successful
+										echo '<div class="alert alert-success alert-dismissable">
+										<i class="fa fa-check"></i>
+
+										<b>Alert!</b> data deleted successfully.
+										</div>' ;
+										break;
+
+
+										default:
+
+										break;
+									}
+								}
+
+
+								?>
+
 								<!-- THE MESSAGES -->
 								<table class="table table-mailbox">
 									<tr>

@@ -69,14 +69,6 @@
                             <input type="file" name="file" id="exampleInputFile">
                             <p class="help-block">click to choose image</p>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">title</label>
-                            <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Enter title of slider">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">link</label>
-                            <input type="text" class="form-control" name="link" id="exampleInputPassword1" placeholder="www.example.com">
-                        </div>
 
 
                     </div><!-- /.box-body -->

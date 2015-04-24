@@ -78,14 +78,6 @@
                     <p class="help-block">click to choose image</p>
                     <?php echo '<img src="image/'.$image.'"><h3>'.$image.'</h3>'  ; ?>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">title</label>
-                    <input type="text" name="title" value='<?php echo "$title"; ?>' class="form-control" id="exampleInputEmail1" placeholder="Enter title of slider">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">link</label>
-                    <input type="text" class="form-control" name="link" value='<?php echo "$link"; ?>' id="exampleInputPassword1" placeholder="www.exampel.com">
-                </div>
 
 
             </div><!-- /.box-body -->
