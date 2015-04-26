@@ -87,19 +87,19 @@ function send_notification($id,$content,$send_to=array())
      $query->bindValue(1,$content,PDO::PARAM_STR);
      $query->bindValue(2,$id,PDO::PARAM_INT);
      $query->bindValue(3,$time,PDO::PARAM_INT);
-     $inserted_id= $conn->lastInsertId();
      if ($query->execute()) {
+         $inserted_id= $conn->lastInsertId();
         foreach ($send_to as $key => $value) {
            $query2=$conn->prepare("INSERT INTO notifications_users VALUES('',?,?,?) ");
            $query2->bindValue(1,$inserted_id,PDO::PARAM_INT);
            $query2->bindValue(2,$value,PDO::PARAM_INT);
            $query2->bindValue(3,0,PDO::PARAM_INT);
-           if ($query2->execute()) {
-               return true;
-           }
-           return false;
+           $query2->execute();
        }
+       
    }$conn->commit();
+   return true;
+   
 } catch (Exception $e) {
     $conn->rollBack();
     echo $e->getMessage();
