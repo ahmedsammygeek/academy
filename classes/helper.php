@@ -57,4 +57,24 @@ function get_lecture_files($id , $has_files)
 
 }
 
+
+
+/**
+ * check if data exists or not
+ * @param  mixed $data  [description]
+ * @param  string $col   [description]
+ * @param  string $table [description]
+ * @return return boolean        if the data exsits or not
+ */
+function check_if_exists($data , $col , $table)
+{
+    global $conn ;
+    $check = $conn->prepare("SELECT id FROM $table WHERE $col=?");
+    $check->bindValue(1,$data,PDO::PARAM_INT);
+    $check->execute();
+    if($check->rowCount())
+        return true;
+
+    return false;
+}
  ?>

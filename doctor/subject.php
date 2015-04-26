@@ -170,12 +170,12 @@ require 'header.php';
                     <div class="col-md-12">
 
                         <!-- form start -->
-                        <form role="form">
+                        <form role="form" method="post" action="insert_question.php?subject_id=<?php echo $_GET['id']; ?>">
                             <div class="box-body">
 
                                 <div class="form-group">
                                     <label>Write the question</label>
-                                    <textarea id="textarea" cols="20" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    <textarea id="textarea" name="question" cols="20" class="form-control" rows="3" placeholder="Enter ..."></textarea>
                                 </div>
 
                             </div><!-- /.box-body -->
@@ -337,6 +337,8 @@ require 'header.php';
 <script src="../admin/js/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="../admin/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../admin/js/AdminLTE/app.js" type="text/javascript"></script>
+<!-- <script src="../admin/js/AdminLTE/dashboard.js" type="text/javascript"></script> -->
 <script src="../admin/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
 
 <script>

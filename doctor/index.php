@@ -92,6 +92,8 @@ $subjects->execute();
 <script src="../admin/js/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="../admin/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../admin/js/AdminLTE/app.js" type="text/javascript"></script>
+<script src="../admin/js/AdminLTE/dashboard.js" type="text/javascript"></script>
 
 
 </body>
