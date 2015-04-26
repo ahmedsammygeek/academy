@@ -106,4 +106,20 @@ function send_notification($id,$content,$send_to=array())
 }
 }
 
+function get_students($where)
+{
+    $ids = array();
+    global $conn;
+    $select = $conn->prepare("SELECT id FROM students WHERE $where ");
+    $select->execute();
+    if($select->rowCount() > 0) {
+        while ($one = $select->fetch(PDO::FETCH_NUM)) {
+            $ids[] = $one[0];
+        }
+        return $ids;
+    }
+    return false;
+}
+
+
 ?>

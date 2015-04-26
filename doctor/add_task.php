@@ -38,7 +38,7 @@ $subjects->execute();
                     </div>
 
                     <!-- form start -->
-                    <form role="form" action="insert_task.php" method="post">
+                    <form role="form" enctype="multipart/form-data" action="insert_task.php" method="post">
                         <div class="box-body">
 
                             <div class="row">
@@ -83,10 +83,10 @@ $subjects->execute();
                             <div class="form-group">
                                 <label>Year </label>
                                 <select name="year" class="form-control">
-                                    <option>year 1</option>
-                                    <option>year 2</option>
-                                    <option>year 3</option>
-                                    <option>year 4</option>
+                                    <option value="1">year 1</option>
+                                    <option value="2" >year 2</option>
+                                    <option value="3" >year 3</option>
+                                    <option value="4" >year 4</option>
                                     
                                 </select>
                             </div>
@@ -139,7 +139,10 @@ $subjects->execute();
 <script type="text/javascript">
 $(function () {
     $("#textarea").wysihtml5();
-    $('#reservation').daterangepicker();
+    $('#reservation').daterangepicker({
+        singleDatePicker: true,
+        format: 'YYYY-MM-DD'
+    });
 });
 $(function () {
     $('a.add_more_files').on('click'  , function(event) {
