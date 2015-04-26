@@ -99,7 +99,7 @@ function send_notification($id,$content,$send_to=array())
            }
            return false;
        }
-   }
+   }$conn->commit();
 } catch (Exception $e) {
     $conn->rollBack();
     echo $e->getMessage();
