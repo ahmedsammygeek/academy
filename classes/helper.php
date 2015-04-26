@@ -77,4 +77,18 @@ function check_if_exists($data , $col , $table)
 
     return false;
 }
+function send_notefication($id,$content,array())
+{
+    global $conn ;
+    $time=date("Y-m-d & H:i:s");
+    $query=$conn->prepare("INSERT INTO notifications VALUES('',?,?,?) ");
+    $query->bindValue(1,$content,PDO::PARAM_STR);
+    $query->bindValue(2,$id,PDO::PARAM_INT);
+    $query->bindValue(3,$time,PDO::PARAM_INT);
+    if ($query->execute()) {
+        return true;
+    }
+    return false;
+}
+
  ?>
