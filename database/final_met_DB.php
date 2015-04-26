@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2015 at 12:00 PM
+-- Generation Time: Apr 26, 2015 at 10:07 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -250,7 +250,22 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   `made_by` int(11) NOT NULL,
   `date` timestamp NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `content`, `made_by`, `date`) VALUES
+(1, 'eny content for test', 1, '2015-04-26 12:01:43'),
+(2, 'done abos eidk b2a 2 :D', 5, '2015-04-26 12:08:21'),
+(3, 'done abos eidk b2a 2 :D', 5, '2015-04-26 12:10:22'),
+(4, 'a new task has been made by doctorbahaa', 1, '2015-04-26 16:11:24'),
+(5, 'a new task has been made by doctorbahaa', 1, '2015-04-26 16:12:09'),
+(6, 'a new task has been made by doctor bahaa', 1, '2015-04-26 16:22:12'),
+(7, 'a new task has been made by doctor bahaa', 1, '2015-04-26 16:23:12'),
+(8, 'a new task has been made by doctor bahaa', 1, '2015-04-26 16:25:36'),
+(9, 'a new task has been made by doctor bahaa', 1, '2015-04-26 16:28:52');
 
 -- --------------------------------------------------------
 
@@ -264,7 +279,75 @@ CREATE TABLE IF NOT EXISTS `notifications_users` (
   `user_id` int(11) NOT NULL,
   `seen` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
+
+--
+-- Dumping data for table `notifications_users`
+--
+
+INSERT INTO `notifications_users` (`id`, `notification_id`, `user_id`, `seen`) VALUES
+(1, 2, 4, 0),
+(2, 2, 90, 0),
+(3, 2, 5, 0),
+(4, 2, 6, 0),
+(5, 2, 7, 0),
+(6, 2, 8, 0),
+(7, 2, 9, 0),
+(8, 3, 4, 0),
+(9, 3, 90, 0),
+(10, 3, 5, 0),
+(11, 3, 6, 0),
+(12, 3, 7, 0),
+(13, 3, 8, 0),
+(14, 3, 9, 0),
+(15, 4, 0, 0),
+(16, 4, 0, 0),
+(17, 5, 0, 0),
+(18, 5, 0, 0),
+(19, 5, 0, 0),
+(20, 5, 0, 0),
+(21, 5, 0, 0),
+(22, 5, 0, 0),
+(23, 5, 0, 0),
+(24, 5, 0, 0),
+(25, 5, 0, 0),
+(26, 5, 0, 0),
+(27, 5, 0, 0),
+(28, 6, 0, 0),
+(29, 6, 0, 0),
+(30, 7, 0, 0),
+(31, 7, 0, 0),
+(32, 7, 0, 0),
+(33, 7, 0, 0),
+(34, 7, 0, 0),
+(35, 7, 0, 0),
+(36, 7, 0, 0),
+(37, 7, 0, 0),
+(38, 7, 0, 0),
+(39, 7, 0, 0),
+(40, 7, 0, 0),
+(41, 8, 0, 0),
+(42, 8, 0, 0),
+(43, 8, 0, 0),
+(44, 8, 0, 0),
+(45, 8, 0, 0),
+(46, 8, 0, 0),
+(47, 8, 0, 0),
+(48, 8, 0, 0),
+(49, 8, 0, 0),
+(50, 8, 0, 0),
+(51, 8, 0, 0),
+(52, 9, 3, 0),
+(53, 9, 7, 0),
+(54, 9, 8, 0),
+(55, 9, 9, 0),
+(56, 9, 10, 0),
+(57, 9, 11, 0),
+(58, 9, 12, 0),
+(59, 9, 13, 0),
+(60, 9, 14, 0),
+(61, 9, 15, 0),
+(62, 9, 16, 0);
 
 -- --------------------------------------------------------
 
@@ -323,14 +406,17 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `image` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `slider`
 --
 
 INSERT INTO `slider` (`id`, `image`) VALUES
-(12, 'dfrlka6q308hxzj.jpg');
+(12, 'dfrlka6q308hxzj.jpg'),
+(13, '2hzb3okmejyvg7p.jpg'),
+(14, '63ne7m2hsy98dxo.jpg'),
+(15, 'bm315j9nohqcegf.jpg');
 
 -- --------------------------------------------------------
 
@@ -360,6 +446,41 @@ INSERT INTO `staff` (`id`, `name`, `image`, `title`, `description`, `facebook`, 
 (1, 'bahaa', 'm0ergcaions45zv.jpg', 'doctor', 'jfbvkdfjbj', 'bjksfbvjkdfbv', 'alaaelgndy21@yahoo.com', 'bahaa', '8684810b776fc842d58d9fdf7bef82490434ce9b', 2),
 (2, 'adham', 'klqtgh8sbnxp30u.jpg', 'domenestor', 'kvhjhfhf', 'jhfjhfhgfhg', 'adham@yahoo.com', 'adham', '86b2a01d075b44052b51bd0e6c1cf31afc2a4092', 1),
 (3, 'Ø¨ÙŠØ¨', '0', 'domenestor', '0', '0', '0', 'ÙŠØ¨ÙŠØ¨', 'f25ded3d4e488ea9529e4db08c0567c8720900fe', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE IF NOT EXISTS `students` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(500) NOT NULL,
+  `year` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `name`, `year`) VALUES
+(1, 'ahmed samy', 1),
+(2, 'alaa gendy', 2),
+(3, 'nehad samy', 4),
+(4, 'amira gendy', 2),
+(5, 'sherif ali', 1),
+(6, 'ziad gendy', 3),
+(7, 'demoksy', 4),
+(8, 'moahmed zidan', 4),
+(9, 'hmad', 4),
+(10, 'bhaa ', 4),
+(11, 'mousa', 4),
+(12, 'ali zidan', 4),
+(13, 'glal', 4),
+(14, 'ablnaser ', 4),
+(15, 'ali', 4),
+(16, 'ziad shabory', 4);
 
 -- --------------------------------------------------------
 
@@ -474,13 +595,43 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `task_content` text NOT NULL,
   `ex_date` date NOT NULL,
   `subject_id` int(11) NOT NULL,
-  `doctor_id` int(11) NOT NULL,
+  `made_by` int(11) NOT NULL,
   `department_id` int(11) NOT NULL,
   `term` int(11) NOT NULL,
   `file_exist` tinyint(4) NOT NULL,
   `created_at` date NOT NULL,
+  `year` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `task_title`, `task_content`, `ex_date`, `subject_id`, `made_by`, `department_id`, `term`, `file_exist`, `created_at`, `year`) VALUES
+(1, 'task title', 'sfjsgjkdlf%3Cbr%3Edfgdfkgjdf%3Cbr%3Egdfkgjdfkgjdfg%3Cbr%3Efgkdfjgldjfl', '2015-04-08', 7, 1, 5, 1, 0, '2015-04-30', 0),
+(2, 'fksdf;lk', 'sdfsdf', '2015-04-30', 1, 1, 3, 1, 0, '2015-04-26', 0),
+(3, '', '', '2015-04-30', 1, 1, 3, 1, 0, '2015-04-26', 0),
+(4, 'task title', 'content', '2015-04-29', 1, 1, 3, 1, 0, '2015-04-26', 0),
+(6, 'task title', 'content', '2015-04-29', 1, 1, 3, 1, 1, '2015-04-26', 0),
+(7, 'task title', 'content', '2015-04-29', 1, 1, 3, 1, 1, '2015-04-26', 0),
+(8, 'task title', '', '2015-04-29', 1, 1, 3, 1, 1, '2015-04-26', 0),
+(9, 'task title', '', '2015-04-29', 1, 1, 3, 1, 1, '2015-04-26', 0),
+(10, 'task title', '', '2015-04-29', 1, 1, 3, 1, 1, '2015-04-26', 0),
+(12, 'task title', 'just%2055555555', '2015-04-30', 1, 1, 3, 1, 0, '2015-04-26', 0),
+(13, 'task title', 'jkjk', '2015-04-30', 1, 1, 3, 1, 1, '2015-04-26', 1),
+(14, 'task title', 'jkjk', '2015-04-30', 1, 1, 3, 1, 1, '2015-04-26', 1),
+(16, 'task title', 'jkjk', '2015-04-30', 1, 1, 3, 1, 1, '2015-04-26', 1),
+(17, 'task title', 'jkjk', '2015-04-30', 1, 1, 3, 1, 1, '2015-04-26', 1),
+(18, 'task title', 'jkjk', '2015-04-30', 1, 1, 3, 1, 1, '2015-04-26', 4),
+(19, 'task title', 'jkjk', '2015-04-30', 1, 1, 3, 1, 1, '2015-04-26', 2),
+(20, 'Ø³ÙŠØ¨', '%D8%B3%D9%8A%D8%A8%D8%B3%D9%8A%D8%A8', '2015-04-30', 1, 1, 3, 1, 0, '2015-04-26', 4),
+(21, 'Ø³ÙŠØ¨', 'boooooooooooooooo', '2015-04-30', 1, 1, 3, 1, 0, '2015-04-26', 4),
+(22, 'Ø³ÙŠØ¨', 'boooooooooooooooo', '2015-04-30', 1, 1, 3, 1, 0, '2015-04-26', 4),
+(23, 'Ø³ÙŠØ¨', 'boooooooooooooooo', '2015-04-30', 1, 1, 3, 1, 0, '2015-04-26', 2),
+(24, 'Ø³ÙŠØ¨', 'boooooooooooooooo', '2015-04-30', 1, 1, 3, 1, 0, '2015-04-26', 2),
+(25, 'Ø³ÙŠØ¨', 'boooooooooooooooo', '2015-04-30', 1, 1, 3, 1, 0, '2015-04-26', 2),
+(26, 'Ø³ÙŠØ¨', 'boooooooooooooooo565', '2015-04-30', 1, 1, 3, 1, 0, '2015-04-26', 4);
 
 -- --------------------------------------------------------
 
@@ -520,7 +671,25 @@ CREATE TABLE IF NOT EXISTS `tasks_files` (
   `task_id` int(11) NOT NULL,
   `file` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+
+--
+-- Dumping data for table `tasks_files`
+--
+
+INSERT INTO `tasks_files` (`id`, `task_id`, `file`) VALUES
+(1, 6, 'tveez-classes.zip'),
+(2, 7, '335f077010cedd2742c0a820de0b6c9a_tveez-classes.zip'),
+(3, 7, 'My_CV.pdf'),
+(4, 8, 'a83b85a0f5c64b8d7061b052c280a5f3_tveez-classes.zip'),
+(5, 9, '931c828d12475ad911717eceff21209e_tveez-classes.zip'),
+(6, 10, 'd049f595434de7ef4698daeb8988024d_tveez-classes.zip'),
+(7, 13, '1365c1860b143ffd3c0499c7899fe635_tveez-classes.zip'),
+(8, 14, '5259e40e38d954919e3bc7466e029486_tveez-classes.zip'),
+(10, 16, 'a4d557c779fbb66efe3075d69736f08c_tveez-classes.zip'),
+(11, 17, '66d404022813be084a4ef42f90c5267d_tveez-classes.zip'),
+(12, 18, '8aad364e901c79c1f9b898e35cc6b2b6_tveez-classes.zip'),
+(13, 19, '698e75d161621668ba42d563c84ac092_tveez-classes.zip');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
