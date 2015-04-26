@@ -97,7 +97,7 @@ require 'sidebar.php';
       </tbody></table>
     </div><!-- /.box-body -->
   </div><!-- /.box -->
-  <a href="lastexam.php"> <button class="btn btn-success btn-lg">insert new exam</button></a>
+  <a href="lastexam.php"> <button class="btn btn-success btn-lg">add new exam</button></a>
 
 </div>
 </div>

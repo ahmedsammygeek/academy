@@ -8,7 +8,7 @@ require 'sidebar.php';
       <div class="box">
         <div class="box-header">
 
-          <h3 class="box-title">slider in database</h3>
+          <h3 class="box-title">about us</h3>
 
         </div><!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
@@ -106,7 +106,7 @@ require 'sidebar.php';
        </tbody></table>
      </div><!-- /.box-body -->
    </div><!-- /.box -->
-   <a href="about.php"> <button class="btn btn-success btn-lg">insert new slide</button></a>
+   <a href="about.php"> <button class="btn btn-success btn-lg">add to about us </button></a>
 
  </div>
 </div>

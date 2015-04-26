@@ -60,7 +60,7 @@
 
 
                 ?>
-                <a href="showslider.php"> <button class="btn btn-primary" >gellery of sliders</button></a>
+                <a href="showslider.php"> <button class="btn btn-primary" >sliders</button></a>
 
                 <form role="form" action="addslider.php" method="post" enctype="multipart/form-data" ><br>
                     <div class="box-body">

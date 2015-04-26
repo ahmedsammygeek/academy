@@ -80,16 +80,46 @@
             
             echo '<img src="image/'.$table_image.'"><h3>'.$table_image.'</h3>'  ; ?>
           </div>
-          
-        </div>
-        <div class="box-footer">
-          <button type="submit" name="submit" class="btn btn-primary">update table</button>
-        </div>
-      </div><!-- /.box-body -->
+          <div class="form-group">
+            <label for="exampleInputPassword1">year  :</label>
+            <div class="btn-group">
+              <select name="year" id="" class="btn btn-default dropdown-toggle">
+               <option value="1">class 1</option>
+               <option value="2">class 2</option>
+               <option value="3">class 3</option>
+               <option value="4">class 4</option>
+             </select>
+           </div>
+         </div>
+
+         <div class="form-group">
+          <label for="exampleInputPassword1">department :</label>
+          <div class="btn-group">
+            <select name="department" id="" class="btn btn-default dropdown-toggle">
+             <?php 
+                                   //connection with db(met)
+             $sql="SELECT * FROM departments";
+             $query=$conn->query($sql);
+             while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
+               extract($result);
+               echo "<option value='$id'>$name</option>";
+
+             }
+
+             ?>
+           </select>
+         </div>
+       </div>
+       
+     </div>
+     <div class="box-footer">
+      <button type="submit" name="submit" class="btn btn-primary">update table</button>
+    </div>
+  </div><!-- /.box-body -->
 
 
-    </form>
-  </div><!-- /.box -->
+</form>
+</div><!-- /.box -->
 
 
 </div><!--/.col (right) -->

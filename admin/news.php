@@ -61,7 +61,7 @@
 
 
                 ?>
-                <a href="shownews.php"> <button class="btn btn-primary" >gellery of news</button></a>
+                <a href="shownews.php"> <button class="btn btn-primary" >news</button></a>
 
                 <form role="form" action="addnews.php" method="post" enctype="multipart/form-data" >
                     <div class="box-body">

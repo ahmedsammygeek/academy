@@ -61,7 +61,7 @@
 
 
         ?>
-        <a href="showstaff.php"> <button class="btn btn-primary" >gellery of staff</button></a>
+        <a href="showstaff.php"> <button class="btn btn-primary" >staff</button></a>
 
 
         <form role="form" action="addstaff.php" method="post" enctype="multipart/form-data" ><br>
@@ -83,22 +83,6 @@
            <div>
               <label for="exampleInputEmail1">name</label>
               <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter name of doctor or domenestor">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">image</label>
-              <input type="file" name="file" class="form-control" name="file" id="exampleInputPassword1" >
-            </div>
-            <div>
-              <label for="exampleInputEmail1">description</label>
-              <textarea type="text" name="description" class="form-control" id="exampleInputEmail1" placeholder="Enter description"></textarea>
-            </div>
-            <div>
-              <label for="exampleInputEmail1">facebook</label>
-              <input type="text" name="facebook" class="form-control" id="exampleInputEmail1" placeholder="Enter facebook">
-            </div>
-            <div>
-              <label for="exampleInputEmail1">email</label>
-              <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
             </div>
             <div>
               <label for="exampleInputEmail1">username</label>

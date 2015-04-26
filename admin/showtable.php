@@ -96,7 +96,7 @@ require 'sidebar.php';
        </tbody></table>
      </div><!-- /.box-body -->
    </div><!-- /.box -->
-   <a href="table.php"> <button class="btn btn-success btn-lg">insert new table</button></a>
+   <a href="table.php"> <button class="btn btn-success btn-lg">add new table</button></a>
 
  </div>
 </div>

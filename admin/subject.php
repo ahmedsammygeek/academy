@@ -46,15 +46,14 @@
             break;
 
             default:
-                                            # code...
 
-                        break;
-                    }
-                }
+            break;
+          }
+        }
 
 
-                ?>
-        <a href="showsubject.php"> <button class="btn btn-primary" >gellery of subjects</button></a>
+        ?>
+        <a href="showsubject.php"> <button class="btn btn-primary" >subjects</button></a>
 
 
         <form role="form" action="addsubject.php" method="post" enctype="multipart/form-data" ><br>
@@ -74,7 +73,7 @@
                  <?php 
 
                                    //connection with db(met)
-                 $sql="SELECT * FROM staff WHERE type=0";
+                 $sql="SELECT * FROM staff WHERE type=2";
                  $query=$conn->query($sql);
                  while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
                    extract($result);

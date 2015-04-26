@@ -36,7 +36,7 @@
 
 
              ?>
-             <a href="showsubject.php"> <button class="btn btn-primary" >gellery of subjects</button></a>
+             <a href="showsubject.php"> <button class="btn btn-primary" >subjects</button></a>
 
              <form role="form" action="updatesubject.php<?php echo "?id=$id"; ?>" method="post" enctype="multipart/form-data" ><br>
                 <div class="box-body">
@@ -81,7 +81,7 @@
                              <?php 
                                    //connection with db(met)
                              include 'connection.php';
-                             $sql="SELECT * FROM staff WHERE type=0";
+                             $sql="SELECT * FROM staff WHERE type=2";
                              $query=$conn->query($sql);
                              while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
                                extract($result);

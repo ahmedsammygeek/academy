@@ -325,7 +325,7 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="showslider.php"><i class="fa fa-angle-double-right"></i> slider gellery</a></li>
+                                <li><a href="showslider.php"><i class="fa fa-angle-double-right"></i> sliders </a></li>
                                 <li><a href="slider.php"><i class="fa fa-angle-double-right"></i> add slider</a></li>
                                 <li><a href="../index.php"><i class="fa fa-angle-double-right"></i> slider in website</a></li>
                             </ul>
@@ -351,7 +351,6 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                             <ul class="treeview-menu">
                                 <li><a href="showquestion.php"><i class="fa fa-angle-double-right"></i> questions</a></li>
                                 <li><a href="question.php"><i class="fa fa-angle-double-right"></i>add question</a></li>
-                                <li><a href="../news.php"><i class="fa fa-angle-double-right"></i>question in website</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -361,9 +360,8 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="showdepartment.php"><i class="fa fa-angle-double-right"></i> departments gellery</a></li>
+                                <li><a href="showdepartment.php"><i class="fa fa-angle-double-right"></i> departments</a></li>
                                 <li><a href="department.php"><i class="fa fa-angle-double-right"></i>add new department</a></li>
-                                <li><a href="../department.php"><i class="fa fa-angle-double-right"></i>departments in website</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -373,7 +371,7 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="showsubject.php"><i class="fa fa-angle-double-right"></i> subjects gellery</a></li>
+                                <li><a href="showsubject.php"><i class="fa fa-angle-double-right"></i> subjects</a></li>
                                 <li><a href="subject.php"><i class="fa fa-angle-double-right"></i>add to subjects</a></li>
                                 
                             </ul>
@@ -385,7 +383,7 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="shownews.php"><i class="fa fa-angle-double-right"></i>news gellery</a></li>
+                                <li><a href="shownews.php"><i class="fa fa-angle-double-right"></i>news</a></li>
                                 <li><a href="news.php"><i class="fa fa-angle-double-right"></i>add news</a></li>
                                 <li><a href="../blog.php"><i class="fa fa-angle-double-right"></i>our news in website</a></li>
                             </ul>
@@ -397,7 +395,7 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="showtable.php"><i class="fa fa-angle-double-right"></i>tables gellery</a></li>
+                                <li><a href="showtable.php"><i class="fa fa-angle-double-right"></i>tables </a></li>
                                 <li><a href="table.php"><i class="fa fa-angle-double-right"></i>add table</a></li>
                             </ul>
                         </li>
@@ -408,7 +406,7 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="showstaff.php"><i class="fa fa-angle-double-right"></i>staff gellery</a></li>
+                                <li><a href="showstaff.php"><i class="fa fa-angle-double-right"></i>staff</a></li>
                                 <li><a href="staff.php"><i class="fa fa-angle-double-right"></i>add to staff</a></li>
                             </ul>
                         </li>
@@ -419,8 +417,8 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="showlastexam.php"><i class="fa fa-angle-double-right"></i>last tasks gellery</a></li>
-                                <li><a href="lastexam.php"><i class="fa fa-angle-double-right"></i>add table</a></li>
+                                <li><a href="showlastexam.php"><i class="fa fa-angle-double-right"></i>last tasks </a></li>
+                                <li><a href="lastexam.php"><i class="fa fa-angle-double-right"></i>add last task</a></li>
                             </ul>
                         </li>
                         

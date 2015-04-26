@@ -11,7 +11,7 @@ require 'sidebar.php';
       <div class="box">
         <div class="box-header">
 
-          <h3 class="box-title">subjects in database</h3>
+          <h3 class="box-title">staff</h3>
 
         </div><!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
@@ -128,7 +128,7 @@ require 'sidebar.php';
               </div>
             </div><!-- /.box-body -->
           </div><!-- /.box -->
-          <a href="staff.php"> <button class="btn btn-success btn-lg">insert new data</button></a>
+          <a href="staff.php"> <button class="btn btn-success btn-lg">add to staff</button></a>
 
         </div>
       </div>

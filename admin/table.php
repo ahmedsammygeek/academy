@@ -54,7 +54,7 @@
 
 
         ?>
-        <a href="showtable.php"> <button class="btn btn-primary" >gellery of tables</button></a>
+        <a href="showtable.php"> <button class="btn btn-primary" >tables</button></a>
 
 
         <form role="form" action="addtable.php" method="post" enctype="multipart/form-data" ><br>

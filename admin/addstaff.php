@@ -4,12 +4,11 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
 	header('location: login.php'); die();
 }
 	//validate data recived
-$args=array('staff_type'=>FILTER_SANITIZE_STRING,'name'=>FILTER_SANITIZE_STRING,'description'=>FILTER_SANITIZE_STRING,
-	'facebook'=>FILTER_SANITIZE_STRING,'email'=>FILTER_VALIDATE_EMAIL,'username'=>FILTER_SANITIZE_STRING,'password'=>FILTER_SANITIZE_STRING);
+$args=array('staff_type'=>FILTER_SANITIZE_STRING,'name'=>FILTER_SANITIZE_STRING,'username'=>FILTER_SANITIZE_STRING,'password'=>FILTER_SANITIZE_STRING);
 $img_name=$_FILES['file']['name'];
 $inputs=filter_input_array(INPUT_POST,$args);
 foreach ($inputs as $key_input => $input_value) {
-	if (empty($input_value) || empty($img_name)) {
+	if (empty($_POST['name']) || empty($_POST['username']) || empty($_POST['password']) ) {
 		header('location: staff.php?msg=empty_data'); die();
 	}
 }
@@ -26,36 +25,16 @@ else
 {
 	$title="doctor";
 }
-// var_dump($type);die();
-require '../classes/filevalidate.php';
-if (!validation($img_name,array('jpg','png','jpeg'))) {
-	/* function return false */ 
-	header("location: staff.php?msg=error_data");die();
-}
-
-	//function used to know file type
-require '../classes/filetype.php';
-$img_type=get_type($img_name);
-$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
-$img_name=$randomstring.".$img_type" ;
-$up=move_uploaded_file($_FILES['file']['tmp_name'], 'image/'.$img_name);
-if (!$up) {
-	header("location: staff.php?msg=no_uploaded");die();
-}
-
-
-
-
 
 //connection with db (met)
 include 'connection.php';
 $query=$conn->prepare("INSERT INTO staff VALUES ('',?,?,?,?,?,?,?,?,?) ");
 $query->bindValue(1,$name,PDO::PARAM_STR);
-$query->bindValue(2,$img_name,PDO::PARAM_STR);
+$query->bindValue(2,0,PDO::PARAM_STR);
 $query->bindValue(3,$title,PDO::PARAM_STR);
-$query->bindValue(4,$description,PDO::PARAM_STR);
-$query->bindValue(5,$facebook,PDO::PARAM_STR);
-$query->bindValue(6,$email,PDO::PARAM_STR);
+$query->bindValue(4,0,PDO::PARAM_STR);
+$query->bindValue(5,0,PDO::PARAM_STR);
+$query->bindValue(6,0,PDO::PARAM_STR);
 $query->bindValue(7,$username,PDO::PARAM_STR);
 $query->bindValue(8,$password,PDO::PARAM_STR);
 $query->bindValue(9,$staff_type,PDO::PARAM_STR);

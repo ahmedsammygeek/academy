@@ -54,7 +54,7 @@
 
 
         ?>
-        <a href="showlastexam.php"> <button class="btn btn-primary" >gellery of last exams</button></a>
+        <a href="showlastexam.php"> <button class="btn btn-primary" >last exams</button></a>
 
 
         <form role="form" action="addlastexam.php" method="post" enctype="multipart/form-data" ><br>

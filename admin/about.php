@@ -83,7 +83,7 @@ require 'sidebar.php';
 					</div><!-- /.box-body -->
 
 					<div class="box-footer">
-						<button type="submit" name="submit" class="btn btn-primary">add slide</button>
+						<button type="submit" name="submit" class="btn btn-primary">add to about us</button>
 					</div>
 				</form>
 			</div><!-- /.box -->
