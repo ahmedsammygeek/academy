@@ -59,6 +59,7 @@ require 'sidebar.php';
 										<th>content</th>
 										<th>date & time</th>
 										<th>option</th>
+										<th>WATCHED</th>
 									</tr>
 									<?php 
 									require 'connection.php';
@@ -67,13 +68,16 @@ require 'sidebar.php';
 									$i=1;
 									while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
 										extract($result);
+										$contant = substr($contant, 0,20);
 										echo "<tr>
 										<td>$i</td>
 										<td>$name</td>
 										<td>$email</td>
 										<td>$contant</td>
 										<td>$time</td>
-										<td><a href='deletemessage.php?id=$id' class='btn btn-danger btn-sm'>DELETE</a></td>
+										<td><a href='deletemessage.php?id=$id' class='btn btn-danger btn-sm'>DELETE</a>
+										<a href='viewmessage.php?id=$id' class='btn btn-primary btn-sm'>VIEW</a></td>
+										<td>$viewed</td>
 										</tr>";
 										$i++;
 									}
