@@ -34,5 +34,27 @@ function is_valid_type($ex , $valid= array('pdf','doc' , 'ppt' , 'pptx' , 'docx'
 	return FALSE;
 }
 
+/**
+ * it's a function which get the lecture files
+ * @param  int     $id        the lecutre id 
+ * @param  boolean $has_files dereminte if the lecutre have fiies or not
+ * @return html with pathes   [description]
+ */
+function get_lecture_files($id , $has_files)
+{
+    global $conn ;
+    $output= '';
+    $files = $conn->prepare("SELECT * FROM  lectures_files WHERE lecture_id = ?");
+    $files->bindValue(1,$id, PDO::PARAM_INT);
+    $files->execute();
+
+    while ($file = $files->fetch(PDO::FETCH_OBJ)) {
+        $output .= '<li><a href="download.php?id='.$file->id.'">'.$file->file.'</a></li>'; 
+    }
+
+    return $output;
+
+
+}
 
  ?>
