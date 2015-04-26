@@ -8,7 +8,7 @@
  <!-- Content Header (Page header) -->
  <section class="content-header">
   <h1>
-    add new table
+    add new schdule
   </h1>
 
 </section>
@@ -21,7 +21,7 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header">
-          <h3 class="box-title">enter data of table</h3>
+          <h3 class="box-title">enter data of schdule</h3>
         </div><!-- /.box-header -->
         <!-- form start -->
         <?php 
@@ -54,7 +54,7 @@
 
 
         ?>
-        <a href="showtable.php"> <button class="btn btn-primary" >tables</button></a>
+        <a href="showtable.php"> <button class="btn btn-primary" >schdules</button></a>
 
 
         <form role="form" action="addtable.php" method="post" enctype="multipart/form-data" ><br>
@@ -96,7 +96,7 @@
          </div>
        </div>
        <div class="box-footer">
-        <button type="submit" name="submit" class="btn btn-primary">add table</button>
+        <button type="submit" name="submit" class="btn btn-primary">add schdule</button>
       </div>
     </div><!-- /.box-body -->
 

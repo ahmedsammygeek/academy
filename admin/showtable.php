@@ -11,7 +11,7 @@ require 'sidebar.php';
       <div class="box">
         <div class="box-header">
 
-          <h3 class="box-title">tables</h3>
+          <h3 class="box-title">schdules</h3>
 
         </div><!-- /.box-header -->
         <div class="box-body table-responsive no-padding">
@@ -96,7 +96,7 @@ require 'sidebar.php';
        </tbody></table>
      </div><!-- /.box-body -->
    </div><!-- /.box -->
-   <a href="table.php"> <button class="btn btn-success btn-lg">add new table</button></a>
+   <a href="table.php"> <button class="btn btn-success btn-lg">add new schdule</button></a>
 
  </div>
 </div>

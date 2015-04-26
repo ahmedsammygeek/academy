@@ -8,7 +8,7 @@
  <!-- Content Header (Page header) -->
  <section class="content-header">
   <h1>
-    update this table
+    update this schdule
   </h1>
 
 </section>
@@ -21,7 +21,7 @@
       <!-- general form elements -->
       <div class="box box-primary">
         <div class="box-header">
-          <h3 class="box-title">enter new data of table</h3>
+          <h3 class="box-title">enter new data of schdule</h3>
         </div><!-- /.box-header -->
         <!-- form start -->
         <?php
@@ -35,7 +35,7 @@
         extract($result); 
         
         ?>
-        <a href="showtable.php"> <button class="btn btn-primary" >gellery of tables</button></a>
+        <a href="showtable.php"> <button class="btn btn-primary" >schdules</button></a>
 
 
         <form role="form" action="updatetable.php<?php echo "?id=$id&&img=$table_image"; ?>" method="post" enctype="multipart/form-data" ><br>
@@ -73,9 +73,9 @@
            ?>
 
            <div class="form-group">
-            <label for="exampleInputFile">update table</label>
+            <label for="exampleInputFile">update schdule</label>
             <input type="file" name="file" id="exampleInputFile">
-            <p class="help-block">click to choose another table</p>
+            <p class="help-block">click to choose another schdule</p>
             <?php
             
             echo '<img src="image/'.$table_image.'"><h3>'.$table_image.'</h3>'  ; ?>
@@ -113,7 +113,7 @@
        
      </div>
      <div class="box-footer">
-      <button type="submit" name="submit" class="btn btn-primary">update table</button>
+      <button type="submit" name="submit" class="btn btn-primary">update</button>
     </div>
   </div><!-- /.box-body -->
 

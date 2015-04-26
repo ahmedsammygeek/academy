@@ -391,12 +391,12 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                          <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-bar-chart-o"></i>
-                                <span>tables</span>
+                                <span>schedule</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="showtable.php"><i class="fa fa-angle-double-right"></i>tables </a></li>
-                                <li><a href="table.php"><i class="fa fa-angle-double-right"></i>add table</a></li>
+                                <li><a href="showtable.php"><i class="fa fa-angle-double-right"></i>schdules </a></li>
+                                <li><a href="table.php"><i class="fa fa-angle-double-right"></i>add schdule</a></li>
                             </ul>
                         </li>
                          <li class="treeview">
