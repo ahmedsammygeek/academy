@@ -11,7 +11,7 @@ require 'sidebar.php';
       <div class="box">
         <div class="box-header">
 
-          <h3 class="box-title">slider in database</h3><br><br><br>
+          <h3 class="box-title">sliders</h3><br><br><br>
           <a href="slider.php"> <button class="btn btn-success btn-lg">add new slide</button></a>
 
 

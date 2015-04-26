@@ -7,6 +7,8 @@ if (isset($_GET['id'])) {
 	$img=$_GET['img'];
 	$id=$_GET['id'];
 }	
+$department=$_POST['department'];
+$year=$_POST['year'];
 if (empty($_FILES['file']['name'])) {
 	$img_name=$img;	
 }
@@ -32,7 +34,7 @@ else{
 	$up=move_uploaded_file($_FILES['file']['tmp_name'] , 'image/'.$img_name);
 }
 require 'connection.php';
-$sql="UPDATE tables SET table_image='$img_name' WHERE id=$id ";
+$sql="UPDATE tables SET table_image='$img_name',year_id='$year',department_id='$department' WHERE id=$id ";
 $query=$conn->prepare($sql);
 if ($query->execute()) {
 	header("location: showtable.php?id=$id&msg=data_updated"); die();

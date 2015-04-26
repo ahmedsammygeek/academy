@@ -11,7 +11,7 @@ require 'sidebar.php';
       <div class="box">
         <div class="box-header">
 
-          <h3 class="box-title">news in database</h3><br><br><br>
+          <h3 class="box-title">news</h3><br><br><br>
           <a href="news.php"> <button class="btn btn-success btn-lg">add new news</button></a>
 
 
