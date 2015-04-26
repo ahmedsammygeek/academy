@@ -77,18 +77,33 @@ function check_if_exists($data , $col , $table)
 
     return false;
 }
-function send_notefication($id,$content,array())
+function send_notification($id,$content,$send_to=array())
 {
     global $conn ;
     $time=date("Y-m-d & H:i:s");
-    $query=$conn->prepare("INSERT INTO notifications VALUES('',?,?,?) ");
-    $query->bindValue(1,$content,PDO::PARAM_STR);
-    $query->bindValue(2,$id,PDO::PARAM_INT);
-    $query->bindValue(3,$time,PDO::PARAM_INT);
-    if ($query->execute()) {
-        return true;
-    }
-    return false;
+    $conn->beginTransaction();
+    try {
+     $query=$conn->prepare("INSERT INTO notifications VALUES('',?,?,?) ");
+     $query->bindValue(1,$content,PDO::PARAM_STR);
+     $query->bindValue(2,$id,PDO::PARAM_INT);
+     $query->bindValue(3,$time,PDO::PARAM_INT);
+     $inserted_id= $conn->lastInsertId();
+     if ($query->execute()) {
+        foreach ($send_to as $key => $value) {
+           $query2=$conn->prepare("INSERT INTO notifications_users VALUES('',?,?,?) ");
+           $query2->bindValue(1,$inserted_id,PDO::PARAM_INT);
+           $query2->bindValue(2,$value,PDO::PARAM_INT);
+           $query2->bindValue(3,0,PDO::PARAM_INT);
+           if ($query2->execute()) {
+               return true;
+           }
+           return false;
+       }
+   }
+} catch (Exception $e) {
+    $conn->rollBack();
+    echo $e->getMessage();
+}
 }
 
- ?>
+?>
