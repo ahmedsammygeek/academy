@@ -30,12 +30,8 @@ if (isset($_POST['submit'])) {
 	$newName= time() . '_';
 	$img=new ImageManipulator($_FILES['file']['tmp_name']);
 	//resize image
-<<<<<<< HEAD
-	//
-	$newimg=$img->resample(412 , 20);
-=======
+
 	$newimg=$img->resample(1220,300);
->>>>>>> 8fbdeb5f71d27130c6ed20b3eae960a6694f60f3
 	//put image in file "image"
 	$img->save('image/'.$img_name);
 	include 'connection.php';
