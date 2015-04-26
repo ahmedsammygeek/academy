@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2015 at 11:09 PM
+-- Generation Time: Apr 26, 2015 at 12:00 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `last_exams` (
   `exam_file` text NOT NULL,
   `subject_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `last_exams`
@@ -140,7 +140,8 @@ INSERT INTO `last_exams` (`id`, `department_id`, `year`, `term`, `exam_file`, `s
 (8, 3, 1, 1, 'q13y4uwmlskt57b.html', 1),
 (9, 3, 1, 1, 'ayac.html', 1),
 (10, 3, 1, 1, 'ayac.html', 1),
-(11, 3, 1, 1, 'ayac.html', 1);
+(11, 3, 1, 1, 'ayac.html', 1),
+(12, 3, 1, 1, '6ul1kj0fz8xptc4.png', 1);
 
 -- --------------------------------------------------------
 
@@ -211,8 +212,8 @@ CREATE TABLE IF NOT EXISTS `messages` (
 --
 
 INSERT INTO `messages` (`id`, `name`, `email`, `contant`, `time`, `viewed`) VALUES
-(11, 'alaa', 'alaaelgndy21@yahoo.com', 'kdchkdscsd', '0000-00-00 00:00:00', ''),
-(12, 'bahaa', 'bedo_bedo2014@yahoo.com', 'ibhveeiutvuibtruibvtruibrtvuibtrui', '0000-00-00 00:00:00', '');
+(11, 'alaa', 'alaaelgndy21@yahoo.com', 'kdchkdscsd', '0000-00-00 00:00:00', 'watched'),
+(12, 'bahaa', 'bedo_bedo2014@yahoo.com', 'ibhveeiutvuibtruibvtruibrtvuibtrui', '0000-00-00 00:00:00', 'watched');
 
 -- --------------------------------------------------------
 
@@ -227,14 +228,43 @@ CREATE TABLE IF NOT EXISTS `news` (
   `image` text NOT NULL,
   `date` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `title`, `content`, `image`, `date`) VALUES
-(1, 'lkdnfjdb', 'fdlkvbdjfbvdjkf', 'f2j67smrgl584qd.jpg', 'Apr 24 2015');
+(1, 'lkdnfjdb', 'fdlkvbdjfbvdjkf', 'f2j67smrgl584qd.jpg', 'Apr 24 2015'),
+(2, 'ÙÙ‡ÙÙ…ÙŠØ³Ø¨Ø³', 'Ø³ÙŠØ¨ÙŠØ³Ø¨ÙŠØ³Ù†Ù…', 'zip81vhn3f6gjsm.jpg', 'Apr 24 2015');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE IF NOT EXISTS `notifications` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `content` text NOT NULL,
+  `made_by` int(11) NOT NULL,
+  `date` timestamp NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications_users`
+--
+
+CREATE TABLE IF NOT EXISTS `notifications_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `notification_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `seen` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -254,7 +284,6 @@ CREATE TABLE IF NOT EXISTS `questions` (
 --
 
 INSERT INTO `questions` (`id`, `question`, `answer`) VALUES
-(2, 'what is your nameeeeeeeeeee?', 'my name is alaa elgndy'),
 (3, 'how are you ?', 'fine el7 :D');
 
 -- --------------------------------------------------------
@@ -321,15 +350,16 @@ CREATE TABLE IF NOT EXISTS `staff` (
   `password` varchar(40) NOT NULL,
   `type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `staff`
 --
 
 INSERT INTO `staff` (`id`, `name`, `image`, `title`, `description`, `facebook`, `email`, `username`, `password`, `type`) VALUES
-(1, 'bahaa', 'm0ergcaions45zv.jpg', 'doctor', 'jfbvkdfjbj', 'bjksfbvjkdfbv', 'alaaelgndy21@yahoo.com', 'bahaa', 'bahaa', 2),
-(2, 'adham', 'klqtgh8sbnxp30u.jpg', 'domenestor', 'kvhjhfhf', 'jhfjhfhgfhg', 'adham@yahoo.com', 'adham', '86b2a01d075b44052b51bd0e6c1cf31afc2a4092', 1);
+(1, 'bahaa', 'm0ergcaions45zv.jpg', 'doctor', 'jfbvkdfjbj', 'bjksfbvjkdfbv', 'alaaelgndy21@yahoo.com', 'bahaa', '8684810b776fc842d58d9fdf7bef82490434ce9b', 2),
+(2, 'adham', 'klqtgh8sbnxp30u.jpg', 'domenestor', 'kvhjhfhf', 'jhfjhfhgfhg', 'adham@yahoo.com', 'adham', '86b2a01d075b44052b51bd0e6c1cf31afc2a4092', 1),
+(3, 'Ø¨ÙŠØ¨', '0', 'domenestor', '0', '0', '0', 'ÙŠØ¨ÙŠØ¨', 'f25ded3d4e488ea9529e4db08c0567c8720900fe', 1);
 
 -- --------------------------------------------------------
 
@@ -344,9 +374,18 @@ CREATE TABLE IF NOT EXISTS `student_questions` (
   `content` text NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '0',
   `answered` tinyint(4) NOT NULL DEFAULT '0',
-  `date` date NOT NULL,
+  `q_date` timestamp NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `student_questions`
+--
+
+INSERT INTO `student_questions` (`id`, `student_id`, `subject_id`, `content`, `status`, `answered`, `q_date`) VALUES
+(1, 3, 1, 'sdfsdfsdf', 0, 0, '2015-04-26 07:41:31'),
+(2, 3, 1, 'my test', 0, 0, '2015-04-26 07:41:47'),
+(3, 3, 1, 'my test', 0, 0, '2015-04-26 07:48:25');
 
 -- --------------------------------------------------------
 
@@ -413,14 +452,15 @@ CREATE TABLE IF NOT EXISTS `tables` (
   `year_id` int(11) NOT NULL,
   `department_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `tables`
 --
 
 INSERT INTO `tables` (`id`, `table_image`, `year_id`, `department_id`) VALUES
-(1, 'sm8uxlf9o0i7hd4.jpg', 1, 3);
+(1, 'sm8uxlf9o0i7hd4.jpg', 1, 3),
+(2, 'vyfnad19w5h4mzl.png', 3, 4);
 
 -- --------------------------------------------------------
 
