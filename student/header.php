@@ -6,24 +6,17 @@
     <title>AdminLTE | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
-    <link href="../doctor/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
-    <link href="../doctor/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Ionicons -->
-    <!-- <link href="../doctor/css/ionicons.min.css" rel="stylesheet" type="text/css" /> -->
-    <!-- Morris chart -->
-    <!-- <link href="../doctor/css/morris/morris.css" rel="stylesheet" type="text/css" /> -->
-    <!-- jvectormap -->
-    <link href="../doctor/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-    <!-- fullCalendar -->
-    <link href="../doctor/css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+    <link href="../admin/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    
     <!-- Daterange picker -->
-    <link href="../doctor/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <link href="../admin/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
-    <link href="../doctor/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+    <link href="../admin/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="../doctor/css/AdminLTE.css" rel="stylesheet" type="text/css" />
-    <link href="../doctor/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../admin/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="../admin/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>

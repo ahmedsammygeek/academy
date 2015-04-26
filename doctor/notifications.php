@@ -46,7 +46,7 @@ require 'header.php';
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 
-../admin/
+
 
 
 <script src="../admin/js/jquery.min.js"></script>
