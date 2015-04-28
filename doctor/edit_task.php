@@ -72,10 +72,16 @@ require 'header.php';
                                     $query=$conn->query($sql);
                                     while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
                                      extract($result);
-                                     echo "<option value='$id'>$name</option>";
+                                     if($the_deprtment == $id) {
+                                    var_dump($the_deprtment);
+                                     echo "<option value='$id'  SELECTED >$name</option>";
+
+                                     }
+                                 else  {
+                                    echo "<option value='$id'>$name</option>";
 
                                  }
-
+                                 }
                                  ?>
                              </select>
 
