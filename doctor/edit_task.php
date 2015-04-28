@@ -26,13 +26,14 @@ require 'header.php';
                         <h3 class="box-title">Add New Task</h3>
                     </div>
                     <?php
+                     if (isset($_GET['task_id'])) {
+                        $id=$_GET['task_id'];
+                    } 
                      require '../admin/connection.php';
-                     $query3=$conn->query("SELECT * FROM tasks");
+                     $query3=$conn->query("SELECT * FROM tasks WHERE id=$id");
                      $result3=$query3->fetch(PDO::FETCH_ASSOC);
                      extract($result3);
-                      if (isset($_GET['task_id'])) {
-                        $id=$_GET['task_id'];
-                    } ?>
+                     ?>
 
                     <!-- form start -->
                     <form role="form" action="update_task<?php echo "?id=$id"; ?>" method="POST" enctype="multipart/form-data" >
