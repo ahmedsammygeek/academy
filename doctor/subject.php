@@ -49,7 +49,7 @@ require 'header.php';
                     <li class="active"><a href="#lecture" data-toggle="tab">Lecturess</a></li>
                     <li><a href="#section" data-toggle="tab">Sections</a></li>
                     <li><a href="#task" data-toggle="tab">Tasks</a></li>
-                    <li><a href="#ask" data-toggle="tab">Ask A qustions</a></li>
+                    <li><a href="#ask" data-toggle="tab">Student's Qustions</a></li>
 
 
                 </ul>
@@ -166,26 +166,7 @@ require 'header.php';
             </div> <!--lecutre tab -->
             <!-- ask questions tab ection -->
             <div class="tab-pane" id="ask">
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <!-- form start -->
-                        <form role="form" method="post" action="insert_question.php?subject_id=<?php echo $_GET['id']; ?>">
-                            <div class="box-body">
-
-                                <div class="form-group">
-                                    <label>Write the question</label>
-                                    <textarea id="textarea" name="question" cols="20" class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                </div>
-
-                            </div><!-- /.box-body -->
-
-                            <div class="box-footer">
-                                <input type="submit" class="btn btn-primary" value="ask">
-                            </div>
-                        </form>
-                    </div>
-                </div>
+            
                 <div class="box-header">
                     <h3 class="box-title">The Questions</h3>
                 </div><!-- /.box-header -->

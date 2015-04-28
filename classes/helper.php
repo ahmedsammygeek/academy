@@ -96,16 +96,21 @@ function send_notification($id,$content,$send_to=array())
              $query2->bindValue(3,0,PDO::PARAM_INT);
              $query2->execute();
          }
-         
+
      }$conn->commit();
      return true;
-     
+
  } catch (Exception $e) {
     $conn->rollBack();
     echo $e->getMessage();
 }
 }
 
+/**
+ * a function bring students depents on conditions
+ * @param  string $where [the conditions]
+ * @return [array of ides]        [description]
+ */
 function get_students($where)
 {
     $ids = array();
@@ -117,6 +122,25 @@ function get_students($where)
             $ids[] = $one[0];
         }
         return $ids;
+    }
+    return false;
+}
+
+function get_doctor_subjects($doctor_id)
+{
+    global  $conn ;
+
+    $doc_subject = $conn->prepare("SELECT id FROM subjects WHERE doctor_id= ?");
+    $doc_subject->bindValue(1,$doctor_id , PDO::PARAM_INT);
+    $doc_subject->execute();
+    if($doc_subject->rowCount()) {
+        $ids = array();
+        while ($subject = $doc_subject->fetch(PDO::FETCH_OBJ)) {
+            $ids[] = $subject->id;
+        }
+
+        return implode(',', $ids);
+
     }
     return false;
 }
