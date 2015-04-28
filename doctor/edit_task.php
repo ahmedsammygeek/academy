@@ -57,7 +57,7 @@ require 'header.php';
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" name='date' value='<?php echo "from: $created_at to: $ex_date"; ?>' class="form-control pull-right" id="reservation"/>
+                                        <input type="text" name='date' value='<?php echo "$created_at - $ex_date"; ?>' class="form-control pull-right" id="reservation"/>
                                     </div><!-- /.input group -->
                                 </div><!-- /.form group -->
 
