@@ -1,5 +1,24 @@
 <?php 
+
+
+require '../admin/connection.php';
+
+if(!isset($_GET['task_id']) || empty($_GET['task_id'])) {
+    header('location: tasks.php');
+    die();
+}
+
+require '../classes/helper.php';
+
+
+$task_id = filter_input(INPUT_GET, 'task_id' , FILTER_SANITIZE_NUMBER_INT);
+
+if(!check_if_exists($task_id ,'id' , 'tasks')) {
+     header('location: tasks.php');
+    die();
+}
 require 'header.php';
+
 ?>
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
@@ -26,23 +45,22 @@ require 'header.php';
                         <h3 class="box-title">Add New Task</h3>
                     </div>
                     <?php
-                    if (isset($_GET['task_id'])) {
-                        $id=$_GET['task_id'];
-                    } 
-                    require '../admin/connection.php';
-                    $query3=$conn->query("SELECT * FROM tasks WHERE id=$id");
-                    $result3=$query3->fetch(PDO::FETCH_ASSOC);
-                    extract($result3);
+                    $select = $conn->prepare("SELECT * FROM tasks WHERE id = ?");
+                    $select->bindValue(1,$task_id , PDO::PARAM_INT);
+                    $select->execute();
+
+                    $task = $select->fetch(PDO::FETCH_OBJ);
+
                     ?>
 
                     <!-- form start -->
-                    <form role="form" action="update_task.php<?php echo "?id=$id"; ?>" method="POST" enctype="multipart/form-data" >
+                    <form role="form" action="update_task.php?id=<?php echo $task_id;?>" method="POST" enctype="multipart/form-data" >
                         <div class="box-body">
 
                             <div class="row">
                                 <div class="col-md-6"> <div class="form-group">
                                     <label for="exampleInputEmail1">Task Title</label>
-                                    <input type="text" name='title' value='<?php echo "$task_title"; ?>' class="form-control" id="exampleInputEmail1" placeholder="Enter Task Title">
+                                    <input type="text" name='title' value='<?php echo $task->task_title; ?>' class="form-control" id="exampleInputEmail1" placeholder="Enter Task Title">
                                 </div>
 
                                 <div class="form-group files">
@@ -58,7 +76,7 @@ require 'header.php';
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" name='task_date' value='<?php echo "$created_at - $ex_date"; ?>' class="form-control pull-right" id="reservation"/>
+                                        <input type="text" name='task_date' value='<?php echo "$task->created_at - $task->ex_date"; ?>' class="form-control pull-right" id="reservation"/>
                                     </div><!-- /.input group -->
                                 </div><!-- /.form group -->
 
@@ -90,10 +108,10 @@ require 'header.php';
                         <div class="form-group">
                             <label>Year </label>
                             <select class="form-control" name='year'>
-                                <option <?php if($result3['year'] == '1') echo"selected"; ?> value='1'>year1</option>
-                                <option <?php if($result3['year'] == '2') echo"selected"; ?> value='2'>year2</option>
-                                <option <?php if($result3['year'] == '3') echo"selected"; ?> value='3'>year3</option>
-                                <option <?php if($result3['year'] == '4') echo"selected"; ?> value='4'>year4</option>
+                                <option <?php if($task->year == '1') echo"selected"; ?> value='1'>year1</option>
+                                <option <?php if($task->year == '2') echo"selected"; ?> value='2'>year2</option>
+                                <option <?php if($task->year == '3') echo"selected"; ?> value='3'>year3</option>
+                                <option <?php if($task->year == '4') echo"selected"; ?> value='4'>year4</option>
                             </select>
                         </div>
 
@@ -101,19 +119,15 @@ require 'header.php';
                             <label>Subject</label>
                             <select class="form-control" name='subject'>
                                 <?php 
-                                $query2=$conn->query("SELECT * FROM subjects");
-                                while ($result2=$query2->fetch(PDO::FETCH_ASSOC)) {
-                                    extract($result2); 
-                                    if ($result3['subject_id'] == $id) {
-                                        echo "<option value='$id' selected>$name</option>";
-
+                                $subjects=$conn->query("SELECT * FROM subjects");
+                                while ($subject=$subjects->fetch(PDO::FETCH_ASSOC)) {
+                                    if ($subject['id'] == $task->subject_id) {
+                                        echo "<option value='".$subject['id']."' selected>".$subject['name']."</option>";
                                     }
                                     else  {
                                         echo "<option value='$id'>$name</option>";
-
                                     }
                                 }
-
                                 ?>
                             </select>
                         </div>
@@ -122,7 +136,7 @@ require 'header.php';
                 <div class="row">
                     <div class="col-md-12">
                        <label>Task Content</label>
-                       <textarea class="textarea"  name='content' placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo "$task_content"; ?></textarea>
+                       <textarea class="textarea"  name='content' placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $task->task_content; ?></textarea>
                    </div>
                </div>
 

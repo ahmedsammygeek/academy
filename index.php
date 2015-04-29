@@ -25,13 +25,13 @@ $slides->execute();
 
 					if($i = 0) {
 						echo '<div class="bp-hs_inner__item" data-transform="scale">
-						<img src="admin/image/'.$row->image.'" alt="..."/>
+						<img style="width:1220px;height:382px;" src="admin/image/'.$row->image.'" alt="..."/>
 						</div>';
 						$i++;
 					}
 					else {
 						echo '<div class="bp-hs_inner__item" data-transform="scale">
-						<img src="admin/image/'.$row->image.'" alt="..."/>
+						<img style="width:1220px;height:382px;" src="admin/image/'.$row->image.'" alt="..."/>
 						</div>';
 					}
 
