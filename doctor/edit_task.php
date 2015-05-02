@@ -4,7 +4,7 @@
 require '../admin/connection.php';
 
 if(!isset($_GET['task_id']) || empty($_GET['task_id'])) {
-    header('location: tasks.php');
+    header('location: tasks.php?id');
     die();
 }
 
@@ -14,8 +14,8 @@ require '../classes/helper.php';
 $task_id = filter_input(INPUT_GET, 'task_id' , FILTER_SANITIZE_NUMBER_INT);
 
 if(!check_if_exists($task_id ,'id' , 'tasks')) {
-     header('location: tasks.php');
-    die();
+ header('location: tasks.php?idd');
+ die();
 }
 require 'header.php';
 
@@ -64,13 +64,46 @@ require 'header.php';
                                 </div>
 
                                 <div class="form-group files">
-                                    <label for="exampleInputFile">Task attachments (Optional)</label>
-                                    <input type="file"  name="task_files[]" >
-                                    <a class="btn btn-primary pull-right add_more_files" href="">add more files</a>
-                                    
-                                </div>
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>the current files</tr>
+                                            <tr>
+                                                <th style="width: 10px">#</th>
+                                                <th style="width: 40px">file name</th>
 
-                                <div class="form-group">
+                                                <th style="width: 40px">delete</th>
+                                            </tr>
+
+                                            <?php 
+                                            $i =1 ;
+
+                                            $files = $conn->prepare("SELECT * FROM tasks_files WHERE task_id = ?");
+                                            $files->bindValue(1,$task_id , PDO::PARAM_INT);
+                                            $files->execute();
+
+                                            while ($file = $files->fetch(PDO::FETCH_OBJ)) {
+                                             echo '<tr>
+                                             <td>'.$i.'</td>
+                                             <td>'.$file->file.' </td>
+                                             <td><a href="delete_task_file.php?task_id='.$task_id.'&task_file_id='.$file->id.'&task_file_name='.$file->file.'"><span class="badge bg-red">delete</span></a></td>
+                                             </tr>';
+                                             $i++;
+                                         }
+
+
+
+                                         ?>
+
+
+
+                                     </tbody></table>
+                                     <label for="exampleInputFile">Task attachments (Optional)</label>
+                                     <input type="file"  name="task_files[]" >
+                                     <a class="btn btn-primary pull-right add_more_files" href="">add more files</a>
+
+                                 </div>
+
+                                 <div class="form-group">
                                     <label>Date range:</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -91,12 +124,12 @@ require 'header.php';
                                     $query=$conn->query($sql);
                                     while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
                                        extract($result);
-                                       if($result3['department_id'] == $id) {
-                                           echo "<option value='$id'  SELECTED >$name</option>";
+                                       if($task->department_id == $id) {
+                                           echo "<option value='".$id."'  SELECTED >$name</option>";
 
                                        }
                                        else  {
-                                        echo "<option value='$id'>$name</option>";
+                                        echo "<option value='".$id."'>$name</option>";
 
                                     }
                                 }
@@ -125,7 +158,7 @@ require 'header.php';
                                         echo "<option value='".$subject['id']."' selected>".$subject['name']."</option>";
                                     }
                                     else  {
-                                        echo "<option value='$id'>$name</option>";
+                                        echo "<option value='".$subject['id']."' >".$subject['name']."</option>";
                                     }
                                 }
                                 ?>
@@ -136,7 +169,7 @@ require 'header.php';
                 <div class="row">
                     <div class="col-md-12">
                        <label>Task Content</label>
-                       <textarea class="textarea"  name='content' placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $task->task_content; ?></textarea>
+                       <textarea class="textarea"  name='content' placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo html_entity_decode($task->task_content); ?></textarea>
                    </div>
                </div>
 
@@ -145,7 +178,7 @@ require 'header.php';
            </div><!-- /.box-body -->
 
            <div class="box-footer">
-            <input type="submit" class="btn btn-success" value="Edit Task">
+            <input type="submit"  name="task_btn" class="btn btn-success" value="Edit Task">
         </div>
     </form>
 
@@ -163,7 +196,7 @@ require 'header.php';
 <script src="../admin/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- AdminLTE App -->
 <script src="../admin/js/AdminLTE/app.js" type="text/javascript"></script>
-<script src="../admin/js/AdminLTE/dashboard.js" type="text/javascript"></script>
+
 <!-- Bootstrap WYSIHTML5 -->
 
 <!-- date-range-picker -->
@@ -172,7 +205,10 @@ require 'header.php';
 <script type="text/javascript">
 
 $(function () {
-    $('#reservation').daterangepicker();
+    $('#reservation').daterangepicker({
+        singleDatePicker: true,
+        format: 'YYYY-MM-DD'
+    });
 
     $('a.add_more_files').on('click'  , function(event) {
         event.preventDefault();
@@ -187,5 +223,6 @@ $(function () {
 
 </script>
 
+<script src="../admin/js/AdminLTE/dashboard.js" type="text/javascript"></script>
 </body>
 </html>
