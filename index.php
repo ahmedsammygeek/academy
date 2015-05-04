@@ -25,13 +25,13 @@ $slides->execute();
 
 					if($i = 0) {
 						echo '<div class="bp-hs_inner__item" data-transform="scale">
-						<img src="admin/image/'.$row->image.'" alt="..."/>
+						<img style="width:1220px;height:436px;" src="admin/image/'.$row->image.'" alt="..."/>
 						</div>';
 						$i++;
 					}
 					else {
 						echo '<div class="bp-hs_inner__item" data-transform="scale">
-						<img src="admin/image/'.$row->image.'" alt="..."/>
+						<img style="width:1220px;height:436px;" src="admin/image/'.$row->image.'" alt="..."/>
 						</div>';
 					}
 
@@ -128,12 +128,12 @@ $slides->execute();
                 <!-- Start Big Heading -->
                 <div class="big-title">
                     <h1><strong>More</strong> About Us</h1>
-                    <p class="title-desc">Some Words About Our Company</p>
+                    <p class="title-desc">Some Words About Our Academy</p>
                 </div>
                 <!-- End Big Heading -->
 
                 <!-- Some Text -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>We are delighted to welcome you to the new site of the Institute for Higher Trade Egypt and Computing, and wish you success and a lasting success,</p>
 
                 <!-- Divider -->
                 <div class="hr1" style="margin-bottom:14px;"></div>
