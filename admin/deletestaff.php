@@ -16,7 +16,7 @@ if(file_exists("image/$image"))  {
 }else{
 	//if this image not exist 
 	//go to gallery slider and show alert about this case
-	header('location: showslider.php?msg=not_exist');
+	header('location: showstaff.php?msg=not_exist');
 	die();
 }
 

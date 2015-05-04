@@ -62,7 +62,7 @@ require 'sidebar.php';
 					<div class="box-body">
 						<div class="form-group">
 							<label for="exampleInputEmail1">content</label>
-							<input type="text" name="content" class="form-control" id="exampleInputEmail1" placeholder="Enter content about our academy"> 
+							<textarea type="text" name="content" class="form-control" id="exampleInputEmail1" rows="7" placeholder="Enter content about our academy"></textarea> 
 
 						</div>
 						<?php 

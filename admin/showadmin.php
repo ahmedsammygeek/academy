@@ -20,7 +20,7 @@ require 'sidebar.php';
              echo '<div class="alert alert-success alert-dismissable">
              <i class="fa fa-check"></i>
              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-             <b>Alert!</b> successufl in your inserted.
+             <b>Alert!</b> successful in your inserted.
              </div>' ;
              break;
              case 'deleted':
@@ -28,7 +28,7 @@ require 'sidebar.php';
              echo '<div class="alert alert-success alert-dismissable">
              <i class="fa fa-check"></i>
              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-             <b>Alert!</b> successufl in your delete.
+             <b>Alert!</b> successful in your delete.
              </div>' ;
              break;
              case 'error_delete':
