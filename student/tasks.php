@@ -40,67 +40,55 @@ require 'header.php';
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                require '../admin/connection.php';
+                                
+                                $query = $conn->prepare("SELECT year,department_id FROM students WHERE id= ? ");
+                                $query->bindValue(1,$_SESSION['system_user_id'],PDO::PARAM_INT);
+                                $query->execute();
+                                $result = $query->fetch(PDO::FETCH_ASSOC);
+                                // $department = $result->department_id;
+                                // $year = $result->year;
+
+                                $query2 = $conn->prepare("SELECT * FROM tasks WHERE department_id = ? && year = ? ");
+                                $query2->bindValue(1,$result['department'],PDO::PARAM_INT);
+                                $query2->bindValue(2,$result['year'],PDO::PARAM_INT);
+                                $query2->execute();
+                                $i = 1;
+                                while ($result2 = $query2->fetch(PDO::FETCH_OBJ)) {
+                                 extract($result2);
+
+
+                                 echo " <tr>
+                                 <td>$i</td>
+                                 <td>$result2->task_title</td>
+                                 <td>$result2->subject_id</td>
+                                 <td>$result2->ex_date</td>
+
+
+                                 <td><a href='' class='btn btn-success'>DeTails</a></td>
+                                 <td><a href='answers.php?id=".$_SESSION['system_user_id']."' class='btn btn-info'>Answers</a></td>
+                                 </tr>
+                                 ";
+                                 $i++;
+                             }
 
 
 
-                                <tr>
-                                    <td>Tasman</td>
-                                    <td>Internet Explorer 4.5</td>
-                                    <td>Mac OS 8-9</td>
-                                    <td>Mac OS 8-9</td>
-                               
-                           
-                                    <td><a href="" class="btn btn-success">DeTails</a></td>
-                                    <td><a href="answers.php" class="btn btn-info">Answers</a></td>
-                                </tr>
+                             ?>
 
 
 
-                                <tr>
-                                    <td>Tasman</td>
-                                    <td>Internet Explorer 4.5</td>
-                                    <td>Mac OS 8-9</td>
-                                    <td>Mac OS 8-9</td>
-                               
-                           
-                                    <td><a href="" class="btn btn-success">DeTails</a></td>
-                                    <td><a href="answers.php" class="btn btn-info">Answers</a></td>
-                                </tr>
+                        </tbody>
+
+                    </table>
+                </div><!-- /.box-body -->
 
 
-
-
-                                <tr>
-                                    <td>Tasman</td>
-                                    <td>Internet Explorer 4.5</td>
-                                    <td>Mac OS 8-9</td>
-                                    <td>Mac OS 8-9</td>
-                               
-                           
-                                    <td><a href="" class="btn btn-success">DeTails</a></td>
-                                    <td><a href="answers.php" class="btn btn-info">Answers</a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>Tasman</td>
-                                    <td>Internet Explorer 4.5</td>
-                                    <td>Mac OS 8-9</td>
-                                    <td>Mac OS 8-9</td>
-                               
-                           
-                                    <td><a href="" class="btn btn-success">DeTails</a></td>
-                                    <td><a href="answers.php" class="btn btn-info">Answers</a></td>
-                                </tr>
-                            </tbody>
-
-                        </table>
-                    </div><!-- /.box-body -->
-
-
-                </div>
             </div>
         </div>
-    </section><!-- /.content -->
+    </div>
+</section><!-- /.content -->
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 

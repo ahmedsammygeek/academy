@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
 		$_SESSION['system_user_type'] = $user->type;
 		$_SESSION['system_user_name'] = $user->name;
 
-		header('location: index.php');
+		header("location: index.php?id=$user->id");
 		die();
 	}
 	else
