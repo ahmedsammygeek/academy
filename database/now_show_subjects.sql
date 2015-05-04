@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 02, 2015 at 03:20 PM
--- Server version: 5.5.24-log
--- PHP Version: 5.3.13
+-- Host: 127.0.0.1
+-- Generation Time: May 04, 2015 at 05:31 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -503,7 +503,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
   `password` varchar(40) NOT NULL,
   `type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `staff`
@@ -526,7 +526,8 @@ INSERT INTO `staff` (`id`, `name`, `image`, `title`, `description`, `facebook`, 
 (16, 'Ø¯/Ø¨Ù‡Ø§Ø¡ Ø·Ø§Ù‡Ø± Ø´Ø¨Ø§Ù†Ø©', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
 (17, 'Ù…/Ø£Ø¯Ù‡Ù… Ø´ÙÙŠÙ‚', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1),
 (18, 'Ù…/Ø£Ø­Ù…Ø¯ ØµÙ„Ø§Ø­', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1),
-(19, 'Ù…/Ø³Ø§Ù„ÙŠ Ø­ÙˆØ±ÙŠØ©', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1);
+(19, 'Ù…/Ø³Ø§Ù„ÙŠ Ø­ÙˆØ±ÙŠØ©', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1),
+(20, 'bahaa', '', '', '', '', '', 'bahaa', '8684810b776fc842d58d9fdf7bef82490434ce9b', 2);
 
 -- --------------------------------------------------------
 
@@ -538,6 +539,10 @@ CREATE TABLE IF NOT EXISTS `students` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(500) NOT NULL,
   `year` int(11) NOT NULL,
+  `pic` text NOT NULL,
+  `card_id` int(11) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `department_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
@@ -545,23 +550,23 @@ CREATE TABLE IF NOT EXISTS `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `name`, `year`) VALUES
-(1, 'ahmed samy', 1),
-(2, 'alaa gendy', 2),
-(3, 'nehad samy', 4),
-(4, 'amira gendy', 2),
-(5, 'sherif ali', 1),
-(6, 'ziad gendy', 3),
-(7, 'demoksy', 4),
-(8, 'moahmed zidan', 4),
-(9, 'hmad', 4),
-(10, 'bhaa ', 4),
-(11, 'mousa', 4),
-(12, 'ali zidan', 4),
-(13, 'glal', 4),
-(14, 'ablnaser ', 4),
-(15, 'ali', 4),
-(16, 'ziad shabory', 4);
+INSERT INTO `students` (`id`, `name`, `year`, `pic`, `card_id`, `password`, `department_id`) VALUES
+(1, 'ahmed samy', 1, '', 2300489, 'alaa', 0),
+(2, 'alaa gendy', 2, '', 0, '', 0),
+(3, 'nehad samy', 4, '', 0, '', 0),
+(4, 'amira gendy', 2, '', 0, '', 0),
+(5, 'sherif ali', 1, '', 0, '', 0),
+(6, 'ziad gendy', 3, '', 0, '', 0),
+(7, 'demoksy', 4, '', 0, '', 0),
+(8, 'moahmed zidan', 4, '', 0, '', 0),
+(9, 'hmad', 4, '', 0, '', 0),
+(10, 'bhaa ', 4, '', 0, '', 0),
+(11, 'mousa', 4, '', 0, '', 0),
+(12, 'ali zidan', 4, '', 0, '', 0),
+(13, 'glal', 4, '', 0, '', 0),
+(14, 'ablnaser ', 4, '', 0, '', 0),
+(15, 'ali', 4, '', 0, '', 0),
+(16, 'ziad shabory', 4, '', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -602,11 +607,11 @@ CREATE TABLE IF NOT EXISTS `subjects` (
 --
 
 INSERT INTO `subjects` (`id`, `doctor_id`, `name`, `description`, `year`, `department`, `term`) VALUES
-(1, 1, 'Introduction to Computer &amp; Application', 'This course introduces the components of a computer system that includes hardware for data storage, data manipulation &amp; data communication. System software that include operating system, programming language translators &amp; others. First principles of writing algorithms, programming &amp; software development are introduced. The concept of computer science, information system, decision support systems &amp; information technology are to be presented.', 1, 1, 'frist term'),
-(2, 1, 'Discrete Structure', 'Sets, sequence, algorithms &amp; pseudo code, induction &amp; recursion. Relation &amp; function. Graphs, Trees, posts, Lattices &amp; Boolean Algebra. Semi groups &amp; groups.', 1, 1, 'frist term'),
-(3, 1, 'Physics', 'Units &amp; Dimensions, Electric charge ; Coulomb&quot;s law; Electric field, Gauss low; Electric potential; Electric capacitance &amp; capacitor; Electric current; Resistors; Kerchief&quot;s law; magnetic field &amp; forces; magnetic induction &amp; inductors; Basic circuit theory &amp; circuit analysis; fundamentals of three phase circuits &amp; transformers.', 1, 1, 'frist term'),
-(4, 1, 'English (1)', 'This course used in practical exercise,. and selected from the newly techinical published sources,. Analysis methods focus on the development of the language and the capacities students in reading and understanding.', 1, 1, 'frist term'),
-(5, 1, 'Structured Programming', 'Problem solving & algorithm development. Introduction to elementary data types & related operations & expressions syntax & semantics of high â€“level language such as CC++. Built in the functions in the programming language used, operator precedence , assignment statements, I/o statements Boolean expressions, relational operator, defined functions & procedures, scope & parameter matching, arrays & records, Advanced features & their application.', 1, 1, 'second term'),
+(1, 20, 'Introduction to Computer &amp; Application', 'This course introduces the components of a computer system that includes hardware for data storage, data manipulation &amp; data communication. System software that include operating system, programming language translators &amp; others. First principles of writing algorithms, programming &amp; software development are introduced. The concept of computer science, information system, decision support systems &amp; information technology are to be presented.', 1, 1, 'frist term'),
+(2, 20, 'Discrete Structure', 'Sets, sequence, algorithms &amp; pseudo code, induction &amp; recursion. Relation &amp; function. Graphs, Trees, posts, Lattices &amp; Boolean Algebra. Semi groups &amp; groups.', 1, 1, 'frist term'),
+(3, 20, 'Physics', 'Units &amp; Dimensions, Electric charge ; Coulomb&quot;s law; Electric field, Gauss low; Electric potential; Electric capacitance &amp; capacitor; Electric current; Resistors; Kerchief&quot;s law; magnetic field &amp; forces; magnetic induction &amp; inductors; Basic circuit theory &amp; circuit analysis; fundamentals of three phase circuits &amp; transformers.', 1, 1, 'frist term'),
+(4, 20, 'English (1)', 'This course used in practical exercise,. and selected from the newly techinical published sources,. Analysis methods focus on the development of the language and the capacities students in reading and understanding.', 1, 1, 'frist term'),
+(5, 20, 'Structured Programming', 'Problem solving & algorithm development. Introduction to elementary data types & related operations & expressions syntax & semantics of high â€“level language such as CC++. Built in the functions in the programming language used, operator precedence , assignment statements, I/o statements Boolean expressions, relational operator, defined functions & procedures, scope & parameter matching, arrays & records, Advanced features & their application.', 1, 1, 'second term'),
 (6, 1, 'Computer packages', 'Training and upgrading skills of individual study of Computer packages such as typing on the computer, design and programming proposals, packs public databases, computer graphics Packages, Internet computer packages and emerging any new packages.', 1, 1, 'second term'),
 (7, 1, 'Mathematics (2)', 'Plan geom.: line, circle, conic sections equations, Space geometry: line, plan, sphere, cone, cylinder, quadratic equations. Advanced calculus: calculus of several variables, gradient, and multiple integration. Vector algebra, vector functions &amp; their derivates, motion in space, vector fields, line and surface integrals, greenâ€™s theorem, divergence theorem, and stockâ€™s theorem', 1, 1, 'second term'),
 (8, 1, 'Mathematics ( 3 )', 'Elementary Course in matrix theory covering matrices, linear equations, determinates, linear transformation, eigenvulues &amp; Eigenvectors.', 2, 1, 'frist term'),
@@ -621,11 +626,11 @@ INSERT INTO `subjects` (`id`, `doctor_id`, `name`, `description`, `year`, `depar
 (17, 1, 'Humanities (Elective )', 'Functions of management: Planning: Organizational objectivesâ€“fundamentals of  Planning â€“ decision makingâ€“ strategic planning - plans &amp; planning tools. Organizing: Fundamentals of organizing â€“responsibility, authority&amp; delegation â€“  Organizational change &amp; stress Staffing &amp; Leading: Leadership â€“ motivation â€“  Groups teams &amp; corporate culture. Controlling: principles of Controlling  Modern management.', 2, 1, 'second term'),
 (18, 1, 'Database Systems', 'Introduction , File systems Vs database systems, Database systems Components &amp; concepts, functionality of DBMSS. Database architecture and Models. Relational database concepts: Keys, integrity constrains, views &amp; catalogs.  Relational algebra, Entity â€“ relationship models and normalization.', 3, 1, 'frist term'),
 (19, 1, 'Operating systems', 'Basic concepts of computer systems hardware, software &amp; firmware, process concepts &amp; processor scheduling. Memory organization &amp; management for single user &amp; multi-user systems. Virtual storage organization &amp; management. Disks scheduling &amp; its optimization discussion of major operating system such a UNIX. Laboratory work on many control programs as well as practice on a single &amp; multi-user systems.', 3, 1, 'frist term'),
-(20, 1, 'System design', 'Systems design &amp; construction. Cross life cycle activities. Application architecture &amp; process design. Database design. Input design &amp; Output design, User interface design and prototyping. Software design. Object oriented design, Systems implementation and Systems support.', 3, 1, 'frist term'),
-(21, 1, 'Human computer interfaces', 'The relationship between people &amp; machine, the role of human factors &amp; psychology. Principles of interaction, interface design issues. Command languages, menus, windows, icons error messages, response time. Physical interaction, devises, interaction styles &amp; techniques. The design process &amp; user models. Interface evaluation; natural language &amp; voice interfaces.', 3, 1, 'frist term'),
-(22, 1, 'Elective Course (Computer modeling &amp; simulation)', 'System models &amp; simulation discrete event simulation Simulation languages. Principles of valid simulation modeling. Verification of simulation computer programs. An approach for developing valid &amp; credible simulation models.. Some practical considerations: selecting input probability distributions and random number generators. Petri net. Fuzzy models and Genetic models are used as application models.', 3, 1, 'frist term'),
+(20, 20, 'System design', 'Systems design &amp; construction. Cross life cycle activities. Application architecture &amp; process design. Database design. Input design &amp; Output design, User interface design and prototyping. Software design. Object oriented design, Systems implementation and Systems support.', 3, 1, 'frist term'),
+(21, 20, 'Human computer interfaces', 'The relationship between people &amp; machine, the role of human factors &amp; psychology. Principles of interaction, interface design issues. Command languages, menus, windows, icons error messages, response time. Physical interaction, devises, interaction styles &amp; techniques. The design process &amp; user models. Interface evaluation; natural language &amp; voice interfaces.', 3, 1, 'frist term'),
+(22, 20, 'Elective Course (Computer modeling &amp; simulation)', 'System models &amp; simulation discrete event simulation Simulation languages. Principles of valid simulation modeling. Verification of simulation computer programs. An approach for developing valid &amp; credible simulation models.. Some practical considerations: selecting input probability distributions and random number generators. Petri net. Fuzzy models and Genetic models are used as application models.', 3, 1, 'frist term'),
 (23, 1, 'Computer networks', 'Topology, structure, &amp; architecture of computer networks. Layered protocols in point-to-point, broadcasting, &amp; local area networks. The structure of some notable &amp; public networks. Training on using LAN &amp; WAN networks.', 3, 1, 'second term'),
-(24, 1, 'Computer graphics', 'Graphics algorithms, 2D and 3D concepts are introduced, Graphics hardware, basic raster 3D transformation, synthesized camera models, curve &amp; surface representation, lightening models, shading techniques, shadows, texture mapping, and transparency.', 3, 1, 'second term'),
+(24, 20, 'Computer graphics', 'Graphics algorithms, 2D and 3D concepts are introduced, Graphics hardware, basic raster 3D transformation, synthesized camera models, curve &amp; surface representation, lightening models, shading techniques, shadows, texture mapping, and transparency.', 3, 1, 'second term'),
 (25, 1, 'Software Engineering (1)', 'The software life cycle Requirements analysis, specification &amp; validation. Software design methodologies: data structure oriented design, object oriented design &amp; Software reusability. Design quality &amp; design description languages. Rapid prototyping &amp; iterative refinements .', 3, 1, 'second term'),
 (26, 1, 'Logic Programming', 'Introduction: Facts, objects &amp; predicates. Prolog variables: Using variables, bound &amp; free variables, anonymous variables, compound goals, backtracking, variables rules. Using rules , Rules, prolog execution rules, using the trace, unification, execution control, the built in predicate. Simple I&amp;O. Controlling execution: Success through failure, the fail predicate, execution using the fail predicate, recursion &amp; the cut. Arithmetic operations. Compound objects. Dynamic database, lists. String operations.', 3, 1, 'second term'),
 (27, 1, 'Elective Course (Analysis &amp; design of algorithms)', 'Algorithm concept. Analysis &amp; complexity. Design methods such as Divide &amp; conquer, concept passing through, binary search, merge sort, quick sort, selection and matrix multiplication. Greedy method concept passing through, shortest paths, optimal search trees &amp; the traveling salesman problem. Backtracking: the general method, the 8 queens. NP complete problem: Cook&quot;s theorem, NP hard graph problem, Magic square, Combinational algebra.', 3, 1, 'second term'),
