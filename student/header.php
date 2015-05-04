@@ -1,4 +1,4 @@
-
+<?php require 'check_user.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
