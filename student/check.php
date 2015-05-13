@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 		$_SESSION['student_user_department'] = $user->department_id;
 		$_SESSION['student_user_pic'] = $user->pic;
 
-		header('location: index.php');
+		header("location: index.php?id=$user->id");
 		die();
 	}
 	else
