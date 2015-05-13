@@ -126,6 +126,11 @@ function get_students($where)
     return false;
 }
 
+/**
+ * function which get all the doctor subjects 
+ * @param  [integer] $doctor_id [description]
+ * @return [type]  array of subjects' ides        [description]
+ */
 function get_doctor_subjects($doctor_id)
 {
     global  $conn ;
@@ -138,12 +143,38 @@ function get_doctor_subjects($doctor_id)
         while ($subject = $doc_subject->fetch(PDO::FETCH_OBJ)) {
             $ids[] = $subject->id;
         }
-
         return implode(',', $ids);
-
     }
     return false;
 }
 
+/**
+ * check if the student study this subject or not
+ * @param  [interger]  $department [the subject department]
+ * @param  [integer]  $year       [the subject year]
+ * @return boolean             
+ */
+function is_subject_belongs_to_student($subject_id , $department , $year) {
+    global $conn ;
+    $subject = $conn->prepare("SELECT id FROM subjects WHERE department = ? AND year = ? AND id = ?");
+    $subject->bindValue(1,$department , PDO::PARAM_INT);
+    $subject->bindValue(2,$year , PDO::PARAM_INT);
+    $subject->bindValue(3,$subject_id , PDO::PARAM_INT);
+    $subject->execute();
+    if($subject->rowCount()){
+        return true;
+    }
+    return false;
+}
+
+
+
+
+function check_task($days) {
+    if($days > 0 )
+        return '<td><span class="label label-success">avilabe</span></td>';
+    else 
+        return '<td><span class="label label-success">expired</span></td>' ;
+}
 
 ?>

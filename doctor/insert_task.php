@@ -2,8 +2,6 @@
 require  'check_user.php';
 require '../admin/connection.php';
 require '../classes/helper.php';
-
-
 if(isset($_POST['task_btn'])) {
 	$args = array(
 		'task_title' => FILTER_SANITIZE_STRING,
@@ -16,14 +14,12 @@ if(isset($_POST['task_btn'])) {
 	// Inputs from post
 	$inputs = filter_input_array( INPUT_POST,  $args );
 	// var_dump($inputs); die();
-
 	foreach ( $inputs as $input_name => $input_value )
 	{
 		if ( empty( $input_value ) ) {
 			header("location: add_task.php?msg=$input_name");
 			die();
 		}
-
 	}
 	// create variables from inputs array in runtime
 	extract( $inputs );
@@ -33,7 +29,6 @@ if(isset($_POST['task_btn'])) {
 	if(isset($_FILES['task_files']['name'][0]) && !empty($_FILES['task_files']['name'][0])) {
 		$has_file = 1;
 	}
-
 	$conn->beginTransaction();
 	try {
 		$task = $conn->prepare("INSERT INTO tasks VALUES('' , ?  , ? , ? , ? , ? , ?, ?, ?, ? , ? ) ");
@@ -66,7 +61,7 @@ if(isset($_POST['task_btn'])) {
 					}	
 				}
 				else {
-					header("Location: tasks.php?msg=invalid");
+					header("Location: add_task.php?msg=invalid");
 					die();
 				}
 			}
