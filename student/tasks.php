@@ -42,16 +42,19 @@ require 'header.php';
                             <tbody>
                                 <?php
                                 require '../admin/connection.php';
+                                if (isset($_GET['id'])) {
+                                $student_id=$_GET['id'];
+                                }
                                 
                                 $query = $conn->prepare("SELECT year,department_id FROM students WHERE id= ? ");
-                                $query->bindValue(1,$_SESSION['system_user_id'],PDO::PARAM_INT);
+                                $query->bindValue(1,$student_id,PDO::PARAM_INT);
                                 $query->execute();
                                 $result = $query->fetch(PDO::FETCH_ASSOC);
                                 // $department = $result->department_id;
                                 // $year = $result->year;
 
                                 $query2 = $conn->prepare("SELECT * FROM tasks WHERE department_id = ? && year = ? ");
-                                $query2->bindValue(1,$result['department'],PDO::PARAM_INT);
+                                $query2->bindValue(1,$result['department_id'],PDO::PARAM_INT);
                                 $query2->bindValue(2,$result['year'],PDO::PARAM_INT);
                                 $query2->execute();
                                 $i = 1;
