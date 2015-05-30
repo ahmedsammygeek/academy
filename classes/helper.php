@@ -77,6 +77,14 @@ function check_if_exists($data , $col , $table)
 
     return false;
 }
+
+/**
+ * function which send notifications to spcific users 
+ * @param  [integer] $id      [the user who made th action]
+ * @param  [string] $content [the notification content]
+ * @param  array  $send_to [the users will be notified ]
+ * @return [mixed] boolean or error          [description]
+ */
 function send_notification($id,$content,$send_to=array())
 {
     global $conn ;
@@ -176,5 +184,70 @@ function check_task($days) {
     else 
         return '<td><span class="label label-success">expired</span></td>' ;
 }
+
+/**
+ * get the answer os some question by question id 
+ * @param  integer $question_id [description]
+ * @return string  [mixed html with question answer data]
+ */
+function get_question_answer($question_id) {
+    global $conn;
+    $output = '';
+    $select = $conn->prepare("SELECT q_s.content  , q_s.date , s.name as answered_by FROM question_answers as q_s LEFT JOIN staff as s on s.id = q_s.made_by WHERE question_id = ? ");
+    $select->bindValue(1,$question_id,PDO::PARAM_INT);
+    $select->execute();
+
+    $answer = $select->fetch(PDO::FETCH_OBJ);
+
+    $output = '<small><span class="time"><i class="fa fa-user"></i> '.$answer->answered_by.'   </span></small>
+    <small><span class="time"><i class="fa fa-clock-o"></i> '.$answer->date.'</span></small>
+    <p>'.$answer->content.'</p>
+    ';
+    return $output;
+}
+
+/**
+ * get the subject's doctor 
+ * @param  [integer] $subject_id [the subject id ]
+ * @return [integer]      the doctor id        
+ */
+function get_the_subject_doctor($subject_id)
+{
+    global $conn;
+    $subject  = $conn->prepare("SELECT doctor_id FROM subjects WHERE id= ?");
+    $subject->bindValue(1,$subject_id,PDO::PARAM_INT);
+    $subject->execute();
+    $subject_info = $subject->fetch(PDO::FETCH_OBJ);
+    return $subject_info->doctor_id;
+}
+
+
+
+
+/**
+ * get the subject's demonestratoers  
+ * @param  [integer] $subject_id [the subject id ]
+ * @return [integer]      the doctor id        
+ */
+function get_the_subject_demonstrator($subject_id)
+{
+    $demonstrators = array();
+    global $conn;
+    $subject  = $conn->prepare("SELECT demonstrator_id FROM demonstrator_subjects WHERE subject_id= ?");
+    $subject->bindValue(1,$subject_id,PDO::PARAM_INT);
+    $subject->execute();
+    
+ while ($subject_info = $subject->fetch(PDO::FETCH_OBJ)) {
+     $demonstrators[] = $subject_info->demonstrator_id;
+ }
+    return $demonstrators;
+}
+
+
+
+
+
+
+
 
 ?>

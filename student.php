@@ -1,5 +1,6 @@
 <?php 
 require 'admin/connection.php';
+$active = "student";
 require 'header.php';
  ?>
 		

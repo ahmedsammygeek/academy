@@ -3,6 +3,7 @@
 
 
 require 'admin/connection.php';
+$active = "about";
 
 require 'header.php';
 require 'admin/connection.php';

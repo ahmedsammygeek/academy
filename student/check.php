@@ -4,7 +4,6 @@ ini_set("session.session.use_only_cookies", 1);
 ini_set("session.cookie_lifetime", 0);
 ini_set("session.cookie_secure", 1);
 session_start() ;
-
 if (isset($_POST['submit'])) {
 	$args = array('userid' =>FILTER_SANITIZE_NUMBER_INT ,'password' =>FILTER_SANITIZE_NUMBER_INT);
 	$inputs=filter_input_array(INPUT_POST,$args);
@@ -28,15 +27,13 @@ if (isset($_POST['submit'])) {
 		$_SESSION['student_user_name'] = $user->name;
 		$_SESSION['student_user_department'] = $user->department_id;
 		$_SESSION['student_user_pic'] = $user->pic;
-
-		header("location: index.php?id=$user->id");
+		header("location: index.php");
 		die();
 	}
 	else
 	{
 		header('location: login.php?msg=data_error'); die();
 	}
-
 }
 else {
 	header("location: login.php");

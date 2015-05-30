@@ -1,4 +1,6 @@
 <?php  
+
+require 'check_user.php';
 require 'header.php';
 
 require '../admin/connection.php';
@@ -38,14 +40,14 @@ $subjects->execute();
                     $id=$_GET['id'];
                 } ?>
                   
-                    <a href="tasks.php<?php echo "?id=$id"; ?>" class="btn btn-app ">
+                    <a href="tasks.php" class="btn btn-app ">
                         <i class="fa fa-tasks"></i> tasks
                     </a> 
-                    <a href="inbox.php<?php echo "?id=$id"; ?>" class="btn btn-app">
+                    <a href="inbox.php" class="btn btn-app">
                         <span class="badge bg-aqua">12</span>
                         <i class="fa fa-envelope"></i> Inbox                                        
                     </a>
-                    <a href="notifications.php<?php echo "?id=$id"; ?>" class="btn btn-app ">
+                    <a href="notifications.php" class="btn btn-app ">
                         <span class="badge bg-yellow">3</span>
                         <i class="fa fa-bullhorn"></i> Notifications
                     </a>      
