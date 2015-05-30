@@ -35,6 +35,8 @@ $forth_year->bindValue(1,$id , PDO::PARAM_INT);
 $forth_year->execute();
 
 
+$active = "department";
+
 require 'header.php';
 
 

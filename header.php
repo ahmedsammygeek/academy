@@ -24,7 +24,7 @@
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="screen">
-           <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <!-- Margo CSS Styles  -->
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
@@ -38,9 +38,9 @@
 
     <link rel="stylesheet" type="text/css" href="css/colors/blue.css" title="blue" media="screen" />
 
- 
-        <link rel="stylesheet" href="css/bpHS.min.css">
-               <link rel="stylesheet" href="css/custom.css">
+
+    <link rel="stylesheet" href="css/bpHS.min.css">
+    <link rel="stylesheet" href="css/custom.css">
 
 
 
@@ -86,7 +86,7 @@
                                 <li>
                                     <a class="twitter itl-tooltip" data-placement="bottom" title="Twitter" href="#"><i class="fa fa-twitter"></i></a>
                                 </li>
-                               
+
                                 <li>
                                     <a class="linkdin itl-tooltip" data-placement="bottom" title="Linkedin" href="#"><i class="fa fa-linkedin"></i></a>
                                 </li>
@@ -119,58 +119,47 @@
                         <ul class="nav navbar-nav navbar-right">
                             <!-- home page -->
                             <li>
-                                <a class="active" href="index.php">Home</a>
+                                <a <?php if($active=="home") { echo 'class="active"';} ?> href="index.php">Home</a>
                             </li>
                             <!-- about page -->
                             <li>
-
-                                <a  href="about.php">About us</a>
+                                <a  <?php if($active=="about" || $active=="student" || $active=="faq"  ) { echo 'class="active"';} ?>  href="about.php">About us</a>
                                 <ul class="dropdown">
 
                                     <li>
-                                       <a  href="about.php">about academy</a>
-                                   </li>
-                                   <li>
-                                       <a  href="student.php">Student Affairs</a>
-                                   </li>
-                                   <li>
-                                       <a  href="faq.php">FAQ</a>
-                                   </li>
-                                   <li>
-                                       <a  href="index.php">Student Affairs</a>
-                                   </li>
-                               </ul>
-                           </li>
-                           <!-- departments page -->
-                           <li>
-                            <a  href="#">Departments</a>
+                                     <a   href="about.php">about academy</a>
+                                 </li>
+                                 <li>
+                                     <a  href="student.php">Student Affairs</a>
+                                 </li>
+                                 <li>
+                                     <a  href="faq.php">FAQ</a>
+                                 </li>
+
+                             </ul>
+                         </li>
+                         <!-- departments page -->
+                         <li>
+                            <a  <?php if($active=="department"   ) { echo 'class="active"';} ?>  href="#">Departments</a>
                             <ul class="dropdown">
                                 <?php
                                 $departments = $conn->prepare("SELECT id , name FROM departments") ;
                                 $departments->execute();
                                 while ($department = $departments->fetch(PDO::FETCH_OBJ)) {
                                     echo '<li><a href="department.php?id='.$department->id.'">'.$department->name.'</a>
-                                </li>';
+                                    </li>';
                                 }
-                                 ?>
+                                ?>
                             </ul>
                         </li>
                         <li>
-                            <a  href="index.php">Stuff</a>
+                            <a  <?php if($active=="staff" ) { echo 'class="active"';} ?>  href="#">Stuff</a>
                             <ul class="dropdown">
-                               
-                                <li><a href="stuff.php">stuff</a>
-                                </li>
 
-                                 <li><a href="stuff.php">stuff</a>
+                                <li><a href="stuff.php?type=1">doctors</a>
                                 </li>
-
-                                 <li><a href="stuff.php">stuff</a>
+                                <li><a href="stuff.php?type=2">demonestrator</a>
                                 </li>
-
-                                 <li><a href="stuff.php">stuff</a>
-                                </li>
-
                             </ul>
                         </li>
 
@@ -179,7 +168,7 @@
                         </li>
                         <li><a href="contact.php">Contact us</a>
                         </li>
-                       
+
                     </ul>
                     <!-- End Navigation List -->
                 </div>

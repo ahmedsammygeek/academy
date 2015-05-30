@@ -1,9 +1,8 @@
-<?php require 'check_user.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE | Dashboard</title>
+    <title>Student | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
     <link href="../admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />

@@ -77,6 +77,14 @@ function check_if_exists($data , $col , $table)
 
     return false;
 }
+
+/**
+ * function which send notifications to spcific users 
+ * @param  [integer] $id      [the user who made th action]
+ * @param  [string] $content [the notification content]
+ * @param  array  $send_to [the users will be notified ]
+ * @return [mixed] boolean or error          [description]
+ */
 function send_notification($id,$content,$send_to=array())
 {
     global $conn ;
@@ -126,6 +134,11 @@ function get_students($where)
     return false;
 }
 
+/**
+ * function which get all the doctor subjects 
+ * @param  [integer] $doctor_id [description]
+ * @return [type]  array of subjects' ides        [description]
+ */
 function get_doctor_subjects($doctor_id)
 {
     global  $conn ;
@@ -138,12 +151,103 @@ function get_doctor_subjects($doctor_id)
         while ($subject = $doc_subject->fetch(PDO::FETCH_OBJ)) {
             $ids[] = $subject->id;
         }
-
         return implode(',', $ids);
-
     }
     return false;
 }
+
+/**
+ * check if the student study this subject or not
+ * @param  [interger]  $department [the subject department]
+ * @param  [integer]  $year       [the subject year]
+ * @return boolean             
+ */
+function is_subject_belongs_to_student($subject_id , $department , $year) {
+    global $conn ;
+    $subject = $conn->prepare("SELECT id FROM subjects WHERE department = ? AND year = ? AND id = ?");
+    $subject->bindValue(1,$department , PDO::PARAM_INT);
+    $subject->bindValue(2,$year , PDO::PARAM_INT);
+    $subject->bindValue(3,$subject_id , PDO::PARAM_INT);
+    $subject->execute();
+    if($subject->rowCount()){
+        return true;
+    }
+    return false;
+}
+
+
+
+
+function check_task($days) {
+    if($days > 0 )
+        return '<td><span class="label label-success">avilabe</span></td>';
+    else 
+        return '<td><span class="label label-success">expired</span></td>' ;
+}
+
+/**
+ * get the answer os some question by question id 
+ * @param  integer $question_id [description]
+ * @return string  [mixed html with question answer data]
+ */
+function get_question_answer($question_id) {
+    global $conn;
+    $output = '';
+    $select = $conn->prepare("SELECT q_s.content  , q_s.date , s.name as answered_by FROM question_answers as q_s LEFT JOIN staff as s on s.id = q_s.made_by WHERE question_id = ? ");
+    $select->bindValue(1,$question_id,PDO::PARAM_INT);
+    $select->execute();
+
+    $answer = $select->fetch(PDO::FETCH_OBJ);
+
+    $output = '<small><span class="time"><i class="fa fa-user"></i> '.$answer->answered_by.'   </span></small>
+    <small><span class="time"><i class="fa fa-clock-o"></i> '.$answer->date.'</span></small>
+    <p>'.$answer->content.'</p>
+    ';
+    return $output;
+}
+
+/**
+ * get the subject's doctor 
+ * @param  [integer] $subject_id [the subject id ]
+ * @return [integer]      the doctor id        
+ */
+function get_the_subject_doctor($subject_id)
+{
+    global $conn;
+    $subject  = $conn->prepare("SELECT doctor_id FROM subjects WHERE id= ?");
+    $subject->bindValue(1,$subject_id,PDO::PARAM_INT);
+    $subject->execute();
+    $subject_info = $subject->fetch(PDO::FETCH_OBJ);
+    return $subject_info->doctor_id;
+}
+
+
+
+
+/**
+ * get the subject's demonestratoers  
+ * @param  [integer] $subject_id [the subject id ]
+ * @return [integer]      the doctor id        
+ */
+function get_the_subject_demonstrator($subject_id)
+{
+    $demonstrators = array();
+    global $conn;
+    $subject  = $conn->prepare("SELECT demonstrator_id FROM demonstrator_subjects WHERE subject_id= ?");
+    $subject->bindValue(1,$subject_id,PDO::PARAM_INT);
+    $subject->execute();
+    
+ while ($subject_info = $subject->fetch(PDO::FETCH_OBJ)) {
+     $demonstrators[] = $subject_info->demonstrator_id;
+ }
+    return $demonstrators;
+}
+
+
+
+
+
+
 
 
 ?>

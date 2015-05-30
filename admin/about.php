@@ -62,7 +62,7 @@ require 'sidebar.php';
 					<div class="box-body">
 						<div class="form-group">
 							<label for="exampleInputEmail1">content</label>
-							<textarea type="text" name="content" class="form-control" id="exampleInputEmail1" rows="7" placeholder="Enter content about our academy"></textarea> 
+							<textarea type="text" name="content" class="form-control textarea" id="exampleInputEmail1" rows="7" placeholder="Enter content about our academy"></textarea> 
 
 						</div>
 						<?php 
@@ -94,6 +94,14 @@ require 'sidebar.php';
 </section><!-- /.content -->
 
 
+<script src="js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function() {
+                
+                //bootstrap WYSIHTML5 - text editor
+                $(".textarea").wysihtml5();
+            });
+        </script>
 
 <?php 
 require 'footer.php';

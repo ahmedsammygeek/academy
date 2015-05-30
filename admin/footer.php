@@ -13,6 +13,14 @@
         <script src="js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
         <!-- Bootstrap -->
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function() {
+                
+                //bootstrap WYSIHTML5 - text editor
+                $(".textarea").wysihtml5();
+            });
+        </script>
        
        
         <!-- daterangepicker -->

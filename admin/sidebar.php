@@ -421,6 +421,13 @@ if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
                                 <li><a href="lastexam.php"><i class="fa fa-angle-double-right"></i>add last task</a></li>
                             </ul>
                         </li>
+                          <li>
+                            <a href="show_info.php">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>site info</span>
+                            </a>
+                        </li>
+                        
                         
                         <li>
                             <a href="message.php">

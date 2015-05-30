@@ -1,11 +1,13 @@
 <?php  
-// require 'check_user.php';
+
+require 'check_user.php';
 require 'header.php';
 
-// require '../admin/connection.php';
-// $subjects = $conn->prepare("SELECT name ,  id FROM subjects WHERE doctor_id = ?");
-// $subjects->bindValue(1,$_SESSION['system_user_id'],PDO::PARAM_INT);
-// $subjects->execute();
+require '../admin/connection.php';
+$subjects = $conn->prepare("SELECT name ,  id FROM subjects WHERE year = ? AND department = ? ");
+$subjects->bindValue(1,$_SESSION['student_user_year'],PDO::PARAM_INT);
+$subjects->bindValue(2,$_SESSION['student_user_department'],PDO::PARAM_INT);
+$subjects->execute();
 
 
 ?>
@@ -38,14 +40,14 @@ require 'header.php';
                     $id=$_GET['id'];
                 } ?>
                   
-                    <a href="tasks.php<?php echo "?id=$id"; ?>" class="btn btn-app ">
+                    <a href="tasks.php" class="btn btn-app ">
                         <i class="fa fa-tasks"></i> tasks
                     </a> 
-                    <a href="inbox.php<?php echo "?id=$id"; ?>" class="btn btn-app">
+                    <a href="inbox.php" class="btn btn-app">
                         <span class="badge bg-aqua">12</span>
                         <i class="fa fa-envelope"></i> Inbox                                        
                     </a>
-                    <a href="notifications.php<?php echo "?id=$id"; ?>" class="btn btn-app ">
+                    <a href="notifications.php" class="btn btn-app ">
                         <span class="badge bg-yellow">3</span>
                         <i class="fa fa-bullhorn"></i> Notifications
                     </a>      
@@ -70,16 +72,16 @@ require 'header.php';
         </div>
         <div class="box-body">
             <?php 
-            // if($subjects->rowCount()) {
-            //     while ($user_subjects = $subjects->fetch(PDO::FETCH_OBJ)) {
-            //         echo '<a href="subject.php?id='.$user_subjects->id.'" class="btn btn-app ">
-            //     <i class="fa fa-book"></i> '.$user_subjects->name.'
-            // </a>';
-            //     }
-            // }
-            // else {
-            //     echo "sorry ! no subject now you teach it to be shown here";
-            // }
+            if($subjects->rowCount()) {
+                while ($user_subjects = $subjects->fetch(PDO::FETCH_OBJ)) {
+                    echo '<a href="subject.php?id='.$user_subjects->id.'" class="btn btn-app ">
+                <i class="fa fa-book"></i> '.$user_subjects->name.'
+            </a>';
+                }
+            }
+            else {
+                echo "sorry ! no subject now you teach it to be shown here";
+            }
              ?>
         </div><!-- /.box-body -->
     </div>
@@ -90,8 +92,14 @@ require 'header.php';
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 
-<?php 
-require 'scripts.php';
-?>
+
+
+<script src="../admin/js/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../admin/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- AdminLTE App -->
+<script src="../admin/js/AdminLTE/app.js" type="text/javascript"></script>
+
 </body>
 </html>
