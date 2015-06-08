@@ -36,7 +36,7 @@ if(isset($_POST['task_btn'])) {
 	foreach ( $inputs as $input_name => $input_value )
 	{
 		if ( empty( $input_value ) ) {
-			header("location: edit_task.php?task_id=$task_id&msg=$input_name");
+			header("location: edit_task.php?task_id=$task_id&msg=missing");
 			die();
 		}
 	}
