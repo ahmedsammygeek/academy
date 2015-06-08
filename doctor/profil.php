@@ -6,21 +6,21 @@ require '../admin/connection.php';?>
 
 
 <aside class="right-side">
-<!-- Content Header (Page header) -->
-<section class="content-header">
-    <h1>
-        add new department
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            doctor profile
 
-    </h1>
+        </h1>
 
-</section>
-<!-- Main content -->
-<section class="content">
-	<div class="row">
-		<!-- left column -->
-		<div class="col-md-12">
-			<!-- general form elements -->
-			<div class="box box-primary">
+    </section>
+    <!-- Main content -->
+    <section class="content">
+       <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+             <!-- general form elements -->
+             <div class="box box-primary">
                 <div class="box-header">
                     <h3 class="box-title">update your information</h3>
                 </div><!-- /.box-header -->
@@ -31,7 +31,7 @@ require '../admin/connection.php';?>
                 $query->execute();
                 $result=$query->fetch(PDO::FETCH_OBJ);
                 ?>
-                <form role="form" action="update_info.php" method="post" enctype="multipart/form-data" >
+                <form role="form" action="update_info.php?img=$result->image" method="post" enctype="multipart/form-data" >
                     <div class="box-body">
                         <?php 
                         if (isset($_GET['msg'])) {
@@ -43,12 +43,19 @@ require '../admin/connection.php';?>
                                 <b>Alert!</b>   you leave input empty please complete inputs and try again.
                                 </div>';
                                 break;
-                                case 'error_update':
+                                case 'error_data':
                                 echo '<div class="alert alert-danger alert-dismissable">
                                 <i class="fa fa-ban"></i>
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                <b>Alert!</b>   an error in your update please try again.
+                                <b>Alert!</b> please be sure you upload an image .
                                 </div>';
+                                break;
+                                case 'updated':
+                                echo '<div class="alert alert-success alert-dismissable">
+                                <i class="fa fa-check"></i>
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <b>Alert!</b> data updated successfully.
+                                </div>';  
                                 break;
                                 
                                 default:
@@ -87,15 +94,7 @@ require '../admin/connection.php';?>
                             <input type="text" name="username" value='<?php echo "$result->username"; ?>' class="form-control" id="exampleInputEmail1"> 
 
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">new password</label>
-                            <input type="text" name="password1"  class="form-control" id="exampleInputEmail1" placeholder="new password"> 
-
-                        </div><div class="form-group">
-                            <label for="exampleInputEmail1">confirm new password</label>
-                            <input type="text" name="password2"  class="form-control" id="exampleInputEmail1" placeholder="new password again"> 
-
-                        </div>
+                        
                         
 
 
@@ -109,8 +108,8 @@ require '../admin/connection.php';?>
             </div><!-- /.box -->
 
 
-		</div><!--/.col (right) -->
-	</div>   <!-- /.row -->
+        </div><!--/.col (right) -->
+    </div>   <!-- /.row -->
 </section><!-- /.content -->
 
 </aside><!-- /.right-side -->
