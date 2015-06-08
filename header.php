@@ -66,13 +66,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-7">
+                            <?php require 'admin/connection.php';
+                            $site_info = $conn->query("SELECT * FROM site_info");
+                            $info = $site_info->fetch(PDO::FETCH_OBJ); ?>
                             <!-- Start Contact Info -->
                             <ul class="contact-details">
-                                <li><a href="#"><i class="fa fa-map-marker"></i> mansoura,sndoub-road</a>
+                                <li><a href="#"><i class="fa fa-map-marker"></i><?php echo "$info->address"; ?></a>
                                 </li>
-                                <li><a href="#"><i class="fa fa-envelope-o"></i>metmansoura.com</a>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i><?php echo "$info->mail"; ?></a>
                                 </li>
-                                <li><a href="#"><i class="fa fa-phone"></i> +1062300489</a>
+                                <li><a href="#"><i class="fa fa-phone"></i><?php echo "$info->phone"; ?></a>
                                 </li>
                             </ul>
                             <!-- End Contact Info -->
@@ -81,14 +84,14 @@
                             <!-- Start Social Links -->
                             <ul class="social-list">
                                 <li>
-                                    <a class="facebook itl-tooltip" data-placement="bottom" title="Facebook" href="https://www.facebook.com/groups/met.cs3/"><i class="fa fa-facebook"></i></a>
+                                    <a class="facebook itl-tooltip" data-placement="bottom" title="Facebook" href="<?php echo "$info->facebook"; ?>"><i class="fa fa-facebook"></i></a>
                                 </li>
                                 <li>
-                                    <a class="twitter itl-tooltip" data-placement="bottom" title="Twitter" href="#"><i class="fa fa-twitter"></i></a>
+                                    <a class="twitter itl-tooltip" data-placement="bottom" title="Twitter" href="<?php echo "$info->twitter"; ?>"><i class="fa fa-twitter"></i></a>
                                 </li>
 
                                 <li>
-                                    <a class="linkdin itl-tooltip" data-placement="bottom" title="Linkedin" href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a class="linkdin itl-tooltip" data-placement="bottom" title="Linkedin" href="<?php echo "$info->linkedin"; ?>"><i class="fa fa-linkedin"></i></a>
                                 </li>
                                 
                             </ul>

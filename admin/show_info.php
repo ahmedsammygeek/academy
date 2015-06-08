@@ -51,8 +51,7 @@ require 'sidebar.php';
           include 'connection.php';
           $sql="SELECT * FROM site_info ";
           $query=$conn->query($sql);
-          $i=1;
-          while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
+          $result=$query->fetch(PDO::FETCH_ASSOC);
            extract($result);
            echo "
            <tr>
@@ -78,21 +77,20 @@ require 'sidebar.php';
            <tr>
            <td>address</td>
            <td>$address</td>
+           </tr>
+           <tr>
+           <td>map link</td>
+           <td>$map</td>
            </tr> 
            ";
-           $i++;
-
-         } 
-
-
-
+           
          ?>
 
 
        </tbody></table>
      </div><!-- /.box-body -->
    </div><!-- /.box -->
-   <a href="edit_info.php"> <button class="btn btn-success btn-lg">edit info</button></a>
+   <a href="edit_info.php<?php echo "?id=$id"; ?>"> <button class="btn btn-success btn-lg">edit info</button></a>
 
  </div>
 </div>
