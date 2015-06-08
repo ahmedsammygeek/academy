@@ -35,6 +35,7 @@ require 'header.php';
                                     <th>Task title</th>
                                     <th>Subject</th>                                 
                                     <th>end date</th>                                 
+                                    <th>Made by </th>                                 
                                     <th>Details</th>
                                     <th> Answer it</th>
 
@@ -43,64 +44,56 @@ require 'header.php';
                             <tbody>
                                 <?php
                                 require '../admin/connection.php';
-<<<<<<< HEAD
-                                if (isset($_GET['id'])) {
-                                $student_id=$_GET['id'];
-                                }
+
+
                                 
-                                $query = $conn->prepare("SELECT year,department_id FROM students WHERE id= ? ");
-                                $query->bindValue(1,$student_id,PDO::PARAM_INT);
-                                $query->execute();
-                                $result = $query->fetch(PDO::FETCH_ASSOC);
-                                // $department = $result->department_id;
-                                // $year = $result->year;
+                                $tasks = $conn->prepare("SELECT T.year ,  ST.name As creator ,  S.name as subject_name ,  T.task_title , T.ex_date , T.subject_id , T.made_by FROM tasks as T
+                                 LEFT JOIN subjects as S on S.id = T.subject_id 
+                                 LEFT JOIN staff as ST on T.made_by = ST.id
 
-                                $query2 = $conn->prepare("SELECT * FROM tasks WHERE department_id = ? && year = ? ");
-                                $query2->bindValue(1,$result['department_id'],PDO::PARAM_INT);
-                                $query2->bindValue(2,$result['year'],PDO::PARAM_INT);
-=======
-                       
+                                 WHERE T.year = ? ");
+                                $tasks->bindValue(1,$_SESSION['student_user_year'] , PDO::PARAM_INT);
+                                $tasks->execute();
 
-                                $query2 = $conn->prepare("SELECT * FROM tasks WHERE department_id = ? && year = ? ");
-                                $query2->bindValue(1,$_SESSION['student_user_department'],PDO::PARAM_INT);
-                                $query2->bindValue(2,$_SESSION['student_user_year'],PDO::PARAM_INT);
->>>>>>> 32141291ec510fafe7f13e1b879e4a861fe58534
-                                $query2->execute();
+
+                                
+                               
                                 $i = 1;
-                                while ($result2 = $query2->fetch(PDO::FETCH_OBJ)) {
-                                 extract($result2);
+                                while ($task = $tasks->fetch(PDO::FETCH_OBJ)) {
+                                  
 
 
-                                 echo " <tr>
-                                 <td>$i</td>
-                                 <td>$result2->task_title</td>
-                                 <td>$result2->subject_id</td>
-                                 <td>$result2->ex_date</td>
+                                   echo " <tr>
+                                   <td>$i</td>
+                                   <td>$task->task_title</td>
+                                   <td>$task->subject_name</td>
+                                   <td>$task->ex_date</td>
+                                   <td>$task->creator</td>
 
 
-                                 <td><a href='' class='btn btn-success'>DeTails</a></td>
-                                 <td><a href='answers.php?id=".$_SESSION['student_user_year']."' class='btn btn-info'>Answers</a></td>
-                                 </tr>
-                                 ";
-                                 $i++;
-                             }
-
-
-
-                             ?>
+                                   <td><a href='' class='btn btn-success'>DeTails</a></td>
+                                   <td><a href='answers.php?id=".$_SESSION['student_user_year']."' class='btn btn-info'>Answers</a></td>
+                                   </tr>
+                                   ";
+                                   $i++;
+                               }
 
 
 
-                        </tbody>
-
-                    </table>
-                </div><!-- /.box-body -->
+                               ?>
 
 
-            </div>
-        </div>
-    </div>
-</section><!-- /.content -->
+
+                           </tbody>
+
+                       </table>
+                   </div><!-- /.box-body -->
+
+
+               </div>
+           </div>
+       </div>
+   </section><!-- /.content -->
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 
