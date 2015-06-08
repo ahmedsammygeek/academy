@@ -25,13 +25,8 @@ require '../admin/connection.php';?>
             <h3 class="box-title">update your information</h3>
         </div><!-- /.box-header -->
         <!-- form start -->
-        <?php 
-        $query=$conn->prepare("SELECT * FROM staff WHERE id = ?");
-        $query->bindValue(1,$_SESSION['system_user_id'],PDO::PARAM_INT);
-        $query->execute();
-        $result=$query->fetch(PDO::FETCH_OBJ);
-        ?>
-        <form role="form" action="update_info.php?img=$result->image" method="post" enctype="multipart/form-data" >
+       
+        <form role="form" action="update_pass.php" method="post" enctype="multipart/form-data" >
             <div class="box-body">
                 <?php 
                 if (isset($_GET['msg'])) {
@@ -43,18 +38,32 @@ require '../admin/connection.php';?>
                         <b>Alert!</b>   you leave input empty please complete inputs and try again.
                         </div>';
                         break;
-                        case 'error_data':
+                        case 'err_pass':
                         echo '<div class="alert alert-danger alert-dismissable">
                         <i class="fa fa-ban"></i>
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <b>Alert!</b> please be sure you upload an image .
+                        <b>Alert!</b> please enter your password right ! .
+                        </div>';
+                        break;
+                        case 'no_eq_pass':
+                        echo '<div class="alert alert-danger alert-dismissable">
+                        <i class="fa fa-ban"></i>
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <b>Alert!</b> your new password not equal your confirm .
+                        </div>';
+                        break;
+                        case 'error':
+                        echo '<div class="alert alert-danger alert-dismissable">
+                        <i class="fa fa-ban"></i>
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <b>Alert!</b> pleace contact with support! .
                         </div>';
                         break;
                         case 'updated':
                         echo '<div class="alert alert-success alert-dismissable">
                         <i class="fa fa-check"></i>
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <b>Alert!</b> data updated successfully.
+                        <b>Alert!</b> password updated .
                         </div>';  
                         break;
 
@@ -66,44 +75,26 @@ require '../admin/connection.php';?>
 
                 ?>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">name</label>
-                    <input type="text" name="name" value='<?php echo "$result->name"; ?>' class="form-control" id="exampleInputEmail1" placeholder="Enter department name"> 
+                    <label for="exampleInputEmail1">password</label>
+                    <input type="password" name="password"  class="form-control" id="exampleInputEmail1" placeholder="Enter your password"> 
 
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">image</label>
-                    <input type="file" name="file"  class="form-control" id="exampleInputEmail1"> 
-
-                </div>
-
-                <div class="form-group">
-                    <label for="exampleInputEmail1">description</label>
-                    <input type="text" name="description" value='<?php echo "$result->description"; ?>' class="form-control" id="exampleInputEmail1"> 
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">facebook</label>
-                    <input type="text" name="facebook" value='<?php echo "$result->facebook"; ?>' class="form-control" id="exampleInputEmail1"> 
+                    <label for="exampleInputEmail1">new password</label>
+                    <input type="password" name="password1"  class="form-control" id="exampleInputEmail1" placeholder="Enter new password"> 
 
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">email</label>
-                    <input type="text" name="email" value='<?php echo "$result->email"; ?>' class="form-control" id="exampleInputEmail1"> 
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">username</label>
-                    <input type="text" name="username" value='<?php echo "$result->username"; ?>' class="form-control" id="exampleInputEmail1"> 
+                    <label for="exampleInputEmail1">confirm new password</label>
+                    <input type="password" name="password2"  class="form-control" id="exampleInputEmail1" placeholder="Enter new password again"> 
 
                 </div>
-
-
-
-
-
+                
+                
             </div><!-- /.box-body -->
 
             <div class="box-footer">
                 <button type="submit" name="submit" class="btn btn-primary">update</button>
-                <a href="edit_pass.php" class="btn btn-primary">change password</a>
 
             </div>
         </form>
