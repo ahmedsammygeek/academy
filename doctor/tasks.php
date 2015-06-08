@@ -3,8 +3,21 @@ require 'check_user.php';
 require 'header.php';
 
 require '../admin/connection.php';
+
+
+if(!isset($_GET['task_id']) || empty($_GET['task_id'])) {
+    header('location: tasks.php?id');
+    die();
+}
+
 require '../classes/helper.php';
 
+$task_id = filter_input(INPUT_GET, 'task_id' , FILTER_SANITIZE_NUMBER_INT);
+
+if(!check_if_exists($task_id ,'id' , 'tasks')) {
+   header('location: tasks.php?idd');
+   die();
+}
 ?>
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
