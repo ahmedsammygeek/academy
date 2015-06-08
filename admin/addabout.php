@@ -17,8 +17,16 @@ if (isset($_POST['submit'])) {
 	//function used to know file type
 	require '../classes/filetype.php';
 	$type=get_type($name1);
-	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
+	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
 	$name1=$randomstring.".$type" ;
+	require_once '../classes/ImageManipulator.php';
+	//to make random name
+	$newName= time() . '_';
+	$img=new ImageManipulator('image/'.$name1);
+	//resize image
+	$newimg=$img->resample(374,284);
+	//put image in file "image"
+	$img->save('image/'.$name1);
 	// frist image admin add 
 	$name2=$_FILES['image2']['name'];
 	if (!validation($name2,array('jpg','png','jpeg'))) {
@@ -27,8 +35,16 @@ if (isset($_POST['submit'])) {
 	}
 	//function used to know file type
 	$type=get_type($name2);
-	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
+	//to make random name
+	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
 	$name2=$randomstring.".$type" ;
+	$newName= time() . '_';
+	$img=new ImageManipulator('image/'.$name2);
+	//resize image
+
+	$newimg=$img->resample(374,284);
+	//put image in file "image"
+	$img->save('image/'.$name2);
 	//second image
 	$name3=$_FILES['image3']['name'];
 	if (!validation($name3,array('jpg','png','jpeg'))) {
@@ -37,10 +53,17 @@ if (isset($_POST['submit'])) {
 	}
 	//function used to know file type
 	$type=get_type($name3);
-	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15); 
+	//to make random name
+	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
 	$name3=$randomstring.".$type" ;
+	$newName= time() . '_';
+	$img=new ImageManipulator('image/'.$name3);
+	//resize image
+
+	$newimg=$img->resample(400,350);
+	//put image in file "image"
+	$img->save('image/'.$name3);
 	//third image
-	// echo "$content" . "<br>" . "$name1" . "<br>" . "$name2" . "<br>" . "$name3" ;
 }
 
 $inputs = array($content,$name1,$name2,$name3);
@@ -52,39 +75,7 @@ foreach ($inputs as $value) {
 		header('location: about.php?msg=empty_data'); die();
 	}
 }
-$location="image/";
-//this folder is a location images save in it 
-move_uploaded_file($_FILES['image1']['tmp_name'] , $location.$name1);
-// put frist image in file we made it ($location)
-move_uploaded_file($_FILES['image2']['tmp_name'] , $location.$name2);
-// put second image in file we made it ($location)
-move_uploaded_file($_FILES['image3']['tmp_name'] , $location.$name3);
-// put third image in file we made it ($location)
-list($width1,$height1) = getimagesize($location.$name1);
-//get  frist image width and height
-list($width2,$height2) = getimagesize($location.$name2);
-//get  second image width and height
-list($width3,$height3) = getimagesize($location.$name3);
-//get third image width and height
-$size_width = array($width1,$width2,$width3);
-//put the images width in this array to make sure this width isn't small
-foreach ($size_width as $value_width) {
-	if ($value_width < 200) {
-		//if this image width smaller than 200
-		//go to input page to enter another image 
-		header('location: about.php?msg=small_image'); die();
-	}
-}
-$size_height = array($height1,$height2,$height3 );
-//put the images height in this array to make sure this width isn't small
-foreach ($size_height as  $value_height) {
-	if ($value_height < 150) {
-		//if this image height smaller than 150
-		//go to input page to enter another image 
-		header('location: about.php?msg=small_image'); die();
 
-	}
-}
 require 'connection.php';
 //connection with database (met)
 $sql="INSERT INTO about VALUES('',?,?,?,?) ";
