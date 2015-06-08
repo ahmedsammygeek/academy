@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE | Dashboard</title>
+    <title>AdminLTE | doctor</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- bootstrap 3.0.2 -->
     <link href="../admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -301,6 +301,11 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
+                         <li class="active">
+                            <a href="profil.php">
+                                <i class="fa fa-dashboard"></i> <span>profil</span>
+                            </a>
+                        </li>
                         <li class="">
                             <a href="index.php">
                                 <i class="fa fa-dashboard"></i> <span>home</span>

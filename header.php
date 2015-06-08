@@ -159,9 +159,9 @@
                             <a  <?php if($active=="staff" ) { echo 'class="active"';} ?>  href="#">Stuff</a>
                             <ul class="dropdown">
 
-                                <li><a href="stuff.php?type=1">doctors</a>
+                                <li><a href="stuff.php?type=2">doctors</a>
                                 </li>
-                                <li><a href="stuff.php?type=2">demonestrator</a>
+                                <li><a href="stuff.php?type=1">demonestrator</a>
                                 </li>
                             </ul>
                         </li>
