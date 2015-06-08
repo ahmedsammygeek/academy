@@ -1,5 +1,6 @@
 <?php 
 require 'admin/connection.php';
+$active = "contact";
 require 'header.php';
  ?>
 

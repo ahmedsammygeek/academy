@@ -24,6 +24,27 @@ require '../classes/helper.php';
     <section class="content">
 
         <div class="row">
+            <?php 
+            if(isset($_GET['msg']) && !empty($_GET['msg'])) {
+                switch ($_GET['msg']) {
+                    case 'done':
+                    echo '<div class="alert alert-success alert-dismissable">
+                    <i class="fa fa-check"></i>
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <b>Alert!</b> task has been deleted successfully.
+                    </div>';
+                    break;
+                    case 'db_error':
+                    echo '<div class="alert alert-danger alert-dismissable">
+                    <i class="fa fa-check"></i>
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <b>Wrong!</b> somethng went wrong please try again 
+                    </div>';
+                    break;
+
+                }
+            }
+            ?>
             <div class="col-md-12">
 
                 <div class="box">
@@ -55,9 +76,9 @@ require '../classes/helper.php';
 
                                 $subjects = get_doctor_subjects($_SESSION['system_user_id']);
                                 $tasks = $conn->prepare("SELECT t.id as task_id ,  st.name as who_made_it ,  t.made_by a , t.year as stu_year ,  d.name as department_name ,  t.id  , s.name as subject_name , t.task_title ,d.name, t.subject_id , t.made_by
-                                 FROM tasks as t 
-                                  LEFT JOIN departments as d on t.department_id = d.id LEFT JOIN subjects as s on t.subject_id = s.id
-                                  LEFT JOIN staff as st on st.id = t.made_by
+                                   FROM tasks as t 
+                                   LEFT JOIN departments as d on t.department_id = d.id LEFT JOIN subjects as s on t.subject_id = s.id
+                                   LEFT JOIN staff as st on st.id = t.made_by
                                    WHERE subject_id IN ('$subjects')
                                    ");
                                 $tasks->execute();
@@ -74,8 +95,8 @@ require '../classes/helper.php';
                                     <td><a href="delete_task.php?task_id='.$task->task_id.'" class="btn btn-danger">Delete</a></td>
                                     <td><a href="task_details.php?task_id='.$task->task_id.'" class="btn btn-success">DeTails</a></td>
                                     <td><a href="answers.php?task_id='.$task->task_id.'" class="btn btn-info">Answers</a></td>
-                                </tr>';
-                                $i++;
+                                    </tr>';
+                                    $i++;
                                 }
 
                                 

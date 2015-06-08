@@ -118,65 +118,8 @@ $slides->execute();
 
 </div>  <!-- the end of row -->
 
-<div class="section" style="padding-top:60px; padding-bottom:60px; border-top:1px solid #eee; border-bottom:1px solid #eee; background:#f9f9f9;">
-    <div class="container">
 
-        <div class="row">
 
-            <!-- Start Left Side -->
-            <div class="col-md-6">
-
-                <!-- Start Big Heading -->
-                <div class="big-title">
-                    <h1><strong>More</strong> About Us</h1>
-                    <p class="title-desc">Some Words About Our Academy</p>
-                </div>
-                <!-- End Big Heading -->
-
-                <!-- Some Text -->
-                <p>We are delighted to welcome you to the new site of the Institute for Higher Trade Egypt and Computing, and wish you success and a lasting success,</p>
-
-                <!-- Divider -->
-                <div class="hr1" style="margin-bottom:14px;"></div>
-
-                <!-- Start Icons Lists -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="icons-list">
-                            <li><i class="fa fa-check-circle"></i> Duis aute irure dolor in reprehenderit.</li>
-                            <li><i class="fa fa-check-circle"></i> Lorem Ipsum is simply dummy text.</li>
-                            <li><i class="fa fa-check-circle"></i> Excepteur sint occaecat cupidatat.</li>
-                            <li><i class="fa fa-check-circle"></i> Sed ut perspiciatis unde omnis.</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <ul class="icons-list">
-                            <li><i class="fa fa-check-circle"></i> Duis aute irure dolor in reprehenderit.</li>
-                            <li><i class="fa fa-check-circle"></i> Lorem Ipsum is simply dummy text.</li>
-                            <li><i class="fa fa-check-circle"></i> Excepteur sint occaecat cupidatat.</li>
-                            <li><i class="fa fa-check-circle"></i> Sed ut perspiciatis unde omnis.</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- End Icons Lists -->
-
-                <!-- Divider -->
-                <div class="hr1" style="margin-bottom:20px;"></div>
-
-                <!-- Button -->
-                <a href="#" class="btn-system btn-small">Read More About Us</a>
-            </div>
-            <!-- End Left Side -->
-
-            <!-- Vimeo Iframe -->
-            <div class="col-md-6">
-                <div class="fluid-width-video-wrapper" ><iframe  width="560" height="315" src="https://youtu.be/VxcbppCX6Rk" ></iframe></div>  
-            </div>
-
-        </div>
-
-    </div>
-</div>
 <!-- Start Recent Posts Carousel -->
 <div class="latest-posts">
     <h4 class="classic-title"><span>Latest News</span></h4>

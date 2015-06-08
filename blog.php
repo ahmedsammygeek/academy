@@ -1,6 +1,8 @@
        
 <?php 
 require 'admin/connection.php';
+
+$active = "blog";
 include 'header.php';
 ?>
 

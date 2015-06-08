@@ -164,9 +164,9 @@
                         </li>
 
                         <li> <!-- new section -->
-                            <a href="blog.php">Our News</a>
+                            <a <?php if($active=="blog" ) { echo 'class="active"';} ?> href="blog.php">Our News</a>
                         </li>
-                        <li><a href="contact.php">Contact us</a>
+                        <li><a <?php if($active=="contact" ) { echo 'class="active"';} ?> href="contact.php">Contact us</a>
                         </li>
 
                     </ul>
