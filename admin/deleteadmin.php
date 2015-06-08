@@ -1,4 +1,8 @@
-<?php 
+<?php session_start();
+
+if(!isset($_SESSION['logged']) || $_SESSION['logged'] != 'true') {
+ header('location: login.php'); die();
+}
 if (isset($_GET['msg'])) {
 	$id=$_GET['msg'];
 	//get the id of row we need to delete an put it variable ($id)

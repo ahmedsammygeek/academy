@@ -5,6 +5,28 @@
 <footer>
     <div class="container">
         <div class="row footer-widgets">
+            <?php if (isset($_GET['msg'])) {
+                switch ($_GET['msg']) {
+                    case 'em_let':
+                    echo '<div class="alert alert-danger alert-dismissable">
+                    <i class="fa fa-ban"></i>
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <b>Alert!</b>please enter your email.
+                    </div>';
+                    break;
+                    case 'sent':
+                    echo '<div class="alert alert-success alert-dismissable">
+                    <i class="fa fa-check"></i>
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <b>Alert!</b> thanks about your subscribe.
+                    </div>';
+                    break;
+                    
+                    default:
+                        # code...
+                    break;
+                }
+            } ?>
 
 
             <!-- Start Subscribe & Social Links Widget -->
@@ -12,9 +34,9 @@
                 <div class="footer-widget mail-subscribe-widget">
                     <h4>Get in touch<span class="head-line"></span></h4>
                     <p>Join our mailing list to stay up to date and get notices about our new releases!</p>
-                    <form class="subscribe">
-                        <input type="text" placeholder="mail@example.com">
-                        <input type="submit" class="main-button" value="Send">
+                    <form class="subscribe" action="newsletter.php" method="post">
+                        <input type="text" name="email" placeholder="mail@example.com">
+                        <input type="submit" name="submit" class="main-button" value="Send">
                     </form>
                 </div>
                 <?php require 'admin/connection.php';
