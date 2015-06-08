@@ -60,7 +60,7 @@ require 'header.php';
                                
                                 $i = 1;
                                 while ($task = $tasks->fetch(PDO::FETCH_OBJ)) {
-                                   extract($result2);
+                                  
 
 
                                    echo " <tr>
