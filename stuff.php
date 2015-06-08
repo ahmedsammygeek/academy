@@ -22,126 +22,43 @@ include 'header.php';
 		<!-- Start Team Members -->
 		<div class="row">
 			<div class="projects-carousel touch-carousel">
-			<!-- Start Memebr 1 -->
-			<div class="col-md-12 col-sm-6 col-xs-12">
-				<div class="team-member">
-					<!-- Memebr Photo, Name & Position -->
-					<div class="member-photo">
-						<a href=""><img alt="" src="images/team/face_1.png"></a>
-						<div class="member-name">John Doe <span>Developer</span></div>
-					</div>
-					<!-- Memebr Words -->
-					<div class="member-info">
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
-					</div>
-					<!-- Memebr Social Links -->
-					<div class="member-socail">
-						<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-						<a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-						<a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-						<a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-						<a class="mail" href="#"><i class="fa fa-envelope"></i></a>
+				<!-- Start Memebr 1 -->
+				<div class="col-md-12 col-sm-6 col-xs-12">
+					<div class="team-member">
+						<!-- Memebr Photo, Name & Position -->
+						<?php 
+						if (isset($_GET['type'])) {
+							$type = $_GET['type'];
+							switch ($type) {
+								case '1':
+								$domen = $conn->query("SELECT * FROM staff WHERE type = 1");
+								while ($res = $domen->fetch(PDO::FETCH_OBJ)) {
+									var_dump($res->name);die();
+									echo '<div class="member-photo">
+									<a href=""><img alt="" src="admin/image/'.$res->image.'"></a>
+									<div class="member-name">'.$res->name.'<span>Developer</span></div>
+									</div>
+									<!-- Memebr Words -->
+									<div class="member-info">
+									<p>'.$res->description.'</p>
+									</div>
+									</div>' ;
+								}
+
+								break;
+
+								default:
+								# code...
+								break;
+							}
+						}
+						?>
+
 					</div>
 				</div>
+				<!-- End Memebr 1 -->
+
 			</div>
-			<!-- End Memebr 1 -->
-
-			<!-- Start Memebr 2 -->
-			<div class="col-md-12 col-sm-6 col-xs-12">
-				<div class="team-member">
-					<!-- Memebr Photo, Name & Position -->
-					<div class="member-photo">
-						<a href=""><img alt="" src="images/team/face_2.png"></a>
-						<div class="member-name">Silly Sally <span>Developer</span></div>
-					</div>
-					<!-- Memebr Words -->
-					<div class="member-info">
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
-					</div>
-					<!-- Memebr Social Links -->
-					<div class="member-socail">
-						<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-						<a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-						<a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-						<a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-						<a class="mail" href="#"><i class="fa fa-envelope"></i></a>
-					</div>
-				</div>
-			</div>
-			<!-- End Memebr 2 -->
-
-			<!-- Start Memebr 3 -->
-			<div class="col-md-12 col-sm-6 col-xs-12">
-				<div class="team-member">
-					<!-- Memebr Photo, Name & Position -->
-					<div class="member-photo">
-						<a href=""><img alt="" src="images/team/face_3.png"></a>
-						<div class="member-name">Chris John <span>Developer</span></div>
-					</div>
-					<!-- Memebr Words -->
-					<div class="member-info">
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
-					</div>
-					<!-- Memebr Social Links -->
-					<div class="member-socail">
-						<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-						<a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-						<a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-						<a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-						<a class="mail" href="#"><i class="fa fa-envelope"></i></a>
-					</div>
-				</div>
-			</div>
-			<!-- End Memebr 3 -->
-
-			<!-- Start Memebr 4 -->
-			<div class="col-md-12 col-sm-6 col-xs-12">
-				<div class="team-member">
-					<!-- Memebr Photo, Name & Position -->
-					<div class="member-photo">
-						<a href=""><img alt="" src="images/team/face_4.png"></a>
-						<div class="member-name">Sara John <span>Developer</span></div>
-					</div>
-					<!-- Memebr Words -->
-					<div class="member-info">
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
-					</div>
-					<!-- Memebr Social Links -->
-					<div class="member-socail">
-						<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-						<a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-						<a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-						<a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-						<a class="mail" href="#"><i class="fa fa-envelope"></i></a>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-12 col-sm-6 col-xs-12">
-				<div class="team-member">
-					<!-- Memebr Photo, Name & Position -->
-					<div class="member-photo">
-						<a href=""><img alt="" src="images/team/face_4.png"></a>
-						<div class="member-name">Sara John <span>Developer</span></div>
-					</div>
-					<!-- Memebr Words -->
-					<div class="member-info">
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
-					</div>
-					<!-- Memebr Social Links -->
-					<div class="member-socail">
-						<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-						<a class="gplus" href="#"><i class="fa fa-google-plus"></i></a>
-						<a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-						<a class="flickr" href="#"><i class="fa fa-flickr"></i></a>
-						<a class="mail" href="#"><i class="fa fa-envelope"></i></a>
-					</div>
-				</div>
-			</div>
-			<!-- End Memebr 4 -->
-
-
-</div>
 
 
 

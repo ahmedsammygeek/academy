@@ -5,7 +5,7 @@ require 'sidebar.php';
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>
-		add new department
+		edit questions
 
 	</h1>
 

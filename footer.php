@@ -5,6 +5,28 @@
 <footer>
     <div class="container">
         <div class="row footer-widgets">
+            <?php if (isset($_GET['msg'])) {
+                switch ($_GET['msg']) {
+                    case 'em_let':
+                    echo '<div class="alert alert-danger alert-dismissable">
+                    <i class="fa fa-ban"></i>
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <b>Alert!</b>please enter your email.
+                    </div>';
+                    break;
+                    case 'sent':
+                    echo '<div class="alert alert-success alert-dismissable">
+                    <i class="fa fa-check"></i>
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <b>Alert!</b> thanks about your subscribe.
+                    </div>';
+                    break;
+                    
+                    default:
+                        # code...
+                    break;
+                }
+            } ?>
 
 
             <!-- Start Subscribe & Social Links Widget -->
@@ -12,22 +34,25 @@
                 <div class="footer-widget mail-subscribe-widget">
                     <h4>Get in touch<span class="head-line"></span></h4>
                     <p>Join our mailing list to stay up to date and get notices about our new releases!</p>
-                    <form class="subscribe">
-                        <input type="text" placeholder="mail@example.com">
-                        <input type="submit" class="main-button" value="Send">
+                    <form class="subscribe" action="newsletter.php" method="post">
+                        <input type="text" name="email" placeholder="mail@example.com">
+                        <input type="submit" name="submit" class="main-button" value="Send">
                     </form>
                 </div>
+                <?php require 'admin/connection.php';
+                $site_info = $conn->query("SELECT * FROM site_info");
+                $info = $site_info->fetch(PDO::FETCH_OBJ); ?>
                 <div class="footer-widget social-widget">
                     <h4>Follow Us<span class="head-line"></span></h4>
                     <ul class="social-icons">
                         <li>
-                            <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
+                            <a class="facebook" href="<?php echo "$info->facebook"; ?>"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li>
-                            <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
+                            <a class="twitter" href="<?php echo "$info->twitter"; ?>"><i class="fa fa-twitter"></i></a>
                         </li>
                         <li>
-                            <a class="google" href="#"><i class="fa fa-google-plus"></i></a>
+                            <a class="linkdin itl-tooltip" data-placement="bottom" title="Linkedin" href="<?php echo "$info->linkedin"; ?>"><i class="fa fa-linkedin"></i></a>
                         </li>
                         
                     </ul>
@@ -39,7 +64,7 @@
 
             <!-- Start Flickr Widget -->
             <div class="col-md-4 col-xs-12">
-               <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7323128.552528785!2d17.2692101!3d26.3347113!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1424659483270" width="100%" height="300" frameborder="0" style="border:0"></iframe>
+                <iframe src="<?php echo "$info->map"; ?>" width="100%" height="300" frameborder="0" style="border:0"></iframe>
             </div> 
 
 
@@ -50,9 +75,9 @@
                     <p>how arrive to us :
                         mansoura-Ring road(sndoub road)</p>
                         <ul>
-                            <li><span>Phone Number:</span> +01 062300489</li>
-                            <li><span>Email:</span> alaaelgndy21@yahoo.com</li>
-                            <li><span>Website:</span> www.metmansoura.com</li>
+                            <li><span>Phone Number:</span><?php echo "$info->phone"; ?></li>
+                            <li><span>Email:</span><?php echo "$info->mail"; ?></li>
+
                         </ul>
                     </div>
                 </div><!-- .col-md-3 -->
@@ -69,12 +94,11 @@
                     </div><!-- .col-md-6 -->
                     <div class="col-md-6">
                         <ul class="footer-nav">
-                            <li><a href="#">Sitemap</a>
+                            <li><a href="index.php">home</a>
                             </li>
-                            <li><a href="#">Privacy Policy</a>
+                            <li><a href="contact.php">contact</a>
                             </li>
-                            <li><a href="#">Contact</a>
-                            </li>
+                            
                         </ul>
                     </div><!-- .col-md-6 -->
                 </div><!-- .row -->

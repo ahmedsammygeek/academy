@@ -106,7 +106,7 @@ require 'sidebar.php';
                           echo "  <tr>
                           <th>$i</th>
                           <th>$name</th>
-                          <th><img src='image/".$image."' width='45' height='60'></th>
+                          <th><img src='../uploaded/staff/".$image."' width='45' height='60'></th>
                           <th>$title</th>
                           <th>$description</th>
                           <th>$facebook</th>

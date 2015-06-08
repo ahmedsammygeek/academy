@@ -79,8 +79,12 @@ $subjects->execute();
                     echo "sorry ! no subject now you teach it to be shown here";
                 }
                 ?>
+
+
+
             </div><!-- /.box-body -->
         </div>
+        
 
     </div>
 </div>
