@@ -44,56 +44,44 @@ require 'header.php';
                             <tbody>
                                 <?php
                                 require '../admin/connection.php';
+                                $tasks = $conn->prepare("SELECT T.id , T.year ,  ST.name As creator ,  S.name as subject_name ,  T.task_title , T.ex_date , T.subject_id , T.made_by FROM tasks as T
+                                   LEFT JOIN subjects as S on S.id = T.subject_id 
+                                   LEFT JOIN staff as ST on T.made_by = ST.id
 
-
-                                
-                                $tasks = $conn->prepare("SELECT T.year ,  ST.name As creator ,  S.name as subject_name ,  T.task_title , T.ex_date , T.subject_id , T.made_by FROM tasks as T
-                                 LEFT JOIN subjects as S on S.id = T.subject_id 
-                                 LEFT JOIN staff as ST on T.made_by = ST.id
-
-                                 WHERE T.year = ? ");
+                                   WHERE T.year = ? ");
                                 $tasks->bindValue(1,$_SESSION['student_user_year'] , PDO::PARAM_INT);
                                 $tasks->execute();
-
-
-                                
-                               
                                 $i = 1;
                                 while ($task = $tasks->fetch(PDO::FETCH_OBJ)) {
-                                  
-
-
-                                   echo " <tr>
-                                   <td>$i</td>
-                                   <td>$task->task_title</td>
-                                   <td>$task->subject_name</td>
-                                   <td>$task->ex_date</td>
-                                   <td>$task->creator</td>
-
-
-                                   <td><a href='' class='btn btn-success'>DeTails</a></td>
-                                   <td><a href='answers.php?id=".$_SESSION['student_user_year']."' class='btn btn-info'>Answers</a></td>
-                                   </tr>
-                                   ";
-                                   $i++;
-                               }
+                                 echo " <tr>
+                                 <td>$i</td>
+                                 <td>$task->task_title</td>
+                                 <td>$task->subject_name</td>
+                                 <td>$task->ex_date</td>
+                                 <td>$task->creator</td>
+                                 <td><a href='' class='btn btn-success'>DeTails</a></td>
+                                 <td><a href='task_answer.php?id=$task->id' class='btn btn-info'>Answers</a></td>
+                                 </tr>
+                                 ";
+                                 $i++;
+                             }
 
 
 
-                               ?>
+                             ?>
 
 
 
-                           </tbody>
+                         </tbody>
 
-                       </table>
-                   </div><!-- /.box-body -->
+                     </table>
+                 </div><!-- /.box-body -->
 
 
-               </div>
-           </div>
-       </div>
-   </section><!-- /.content -->
+             </div>
+         </div>
+     </div>
+ </section><!-- /.content -->
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 
