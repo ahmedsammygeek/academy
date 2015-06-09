@@ -186,17 +186,17 @@ $(document).ready(function ($) {
 		tick = setInterval(interval, 10);
     };
  
-    function interval() {
-		if(isPause === false){
-			percentTime += 1 / time;
-			$bar.css({
-				width: percentTime+"%"
-			});
-			if(percentTime >= 100){
-				$elem.trigger('owl.next')
-			}
-		}
-    }
+  //   function interval() {
+		// if(isPause === false){
+		// 	percentTime += 1 / time;
+		// 	$bar.css({
+		// 		width: percentTime+"%"
+		// 	});
+		// 	if(percentTime >= 100){
+		// 		$elem.trigger('owl.next')
+		// 	}
+		// }
+  //   }
 	
     function pauseOnDragging(){
       isPause = true;

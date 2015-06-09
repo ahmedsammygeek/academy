@@ -3,7 +3,17 @@
 require 'admin/connection.php';
 
 $active = "staff";
+$type = filter_input(INPUT_GET , 'type' , FILTER_SANITIZE_NUMBER_INT);
+
+if(!$type) {
+	header("location: index.php");
+	die;
+}
+
 include 'header.php';
+
+
+
 ?>
 
 
@@ -22,45 +32,43 @@ include 'header.php';
 		<!-- Start Team Members -->
 		<div class="row">
 			<div class="projects-carousel touch-carousel">
-				<!-- Start Memebr 1 -->
-				<div class="col-md-12 col-sm-6 col-xs-12">
+
+				<?php 
+
+				$staff = $conn->prepare("SELECT * FROM staff WHERE type = ? ");
+				$staff->bindValue(1,$type , PDO::PARAM_INT);
+				$staff->execute();
+
+
+
+				while ($member = $staff->fetch(PDO::FETCH_OBJ)) {
+					echo '<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="team-member">
-						<!-- Memebr Photo, Name & Position -->
-						<?php 
-						if (isset($_GET['type'])) {
-							$type = $_GET['type'];
-							switch ($type) {
-								case '1':
-								$domen = $conn->query("SELECT * FROM staff WHERE type = 1");
-								while ($res = $domen->fetch(PDO::FETCH_OBJ)) {
-									var_dump($res->name);die();
-									echo '<div class="member-photo">
-									<a href=""><img alt="" src="admin/image/'.$res->image.'"></a>
-									<div class="member-name">'.$res->name.'<span>Developer</span></div>
-									</div>
-									<!-- Memebr Words -->
-									<div class="member-info">
-									<p>'.$res->description.'</p>
-									</div>
-									</div>' ;
-								}
-
-								break;
-
-								default:
-								# code...
-								break;
-							}
-						}
-						?>
-
+						
+						<div class="member-photo">
+							<img alt="" src="'.$member->image.'">
+							<div class="member-name">'.$member->name.'</span></div>
+						</div>
+						
+						<div class="member-info">
+							<p>'.$member->description.'</p>
+						</div>
+						
+						<div class="member-socail">
+							<a class="twitter" href="'.$member->facebook.'"><i class="fa fa-twitter"></i></a>
+							
+							<a class="mail" href="mailto:'.$member->email.'"><i class="fa fa-envelope"></i></a>
+						</div>
 					</div>
-				</div>
-				<!-- End Memebr 1 -->
+				</div>';
+				}
+
+				?>
+
+				
+
 
 			</div>
-
-
 
 		</div>
 		<!-- End Team Members -->
