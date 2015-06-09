@@ -1,4 +1,4 @@
-<?php 
+<?php session_start();
 require 'header.php';
 require '../admin/connection.php';
 $staff = $conn->prepare("SELECT * FROM staff");
