@@ -1,20 +1,19 @@
 <?php 
+require 'check_user.php';
 require 'header.php';
 require '../admin/connection.php';
 $staff = $conn->prepare("SELECT * FROM staff");
 $staff->execute();
 ?>
-<!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
             Dashboard
-            <small>Tasks</small>
+            <small>inbox</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Tasks</li>
+            <li class="active">inbox</li>
         </ol>
     </section>
 
@@ -38,65 +37,45 @@ $staff->execute();
                             <div class="table-responsive">
                                 <!-- THE MESSAGES -->
                                 <table class="table table-mailbox">
-                                    <tr class="unread">
-                                        <td class="small-col"><input type="checkbox" name="msg_check[]" /></td>
-                                        
-                                        <td class="name"><a href="#">John Doe</a></td>
-                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                        <td> <button data-toggle="modal" data-target="#more-modal" class="btn btn-primary btn-sm">more</button></td>
-                                        <td> <button   class="btn btn-danger btn-sm">delete</button></td>
-                                        <td> <button data-toggle="modal" data-target="#replay-modal" class="btn btn-info btn-sm">replay</button></td>
-                                        
-                                        <td class="time">12:30 PM</td>
-                                    </tr>
 
-                                    <tr class="unread">
-                                        <td class="small-col"><input type="checkbox" name="msg_check[]" /></td>
-                                        
-                                        <td class="name"><a href="#">John Doe</a></td>
-                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                        <td> <button data-toggle="modal" data-target="#more-modal" class="btn btn-primary btn-sm">more</button></td>
-                                        <td> <button   class="btn btn-danger btn-sm">delete</button></td>
-                                        <td> <button data-toggle="modal" data-target="#replay-modal" class="btn btn-info btn-sm">replay</button></td>
-                                        
-                                        <td class="time">12:30 PM</td>
-                                    </tr>
+                                    <?php 
+                                    $to = $_SESSION['system_user_id'];
+                                    $tos = $conn->prepare("SELECT   DISTINCT `to`  FROM system_messages ");
+                                    $tos->execute();
+                                    $ids = array();
 
-                                    <tr class="unread">
-                                        <td class="small-col"><input type="checkbox" name="msg_check[]" /></td>
-                                        
-                                        <td class="name"><a href="#">John Doe</a></td>
-                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                        <td> <button data-toggle="modal" data-target="#more-modal" class="btn btn-primary btn-sm">more</button></td>
-                                        <td> <button   class="btn btn-danger btn-sm">delete</button></td>
-                                        <td> <button data-toggle="modal" data-target="#replay-modal" class="btn btn-info btn-sm">replay</button></td>
-                                        
-                                        <td class="time">12:30 PM</td>
-                                    </tr>
+                                    while ($one = $tos->fetch(PDO::FETCH_OBJ)) {
+                                        $ids[] = $one->to;
+                                    }
 
-                                    <tr class="unread">
-                                        <td class="small-col"><input type="checkbox" name="msg_check[]" /></td>
-                                        
-                                        <td class="name"><a href="#">John Doe</a></td>
-                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                        <td> <button data-toggle="modal" data-target="#more-modal" class="btn btn-primary btn-sm">more</button></td>
-                                        <td> <button   class="btn btn-danger btn-sm">delete</button></td>
-                                        <td> <button data-toggle="modal" data-target="#replay-modal" class="btn btn-info btn-sm">replay</button></td>
-                                        
-                                        <td class="time">12:30 PM</td>
-                                    </tr>
+                                    $the_ides = implode(',', $ids);
 
-                                    <tr >
-                                        <td class="small-col"><input type="checkbox" name="msg_check[]" /></td>
-                                        
-                                        <td class="name"><a href="#">John Doe</a></td>
-                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
+                                    $msgs = $conn->prepare("SELECT  DISTINCT S_M.to  , S_M.seen ,  S_M.id as msg_id , S_M.msg_content , S_M.when , S_M.to , S_M.sender , S.*
+                                     FROM system_messages as S_M LEFT JOIN staff as S on S_M.to = S.id
+                                     WHERE S_M.to = ?  || sender IN($the_ides) order by seen ASC");
+                                    $msgs->bindValue(1,$to , PDO::PARAM_INT);
+                                    // var_dump($msgs); die;
+                                    $msgs->execute();
+                                    while ($msg = $msgs->fetch(PDO::FETCH_OBJ)) {
+                                        if($msg->seen == 0 ) {
+                                            echo '<tr class="unread">';
+                                        }
+                                        else  {
+                                            echo '<tr >';
+                                        }
+                                        echo '<td class="name"><a href="#">'.$msg->name.' </a></td>
+                                        <td class="subject"><a href="#">'.substr($msg->msg_content, 1 , 90).'</a></td>
                                         <td> <button data-toggle="modal" data-target="#more-modal" class="btn btn-primary btn-sm">more</button></td>
                                         <td> <button   class="btn btn-danger btn-sm">delete</button></td>
                                         <td> <button data-toggle="modal" data-target="#replay-modal" class="btn btn-info btn-sm">replay</button></td>
                                         
-                                        <td class="time">12:30 PM</td>
-                                    </tr>
+                                        <td class="time">12:30 PM</td>';
+                                        echo "</tr>";
+                                    }
+
+                                    ?>
+
+
 
                                     
                                     
@@ -127,15 +106,15 @@ $staff->execute();
                 <div class="modal-body">
                   <div class="form-group ">
                     <label>Select</label>
-                    <select class="form-control">
+                    <select  name="to" class="form-control">
                         <?php while ($member = $staff->fetch(PDO::FETCH_OBJ)) {
-                            echo '<option value='.$staff->id.'>'.$member->name.'</option>';
+                            echo '<option value='.$member->id.'>'.$member->name.'</option>';
                         } ?>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <textarea name="message" id="email_message" class="form-control" placeholder="Message" style="height: 120px;"></textarea>
+                    <textarea name="message" id="email_message" class="form-control" placeholder="Message content " style="height: 120px;"></textarea>
                 </div>
 
 
@@ -144,7 +123,7 @@ $staff->execute();
 
                 <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
                 <div class="loader">Loading...</div>
-                <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-envelope"></i> Send Message</button>
+                <button type="submit" name="send_msg" class="btn btn-primary pull-left"><i class="fa fa-envelope"></i> Send Message</button>
             </div>
         </form>
     </div><!-- /.modal-content -->
@@ -233,8 +212,8 @@ $staff->execute();
 
 
 <script src="../admin/js/jquery.min.js"></script>
+<script src="../admin/js/messages.js"></script>
 <script src="../admin/js/bootstrap.min.js" type="text/javascript"></script>
-
 <script src="../admin/js/AdminLTE/app.js" type="text/javascript"></script>
 <script src="../admin/js/select.js" type="text/javascript"></script>
 <script type="text/javascript">
