@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 <?php 
 require 'check_user.php';
-=======
-<?php session_start();
->>>>>>> 1c06d34895f2207f9b62ce834fee1d5f01bc7323
+
 require 'header.php';
 require '../admin/connection.php';
 $staff = $conn->prepare("SELECT * FROM staff");
@@ -31,10 +28,10 @@ $staff->execute();
                     <div class="box-body">
                         <div class="row">
                             <div class="col-lg-4">
-                             <a class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>
-                         </div>
-                     </div>
-                     <div class="row">
+                               <a class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>
+                           </div>
+                       </div>
+                       <div class="row">
 
                         <div class="col-xs-12">
 
@@ -55,8 +52,8 @@ $staff->execute();
                                     $the_ides = implode(',', $ids);
 
                                     $msgs = $conn->prepare("SELECT  DISTINCT S_M.to  , S_M.seen ,  S_M.id as msg_id , S_M.msg_content , S_M.when , S_M.to , S_M.sender , S.*
-                                     FROM system_messages as S_M LEFT JOIN staff as S on S_M.to = S.id
-                                     WHERE S_M.to = ?  || sender IN($the_ides) order by seen ASC");
+                                       FROM system_messages as S_M LEFT JOIN staff as S on S_M.to = S.id
+                                       WHERE S_M.to = ?  || sender IN($the_ides) order by seen ASC");
                                     $msgs->bindValue(1,$to , PDO::PARAM_INT);
                                     // var_dump($msgs); die;
                                     $msgs->execute();
