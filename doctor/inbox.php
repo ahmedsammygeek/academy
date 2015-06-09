@@ -1,5 +1,8 @@
 <?php 
 require 'header.php';
+require '../admin/connection.php';
+$staff = $conn->prepare("SELECT * FROM staff");
+$staff->execute();
 ?>
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
@@ -25,10 +28,10 @@ require 'header.php';
                     <div class="box-body">
                         <div class="row">
                             <div class="col-lg-4">
-                               <a class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>
-                           </div>
-                       </div>
-                       <div class="row">
+                             <a class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>
+                         </div>
+                     </div>
+                     <div class="row">
 
                         <div class="col-xs-12">
 
@@ -120,47 +123,32 @@ require 'header.php';
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title"><i class="fa fa-envelope-o"></i> Compose New Message</h4>
             </div>
-            <form action="#" method="post">
+            <form action="send_msg.php" method="post">
                 <div class="modal-body">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">TO:</span>
-                            <input name="email_to" type="email" class="form-control" placeholder="Email TO">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">CC:</span>
-                            <input name="email_to" type="email" class="form-control" placeholder="Email CC">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">BCC:</span>
-                            <input name="email_to" type="email" class="form-control" placeholder="Email BCC">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" id="email_message" class="form-control" placeholder="Message" style="height: 120px;"></textarea>
-                    </div>
-                    <div class="form-group">                                
-                        <div class="btn btn-success btn-file">
-                            <i class="fa fa-paperclip"></i> Attachment
-                            <input type="file" name="attachment"/>
-                        </div>
-                        <p class="help-block">Max. 32MB</p>
-                    </div>
-
+                  <div class="form-group ">
+                    <label>Select</label>
+                    <select class="form-control">
+                        <?php while ($member = $staff->fetch(PDO::FETCH_OBJ)) {
+                            echo '<option value='.$staff->id.'>'.$member->name.'</option>';
+                        } ?>
+                    </select>
                 </div>
-                <div class="modal-footer clearfix">
 
-                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
-
-                    <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-envelope"></i> Send Message</button>
+                <div class="form-group">
+                    <textarea name="message" id="email_message" class="form-control" placeholder="Message" style="height: 120px;"></textarea>
                 </div>
-            </form>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
+
+
+            </div>
+            <div class="modal-footer clearfix">
+
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard</button>
+                <div class="loader">Loading...</div>
+                <button type="submit" class="btn btn-primary pull-left"><i class="fa fa-envelope"></i> Send Message</button>
+            </div>
+        </form>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 
@@ -248,29 +236,30 @@ require 'header.php';
 <script src="../admin/js/bootstrap.min.js" type="text/javascript"></script>
 
 <script src="../admin/js/AdminLTE/app.js" type="text/javascript"></script>
+<script src="../admin/js/select.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function() {
+
+    // $("select").select2();
 
     "use strict";
 
                 //iCheck for checkbox and radio inputs
-                $('input[type="checkbox" name="msg_check[]"]').iCheck({
-                    checkboxClass: 'icheckbox_minimal-blue',
-                    radioClass: 'iradio_minimal-blue'
-                });
+                // $('input[type="checkbox" name="msg_check[]"]').iCheck({
+                //     checkboxClass: 'icheckbox_minimal-blue',
+                //     radioClass: 'iradio_minimal-blue'
+                // });
 
                 //When unchecking the checkbox
-                $("#check-all").on('ifUnchecked', function(event) {
-                    //Uncheck all checkboxes
-                    $("input[type='checkbox']", ".table-mailbox").iCheck("uncheck");
-                });
-                
-                
+                // $("#check-all").on('ifUnchecked', function(event) {
+                //     //Uncheck all checkboxes
+                //     $("input[type='checkbox']", ".table-mailbox").iCheck("uncheck");
+                // });
 
-            });
+
+
+});
 </script>
-<?php 
-require 'scripts.php';
-?>
+
 </body>
 </html>
