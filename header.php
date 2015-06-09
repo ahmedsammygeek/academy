@@ -133,9 +133,6 @@
                                      <a   href="about.php">about academy</a>
                                  </li>
                                  <li>
-                                     <a  href="student.php">Student Affairs</a>
-                                 </li>
-                                 <li>
                                      <a  href="faq.php">FAQ</a>
                                  </li>
 
