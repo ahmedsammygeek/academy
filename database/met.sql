@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2015 at 05:31 PM
+-- Generation Time: Jun 09, 2015 at 01:13 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -33,7 +33,14 @@ CREATE TABLE IF NOT EXISTS `about` (
   `image2` text NOT NULL,
   `image3` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `about`
+--
+
+INSERT INTO `about` (`id`, `content`, `image1`, `image2`, `image3`) VALUES
+(1, '\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt minima voluptatibus laborum necessitatibus. Ut aliquam asperiores quidem, et laudantium voluptatibus accusantium, at, dolor totam minus consequuntur odio obcaecati nam sint!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vel temporibus deleniti sapiente, aliquam architecto, alias minus porro ipsum itaque dolores nesciunt asperiores nihil distinctio facere libero quam neque, veritatis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, repellat minus fugiat tempore accusamus expedita amet enim ducimus qui praesentium eius quisquam neque odio saepe eum at molestias odit sed.', 'zbrc9mnaj7eyt1o.png', '8j0th2gdx31eric.jpg', 'fk823uhy7xgpw4i.jpg');
 
 -- --------------------------------------------------------
 
@@ -349,7 +356,17 @@ CREATE TABLE IF NOT EXISTS `lectures` (
   `has_file` int(11) NOT NULL,
   `type` enum('section','lecture') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `lectures`
+--
+
+INSERT INTO `lectures` (`id`, `summary`, `date`, `doctor_id`, `subject_id`, `has_file`, `type`) VALUES
+(1, 'thi is the nzom lecture one&nbsp;', '2015-05-13', 20, 1, 1, 'lecture'),
+(2, 'this is the section about nozom 5bera 2 but section b2&nbsp;', '2015-05-13', 20, 1, 1, 'section'),
+(3, 'Ø·ÙŠØ¨ Ù†Ø¬Ø± Ø§Ù„Ø¹Ø±Ø¨Ù‰ ÙƒØ¯Ø©&nbsp;', '2015-05-13', 20, 1, 0, 'section'),
+(4, '<b>Ø·ÙŠØ¨ Ù†Ø¬Ø±Ø¨ Ø§Ù„Ø¬Ø²Ø¡ Ø¯Ø© ØªØ§Ù†Ù‰ ÙƒØ¯Ø©&nbsp;</b>', '2015-05-13', 20, 1, 0, 'section');
 
 -- --------------------------------------------------------
 
@@ -362,7 +379,15 @@ CREATE TABLE IF NOT EXISTS `lectures_files` (
   `lecture_id` int(11) NOT NULL,
   `file` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `lectures_files`
+--
+
+INSERT INTO `lectures_files` (`id`, `lecture_id`, `file`) VALUES
+(1, 1, 'Ù†Ø¸Ù… Ø®Ø¨ÙŠØ±Ù‡.pdf'),
+(2, 2, 'af80cf7cd26019078b252e821b06421c_Ù†Ø¸Ù… Ø®Ø¨ÙŠØ±Ù‡.pdf');
 
 -- --------------------------------------------------------
 
@@ -393,6 +418,25 @@ CREATE TABLE IF NOT EXISTS `news` (
   `image` text NOT NULL,
   `date` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `content`, `image`, `date`) VALUES
+(1, 'title ', '\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt minima voluptatibus laborum necessitatibus. Ut aliquam asperiores quidem, et laudantium voluptatibus accusantium, at, dolor totam minus consequuntur odio obcaecati nam sint!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vel temporibus deleniti sapiente, aliquam architecto, alias minus porro ipsum itaque dolores nesciunt asperiores nihil distinctio facere libero quam neque, veritatis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, repellat minus fugiat tempore accusamus expedita amet enim ducimus qui praesentium eius quisquam neque odio saepe eum at molestias odit sed.', 'rdgylevnc60q8w4.jpg', 'May 29 2015');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `newsletter`
+--
+
+CREATE TABLE IF NOT EXISTS `newsletter` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -407,7 +451,21 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   `made_by` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `content`, `made_by`, `date`) VALUES
+(1, 'a new task has been made by doctor bahaa', 20, '2015-05-04 21:54:59'),
+(2, 'a new task has been made by doctor bahaa', 20, '2015-05-04 22:23:38'),
+(3, 'a new task has been made by doctor bahaa', 20, '2015-05-04 22:27:21'),
+(4, ' a new question from student', 1, '2015-05-24 16:50:57'),
+(5, ' a new question from student', 1, '2015-05-24 17:15:23'),
+(6, ' a new question from by ahmed samy ', 1, '2015-05-24 17:52:34'),
+(7, 'a new task has been made by doctor bahaa', 20, '2015-06-08 14:37:57'),
+(8, 'a new task has been made by doctor bahaa', 20, '2015-06-08 16:05:54');
 
 -- --------------------------------------------------------
 
@@ -421,7 +479,43 @@ CREATE TABLE IF NOT EXISTS `notifications_users` (
   `user_id` int(11) NOT NULL,
   `seen` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
+
+--
+-- Dumping data for table `notifications_users`
+--
+
+INSERT INTO `notifications_users` (`id`, `notification_id`, `user_id`, `seen`) VALUES
+(1, 1, 6, 0),
+(2, 2, 1, 0),
+(3, 2, 5, 0),
+(4, 3, 1, 0),
+(5, 3, 5, 0),
+(6, 4, 1, 0),
+(7, 4, 2, 0),
+(8, 4, 2, 0),
+(9, 4, 2, 0),
+(10, 5, 1, 0),
+(11, 5, 2, 0),
+(12, 5, 2, 0),
+(13, 5, 2, 0),
+(14, 6, 1, 0),
+(15, 6, 2, 0),
+(16, 6, 2, 0),
+(17, 6, 2, 0),
+(18, 7, 6, 0),
+(19, 8, 1, 0),
+(20, 8, 3, 0),
+(21, 8, 7, 0),
+(22, 8, 8, 0),
+(23, 8, 9, 0),
+(24, 8, 10, 0),
+(25, 8, 11, 0),
+(26, 8, 12, 0),
+(27, 8, 13, 0),
+(28, 8, 14, 0),
+(29, 8, 15, 0),
+(30, 8, 16, 0);
 
 -- --------------------------------------------------------
 
@@ -434,7 +528,19 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `question` varchar(200) NOT NULL,
   `answer` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`id`, `question`, `answer`) VALUES
+(1, 'question title here ', '\r\n\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ullam temporibus deleniti ipsa quibusdam quo quisquam modi provident porro vero nostrum consectetur eum, incidunt qui libero aut ducimus sed reiciendis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellendus inventore, quia ratione numquam blanditiis consequuntur odit dolore magnam nesciunt, quisquam quam, laudantium? Tenetur, aut iure in magnam et, architecto!\r\n\r\n\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ullam temporibus deleniti ipsa quibusdam quo quisquam modi provident porro vero nostrum consectetur eum, incidunt qui libero aut ducimus sed reiciendis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellendus inventore, quia ratione numquam blanditiis consequuntur odit dolore magnam nesciunt, quisquam quam, laudantium? Tenetur, aut iure in magnam et, architecto!'),
+(2, 'question title here ', '\r\n\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ullam temporibus deleniti ipsa quibusdam quo quisquam modi provident porro vero nostrum consectetur eum, incidunt qui libero aut ducimus sed reiciendis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellendus inventore, quia ratione numquam blanditiis consequuntur odit dolore magnam nesciunt, quisquam quam, laudantium? Tenetur, aut iure in magnam et, architecto!\r\n\r\n\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ullam temporibus deleniti ipsa quibusdam quo quisquam modi provident porro vero nostrum consectetur eum, incidunt qui libero aut ducimus sed reiciendis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellendus inventore, quia ratione numquam blanditiis consequuntur odit dolore magnam nesciunt, quisquam quam, laudantium? Tenetur, aut iure in magnam et, architecto!'),
+(3, 'question title here ', '\r\n\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ullam temporibus deleniti ipsa quibusdam quo quisquam modi provident porro vero nostrum consectetur eum, incidunt qui libero aut ducimus sed reiciendis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellendus inventore, quia ratione numquam blanditiis consequuntur odit dolore magnam nesciunt, quisquam quam, laudantium? Tenetur, aut iure in magnam et, architecto!\r\n\r\n\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ullam temporibus deleniti ipsa quibusdam quo quisquam modi provident porro vero nostrum consectetur eum, incidunt qui libero aut ducimus sed reiciendis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellendus inventore, quia ratione numquam blanditiis consequuntur odit dolore magnam nesciunt, quisquam quam, laudantium? Tenetur, aut iure in magnam et, architecto!'),
+(4, 'question title here ', '\r\n\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ullam temporibus deleniti ipsa quibusdam quo quisquam modi provident porro vero nostrum consectetur eum, incidunt qui libero aut ducimus sed reiciendis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellendus inventore, quia ratione numquam blanditiis consequuntur odit dolore magnam nesciunt, quisquam quam, laudantium? Tenetur, aut iure in magnam et, architecto!\r\n\r\n\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ullam temporibus deleniti ipsa quibusdam quo quisquam modi provident porro vero nostrum consectetur eum, incidunt qui libero aut ducimus sed reiciendis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellendus inventore, quia ratione numquam blanditiis consequuntur odit dolore magnam nesciunt, quisquam quam, laudantium? Tenetur, aut iure in magnam et, architecto!'),
+(5, 'question title here ', '\r\n\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ullam temporibus deleniti ipsa quibusdam quo quisquam modi provident porro vero nostrum consectetur eum, incidunt qui libero aut ducimus sed reiciendis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellendus inventore, quia ratione numquam blanditiis consequuntur odit dolore magnam nesciunt, quisquam quam, laudantium? Tenetur, aut iure in magnam et, architecto!\r\n\r\n\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ullam temporibus deleniti ipsa quibusdam quo quisquam modi provident porro vero nostrum consectetur eum, incidunt qui libero aut ducimus sed reiciendis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellendus inventore, quia ratione numquam blanditiis consequuntur odit dolore magnam nesciunt, quisquam quam, laudantium? Tenetur, aut iure in magnam et, architecto!'),
+(6, 'question title here ', '\r\n\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ullam temporibus deleniti ipsa quibusdam quo quisquam modi provident porro vero nostrum consectetur eum, incidunt qui libero aut ducimus sed reiciendis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellendus inventore, quia ratione numquam blanditiis consequuntur odit dolore magnam nesciunt, quisquam quam, laudantium? Tenetur, aut iure in magnam et, architecto!\r\n\r\n\r\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ullam temporibus deleniti ipsa quibusdam quo quisquam modi provident porro vero nostrum consectetur eum, incidunt qui libero aut ducimus sed reiciendis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellendus inventore, quia ratione numquam blanditiis consequuntur odit dolore magnam nesciunt, quisquam quam, laudantium? Tenetur, aut iure in magnam et, architecto!');
 
 -- --------------------------------------------------------
 
@@ -449,7 +555,15 @@ CREATE TABLE IF NOT EXISTS `question_answers` (
   `date` datetime NOT NULL,
   `made_by` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `question_answers`
+--
+
+INSERT INTO `question_answers` (`id`, `question_id`, `content`, `date`, `made_by`) VALUES
+(1, 1, 'some nswer here b2 :DD', '2015-05-15 00:00:00', 20),
+(2, 2, '2 answer here ', '2015-05-23 00:00:00', 20);
 
 -- --------------------------------------------------------
 
@@ -462,6 +576,31 @@ CREATE TABLE IF NOT EXISTS `sh2oneltlbah` (
   `content` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `site_info`
+--
+
+CREATE TABLE IF NOT EXISTS `site_info` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `phone` varchar(15) NOT NULL,
+  `mail` varchar(100) NOT NULL,
+  `facebook` varchar(100) NOT NULL,
+  `twitter` varchar(100) NOT NULL,
+  `linkedin` varchar(100) NOT NULL,
+  `address` text NOT NULL,
+  `map` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `site_info`
+--
+
+INSERT INTO `site_info` (`id`, `phone`, `mail`, `facebook`, `twitter`, `linkedin`, `address`, `map`) VALUES
+(1, '01062300489', 'met@yahoo.com', 'ahmedsamy@facebook.com', 'alaaelgndy@twitter.com', 'alaaelgndy@linkedin.com', 'egypt/nasr cite/ 40 str sity stars', 'https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7323128.552528785!2d17.2692101!3d26.3347113!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v142465948');
 
 -- --------------------------------------------------------
 
@@ -551,7 +690,7 @@ CREATE TABLE IF NOT EXISTS `students` (
 --
 
 INSERT INTO `students` (`id`, `name`, `year`, `pic`, `card_id`, `password`, `department_id`) VALUES
-(1, 'ahmed samy', 1, '', 2300489, 'alaa', 0),
+(1, 'ahmed samy', 4, '', 2300489, '90909090', 1),
 (2, 'alaa gendy', 2, '', 0, '', 0),
 (3, 'nehad samy', 4, '', 0, '', 0),
 (4, 'amira gendy', 2, '', 0, '', 0),
@@ -583,7 +722,27 @@ CREATE TABLE IF NOT EXISTS `student_questions` (
   `answered` tinyint(4) NOT NULL DEFAULT '0',
   `q_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `student_questions`
+--
+
+INSERT INTO `student_questions` (`id`, `student_id`, `subject_id`, `content`, `status`, `answered`, `q_date`) VALUES
+(1, 3, 28, 'sdskdjslkdjl', 0, 1, '2015-05-13 15:04:16'),
+(2, 3, 28, 'final b2ah&amp;nbsp;', 0, 1, '2015-05-13 15:04:19'),
+(3, 3, 28, '&lt;b&gt;&lt;i&gt;ÙØ§Ù‡Ø³ Ø¶Ø¹Ø«Ø³ÙÙ‡Ø®Ù‰ Ø®Ù ÙØ«Ø³Ù&amp;nbsp;&lt;br&gt;&lt;img alt=&quot;&quot; src=&quot;https://secure.gravatar.com/avatar/c0d3cff25f45d53ee3aa9202bd3c4188?s=100&amp;amp;d=mm&amp;amp;r=g&quot;&gt;&lt;br&gt;&lt;/i&gt;&lt;/b&gt;', 0, 0, '2015-05-13 16:10:47'),
+(4, 3, 28, 'test this&amp;nbsp;', 0, 0, '2015-05-24 16:11:31'),
+(5, 3, 28, 'how to do this ya doc&amp;nbsp;', 0, 0, '2015-05-24 16:46:14'),
+(6, 3, 28, 'sjdkjlgjdkl', 0, 0, '2015-05-24 16:47:11'),
+(7, 3, 28, 'k;lk;kl;', 0, 0, '2015-05-24 16:47:42'),
+(8, 3, 28, 'jsdfjs;ldkjf;dlsk', 0, 0, '2015-05-24 16:47:57'),
+(9, 3, 28, 'dsakldk;las', 0, 0, '2015-05-24 16:49:20'),
+(10, 3, 28, 'how to do it now :D', 0, 0, '2015-05-24 16:49:44'),
+(11, 3, 28, 'skflsdk;', 0, 0, '2015-05-24 16:50:24'),
+(12, 3, 28, 'k;k;k;', 0, 0, '2015-05-24 16:50:57'),
+(13, 1, 28, '&lt;u&gt;asdkasldk;askda;l&lt;/u&gt;', 0, 0, '2015-05-24 17:15:23'),
+(14, 1, 28, 'some question here noq&amp;nbsp;', 0, 0, '2015-05-24 17:52:34');
 
 -- --------------------------------------------------------
 
@@ -681,6 +840,20 @@ INSERT INTO `subjects` (`id`, `doctor_id`, `name`, `description`, `year`, `depar
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `system_messages`
+--
+
+CREATE TABLE IF NOT EXISTS `system_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `from` int(11) NOT NULL,
+  `to` int(11) NOT NULL,
+  `when` timestamp NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `system_users`
 --
 
@@ -725,7 +898,15 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `created_at` date NOT NULL,
   `year` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `task_title`, `task_content`, `ex_date`, `subject_id`, `made_by`, `department_id`, `term`, `file_exist`, `created_at`, `year`) VALUES
+(1, 'alaa taskk', 'content', '2015-05-05', 1, 20, 1, 1, 0, '2015-05-04', 3),
+(4, 'test this task ', '%3Cb%3Ei%20wanna%20you%20to%20do%20something%20in%20this%20task%26nbsp%3B%3C%2Fb%3E', '2015-06-09', 24, 20, 1, 1, 1, '2015-06-07', 4);
 
 -- --------------------------------------------------------
 
@@ -765,7 +946,15 @@ CREATE TABLE IF NOT EXISTS `tasks_files` (
   `task_id` int(11) NOT NULL,
   `file` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `tasks_files`
+--
+
+INSERT INTO `tasks_files` (`id`, `task_id`, `file`) VALUES
+(1, 3, 'images.zip'),
+(2, 4, 'Ù†Ø¸Ù… Ø®Ø¨ÙŠØ±Ù‡.pdf');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
