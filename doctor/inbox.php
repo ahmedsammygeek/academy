@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <?php 
 require 'check_user.php';
+=======
+<?php session_start();
+>>>>>>> 1c06d34895f2207f9b62ce834fee1d5f01bc7323
 require 'header.php';
 require '../admin/connection.php';
 $staff = $conn->prepare("SELECT * FROM staff");

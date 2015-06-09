@@ -1,4 +1,4 @@
-<?php 
+<?php session_start(); 
 require 'header.php';
 ?>
 <!-- Right side column. Contains the navbar and content of the page -->

@@ -49,6 +49,13 @@ require 'header.php';
                     <b>Alert!</b> task has been deleted successfully.
                     </div>';
                     break;
+                    case 'inserted':
+                    echo '<div class="alert alert-success alert-dismissable">
+                    <i class="fa fa-check"></i>
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <b>Alert!</b> task insert successfully.
+                    </div>';
+                    break;
                     case 'db_error':
                     echo '<div class="alert alert-danger alert-dismissable">
                     <i class="fa fa-check"></i>
@@ -97,6 +104,7 @@ require 'header.php';
                                    WHERE subject_id IN ('$subjects')
                                    ");
                                 $tasks->execute();
+
                                 $i = 1;
                                 while ($task = $tasks->fetch(PDO::FETCH_OBJ)) {
                                     echo '<tr>

@@ -4,13 +4,7 @@
 require  'check_user.php';
 require 'header.php';
 require '../admin/connection.php';
-//get departments from DB
-$departments = $conn->prepare("SELECT id , name FROM departments");
-$departments->execute();
 
-$subjects = $conn->prepare("SELECT id , name FROM subjects WHERE doctor_id = ?");
-$subjects->bindValue(1,$_SESSION['system_user_id'],PDO::PARAM_INT);
-$subjects->execute();
 
 
 ?>
@@ -36,78 +30,51 @@ $subjects->execute();
 
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Add New Task</h3>
+                        <h3 class="box-title">answer Task</h3>
                     </div>
+                    <?php
+                    if (isset($_GET['task_id'])) {
+                        $task_id = $_GET['task_id'];
+                    }
+                    $task = $conn->prepare("SELECT task_content FROM tasks WHERE id=?");
+                    $task->bindValue(1,$task_id,PDO::PARAM_INT);
+                    $task->execute();
+                    $content = $task->fetch(PDO::FETCH_OBJ); ?>
 
                     <!-- form start -->
-                    <form role="form" enctype="multipart/form-data" action="insert_task.php" method="post">
+                    <form role="form" enctype="multipart/form-data" action="insert_answer.php<?php echo "?task_id=$task_id"; ?>" method="post">
                         <div class="box-body">
+                            <div class="callout callout-info">
+                                <h4>task content!</h4>
+                                <p><?php echo "$content->task_content"; ?></p>
+                            </div>
 
                             <div class="row">
-                                <div class="col-md-6"> 
+                                <div class="col-md-12">
+                                 <label>Task answer</label>
+                                 <textarea id="textarea" name="task_content" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                             </div>
+                             <div class="col-md-12">
+                                 <label>file</label>
+                                 <input type="file" name="file">                
+                             </div>
+                         </div>
 
 
-                       
 
-                            </div>
-                            <div class="col-md-6">
-                               <div class="form-group">
-                                <label>Department</label>
-                                <select name="department" class="form-control">
-                                    <?php 
-                                    while ($department = $departments->fetch(PDO::FETCH_OBJ)) {
-                                       echo '<option value='.$department->id.'>'.$department->name.'</option>';
-                                    }
-                                     ?>
-                                    
-                                </select>
-                            </div>
+                     </div><!-- /.box-body -->
 
-                            <div class="form-group">
-                                <label>Year </label>
-                                <select name="year" class="form-control">
-                                    <option value="1">year 1</option>
-                                    <option value="2" >year 2</option>
-                                    <option value="3" >year 3</option>
-                                    <option value="4" >year 4</option>
-                                    
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Subject</label>
-                                <select name="subject" class="form-control">
-                                    <?php 
-                                    while ($subject = $subjects->fetch(PDO::FETCH_OBJ)) {
-                                       echo '<option value='.$subject->id.'>'.$subject->name.'</option>';
-                                    }
-                                     ?>
-                                </select>
-                            </div>
-                        </div>
+                     <div class="box-footer">
+                        <input type="submit" name="task_btn" class="btn btn-success" value="Add Task">
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                           <label>Task Content</label>
-                           <textarea id="textarea" name="task_content" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                       </div>
-                   </div>
+                </form>
 
 
 
-               </div><!-- /.box-body -->
 
-               <div class="box-footer">
-                <input type="submit" name="task_btn" class="btn btn-success" value="Add Task">
             </div>
-        </form>
-
-
-
-
+        </div>
     </div>
-</div>
-</div>
 </section><!-- /.content -->
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->

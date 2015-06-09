@@ -38,6 +38,7 @@ require 'header.php';
                                     <th>Made by </th>                                 
                                     <th>Details</th>
                                     <th> Answer it</th>
+                                    <th>status</th>
 
                                 </tr>
                             </thead>
@@ -53,14 +54,26 @@ require 'header.php';
                                 $tasks->execute();
                                 $i = 1;
                                 while ($task = $tasks->fetch(PDO::FETCH_OBJ)) {
+                                    $answer = $conn->query("SELECT answerd FROM tasks_answers WHERE task_id=$task->id");
+                                    $result = $answer->fetch(PDO::FETCH_OBJ);
+                                    switch ($result->answerd) {
+                                        case '1':
+                                            $status = "answerd";
+                                            break;
+                                        
+                                        default:
+                                            $status = "not answerd";
+                                            break;
+                                    }
                                  echo " <tr>
                                  <td>$i</td>
                                  <td>$task->task_title</td>
                                  <td>$task->subject_name</td>
                                  <td>$task->ex_date</td>
                                  <td>$task->creator</td>
-                                 <td><a href='' class='btn btn-success'>DeTails</a></td>
-                                 <td><a href='task_answer.php?id=$task->id' class='btn btn-info'>Answers</a></td>
+                                 <td><a href='task_details.php?task_id=".$task->id."' class='btn btn-success'>DeTails</a></td>
+                                 <td><a href='task_answer.php?task_id=$task->id' class='btn btn-info'>Answers</a></td>
+                                 <td>$status</td>
                                  </tr>
                                  ";
                                  $i++;
