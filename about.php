@@ -40,9 +40,9 @@ require 'admin/connection.php';
 						$query=$conn->query($sql);
 						while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
 							extract($result);
-							echo "<div class='item center-block'><img width='100%' class='center-block' alt='' src='admin/image/".$image1."'></div>
-							<div class='item center-block'><img alt='' width='100%' class='center-block' src='admin/image/".$image2."'></div>
-							<div class='item center-block'><img alt='' width='100%' class='center-block' src='admin/image/".$image3."'></div>";
+							echo "<div class='item center-block'><img width='100%' style='height:300px' class='center-block' alt='' src='admin/image/".$image1."'></div>
+							<div class='item center-block'><img alt='' width='100%' style='height:300px' class='center-block' src='admin/image/".$image2."'></div>
+							<div class='item center-block'><img alt='' width='100%' style='height:300px' class='center-block' src='admin/image/".$image3."'></div>";
 						}
 
 
