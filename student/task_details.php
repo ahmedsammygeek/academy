@@ -83,7 +83,7 @@ require 'header.php';
                             </tbody>
 
                         </table>
-                        <?php echo "<a href='task_answer.php?id=$result->id' class='btn btn-info'>Answers</a>
+                        <?php echo "<a href='task_answer.php?task_id=$result->id' class='btn btn-info'>Answers</a>
                         "; ?>
 
                     </div><!-- /.box-body -->
