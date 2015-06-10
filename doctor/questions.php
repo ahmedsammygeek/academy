@@ -110,7 +110,7 @@ require 'header.php';
                                     <td>'.$subject->year.'</td>
                                     <td>'.$content.'</td>
                                     <td><a href="question_details.php?question_id='.$question->id.'" class="btn btn-success">DeTails</a></td>
-                                    <td><a href="answers.php?question_id='.$question->id.'" class="btn btn-info">Answers</a></td>
+                                    <td><a href="answers_questions.php?question_id='.$question->id.'" class="btn btn-info">Answers</a></td>
                                     </tr>';
                                     $i++;
                                 }
