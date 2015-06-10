@@ -147,6 +147,11 @@
                                 <i class="fa fa-dashboard"></i> <span>inbox</span>
                             </a>
                         </li>
+                        <li class="active">
+                            <a href="questions.php">
+                                <i class="fa fa-dashboard"></i> <span>student questions</span>
+                            </a>
+                        </li>
 
                         <li class="treeview">
                             <a href="tasks.php">
