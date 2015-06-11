@@ -46,7 +46,7 @@ require '../admin/connection.php';
                         <div class="box-body">
                             <div class="callout callout-info">
                                 <h4>task content!</h4>
-                                <p><?php echo "$content->task_content"; ?></p>
+                                <p><?php echo html_entity_decode($content->task_content); ?></p>
                             </div>
 
                             <div class="row">

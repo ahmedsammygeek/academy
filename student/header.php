@@ -120,26 +120,9 @@
                                 <i class="fa fa-dashboard"></i> <span>home</span>
                             </a>
                         </li>
-                        <li class="treeview">
-                            <a href="subjects.php">
-                                <i class="fa fa-laptop"></i>
-                                <span>subjects</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="tasks.php"><i class="fa fa-angle-double-right"></i>subject1 </a></li>
-                                <li><a href="tasks.php"><i class="fa fa-angle-double-right"></i>subject1 </a></li>
-                                <li><a href="tasks.php"><i class="fa fa-angle-double-right"></i>subject1 </a></li>
-                                <li><a href="tasks.php"><i class="fa fa-angle-double-right"></i>subject1 </a></li>  
-                            </ul>
-                        </li>
 
 
-                        <li class="active">
-                            <a href="inbox.php">
-                                <i class="fa fa-dashboard"></i> <span>inbox</span>
-                            </a>
-                        </li>
+                 
 
                         <li class="active">
                             <a href="tasks.php">
