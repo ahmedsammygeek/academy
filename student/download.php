@@ -23,15 +23,18 @@ $file = $file_info->fetch(PDO::FETCH_OBJ);
 
 if(file_exists("../uploaded/lectures/".$file->file)) {
 
+$dir = "../uploaded/lectures/";
 
-$file = "../uploaded/lectures/".$file->file;
-    // Add a file type check here for security purposes so that nobody can-
-    // download PHP files or other sensitive files from your server by spoofing this script
+$path = $dir.$file->file;
 
-   readfile($file);
-       header('Content-type: application/pdf');
-    header('Content-Disposition: attachment; filename="'.$file->file.'"');
-    exit();
+$fsize = filesize($path);
+header("Content-length: $fsize");
+header("Cache-Control: private");
+header("Content-Description: File Transfer");
+header("Content-Disposition: attachment; filename=$path");
+header("Content-Type: application/pdf");
+header("Content-Transfer-Encoding: binary");
+readfile($path);
 
 
 }
