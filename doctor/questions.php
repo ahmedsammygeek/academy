@@ -84,15 +84,16 @@ require 'header.php';
                                     <th>Subject</th>
                                     <th>Year</th>
                                     <th>content</th>
-                                    <th>Details</th>
-                                    <th>Answer question</th>
+                                    <th>DATE</th>
+                                    <th>Details & answer</th>
+                                    
 
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php 
 
-                                $questions = $conn->query("SELECT * FROM student_questions WHERE answered='0'");
+                                $questions = $conn->query("SELECT * FROM student_questions WHERE answered='0' ");
                                 $i = 1;
                                 while ($question = $questions->fetch(PDO::FETCH_OBJ)) {
                                     $students = $conn->query("SELECT name FROM students WHERE id=$question->student_id");
@@ -109,8 +110,8 @@ require 'header.php';
                                     <td>'.$subject->name.'</td>
                                     <td>'.$subject->year.'</td>
                                     <td>'.$content.'</td>
-                                    <td><a href="question_details.php?question_id='.$question->id.'" class="btn btn-success">DeTails</a></td>
-                                    <td><a href="answers_questions.php?question_id='.$question->id.'" class="btn btn-info">Answers</a></td>
+                                    <td>'.$question->q_date.'</td>
+                                    <td><a href="question_details.php?question_id='.$question->id.'" class="btn btn-success">ANSWER</a></td>
                                     </tr>';
                                     $i++;
                                 }

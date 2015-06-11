@@ -52,39 +52,61 @@ require 'header.php';
                                 }
                                 $questions = $conn->query("SELECT * FROM student_questions WHERE id=$question_id");
                                 $question = $questions->fetch(PDO::FETCH_OBJ);
-                                    $students = $conn->query("SELECT name FROM students WHERE id=$question->student_id");
-                                    $student = $students->fetch(PDO::FETCH_OBJ);
-                                    $subjects = $conn->query("SELECT name , department , year FROM subjects WHERE id=$question->subject_id");
-                                    $subject = $subjects->fetch(PDO::FETCH_OBJ);
-                                    $departments = $conn->query("SELECT name FROM departments WHERE id=$subject->department");
-                                    $department = $departments->fetch(PDO::FETCH_OBJ);
-                                    echo "
-                                    <tr><td>YEAR</td><td>YEAR$subject->year</td></tr>
-                                    <tr><td>DEPARTMENT</td><td>$department->name</td></tr>
-                                    <tr><td>SUBJECT</td><td>$subject->name</td></tr>
-                                    <tr><td>STUDENT</td><td>$student->name</td></tr>
-                                    <tr><td>CONTENT</td><td>$question->content</td></tr>
-                                    
-                                    ";
+                                $students = $conn->query("SELECT name FROM students WHERE id=$question->student_id");
+                                $student = $students->fetch(PDO::FETCH_OBJ);
+                                $subjects = $conn->query("SELECT name , department , year FROM subjects WHERE id=$question->subject_id");
+                                $subject = $subjects->fetch(PDO::FETCH_OBJ);
+                                $departments = $conn->query("SELECT name FROM departments WHERE id=$subject->department");
+                                $department = $departments->fetch(PDO::FETCH_OBJ);
+                                echo "
+                                <tr><td>YEAR</td><td>YEAR$subject->year</td></tr>
+                                <tr><td>DEPARTMENT</td><td>$department->name</td></tr>
+                                <tr><td>SUBJECT</td><td>$subject->name</td></tr>
+                                <tr><td>STUDENT</td><td>$student->name</td></tr>
+                                <tr><td>CONTENT</td><td>$question->content</td></tr>
+
+                                ";
 
 
-                                    ?>
+                                ?>
 
 
 
-                                </tbody>
+                            </tbody>
 
 
-                            </table>
-                            <a href="answers_questions.php<?php echo "?question_id=$question->id"; ?>" class='btn btn-info'>Answers</a>
-                        </div><!-- /.box-body -->
+                        </table>
+                        <form role="form" enctype="multipart/form-data" action="answer_question.php<?php echo "?q_id=$question_id"; ?>" method="post">
+                            <div class="box-body">
+
+                                <div class="row">
+                                    <div class="col-md-12"> 
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">answer </label>
+                                            <textarea type="text" name="answer" rows="12" class="form-control" id="exampleInputEmail1" placeholder="Enter your answer "></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
 
 
-                    </div>
+
+
+                            </div><!-- /.box-body -->
+
+                            <div class="box-footer">
+                                <input type="submit" name="submit" class="btn btn-success" value="Add Task">
+                            </div>
+                        </form>
+
+                    </div><!-- /.box-body -->
+
+
                 </div>
             </div>
-        </section><!-- /.content -->
-    </aside><!-- /.right-side -->
+        </div>
+    </section><!-- /.content -->
+</aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 
 
