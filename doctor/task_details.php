@@ -5,18 +5,13 @@ require '../admin/connection.php';
 require '../classes/helper.php';
 
 
-// if(!isset($_GET['task_id']) || empty($_GET['task_id'])) {
-//     header('location: tasks.php?id');
-//     die();
-// }
+if(!isset($_GET['task_id']) || empty($_GET['task_id'])) {
+    header('location: tasks.php');
+    die();
+}
 
 
-// $task_id = filter_input(INPUT_GET, 'task_id' , FILTER_SANITIZE_NUMBER_INT);
 
-// if(!check_if_exists($task_id ,'id' , 'tasks')) {
-//    header('location: tasks.php?idd');
-//    die();
-// }
 
 require 'header.php';
 
@@ -70,7 +65,6 @@ require 'header.php';
                                 $result3 = $depart->fetch(PDO::FETCH_OBJ);
                                 echo "
                                 <tr><td>TASK TITLE</td><td>$result->task_title</td></tr>
-                                <tr><td>TASK CONTENT</td><td>$result->task_content</td></tr>
                                 <tr><td>CREATED AT</td><td>$result->created_at</td></tr>
                                 <tr><td>DEPARTMENT</td><td>$result3->name</td></tr>
                                 <tr><td>SUBJECT</td><td>$result2->name</td></tr>
@@ -86,10 +80,15 @@ require 'header.php';
                             </tbody>
 
                         </table>
+
                     </div><!-- /.box-body -->
 
 
                 </div>
+                <div class="callout callout-info">
+                        <h4>TASK CONTENT</h4>
+                        <p><?php echo "$result->task_content"; ?>.</p>
+                    </div>
             </div>
         </div>
     </section><!-- /.content -->

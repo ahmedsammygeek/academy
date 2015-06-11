@@ -7,11 +7,11 @@ require 'header.php';
     <section class="content-header">
         <h1>
             Dashboard
-            <small>Tasks</small>
+            <small>answers</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Tasks</li>
+            <li class="active">answers</li>
         </ol>
     </section>
 
@@ -20,10 +20,17 @@ require 'header.php';
 
         <div class="row">
             <div class="col-md-12">
+                <?php if (isset($_GET['task_id'])) {
+                    $task_id = $_GET['task_id'];
+                }
+                require '../admin/connection.php';
+                $tasks_name = $conn->query("SELECT task_title FROM tasks WHERE id=$task_id");
+                $task_name = $tasks_name->fetch(PDO::FETCH_OBJ);
+                 ?>
 
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Answers Of {task name} Task</h3>
+                        <h3 class="box-title">Answers Of {<?php echo "$task_name->task_title"; ?>} Task</h3>
                     </div>
 
                     <div class="box-body table-responsive">
@@ -32,49 +39,31 @@ require 'header.php';
                                 <tr>
                                     <th>#</th>
                                     <th>Student Name</th>
-                                    <th> DeTails </th>
-                               
+                                    <th> CONTENT </th>
+                                    <th> mark </th>
+
                                     
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                $answers = $conn->query("SELECT * FROM tasks_answers WHERE task_id=$task_id");
+                               $i=1;
+                                while ($answer = $answers->fetch(PDO::FETCH_OBJ)) {
+                                     $students = $conn->query("SELECT name FROM students WHERE id=$answer->student_id");
+                                     $student = $students->fetch(PDO::FETCH_OBJ);
+                                     $content = substr($answer->content, 0,20);
+                                     echo " <tr>
+                                     <td>$i</td>
+                                    <td>$student->name</td>
+                                    <td>$content</td>                    
+                                    <td></td>                    
+                                </tr>";
+                                $i++;
 
-
-                                <tr>
-                                    <td>1</td>
-                                    <td>Internet Explorer 4.5</td>                    
-                                    <td><a href="answer.php" class="btn btn-success">View Answer</a></td>
-                                </tr>
-
-
-                                <tr>
-                                    <td>1</td>
-                                    <td>Internet Explorer 4.5</td>                    
-                                    <td><a href="answer.php" class="btn btn-success"> View Answer</a></td>
-                                </tr>
-
-
-
-                                <tr>
-                                    <td>1</td>
-                                    <td>Internet Explorer 4.5</td>                    
-                                    <td><a href="answer.php" class="btn btn-success">View Answer</a></td>
-                                </tr>
-
-
-
-                                <tr>
-                                    <td>1</td>
-                                    <td>Internet Explorer 4.5</td>                    
-                                    <td><a href="answer.php" class="btn btn-success">View Answer</a></td>
-                                </tr>
-
-
-                                <tr>
-                                    <td>1</td>
-                                    <td>Internet Explorer 4.5</td>                    
-                                    <td><a href="answer.php" class="btn btn-success">View Answer</a></td>
-                                </tr>
+                                 } 
+                                 ?>
+                               
                             </tbody>
                         </table>
                     </div><!-- /.box-body -->
