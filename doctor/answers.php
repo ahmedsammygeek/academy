@@ -26,7 +26,7 @@ require 'header.php';
                 require '../admin/connection.php';
                 $tasks_name = $conn->query("SELECT task_title FROM tasks WHERE id=$task_id");
                 $task_name = $tasks_name->fetch(PDO::FETCH_OBJ);
-                 ?>
+                ?>
 
                 <div class="box">
                     <div class="box-header">
@@ -40,37 +40,40 @@ require 'header.php';
                                     <th>#</th>
                                     <th>Student Name</th>
                                     <th> CONTENT </th>
-                                    <th> mark </th>
+                                    <th> DETAILS </th>
 
                                     
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <?php
                                 $answers = $conn->query("SELECT * FROM tasks_answers WHERE task_id=$task_id");
-                               $i=1;
+                                $i=1;
                                 while ($answer = $answers->fetch(PDO::FETCH_OBJ)) {
-                                     $students = $conn->query("SELECT name FROM students WHERE id=$answer->student_id");
-                                     $student = $students->fetch(PDO::FETCH_OBJ);
-                                     $content = substr($answer->content, 0,20);
-                                     echo " <tr>
-                                     <td>$i</td>
-                                    <td>$student->name</td>
-                                    <td>$content</td>                    
-                                    <td></td>                    
-                                </tr>";
-                                $i++;
+                                   $students = $conn->query("SELECT name FROM students WHERE id=$answer->student_id");
+                                   $student = $students->fetch(PDO::FETCH_OBJ);
+                                   $content = substr($answer->content, 0,20);
+                                   echo ' <tr>
+                                   <td>$i</td>
+                                   <td>$student->name</td>
+                                   <td>$content</td>                    
+                                   <td><a href="answer_details.php?answer_id='.$answer->id.'" class="btn btn-success">DeTails</a></td>
 
-                                 } 
-                                 ?>
+                                   </tr>';
+                                   $i++;
+
+                               } 
+                               ?>
                                
-                            </tbody>
-                        </table>
-                    </div><!-- /.box-body -->
-                </div>
-            </div>
-        </div>
-    </section><!-- /.content -->
+                           </tbody>
+                       </table>
+                   </div><!-- /.box-body -->
+               </div>
+
+           </div>
+       </div>
+   </section><!-- /.content -->
 </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 

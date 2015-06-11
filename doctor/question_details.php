@@ -63,7 +63,7 @@ require 'header.php';
                                 <tr><td>DEPARTMENT</td><td>$department->name</td></tr>
                                 <tr><td>SUBJECT</td><td>$subject->name</td></tr>
                                 <tr><td>STUDENT</td><td>$student->name</td></tr>
-                                <tr><td>CONTENT</td><td>$question->content</td></tr>
+                                
 
                                 ";
 
@@ -76,6 +76,10 @@ require 'header.php';
 
 
                         </table>
+                        <div class="callout callout-info">
+                        <h4>QUSTION !</h4>
+                        <p><?php echo "$question->content"; ?>.</p>
+                    </div>
                         <form role="form" enctype="multipart/form-data" action="answer_question.php<?php echo "?q_id=$question_id"; ?>" method="post">
                             <div class="box-body">
 
