@@ -66,7 +66,7 @@ require '../admin/connection.php';?>
 
                 ?>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">name</label>
+                    <label for="exampleInputEmail1">name (displaied)</label>
                     <input type="text" name="name" value='<?php echo "$result->name"; ?>' class="form-control" id="exampleInputEmail1" placeholder="Enter department name"> 
 
                 </div>
@@ -78,7 +78,7 @@ require '../admin/connection.php';?>
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">description</label>
-                    <input type="text" name="description" value='<?php echo "$result->description"; ?>' class="form-control" id="exampleInputEmail1"> 
+                    <textarea type="text" name="description"  class="form-control" id="exampleInputEmail1"><?php echo "$result->description"; ?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">facebook</label>

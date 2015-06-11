@@ -95,7 +95,7 @@ require 'header.php';
                             </div><!-- /.box-body -->
 
                             <div class="box-footer">
-                                <input type="submit" name="submit" class="btn btn-success" value="Add Task">
+                                <input type="submit" name="submit" class="btn btn-success" value="answer">
                             </div>
                         </form>
 

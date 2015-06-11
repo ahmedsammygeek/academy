@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2015 at 06:25 PM
+-- Generation Time: Jun 11, 2015 at 02:52 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -356,17 +356,19 @@ CREATE TABLE IF NOT EXISTS `lectures` (
   `has_file` int(11) NOT NULL,
   `type` enum('section','lecture') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `lectures`
 --
 
 INSERT INTO `lectures` (`id`, `summary`, `date`, `doctor_id`, `subject_id`, `has_file`, `type`) VALUES
-(1, 'thi is the nzom lecture one&nbsp;', '2015-05-13', 20, 1, 1, 'lecture'),
 (2, 'this is the section about nozom 5bera 2 but section b2&nbsp;', '2015-05-13', 20, 1, 1, 'section'),
 (3, 'Ø·ÙŠØ¨ Ù†Ø¬Ø± Ø§Ù„Ø¹Ø±Ø¨Ù‰ ÙƒØ¯Ø©&nbsp;', '2015-05-13', 20, 1, 0, 'section'),
-(4, '<b>Ø·ÙŠØ¨ Ù†Ø¬Ø±Ø¨ Ø§Ù„Ø¬Ø²Ø¡ Ø¯Ø© ØªØ§Ù†Ù‰ ÙƒØ¯Ø©&nbsp;</b>', '2015-05-13', 20, 1, 0, 'section');
+(4, '<b>Ø·ÙŠØ¨ Ù†Ø¬Ø±Ø¨ Ø§Ù„Ø¬Ø²Ø¡ Ø¯Ø© ØªØ§Ù†Ù‰ ÙƒØ¯Ø©&nbsp;</b>', '2015-05-13', 20, 1, 0, 'section'),
+(9, 'fdklvmdfklvndfklvdfvdfv', '2015-06-10', 20, 0, 1, 'lecture'),
+(10, 'fdklvmdfklvndfklvdfvdfv', '2015-06-10', 20, 0, 1, 'lecture'),
+(12, 'fgklndfkvnfg', '2015-06-10', 20, 0, 1, 'lecture');
 
 -- --------------------------------------------------------
 
@@ -379,15 +381,17 @@ CREATE TABLE IF NOT EXISTS `lectures_files` (
   `lecture_id` int(11) NOT NULL,
   `file` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `lectures_files`
 --
 
 INSERT INTO `lectures_files` (`id`, `lecture_id`, `file`) VALUES
-(1, 1, 'Ù†Ø¸Ù… Ø®Ø¨ÙŠØ±Ù‡.pdf'),
-(2, 2, 'af80cf7cd26019078b252e821b06421c_Ù†Ø¸Ù… Ø®Ø¨ÙŠØ±Ù‡.pdf');
+(2, 2, 'af80cf7cd26019078b252e821b06421c_Ù†Ø¸Ù… Ø®Ø¨ÙŠØ±Ù‡.pdf'),
+(6, 9, 'bf83da805ba97da812eeaefb82741430_11301585_1579255732355105_128298958_n.jpg'),
+(7, 10, 'a5300690125c1aace46ca48898bc4b3b_11301585_1579255732355105_128298958_n.jpg'),
+(9, 12, 'c7a6fb83e16fe491476eac5fcda6bb8f_11301585_1579255732355105_128298958_n.jpg');
 
 -- --------------------------------------------------------
 
@@ -592,7 +596,7 @@ CREATE TABLE IF NOT EXISTS `question_answers` (
   `date` datetime NOT NULL,
   `made_by` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `question_answers`
@@ -600,7 +604,9 @@ CREATE TABLE IF NOT EXISTS `question_answers` (
 
 INSERT INTO `question_answers` (`id`, `question_id`, `content`, `date`, `made_by`) VALUES
 (1, 1, 'some nswer here b2 :DD', '2015-05-15 00:00:00', 20),
-(2, 2, '2 answer here ', '2015-05-23 00:00:00', 20);
+(2, 2, '2 answer here ', '2015-05-23 00:00:00', 20),
+(4, 3, 'done', '2015-06-11 00:21:12', 20),
+(5, 4, 'done answer', '2015-06-11 00:22:23', 20);
 
 -- --------------------------------------------------------
 
@@ -768,8 +774,8 @@ CREATE TABLE IF NOT EXISTS `student_questions` (
 INSERT INTO `student_questions` (`id`, `student_id`, `subject_id`, `content`, `status`, `answered`, `q_date`) VALUES
 (1, 3, 28, 'sdskdjslkdjl', 0, 1, '2015-05-13 15:04:16'),
 (2, 3, 28, 'final b2ah&amp;nbsp;', 0, 1, '2015-05-13 15:04:19'),
-(3, 3, 28, '&lt;b&gt;&lt;i&gt;ÙØ§Ù‡Ø³ Ø¶Ø¹Ø«Ø³ÙÙ‡Ø®Ù‰ Ø®Ù ÙØ«Ø³Ù&amp;nbsp;&lt;br&gt;&lt;img alt=&quot;&quot; src=&quot;https://secure.gravatar.com/avatar/c0d3cff25f45d53ee3aa9202bd3c4188?s=100&amp;amp;d=mm&amp;amp;r=g&quot;&gt;&lt;br&gt;&lt;/i&gt;&lt;/b&gt;', 0, 0, '2015-05-13 16:10:47'),
-(4, 3, 28, 'test this&amp;nbsp;', 0, 0, '2015-05-24 16:11:31'),
+(3, 3, 28, '&lt;b&gt;&lt;i&gt;ÙØ§Ù‡Ø³ Ø¶Ø¹Ø«Ø³ÙÙ‡Ø®Ù‰ Ø®Ù ÙØ«Ø³Ù&amp;nbsp;&lt;br&gt;&lt;img alt=&quot;&quot; src=&quot;https://secure.gravatar.com/avatar/c0d3cff25f45d53ee3aa9202bd3c4188?s=100&amp;amp;d=mm&amp;amp;r=g&quot;&gt;&lt;br&gt;&lt;/i&gt;&lt;/b&gt;', 0, 1, '2015-06-11 00:21:12'),
+(4, 3, 28, 'test this&amp;nbsp;', 0, 1, '2015-06-11 00:22:23'),
 (5, 3, 28, 'how to do this ya doc&amp;nbsp;', 0, 0, '2015-05-24 16:46:14'),
 (6, 3, 28, 'sjdkjlgjdkl', 0, 0, '2015-05-24 16:47:11'),
 (7, 3, 28, 'k;lk;kl;', 0, 0, '2015-05-24 16:47:42'),

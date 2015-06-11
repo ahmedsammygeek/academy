@@ -92,8 +92,7 @@ require 'header.php';
                             </thead>
                             <tbody>
                                 <?php 
-
-                                $questions = $conn->query("SELECT * FROM student_questions WHERE answered='0' ");
+                                $questions = $conn->query("SELECT * FROM student_questions WHERE answered='0'");
                                 $i = 1;
                                 while ($question = $questions->fetch(PDO::FETCH_OBJ)) {
                                     $students = $conn->query("SELECT name FROM students WHERE id=$question->student_id");
