@@ -122,15 +122,19 @@
                         </li>
 
 
-                 
+
 
                         <li class="active">
                             <a href="tasks.php">
                                 <i class="fa fa-dashboard"></i> <span>Tasks</span>
                             </a>
                         </li>
+                        <li class="active">
+                            <a href="last_exam.php">
+                                <i class="fa fa-dashboard"></i> <span>last exams</span>
+                            </a>
+                        </li>
 
-               
 
                         <li class="active">
                             <a href="notification.php">
