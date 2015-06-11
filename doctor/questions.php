@@ -2,6 +2,7 @@
 require 'check_user.php';
 
 require '../admin/connection.php';
+require '../classes/helper.php';
 
 
 // if(!isset($_GET['task_id']) || empty($_GET['task_id'])) {
@@ -92,7 +93,8 @@ require 'header.php';
                             </thead>
                             <tbody>
                                 <?php 
-                                $questions = $conn->query("SELECT * FROM student_questions WHERE answered='0'");
+                                $doctor_subjects = get_doctor_subjects($_SESSION['system_user_id']);
+                                $questions = $conn->query("SELECT * FROM student_questions WHERE answered='0' AND subject_id in($doctor_subjects) ");
                                 $i = 1;
                                 while ($question = $questions->fetch(PDO::FETCH_OBJ)) {
                                     $students = $conn->query("SELECT name FROM students WHERE id=$question->student_id");
