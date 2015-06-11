@@ -9,7 +9,6 @@ if(isset($_POST['task_btn'])) {
 		'department' => FILTER_SANITIZE_NUMBER_INT,
 		'year' => FILTER_SANITIZE_NUMBER_INT,
 		'subject' => FILTER_SANITIZE_NUMBER_INT,
-		'task_content' => FILTER_SANITIZE_ENCODED,
 		);
 	// Inputs from post
 	$inputs = filter_input_array( INPUT_POST,  $args );
@@ -23,6 +22,7 @@ if(isset($_POST['task_btn'])) {
 	}
 	// create variables from inputs array in runtime
 	extract( $inputs );
+	$task_content = $_POST['task_content'];
 	//the end dete of task 
 	$ex_date = explode(' - ', $task_date);
 	$has_file = 0;

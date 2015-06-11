@@ -51,7 +51,7 @@ require 'header.php';
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#lecture" data-toggle="tab">Lecturess</a></li>
                     <li><a href="#section" data-toggle="tab">Sections</a></li>
-                    <li><a href="#task" data-toggle="tab">Tasks</a></li>
+                   
                     <li><a href="#ask" data-toggle="tab">Ask A qustions</a></li>
 
 
@@ -163,60 +163,6 @@ require 'header.php';
                         ?>
                     </div>
                 </div> <!-- ask questions tab ection -->
-
-                <div class="tab-pane" id="task">
-
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="box">
-                                <div class="box-header">
-                                    <h3 class="box-title">Subject's tasks</h3>
-
-                                </div><!-- /.box-header -->
-
-
-                                <div class="box-body table-responsive no-padding">
-                                    <table class="table table-hover">
-                                        <tr>
-                                            <th>#</th>
-                                            <th>creator</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>sumarry</th>
-                                        </tr>
-                                        <?php 
-                                        $tasks = $conn->prepare("SELECT * , s.name as creator_name , DATEDIFF(t.ex_date  , NOW() ) AS days FROM tasks as t LEFT JOIN staff as s on s.id = t.made_by WHERE year = ? AND department_id = ?");
-                                        $tasks->bindValue(1,$_SESSION['student_user_year'] , PDO::PARAM_INT);
-                                        $tasks->bindValue(2,$_SESSION['student_user_department'], PDO::PARAM_INT);
-                                        $tasks->execute();
-                                        if($tasks->rowCount()) {
-                                            $i = 1;
-                                            while ($task = $tasks->fetch(PDO::FETCH_OBJ)) {
-                                                echo "<tr>
-                                                <td>$i</td>
-                                                <td>$task->creator_name </td>
-                                                <td>$task->ex_date</td>
-                                                ".check_task($task->days)."
-                                                <td>$task->task_title</td>
-                                                </tr>";
-
-                                                $i++;
-
-                                            }
-                                        }
-                                        else {
-                                            echo "<p>no tasks for this subject till now </p>";
-                                        }
-
-
-                                        ?>
-
-                                    </table>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-                        </div>
-                    </div>
-                </div><!-- /.tab-pane -->
 
 
                 <!-- section tab -->
