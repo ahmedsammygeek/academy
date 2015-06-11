@@ -39,17 +39,12 @@ $subjects->execute();
                     <a href="tasks.php" class="btn btn-app ">
                         <i class="fa fa-tasks"></i> tasks
                     </a> 
-                    <a href="inbox.php" class="btn btn-app">
-                        <span class="badge bg-aqua">12</span>
-                        <i class="fa fa-envelope"></i> Inbox                                        
-                    </a>
+                    
                     <a href="notifications.php" class="btn btn-app ">
                         <span class="badge bg-yellow">3</span>
                         <i class="fa fa-bullhorn"></i> Notifications
                     </a>      
-                    <a class="btn btn-app ">
-                        <i class="fa fa-files-o"></i> My files 
-                    </a>
+                    
 
 
                 </div><!-- /.box-body -->

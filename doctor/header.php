@@ -68,9 +68,6 @@
                                         <a href="index.php">home</a>
                                     </div>
                                     <div class="col-xs-4 text-center">
-                                        <a href="inbox.php">inbox</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
                                         <a href="tasks.php">tasks</a>
                                     </div>
                                 </li>
@@ -100,21 +97,10 @@
                             <img src="img/avatar3.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, Jane</p>
+                            <p>Hello DR/ <?php echo $_SESSION['system_user_name']; ?></p>
 
-                            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>
-                    <!-- search form -->
-                    <form action="#" method="get" class="sidebar-form">
-                        <div class="input-group">
-                            <input type="text" name="q" class="form-control" placeholder="Search..."/>
-                            <span class="input-group-btn">
-                                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-                            </span>
-                        </div>
-                    </form>
-                    <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                          <li class="active">
@@ -127,26 +113,10 @@
                                 <i class="fa fa-dashboard"></i> <span>home</span>
                             </a>
                         </li>
-                        <li class="treeview">
-                            <a href="subjects.php">
-                                <i class="fa fa-laptop"></i>
-                                <span>subjects</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="tasks.php"><i class="fa fa-angle-double-right"></i>subject1 </a></li>
-                                <li><a href="tasks.php"><i class="fa fa-angle-double-right"></i>subject1 </a></li>
-                                <li><a href="tasks.php"><i class="fa fa-angle-double-right"></i>subject1 </a></li>
-                                <li><a href="tasks.php"><i class="fa fa-angle-double-right"></i>subject1 </a></li>  
-                            </ul>
-                        </li>
+                      
 
 
-                        <li class="active">
-                            <a href="inbox.php">
-                                <i class="fa fa-dashboard"></i> <span>inbox</span>
-                            </a>
-                        </li>
+                        
                         <li class="active">
                             <a href="questions.php">
                                 <i class="fa fa-dashboard"></i> <span>student questions</span>
@@ -173,11 +143,7 @@
                         </li>
 
 
-                        <li class="active">
-                            <a href="index.html">
-                                <i class="fa fa-dashboard"></i> <span>files</span>
-                            </a>
-                        </li>
+                       
 
                     </ul>
                 </section>

@@ -56,14 +56,13 @@ require 'header.php';
                                 while ($task = $tasks->fetch(PDO::FETCH_OBJ)) {
                                     $answer = $conn->query("SELECT answerd FROM tasks_answers WHERE task_id=$task->id");
                                     $result = $answer->fetch(PDO::FETCH_OBJ);
-                                    switch ($result->answerd) {
-                                        case '1':
+                                    $count = $answer->rowCount();
+                                    if ($count != 0) {
                                         $status = "answerd";
-                                        break;
-                                        
-                                        default:
+                                    }
+                                    else
+                                    {
                                         $status = "not answerd";
-                                        break;
                                     }
                                     echo " <tr>
                                     <td>$i</td>
