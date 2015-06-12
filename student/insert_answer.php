@@ -17,15 +17,12 @@ $type=get_type($file);
 $randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
 $file=$randomstring.".$type" ;
 $up = move_uploaded_file($_FILES['file']['tmp_name'], "../uploaded/tasks/".$file);
-if (!$up) {
-header("location: task_answer.php?msg=nup");die();
-}
 /*insrt in db */
 $query = $conn->prepare("INSERT INTO tasks_answers VALUES('' ,?,?,?,?,?)");
 $query->bindValue(1,$content,PDO::PARAM_STR);
 $query->bindValue(2,$_SESSION['student_user_id'],PDO::PARAM_STR);
 $query->bindValue(3,$file,PDO::PARAM_STR);
-$query->bindValue(4,1,PDO::PARAM_INT);
+$query->bindValue(4,0,PDO::PARAM_INT);
 $query->bindValue(5,$task_id,PDO::PARAM_INT);
 if ($query->execute()) {
 	header("location: tasks.php?msg=answerd");die();

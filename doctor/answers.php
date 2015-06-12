@@ -55,9 +55,9 @@ require 'header.php';
                                    $student = $students->fetch(PDO::FETCH_OBJ);
                                    $content = substr($answer->content, 0,20);
                                    echo ' <tr>
-                                   <td>$i</td>
-                                   <td>$student->name</td>
-                                   <td>$content</td>                    
+                                   <td>'.$i.'</td>
+                                   <td>'.$student->name.'</td>
+                                   <td>'.$content.'</td>                    
                                    <td><a href="answer_details.php?answer_id='.$answer->id.'" class="btn btn-success">DeTails</a></td>
 
                                    </tr>';
