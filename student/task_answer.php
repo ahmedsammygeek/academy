@@ -39,7 +39,11 @@ require '../admin/connection.php';
                     $task = $conn->prepare("SELECT task_content FROM tasks WHERE id=?");
                     $task->bindValue(1,$task_id,PDO::PARAM_INT);
                     $task->execute();
-                    $content = $task->fetch(PDO::FETCH_OBJ); ?>
+                    $content = $task->fetch(PDO::FETCH_OBJ); 
+
+
+
+                    ?>
 
                     <!-- form start -->
                     <form role="form" enctype="multipart/form-data" action="insert_answer.php?task_id=<?php echo $task_id; ?>" method="post">
@@ -47,20 +51,32 @@ require '../admin/connection.php';
                             <div class="callout callout-info">
                                 <h4>task content!</h4>
                                 <p><?php echo html_entity_decode($content->task_content); ?></p>
+                                <?php 
+
+
+                                $task_files = $conn->prepare("SELECT * FROM tasks_files WHERE task_id  = ?");
+                                $task_files->bindValue(1,$task_id , PDO::PARAM_INT);
+                                $task_files->execute();
+                                $i = 1;
+                                while ($task_file = $task_files->fetch(PDO::FETCH_OBJ)) {
+                                    echo "<tr><td>file </td><td><a href='down_task_file.php?id=".$task_file->id."'> download file number $i </a></td></tr>";
+                                    $i++;
+                                }
+                                ?>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-12">
-                                 <label>Task answer</label>
-                                 <textarea id="textarea" name="task_content" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                             </div>
-                             <div class="col-md-12">
-                                 <label>file</label>
-                                 <div class="form-group files">
-                                   <label for="exampleInputFile">Task attachments (Optional)</label>
-                                    <input type="file"  name="task_files[]">
-                                    <a class="btn btn-primary pull-right add_more_files" href="">add more files</a>
-                                </div>
+                                   <label>Task answer</label>
+                                   <textarea id="textarea" name="task_content" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                               </div>
+                               <div class="col-md-12">
+                                   <label>file</label>
+                                   <div class="form-group files">
+                                     <label for="exampleInputFile">Task attachments (Optional)</label>
+                                     <input type="file"  name="task_files[]">
+                                     <a class="btn btn-primary pull-right add_more_files" href="">add more files</a>
+                                 </div>
                              </div>
 
 

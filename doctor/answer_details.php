@@ -74,7 +74,7 @@ require 'header.php';
                                 $answer_files->execute();
                                 $i = 1;
                                 while ($answer_file = $answer_files->fetch(PDO::FETCH_OBJ)) {
-                                    echo "<tr><td>file </td><td><a href='download.php?file=".$answer_file->file."'> download file number $i </a></td></tr>";
+                                    echo "<tr><td>file </td><td><a href='down_answer_file.php?id=".$answer_file->id."'> download file number $i </a></td></tr>";
                                 $i++;
                                 }
 
