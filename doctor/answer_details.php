@@ -69,6 +69,14 @@ require 'header.php';
                                 <tr><td>STUDENT  </td><td>$result4->name</td></tr>
                                 ";
                                 
+                                $answer_files = $conn->prepare("SELECT * FROM tasks_answers_files WHERE answer_id = ?");
+                                $answer_files->bindValue(1,$answer_id , PDO::PARAM_INT);
+                                $answer_files->execute();
+                                $i = 1;
+                                while ($answer_file = $answer_files->fetch(PDO::FETCH_OBJ)) {
+                                    echo "<tr><td>file </td><td><a href='down_answer_file.php?id=".$answer_file->id."'> download file number $i </a></td></tr>";
+                                $i++;
+                                }
 
                                 ?>
                                 <form action="mark.php<?php echo "?answer_id=$result5->id"; ?>" method="post">

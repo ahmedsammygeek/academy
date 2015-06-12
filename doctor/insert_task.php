@@ -6,8 +6,6 @@ if(isset($_POST['task_btn'])) {
 	$args = array(
 		'task_title' => FILTER_SANITIZE_STRING,
 		'task_date' => FILTER_SANITIZE_STRING,
-		'department' => FILTER_SANITIZE_NUMBER_INT,
-		'year' => FILTER_SANITIZE_NUMBER_INT,
 		'subject' => FILTER_SANITIZE_NUMBER_INT,
 		);
 	// Inputs from post
@@ -22,7 +20,19 @@ if(isset($_POST['task_btn'])) {
 	}
 	// create variables from inputs array in runtime
 	extract( $inputs );
-	$task_content = $_POST['task_content'];
+
+	$subject_details = $conn->prepare("SELECT * FROM subjects WHERE id = ?");
+	$subject_details->bindValue(1,$subject , PDO::PARAM_INT);
+	$subject_details->execute();
+	$subject_detail = $subject_details->fetch(PDO::FETCH_OBJ);
+
+	$department = $subject_detail->department;
+	$year = $subject_detail->year;
+
+
+
+
+	$task_content = htmlentities($_POST['task_content']);
 	//the end dete of task 
 	$ex_date = explode(' - ', $task_date);
 	$has_file = 0;

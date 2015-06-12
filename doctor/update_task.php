@@ -15,8 +15,6 @@ if(isset($_POST['task_btn'])) {
 	$args = array(
 		'title' => FILTER_SANITIZE_STRING,
 		'task_date' => FILTER_SANITIZE_STRING,
-		'department' => FILTER_SANITIZE_NUMBER_INT,
-		'year' => FILTER_SANITIZE_NUMBER_INT,
 		'subject' => FILTER_SANITIZE_NUMBER_INT,
 		'content' => FILTER_SANITIZE_ENCODED,
 		);
@@ -35,6 +33,12 @@ if(isset($_POST['task_btn'])) {
 
 	// create variables from inputs array in runtime
 	extract( $inputs );
+
+
+
+
+
+
 	//the end dete of task 
 	$ex_date = explode(' - ', $task_date);
 	$has_file = 0;
@@ -44,15 +48,13 @@ if(isset($_POST['task_btn'])) {
 
 	$conn->beginTransaction();
 	try {
-		$task = $conn->prepare("UPDATE tasks SET task_title = ? , task_content = ? , ex_date = ? , subject_id = ? , department_id = ? , created_at = ? , year = ? WHERE id = ?  ");
+		$task = $conn->prepare("UPDATE tasks SET task_title = ? , task_content = ? , ex_date = ? , subject_id = ? , created_at = ?  WHERE id = ?  ");
 		$task->bindValue(1,$title , PDO::PARAM_STR);
 		$task->bindValue(2,$content , PDO::PARAM_STR);
 		$task->bindValue(3,$ex_date[1], PDO::PARAM_STR);
 		$task->bindValue(4,$subject , PDO::PARAM_INT);
-		$task->bindValue(5,$department , PDO::PARAM_INT);
-		$task->bindValue(6, $ex_date[0], PDO::PARAM_STR);
-		$task->bindValue(7, $year, PDO::PARAM_INT);
-		$task->bindValue(8, $task_id, PDO::PARAM_INT);
+		$task->bindValue(5, $ex_date[0], PDO::PARAM_STR);
+		$task->bindValue(6, $task_id, PDO::PARAM_INT);
 		$task->execute();
 
 		

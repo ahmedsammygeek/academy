@@ -14,19 +14,19 @@ if(!$file_id) {
 }
 
 require '../admin/connection.php';
-$file_info = $conn->prepare("SELECT file FROM lectures_files WHERE id = ?");
+$file_info = $conn->prepare("SELECT file FROM tasks_answers_files WHERE id = ?");
 $file_info->bindValue(1, $file_id , PDO::PARAM_INT);
 $file_info->execute();
 
 $file = $file_info->fetch(PDO::FETCH_OBJ);
 
 
-if(file_exists("../uploaded/lectures/".$file->file)) {
+if(file_exists("../uploaded/tasks/".$file->file)) {
 
 
-	$file_name = "../uploaded/lectures/".$file->file;
+	$file_name = "../uploaded/tasks/".$file->file;
 
-	$local_file = "../uploaded/lectures/".$file->file;
+	$local_file = "../uploaded/tasks/".$file->file;
 	$download_file = $file->file;
 
 // set the download rate limit (=> 20,5 kb/s)

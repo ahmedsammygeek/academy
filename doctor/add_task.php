@@ -55,7 +55,12 @@ $subjects->execute();
                                     <a class="btn btn-primary pull-right add_more_files" href="">add more files</a>
                                 </div>
 
-                                <div class="form-group">
+                               
+
+
+                            </div>
+                            <div class="col-md-6">
+                                 <div class="form-group">
                                     <label>Date range:</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -64,32 +69,8 @@ $subjects->execute();
                                         <input type="text" name="task_date" class="form-control pull-right" id="reservation"/>
                                     </div><!-- /.input group -->
                                 </div><!-- /.form group -->
-
-
-                            </div>
-                            <div class="col-md-6">
-                               <div class="form-group">
-                                <label>Department</label>
-                                <select name="department" class="form-control">
-                                    <?php 
-                                    while ($department = $departments->fetch(PDO::FETCH_OBJ)) {
-                                       echo '<option value='.$department->id.'>'.$department->name.'</option>';
-                                    }
-                                     ?>
-                                    
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Year </label>
-                                <select name="year" class="form-control">
-                                    <option value="1">year 1</option>
-                                    <option value="2" >year 2</option>
-                                    <option value="3" >year 3</option>
-                                    <option value="4" >year 4</option>
-                                    
-                                </select>
-                            </div>
+                       
+                           
 
                             <div class="form-group">
                                 <label>Subject</label>
