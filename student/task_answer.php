@@ -42,7 +42,7 @@ require '../admin/connection.php';
                     $content = $task->fetch(PDO::FETCH_OBJ); ?>
 
                     <!-- form start -->
-                    <form role="form" enctype="multipart/form-data" action="insert_answer.php<?php echo "?task_id=$task_id"; ?>" method="post">
+                    <form role="form" enctype="multipart/form-data" action="insert_answer.php?task_id=<?php echo $task_id; ?>" method="post">
                         <div class="box-body">
                             <div class="callout callout-info">
                                 <h4>task content!</h4>
@@ -56,8 +56,14 @@ require '../admin/connection.php';
                              </div>
                              <div class="col-md-12">
                                  <label>file</label>
-                                 <input type="file" name="file">                
+                                 <div class="form-group files">
+                                   <label for="exampleInputFile">Task attachments (Optional)</label>
+                                    <input type="file"  name="task_files[]">
+                                    <a class="btn btn-primary pull-right add_more_files" href="">add more files</a>
+                                </div>
                              </div>
+
+
                          </div>
 
 
