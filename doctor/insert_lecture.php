@@ -68,6 +68,13 @@ if(isset($_GET['subject_id']) && !empty($_GET['subject_id'])) {
 			}
 		}
 		if($conn->commit()) {
+			$subject_details = $conn->prepare("SELECT year FROM subjects WHERE id = $subject_id");
+			$subject_details->execute();
+
+			$subject_detail = $subject_details->fetch(PDO::FETCH_OBJ);
+
+			$year = $subject_detail->year;
+			send_notification($_SESSION['system_user_id'] , 'a new lecture has been made by doctor '.$_SESSION['system_user_name'] , get_students("year = $year") );
 			header("Location: subject.php?id=$subject_id&msg=done");
 			die();
 		}
