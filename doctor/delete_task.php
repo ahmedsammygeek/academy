@@ -7,27 +7,20 @@ if(!isset($_GET['task_id']) || empty($_GET['task_id'])) {
 	header("location: tasks.php");
 	die();
 }
-
 $task_id = filter_input(INPUT_GET, 'task_id' , FILTER_SANITIZE_NUMBER_INT);
-
-
 if(!check_if_exists($task_id , 'id' , 'tasks')) {
 	header("location: tasks.php");
 	die();
 }
-
 $task = $conn->prepare("SELECT * FROM tasks_files WHERE task_id = ?");
 $task->bindValue(1,$task_id , PDO::PARAM_INT);
 $task->execute();
-
 while ($one = $task->fetch(PDO::FETCH_OBJ)) {
 	if(file_exists("../uploaded/tasks/".$one->file));
 	{
 		@unlink("../uploaded/tasks/".$one->file);
 	}
 }
-
-
 $delete = $conn->prepare("DELETE FROM tasks_files WHERE id = ? ");
 $delete->bindValue(1,$task_id , PDO::PARAM_INT);
 if($delete->execute()) {
