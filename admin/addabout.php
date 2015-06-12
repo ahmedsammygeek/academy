@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 	require_once '../classes/ImageManipulator.php';
 	//to make random name
 	$newName= time() . '_';
-	$img=new ImageManipulator('image/'.$name1);
+	$img=new ImageManipulator($_FILES['image1']['tmp_name']);
 	//resize image
 	$newimg=$img->resample(374,284);
 	//put image in file "image"
@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
 	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
 	$name2=$randomstring.".$type" ;
 	$newName= time() . '_';
-	$img=new ImageManipulator('image/'.$name2);
+	$img=new ImageManipulator($_FILES['image2']['tmp_name']);
 	//resize image
 
 	$newimg=$img->resample(374,284);
@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
 	$randomstring=substr(str_shuffle("1234567890abcdefghijklmnopqrstuvwxyz"), 0 , 15);
 	$name3=$randomstring.".$type" ;
 	$newName= time() . '_';
-	$img=new ImageManipulator('image/'.$name3);
+	$img=new ImageManipulator($_FILES['image3']['tmp_name']);
 	//resize image
 
 	$newimg=$img->resample(400,350);
