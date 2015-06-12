@@ -36,6 +36,7 @@ require 'header.php';
                                     <th>Subject</th>                                 
                                     <th>end date</th>                                 
                                     <th>Made by </th>                                 
+                                    <th>MARK(10) </th>                                 
                                     <th>Details</th>
                                     <th> Answer it</th>
                                     <th>status</th>
@@ -54,22 +55,29 @@ require 'header.php';
                                 $tasks->execute();
                                 $i = 1;
                                 while ($task = $tasks->fetch(PDO::FETCH_OBJ)) {
-                                    $answer = $conn->query("SELECT answerd FROM tasks_answers WHERE task_id=$task->id");
+                                    $answer = $conn->query("SELECT * FROM tasks_answers WHERE task_id=$task->id");
                                     $result = $answer->fetch(PDO::FETCH_OBJ);
                                     $count = $answer->rowCount();
                                     if ($count != 0) {
                                         $status = "answerd";
+                                        $mark = "$result->answerd";
+                                        if ($result->answerd == 0) {
+                                            $mark = "waiting" ;
+                                        }
                                     }
                                     else
                                     {
                                         $status = "not answerd";
+                                        $mark = "answer frist";
                                     }
+
                                     echo " <tr>
                                     <td>$i</td>
                                     <td>$task->task_title</td>
                                     <td>$task->subject_name</td>
                                     <td>$task->ex_date</td>
                                     <td>$task->creator</td>
+                                    <td>$mark</td>
                                     <td><a href='task_details.php?task_id=".$task->id."' class='btn btn-success'>DeTails</a></td>
                                     <td><a href='task_answer.php?task_id=$task->id' class='btn btn-info'>Answers</a></td>
                                     <td>$status</td>

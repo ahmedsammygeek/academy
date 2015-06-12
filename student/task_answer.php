@@ -65,7 +65,7 @@ require '../admin/connection.php';
                      </div><!-- /.box-body -->
 
                      <div class="box-footer">
-                        <input type="submit" name="task_btn" class="btn btn-success" value="Add Task">
+                        <input type="submit" name="task_btn" class="btn btn-success" value="answer ">
                     </div>
                 </form>
 
