@@ -131,6 +131,10 @@ require 'header.php';
 
                                </div>
 
+
+                        </div>
+                        <div class="col-md-6">
+                  
                                <div class="form-group">
                                 <label>Date range:</label>
                                 <div class="input-group">
@@ -141,41 +145,7 @@ require 'header.php';
                                 </div><!-- /.input group -->
                             </div><!-- /.form group -->
 
-
-                        </div>
-                        <div class="col-md-6">
-                         <div class="form-group">
-                            <label>Department</label>
-                            <select class='form-control' name='department'>
-                                <?php 
-                                $sql="SELECT * FROM departments";
-                                $query=$conn->query($sql);
-                                while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
-                                 extract($result);
-                                 if($task->department_id == $id) {
-                                     echo "<option value='".$id."'  SELECTED >$name</option>";
-
-                                 }
-                                 else  {
-                                    echo "<option value='".$id."'>$name</option>";
-
-                                }
-                            }
-                            ?>
-                        </select>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label>Year </label>
-                        <select class="form-control" name='year'>
-                            <option <?php if($task->year == '1') echo"selected"; ?> value='1'>year1</option>
-                            <option <?php if($task->year == '2') echo"selected"; ?> value='2'>year2</option>
-                            <option <?php if($task->year == '3') echo"selected"; ?> value='3'>year3</option>
-                            <option <?php if($task->year == '4') echo"selected"; ?> value='4'>year4</option>
-                        </select>
-                    </div>
-
+             
                     <div class="form-group">
                         <label>Subject</label>
                         <select class="form-control" name='subject'>
