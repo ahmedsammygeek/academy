@@ -2,22 +2,15 @@
 require  'check_user.php';
 require '../admin/connection.php';
 require '../classes/helper.php';
-
-
-
 if(!isset($_GET['id']) || empty($_GET['id'])) {
 	header("location: tasks.php");
 	die();
 }
-
 $task_id = filter_input(INPUT_GET, 'id' , FILTER_SANITIZE_NUMBER_INT);
-
 if(!check_if_exists($task_id ,'id' , 'tasks')){
 	header("location: tasks.php");
 	die();
 }
-
-
 if(isset($_POST['task_btn'])) {
 	$args = array(
 		'title' => FILTER_SANITIZE_STRING,
@@ -27,8 +20,6 @@ if(isset($_POST['task_btn'])) {
 		'subject' => FILTER_SANITIZE_NUMBER_INT,
 		'content' => FILTER_SANITIZE_ENCODED,
 		);
-
-	
 	// Inputs from post
 	$inputs = filter_input_array( INPUT_POST,  $args );
 	// var_dump($inputs); die();

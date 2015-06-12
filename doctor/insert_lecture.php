@@ -10,16 +10,12 @@ require '../classes/helper.php';
 if(isset($_GET['subject_id']) && !empty($_GET['subject_id'])) {
 	//get suject id
 	$subject_id = $_GET['subject_id'];
-
-
 	if(empty($_POST['lecture_summary']) && empty($_FILES['lecture_files']['name'][0]))  {
 		header("Location: subject.php?id=$subject_id&msg=missing");
 		die();
 	}
 	$lecture_summary =   filter_input(INPUT_POST, 'lecture_summary') ? : $lecture_summary = '';
-	
 	$has_file = 0;
-
 	if(isset($_FILES['lecture_files']['name']) && !empty($_FILES['lecture_files']['name'][0])) {
 		$has_file = 1;
 	}
