@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2015 at 02:52 AM
+-- Generation Time: Jun 13, 2015 at 07:02 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -33,14 +33,15 @@ CREATE TABLE IF NOT EXISTS `about` (
   `image2` text NOT NULL,
   `image3` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `about`
 --
 
 INSERT INTO `about` (`id`, `content`, `image1`, `image2`, `image3`) VALUES
-(1, '\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt minima voluptatibus laborum necessitatibus. Ut aliquam asperiores quidem, et laudantium voluptatibus accusantium, at, dolor totam minus consequuntur odio obcaecati nam sint!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vel temporibus deleniti sapiente, aliquam architecto, alias minus porro ipsum itaque dolores nesciunt asperiores nihil distinctio facere libero quam neque, veritatis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, repellat minus fugiat tempore accusamus expedita amet enim ducimus qui praesentium eius quisquam neque odio saepe eum at molestias odit sed.', 'zbrc9mnaj7eyt1o.png', '8j0th2gdx31eric.jpg', 'fk823uhy7xgpw4i.jpg');
+(1, '\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt minima voluptatibus laborum necessitatibus. Ut aliquam asperiores quidem, et laudantium voluptatibus accusantium, at, dolor totam minus consequuntur odio obcaecati nam sint!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vel temporibus deleniti sapiente, aliquam architecto, alias minus porro ipsum itaque dolores nesciunt asperiores nihil distinctio facere libero quam neque, veritatis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, repellat minus fugiat tempore accusamus expedita amet enim ducimus qui praesentium eius quisquam neque odio saepe eum at molestias odit sed.', 'zbrc9mnaj7eyt1o.png', '8j0th2gdx31eric.jpg', 'fk823uhy7xgpw4i.jpg'),
+(2, 'about us', 'm7pwilg3vdz5o86.jpg', 'opg2twlifm8sbzy.jpg', 'oyts9qir3ca01fg.jpg');
 
 -- --------------------------------------------------------
 
@@ -339,7 +340,18 @@ CREATE TABLE IF NOT EXISTS `last_exams` (
   `exam_file` text NOT NULL,
   `subject_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `last_exams`
+--
+
+INSERT INTO `last_exams` (`id`, `department_id`, `year`, `term`, `exam_file`, `subject_id`) VALUES
+(1, 1, 4, 2, 'wexngqp4ub5210s.jpg', 1),
+(2, 1, 4, 2, 'dt5ieu7g6jyn013.jpg', 7),
+(3, 3, 4, 1, 'sqckg8vixje4fo6.jpg', 17),
+(4, 1, 3, 1, '5odb1v4eumn0gsq.jpg', 19),
+(5, 1, 4, 1, 'yzt58qodxi96b4p.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -356,19 +368,20 @@ CREATE TABLE IF NOT EXISTS `lectures` (
   `has_file` int(11) NOT NULL,
   `type` enum('section','lecture') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `lectures`
 --
 
 INSERT INTO `lectures` (`id`, `summary`, `date`, `doctor_id`, `subject_id`, `has_file`, `type`) VALUES
-(2, 'this is the section about nozom 5bera 2 but section b2&nbsp;', '2015-05-13', 20, 1, 1, 'section'),
-(3, 'Ø·ÙŠØ¨ Ù†Ø¬Ø± Ø§Ù„Ø¹Ø±Ø¨Ù‰ ÙƒØ¯Ø©&nbsp;', '2015-05-13', 20, 1, 0, 'section'),
-(4, '<b>Ø·ÙŠØ¨ Ù†Ø¬Ø±Ø¨ Ø§Ù„Ø¬Ø²Ø¡ Ø¯Ø© ØªØ§Ù†Ù‰ ÙƒØ¯Ø©&nbsp;</b>', '2015-05-13', 20, 1, 0, 'section'),
-(9, 'fdklvmdfklvndfklvdfvdfv', '2015-06-10', 20, 0, 1, 'lecture'),
-(10, 'fdklvmdfklvndfklvdfvdfv', '2015-06-10', 20, 0, 1, 'lecture'),
-(12, 'fgklndfkvnfg', '2015-06-10', 20, 0, 1, 'lecture');
+(2, 'this is the section about nozom 5bera 2 but section ', '2015-05-13', 20, 1, 1, 'section'),
+(3, 'عنوان المحتوي ', '2015-05-13', 20, 1, 0, 'section'),
+(4, 'عنوان المحتوي', '2015-05-13', 20, 1, 0, 'section'),
+(9, 'this is the section about nozom 5bera 2 but section ', '2015-06-10', 20, 0, 1, 'lecture'),
+(10, 'this is the section about nozom 5bera 2 but section ', '2015-06-10', 20, 0, 1, 'lecture'),
+(12, 'this is the section about nozom 5bera 2 but section ', '2015-06-10', 20, 0, 1, 'lecture'),
+(13, 'test', '2015-06-12', 20, 1, 1, 'lecture');
 
 -- --------------------------------------------------------
 
@@ -381,7 +394,7 @@ CREATE TABLE IF NOT EXISTS `lectures_files` (
   `lecture_id` int(11) NOT NULL,
   `file` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `lectures_files`
@@ -391,7 +404,8 @@ INSERT INTO `lectures_files` (`id`, `lecture_id`, `file`) VALUES
 (2, 2, 'af80cf7cd26019078b252e821b06421c_Ù†Ø¸Ù… Ø®Ø¨ÙŠØ±Ù‡.pdf'),
 (6, 9, 'bf83da805ba97da812eeaefb82741430_11301585_1579255732355105_128298958_n.jpg'),
 (7, 10, 'a5300690125c1aace46ca48898bc4b3b_11301585_1579255732355105_128298958_n.jpg'),
-(9, 12, 'c7a6fb83e16fe491476eac5fcda6bb8f_11301585_1579255732355105_128298958_n.jpg');
+(9, 12, 'c7a6fb83e16fe491476eac5fcda6bb8f_11301585_1579255732355105_128298958_n.jpg'),
+(10, 13, '50267-1430785807-project.rar');
 
 -- --------------------------------------------------------
 
@@ -407,7 +421,16 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `time` datetime NOT NULL,
   `viewed` enum('watched','not watched','','') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `name`, `email`, `contant`, `time`, `viewed`) VALUES
+(1, 'alaa', 'alaaelgndy21@yahoo.com', 'message content', '2015-06-13 02:16:10', 'watched'),
+(2, 'alaa', 'alaaelgndy21@yahoo.com', 'content', '2015-06-13 02:16:23', ''),
+(3, 'alaa', 'alaaelgndy21@yahoo.com', 'what is your your vision ', '2015-06-13 02:17:11', '');
 
 -- --------------------------------------------------------
 
@@ -441,7 +464,18 @@ CREATE TABLE IF NOT EXISTS `newsletter` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `newsletter`
+--
+
+INSERT INTO `newsletter` (`id`, `email`) VALUES
+(1, 'alaaelgndy21@yahoo.com'),
+(2, 'ahmedsamy@yahoo.com'),
+(3, 'amiraadel@yahoo.com'),
+(4, 'ayamostafa@yahoo.com'),
+(5, 'ziadelshaboury@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -455,7 +489,7 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   `made_by` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table `notifications`
@@ -482,7 +516,14 @@ INSERT INTO `notifications` (`id`, `content`, `made_by`, `date`) VALUES
 (18, 'a new task has been made by doctor bahaa', 20, '2015-06-09 14:21:02'),
 (19, 'a new task has been made by doctor bahaa', 20, '2015-06-09 14:21:07'),
 (20, 'a new task has been made by doctor bahaa', 20, '2015-06-09 14:21:14'),
-(21, 'a new task has been made by doctor bahaa', 20, '2015-06-09 14:41:22');
+(21, 'a new task has been made by doctor bahaa', 20, '2015-06-09 14:41:22'),
+(22, ' a new question from by ahmed samy ', 1, '2015-06-11 02:07:10'),
+(23, 'a new task has been made by doctor bahaa', 20, '2015-06-11 02:25:07'),
+(24, 'a new task has been made by doctor bahaa', 20, '2015-06-11 02:25:57'),
+(25, 'a new task has been made by doctor bahaa', 20, '2015-06-11 23:52:36'),
+(26, 'a new task has been made by doctor bahaa', 20, '2015-06-12 02:40:32'),
+(27, 'a new task has been made by doctor bahaa', 20, '2015-06-12 02:44:02'),
+(28, ' a new question from by ahmed samy ', 1, '2015-06-12 20:07:09');
 
 -- --------------------------------------------------------
 
@@ -496,7 +537,7 @@ CREATE TABLE IF NOT EXISTS `notifications_users` (
   `user_id` int(11) NOT NULL,
   `seen` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
 
 --
 -- Dumping data for table `notifications_users`
@@ -556,7 +597,65 @@ INSERT INTO `notifications_users` (`id`, `notification_id`, `user_id`, `seen`) V
 (51, 18, 6, 0),
 (52, 19, 6, 0),
 (53, 20, 6, 0),
-(54, 21, 6, 0);
+(54, 21, 6, 0),
+(55, 22, 1, 0),
+(56, 22, 2, 0),
+(57, 22, 2, 0),
+(58, 22, 2, 0),
+(59, 23, 2, 0),
+(60, 23, 4, 0),
+(61, 24, 1, 0),
+(62, 24, 3, 0),
+(63, 24, 7, 0),
+(64, 24, 8, 0),
+(65, 24, 9, 0),
+(66, 24, 10, 0),
+(67, 24, 11, 0),
+(68, 24, 12, 0),
+(69, 24, 13, 0),
+(70, 24, 14, 0),
+(71, 24, 15, 0),
+(72, 24, 16, 0),
+(73, 25, 1, 0),
+(74, 25, 3, 0),
+(75, 25, 7, 0),
+(76, 25, 8, 0),
+(77, 25, 9, 0),
+(78, 25, 10, 0),
+(79, 25, 11, 0),
+(80, 25, 12, 0),
+(81, 25, 13, 0),
+(82, 25, 14, 0),
+(83, 25, 15, 0),
+(84, 25, 16, 0),
+(85, 26, 1, 0),
+(86, 26, 3, 0),
+(87, 26, 7, 0),
+(88, 26, 8, 0),
+(89, 26, 9, 0),
+(90, 26, 10, 0),
+(91, 26, 11, 0),
+(92, 26, 12, 0),
+(93, 26, 13, 0),
+(94, 26, 14, 0),
+(95, 26, 15, 0),
+(96, 26, 16, 0),
+(97, 27, 1, 0),
+(98, 27, 3, 0),
+(99, 27, 7, 0),
+(100, 27, 8, 0),
+(101, 27, 9, 0),
+(102, 27, 10, 0),
+(103, 27, 11, 0),
+(104, 27, 12, 0),
+(105, 27, 13, 0),
+(106, 27, 14, 0),
+(107, 27, 15, 0),
+(108, 27, 16, 0),
+(109, 28, 1, 0),
+(110, 28, 2, 0),
+(111, 28, 2, 0),
+(112, 28, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -596,7 +695,7 @@ CREATE TABLE IF NOT EXISTS `question_answers` (
   `date` datetime NOT NULL,
   `made_by` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `question_answers`
@@ -606,7 +705,9 @@ INSERT INTO `question_answers` (`id`, `question_id`, `content`, `date`, `made_by
 (1, 1, 'some nswer here b2 :DD', '2015-05-15 00:00:00', 20),
 (2, 2, '2 answer here ', '2015-05-23 00:00:00', 20),
 (4, 3, 'done', '2015-06-11 00:21:12', 20),
-(5, 4, 'done answer', '2015-06-11 00:22:23', 20);
+(5, 4, 'done answer', '2015-06-11 00:22:23', 20),
+(6, 5, 'question content', '2015-06-11 01:02:59', 20),
+(7, 15, 'alaa', '2015-06-11 02:09:14', 20);
 
 -- --------------------------------------------------------
 
@@ -643,7 +744,7 @@ CREATE TABLE IF NOT EXISTS `site_info` (
 --
 
 INSERT INTO `site_info` (`id`, `phone`, `mail`, `facebook`, `twitter`, `linkedin`, `address`, `map`) VALUES
-(1, '01062300489', 'met@yahoo.com', 'ahmedsamy@facebook.com', 'alaaelgndy@twitter.com', 'alaaelgndy@linkedin.com', 'egypt/nasr cite/ 40 str sity stars', 'https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7323128.552528785!2d17.2692101!3d26.3347113!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v142465948');
+(1, '01062300489', 'met@yahoo.com', 'ahmedsamy@facebook.com', 'alaaelgndy@twitter.com', 'alaaelgndy@linkedin.com', 'egypt/nasr cite/ 40 str sity stars', 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3419.366105619877!2d31.378652000000002!3d31.016048!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79db9d4');
 
 -- --------------------------------------------------------
 
@@ -662,7 +763,6 @@ CREATE TABLE IF NOT EXISTS `slider` (
 --
 
 INSERT INTO `slider` (`id`, `image`) VALUES
-(1, 'ayjb5vl6hire187.jpeg'),
 (2, 'sb1igf7t38cd0ah.jpeg'),
 (3, 'r2fkwho0x4jec9s.jpeg'),
 (4, 'z28g96dj41kbcil.jpeg');
@@ -685,31 +785,25 @@ CREATE TABLE IF NOT EXISTS `staff` (
   `password` varchar(40) NOT NULL,
   `type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `staff`
 --
 
 INSERT INTO `staff` (`id`, `name`, `image`, `title`, `description`, `facebook`, `email`, `username`, `password`, `type`) VALUES
-(3, 'Ø¨ÙŠØ¨', '0', 'domenestor', '0', '0', '0', 'ÙŠØ¨ÙŠØ¨', 'f25ded3d4e488ea9529e4db08c0567c8720900fe', 1),
-(4, 'Ø£.Ø¯. Ø§Ù„Ù…ØªÙˆÙ„ÙŠ Ù…Ø­Ù…Ø¯ Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠ', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1),
-(5, 'Ø£.Ø¯. Ø§Ù„Ù…ØªÙˆÙ„ÙŠ Ù…Ø­Ù…Ø¯ Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠ', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
-(6, 'Ø¯.Ù…Ø­Ù…ÙˆØ¯ Ø£Ø¨Ùˆ Ø§Ù„ÙØªÙˆØ­', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
-(7, 'Ø¯.Ø¹Ø¨Ø¯ Ø§Ù„ÙØªØ§Ø­ Ù…Ø­Ù…Ø¯ Ø¹Ø¨Ø¯ Ø§Ù„Ø±Ø§Ø²Ù‚', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
-(8, 'Ø¯.Ø¹Ø¨Ø¯ Ø§Ù„ÙØªØ§Ø­ Ù…Ø­Ù…Ø¯ Ø¹Ø¨Ø¯ Ø§Ù„Ø±Ø§Ø²Ù‚', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
-(9, 'Ø¯/Ù„Ø¨Ù†ÙŠ Ø£Ø¨Ùˆ Ø§Ù„Ù…Ø¬Ø¯', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
-(10, 'Ø¯/Ù…Ø­Ù…Ø¯ Ø¹Ø¨Ø¯Ø§Ù„Ø¹Ø²ÙŠØ² Ø¹Ø¨Ø¯Ø§Ù„Ù…Ø¹Ø·ÙŠ Ø§Ù„Ù‡ÙˆØ§Ø±ÙŠ', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
-(11, 'Ø¯/ Ø¹Ù„ÙŠ Ø§Ù„Ø¹Ø¬Ù…ÙŠ', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
-(12, 'Ø¯/ Ù…Ø§Ø¬Ø¯ Ù…Ø­Ù…Ø¯ ÙŠØ³Ø±ÙŠ Ø£Ø­Ù…Ø¯', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
-(13, 'Ø¯/Ø¹Ø¨Ø¯Ø§Ù„Ø­Ù…ÙŠØ¯ Ø¹Ø¨Ø¯Ø§Ù„Ù„Ù‡ Ù…Ø­Ù…Ø¯ Ø§Ù„Ù‡Ù†Ø¯Ø§ÙˆÙŠ', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
-(14, 'Ø¯/Ù…Ø­Ù…Ø¯ ÙØ±ÙŠØ¯ Ø§Ù„Ø²Ù‡ÙŠØ±ÙŠ', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
-(15, 'Ø¯/Ù…Ø­Ù…Ø¯ ÙØ±ÙŠØ¯ Ø§Ù„Ø²Ù‡ÙŠØ±ÙŠ', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
-(16, 'Ø¯/Ø¨Ù‡Ø§Ø¡ Ø·Ø§Ù‡Ø± Ø´Ø¨Ø§Ù†Ø©', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
-(17, 'Ù…/Ø£Ø¯Ù‡Ù… Ø´ÙÙŠÙ‚', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1),
-(18, 'Ù…/Ø£Ø­Ù…Ø¯ ØµÙ„Ø§Ø­', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1),
-(19, 'Ù…/Ø³Ø§Ù„ÙŠ Ø­ÙˆØ±ÙŠØ©', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1),
-(20, 'bahaa', '', '', '', '', '', 'bahaa', '8684810b776fc842d58d9fdf7bef82490434ce9b', 2);
+(5, 'ا/د/المتولى محمد العباسي', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
+(6, 'د/ محمود ابو الفتوح', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
+(7, 'د/عبد الفتاح محمد عبد الرازق', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
+(8, 'د/ لبني ابو المجد', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
+(9, 'د/محمد عبد العزيز عبدالمعطي الهواري', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
+(10, 'د/على العجمي', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
+(11, 'د/ على الدسوقى', '0', 'doctor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 2),
+(17, 'م/ادهم شفيق ', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1),
+(18, 'م/احمد صلاح', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1),
+(19, 'م/سالي حورية', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1),
+(20, 'د/بهاء شبانه', '', '', '', '', '', 'bahaa', '8684810b776fc842d58d9fdf7bef82490434ce9b', 2),
+(21, 'علاء الجندي', '0', 'doctor', '0', '0', '0', 'alaa', '9f501154b7e5872e75704103a87b10317e86c5ac', 2);
 
 -- --------------------------------------------------------
 
@@ -765,27 +859,29 @@ CREATE TABLE IF NOT EXISTS `student_questions` (
   `answered` tinyint(4) NOT NULL DEFAULT '0',
   `q_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `student_questions`
 --
 
 INSERT INTO `student_questions` (`id`, `student_id`, `subject_id`, `content`, `status`, `answered`, `q_date`) VALUES
-(1, 3, 28, 'sdskdjslkdjl', 0, 1, '2015-05-13 15:04:16'),
-(2, 3, 28, 'final b2ah&amp;nbsp;', 0, 1, '2015-05-13 15:04:19'),
-(3, 3, 28, '&lt;b&gt;&lt;i&gt;ÙØ§Ù‡Ø³ Ø¶Ø¹Ø«Ø³ÙÙ‡Ø®Ù‰ Ø®Ù ÙØ«Ø³Ù&amp;nbsp;&lt;br&gt;&lt;img alt=&quot;&quot; src=&quot;https://secure.gravatar.com/avatar/c0d3cff25f45d53ee3aa9202bd3c4188?s=100&amp;amp;d=mm&amp;amp;r=g&quot;&gt;&lt;br&gt;&lt;/i&gt;&lt;/b&gt;', 0, 1, '2015-06-11 00:21:12'),
-(4, 3, 28, 'test this&amp;nbsp;', 0, 1, '2015-06-11 00:22:23'),
-(5, 3, 28, 'how to do this ya doc&amp;nbsp;', 0, 0, '2015-05-24 16:46:14'),
-(6, 3, 28, 'sjdkjlgjdkl', 0, 0, '2015-05-24 16:47:11'),
-(7, 3, 28, 'k;lk;kl;', 0, 0, '2015-05-24 16:47:42'),
-(8, 3, 28, 'jsdfjs;ldkjf;dlsk', 0, 0, '2015-05-24 16:47:57'),
-(9, 3, 28, 'dsakldk;las', 0, 0, '2015-05-24 16:49:20'),
+(1, 3, 28, 'question from student?', 0, 1, '2015-06-13 03:08:45'),
+(2, 3, 28, 'question from student?', 0, 1, '2015-06-13 03:08:53'),
+(3, 3, 28, 'question from student?', 0, 1, '2015-06-13 03:09:03'),
+(4, 3, 28, 'question from student?', 0, 1, '2015-06-13 03:09:12'),
+(5, 3, 28, 'how to do this ya doc&amp;nbsp;', 0, 1, '2015-06-11 01:02:59'),
+(6, 3, 28, 'question from student?', 0, 0, '2015-06-13 03:09:24'),
+(7, 3, 28, 'question from student?', 0, 0, '2015-06-13 03:09:28'),
+(8, 3, 28, 'question from student?', 0, 0, '2015-06-13 03:09:32'),
+(9, 3, 28, 'question from student?', 0, 0, '2015-06-13 03:09:37'),
 (10, 3, 28, 'how to do it now :D', 0, 0, '2015-05-24 16:49:44'),
-(11, 3, 28, 'skflsdk;', 0, 0, '2015-05-24 16:50:24'),
-(12, 3, 28, 'k;k;k;', 0, 0, '2015-05-24 16:50:57'),
+(11, 3, 28, 'question from student?', 0, 0, '2015-06-13 03:09:41'),
+(12, 3, 28, 'question from student?', 0, 0, '2015-06-13 03:09:44'),
 (13, 1, 28, '&lt;u&gt;asdkasldk;askda;l&lt;/u&gt;', 0, 0, '2015-05-24 17:15:23'),
-(14, 1, 28, 'some question here noq&amp;nbsp;', 0, 0, '2015-05-24 17:52:34');
+(14, 1, 28, 'some question here noq&amp;nbsp;', 0, 0, '2015-05-24 17:52:34'),
+(15, 1, 30, 'what is your name?', 0, 1, '2015-06-11 02:09:14'),
+(16, 1, 28, 'alaaaaaaa', 0, 0, '2015-06-12 20:07:09');
 
 -- --------------------------------------------------------
 
@@ -920,7 +1016,16 @@ CREATE TABLE IF NOT EXISTS `tables` (
   `year_id` int(11) NOT NULL,
   `department_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `tables`
+--
+
+INSERT INTO `tables` (`id`, `table_image`, `year_id`, `department_id`) VALUES
+(1, '274ehzl091tgrsu.jpg', 4, 1),
+(2, 'qucrk50l9tpznsw.jpg', 1, 2),
+(3, 'm9o0cqb3lv57gnu.jpg', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -941,7 +1046,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `created_at` date NOT NULL,
   `year` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `tasks`
@@ -959,7 +1064,12 @@ INSERT INTO `tasks` (`id`, `task_title`, `task_content`, `ex_date`, `subject_id`
 (12, 'tasl', 'contentbfdbdf', '2015-06-17', 20, 20, 1, 1, 0, '2015-06-09', 3),
 (13, 'tasl', 'contentbfdbdf', '2015-06-17', 21, 20, 1, 1, 0, '2015-06-09', 3),
 (14, 'tasl', 'contentbfdbdf', '2015-06-17', 22, 20, 1, 1, 0, '2015-06-09', 3),
-(15, 'tasl', 'contentbfdbdf', '2015-06-17', 24, 20, 1, 1, 0, '2015-06-09', 3);
+(15, 'tasl', 'contentbfdbdf', '2015-06-17', 24, 20, 1, 1, 0, '2015-06-09', 3),
+(16, 'test', 'test the tasks work', '2015-06-19', 2, 20, 1, 1, 0, '2015-06-11', 2),
+(17, 'test', 'test the tasks work', '2015-06-19', 2, 20, 1, 1, 0, '2015-06-11', 4),
+(18, 'test mark', 'test the mark and answer', '2015-06-22', 1, 20, 1, 1, 0, '2015-06-20', 4),
+(19, 'wiating or not', 'witing mark answers', '2015-06-17', 1, 20, 1, 1, 0, '2015-06-12', 4),
+(20, 'last task', 'djkcbcjwe', '2015-06-23', 1, 20, 1, 1, 0, '2015-06-12', 4);
 
 -- --------------------------------------------------------
 
@@ -975,17 +1085,21 @@ CREATE TABLE IF NOT EXISTS `tasks_answers` (
   `answerd` int(11) NOT NULL,
   `task_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `tasks_answers`
 --
 
 INSERT INTO `tasks_answers` (`id`, `content`, `student_id`, `file_exist`, `answerd`, `task_id`) VALUES
-(1, 'sdcm dfvjkfjksrrvj erkjv erjkf erfuierb fuir fui erfuirf ire frifu erifer', 1, '0', 0, 0),
-(2, 'fdjvbkdfvbuirebvuibeuivbreiuvberuiberver', 1, '0', 1, 0),
-(3, 'cvj bdfjkb dvfjkvdfvvrevvrever', 1, '0', 1, 0),
-(4, 'sdjvbsdjkbsdjkbsdjkvsbjk', 1, 'civ0bmlsuypzwo6.sql', 1, 4);
+(1, 'tasks answer', 1, '0', 0, 0),
+(2, 'tasks answer', 1, '0', 1, 0),
+(3, 'tasks answer', 1, '0', 1, 0),
+(4, 'tasks answer', 1, 'civ0bmlsuypzwo6.sql', 8, 4),
+(5, 'tasks answer', 1, '5fi6hylp2d970wq.jpg', 1, 17),
+(6, 'tasks answer', 1, 'k6swndl05c29uay.jpg', 7, 18),
+(7, 'answer', 1, 'z0jg2iv461nhues.', 5, 19),
+(8, 'wedcklnwe', 1, '0bdw3g7n1t8fuli.', 5, 20);
 
 -- --------------------------------------------------------
 
