@@ -21,29 +21,57 @@ require '../admin/connection.php';
 
         <div class="row">
             <div class="col-md-12">
-                            <div class="box box-info">
-                                <div class="box-header">
-                                    <i class="fa fa-bullhorn"></i>
-                                    <h3 class="box-title">Callouts</h3>
-                                </div><!-- /.box-header -->
-                                <div class="box-body">
-                                    <?php 
-                                    $notifications = $conn->prepare("SELECT N.content , N.date N_S.notification_id 
-                                     FROM notifications_users AS N_S  LEFT JOIN notifications AS N on N.id = N_S.notification_id 
-                                     WHERE user_id = ? AND seen = 0 ")
+                <div class="box box-info">
+                    <div class="box-header">
+                        <i class="fa fa-bullhorn"></i>
+                        <h3 class="box-title">Callouts</h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <?php 
+                        
+                        $notifications = $conn->prepare("SELECT  N.id , N.content , N.date ,  N_S.notification_id 
+                           FROM notifications_users AS N_S  LEFT JOIN notifications AS N on N.id = N_S.notification_id 
+                           WHERE user_id = ? AND seen = ? ");
 
-                                     ?>
-                                    <div class="callout callout-info">
-                                        <h4>I am an info callout!</h4>
-                                        <p>Follow the steps to continue to payment.</p>
-                                    </div>
-                                    <div class="callout callout-warning">
-                                        <h4>I am a warning callout!</h4>
-                                        <p>This is a yellow callout.</p>
-                                    </div>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-                        </div>
+                        $notifications->bindValue(1,$_SESSION['student_user_id'] , PDO::PARAM_INT);
+                        $notifications->bindValue(2, 0  , PDO::PARAM_INT);
+                        $notifications->execute();
+                        while ($notification = $notifications->fetch(PDO::FETCH_OBJ)) {
+                            echo '<div class="callout callout-info">
+                            
+                            <p>'.$notification->content.'</p>
+                            </div>';
+                        }
+                        
+                        $update = $conn->prepare("UPDATE notifications_users set seen = ? WHERE user_id = ?");
+                        $update->bindValue(1,1,PDO::PARAM_INT);
+                        $update->bindValue(2,$_SESSION['student_user_id'] , PDO::PARAM_INT);
+                        $update->execute();
+
+                        ?>
+
+                        <?php 
+                        $notifications = $conn->prepare("SELECT  N.id , N.content , N.date ,  N_S.notification_id 
+                           FROM notifications_users AS N_S  LEFT JOIN notifications AS N on N.id = N_S.notification_id 
+                           WHERE user_id = ? AND seen = ? ");
+
+                        $notifications->bindValue(1,$_SESSION['student_user_id'] , PDO::PARAM_INT);
+                        $notifications->bindValue(2, 1  , PDO::PARAM_INT);
+                        $notifications->execute();
+                        while ($notification = $notifications->fetch(PDO::FETCH_OBJ)) {
+                            echo '<div class="callout callout-warning">
+                            
+                            <p>'.$notification->content.'</p>
+                            </div>';
+                        }
+                        
+                        ?>
+
+                        
+                        
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div>
         </div>
     </section><!-- /.content -->
 </aside><!-- /.right-side -->
