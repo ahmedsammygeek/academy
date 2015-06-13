@@ -95,7 +95,7 @@ if(isset($_POST['task_btn'])) {
 		// header("Location: add_task.php?msg=error");
 		die();
 	}
-	send_notification($_SESSION['system_user_id'] , 'a new task has been made by doctor '.$_SESSION['system_user_name'] , get_students("year = $year") );
+	send_notification($_SESSION['system_user_id'] , 'the task has been upated by  '.$_SESSION['system_user_name'] , get_students("year = $year") );
 	header("Location: edit_task.php?task_id=$task_id&msg=done");
 	die();
 }

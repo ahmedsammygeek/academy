@@ -1,6 +1,7 @@
 <?php 
 // reqiure ceck function
 require 'check_user.php';
+require '../classes/helper.php';
 if (!isset($_GET['answer_id']) || empty($_GET['answer_id'])) {
 	header("location: answer_details.php");die();
 }
@@ -27,6 +28,12 @@ $query = $conn->prepare("UPDATE tasks_answers SET answerd=? WHERE id=?");
 $query->bindValue(1,$mark,PDO::PARAM_INT);
 $query->bindValue(2,$answer_id,PDO::PARAM_INT);
 if ($query->execute()) {
+	$get_student = $conn->prepare("SELECT student_id FROM tasks_answers WHERE id = ? ");
+	$get_student->bindValue(1,$answer_id,PDO::PARAM_INT);
+	$get_student->execute();
+	$details = $get_student->fetch(PDO::FETCH_OBJ);
+
+	send_notification($_SESSION['system_user_id'] , 'the task has been mark by '.$_SESSION['system_user_name']." an you got $mark / 10" , array($details->student_id) );
 	header("location: answer_details.php?answer_id=$answer_id&msg=marked");die();
 }
 

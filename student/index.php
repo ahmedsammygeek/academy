@@ -99,7 +99,12 @@ $subjects->execute();
             $year = $_SESSION['student_user_year'] ;
            $table = $conn->query("SELECT table_image FROM tables WHERE year_id=$year AND department_id=$depart_id");
            $result = $table->fetch(PDO::FETCH_OBJ);
-           echo '<img src="../admin/image/'.$result->table_image.'">';
+
+           if($table->rowCount()) {
+             echo '<img class="img-thumbnail" with="100%" src="../admin/image/'.$result->table_image.'">';
+           }
+
+          
              ?>
         </div><!-- /.box-body -->
     </div>

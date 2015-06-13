@@ -28,7 +28,7 @@ require '../admin/connection.php';
                     </div><!-- /.box-header -->
                     <div class="box-body">
                         <?php 
-                        
+
                         $notifications = $conn->prepare("SELECT  N.id , N.content , N.date ,  N_S.notification_id 
                            FROM notifications_users AS N_S  LEFT JOIN notifications AS N on N.id = N_S.notification_id 
                            WHERE user_id = ? AND seen = ? ");
@@ -38,15 +38,11 @@ require '../admin/connection.php';
                         $notifications->execute();
                         while ($notification = $notifications->fetch(PDO::FETCH_OBJ)) {
                             echo '<div class="callout callout-info">
-                            
+
                             <p>'.$notification->content.'</p>
                             </div>';
                         }
-                        
-                        $update = $conn->prepare("UPDATE notifications_users set seen = ? WHERE user_id = ?");
-                        $update->bindValue(1,1,PDO::PARAM_INT);
-                        $update->bindValue(2,$_SESSION['student_user_id'] , PDO::PARAM_INT);
-                        $update->execute();
+
 
                         ?>
 
@@ -60,15 +56,21 @@ require '../admin/connection.php';
                         $notifications->execute();
                         while ($notification = $notifications->fetch(PDO::FETCH_OBJ)) {
                             echo '<div class="callout callout-warning">
-                            
+
                             <p>'.$notification->content.'</p>
                             </div>';
                         }
-                        
+
+                         
+                        $update = $conn->prepare("UPDATE notifications_users set seen = ? WHERE user_id = ?");
+                        $update->bindValue(1,1,PDO::PARAM_INT);
+                        $update->bindValue(2,$_SESSION['student_user_id'] , PDO::PARAM_INT);
+                        $update->execute();
+
                         ?>
 
-                        
-                        
+
+
                     </div><!-- /.box-body -->
                 </div><!-- /.box -->
             </div>

@@ -78,7 +78,7 @@
             <p class="help-block">click to choose another schdule</p>
             <?php
             
-            echo '<img src="image/'.$table_image.'"><h3>'.$table_image.'</h3>'  ; ?>
+            echo '<img class="img-thumbnail" with="100%"  src="image/'.$table_image.'"><h3>'.$table_image.'</h3>'  ; ?>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">year  :</label>

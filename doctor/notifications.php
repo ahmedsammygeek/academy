@@ -42,11 +42,7 @@ require 'header.php';
                             </div>';
                         }
                         
-                        $update = $conn->prepare("UPDATE notifications_users set seen = ? WHERE user_id = ?");
-                        $update->bindValue(1,1,PDO::PARAM_INT);
-                        $update->bindValue(2,$_SESSION['system_user_id'] , PDO::PARAM_INT);
-                        $update->execute();
-
+                       
                         ?>
 
                         <?php 
@@ -63,6 +59,12 @@ require 'header.php';
                             <p>'.$notification->content.'</p>
                             </div>';
                         }
+
+                         $update = $conn->prepare("UPDATE notifications_users set seen = ? WHERE user_id = ?");
+                        $update->bindValue(1,1,PDO::PARAM_INT);
+                        $update->bindValue(2,$_SESSION['system_user_id'] , PDO::PARAM_INT);
+                        $update->execute();
+
                         
                         ?>
 
