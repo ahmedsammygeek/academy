@@ -20,11 +20,6 @@ foreach ($images as  $value) {
 		//if image exists in file delete it from file 
 		unlink("image/$value");
 	}
-	else
-	{
-		header('location: showabout.php?msg=not_exist'); die();
-	}
-
 }
 include 'connection.php';
 //connection with database(met)
