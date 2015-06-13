@@ -1,5 +1,6 @@
-<?php 
+<?php session_start();
 require 'header.php';
+require '../admin/connection.php';
 ?>
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
@@ -26,10 +27,12 @@ require 'header.php';
                                     <h3 class="box-title">Callouts</h3>
                                 </div><!-- /.box-header -->
                                 <div class="box-body">
-                                    <div class="callout callout-danger">
-                                        <h4>I am a danger callout!</h4>
-                                        <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-                                    </div>
+                                    <?php 
+                                    $notifications = $conn->prepare("SELECT N.content , N.date N_S.notification_id 
+                                     FROM notifications_users AS N_S  LEFT JOIN notifications AS N on N.id = N_S.notification_id 
+                                     WHERE user_id = ? AND seen = 0 ")
+
+                                     ?>
                                     <div class="callout callout-info">
                                         <h4>I am an info callout!</h4>
                                         <p>Follow the steps to continue to payment.</p>
