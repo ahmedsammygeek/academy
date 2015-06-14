@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2015 at 07:02 AM
+-- Generation Time: Jun 14, 2015 at 05:44 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -33,15 +33,14 @@ CREATE TABLE IF NOT EXISTS `about` (
   `image2` text NOT NULL,
   `image3` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `about`
 --
 
 INSERT INTO `about` (`id`, `content`, `image1`, `image2`, `image3`) VALUES
-(1, '\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt minima voluptatibus laborum necessitatibus. Ut aliquam asperiores quidem, et laudantium voluptatibus accusantium, at, dolor totam minus consequuntur odio obcaecati nam sint!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vel temporibus deleniti sapiente, aliquam architecto, alias minus porro ipsum itaque dolores nesciunt asperiores nihil distinctio facere libero quam neque, veritatis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, repellat minus fugiat tempore accusamus expedita amet enim ducimus qui praesentium eius quisquam neque odio saepe eum at molestias odit sed.', 'zbrc9mnaj7eyt1o.png', '8j0th2gdx31eric.jpg', 'fk823uhy7xgpw4i.jpg'),
-(2, 'about us', 'm7pwilg3vdz5o86.jpg', 'opg2twlifm8sbzy.jpg', 'oyts9qir3ca01fg.jpg');
+(1, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt minima voluptatibus laborum necessitatibus. Ut aliquam asperiores quidem, et laudantium voluptatibus accusantium, at, dolor totam minus consequuntur odio obcaecati nam sint!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vel temporibus deleniti sapiente, aliquam architecto, alias minus porro ipsum itaque dolores nesciunt asperiores nihil distinctio facere libero quam neque, veritatis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, repellat minus fugiat tempore accusamus expedita amet enim ducimus qui praesentium eius quisquam neque odio saepe eum at molestias odit sed.', 'up5mzo7vlwkaqn2.jpg', 'yn9zm4wv08rqosi.jpg', 'x1tkq3vejnf0h4a.jpg');
 
 -- --------------------------------------------------------
 
@@ -347,9 +346,6 @@ CREATE TABLE IF NOT EXISTS `last_exams` (
 --
 
 INSERT INTO `last_exams` (`id`, `department_id`, `year`, `term`, `exam_file`, `subject_id`) VALUES
-(1, 1, 4, 2, 'wexngqp4ub5210s.jpg', 1),
-(2, 1, 4, 2, 'dt5ieu7g6jyn013.jpg', 7),
-(3, 3, 4, 1, 'sqckg8vixje4fo6.jpg', 17),
 (4, 1, 3, 1, '5odb1v4eumn0gsq.jpg', 19),
 (5, 1, 4, 1, 'yzt58qodxi96b4p.jpg', 1);
 
@@ -445,14 +441,16 @@ CREATE TABLE IF NOT EXISTS `news` (
   `image` text NOT NULL,
   `date` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `title`, `content`, `image`, `date`) VALUES
-(1, 'title ', '\r\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt minima voluptatibus laborum necessitatibus. Ut aliquam asperiores quidem, et laudantium voluptatibus accusantium, at, dolor totam minus consequuntur odio obcaecati nam sint!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vel temporibus deleniti sapiente, aliquam architecto, alias minus porro ipsum itaque dolores nesciunt asperiores nihil distinctio facere libero quam neque, veritatis.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, repellat minus fugiat tempore accusamus expedita amet enim ducimus qui praesentium eius quisquam neque odio saepe eum at molestias odit sed.', 'rdgylevnc60q8w4.jpg', 'May 29 2015');
+(2, 'تسليم شهادات التخرج 2014-2015', 'يتم تسليم شهادات التخرج لكافة الفرق و الشعب ابتداءا من الساعة التاسعة صباحا الى الساعة الواحدة ظهرا ابتداءا من اليوم الثلاثاء الموافق 5 أغسطس 2015 و ذلك للبنين فقط', 'ylju1b40m9p5286.jpg', 'Jun 13 2015'),
+(3, 'رحلة الاقصر وأسوان', 'الاعلان عن رحله للاقصر وأسوان يوم 23/6 مع الاستمتاع بجميع فقرات الرحله وتكون الرحله يوم كامل (24 ساعه )', 'yb3os7e8uxmkawr.jpg', 'Jun 13 2015'),
+(4, 'مشاريع التخرج', 'يتم بدأ مناقشة مشاريع التخرج من يوم الاثنين 15/6 ويوم 16/6 وذلك وفقا لمواعيد كل دكتور', '7n1se8lrafqy5uk.jpg', 'Jun 13 2015');
 
 -- --------------------------------------------------------
 
@@ -489,7 +487,7 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   `made_by` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
 
 --
 -- Dumping data for table `notifications`
@@ -523,7 +521,10 @@ INSERT INTO `notifications` (`id`, `content`, `made_by`, `date`) VALUES
 (25, 'a new task has been made by doctor bahaa', 20, '2015-06-11 23:52:36'),
 (26, 'a new task has been made by doctor bahaa', 20, '2015-06-12 02:40:32'),
 (27, 'a new task has been made by doctor bahaa', 20, '2015-06-12 02:44:02'),
-(28, ' a new question from by ahmed samy ', 1, '2015-06-12 20:07:09');
+(28, ' a new question from by ahmed samy ', 1, '2015-06-12 20:07:09'),
+(29, ' a new question from by ahmed samy ', 1, '2015-06-13 17:12:47'),
+(30, ' a new question from by ahmed samy ', 1, '2015-06-13 17:16:01'),
+(31, ' your question has been answered by(د/بهاء شبانه) check it now  د/بهاء شبانه', 20, '2015-06-13 15:16:31');
 
 -- --------------------------------------------------------
 
@@ -537,7 +538,7 @@ CREATE TABLE IF NOT EXISTS `notifications_users` (
   `user_id` int(11) NOT NULL,
   `seen` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=122 ;
 
 --
 -- Dumping data for table `notifications_users`
@@ -545,24 +546,24 @@ CREATE TABLE IF NOT EXISTS `notifications_users` (
 
 INSERT INTO `notifications_users` (`id`, `notification_id`, `user_id`, `seen`) VALUES
 (1, 1, 6, 0),
-(2, 2, 1, 0),
+(2, 2, 1, 1),
 (3, 2, 5, 0),
-(4, 3, 1, 0),
+(4, 3, 1, 1),
 (5, 3, 5, 0),
-(6, 4, 1, 0),
+(6, 4, 1, 1),
 (7, 4, 2, 0),
 (8, 4, 2, 0),
 (9, 4, 2, 0),
-(10, 5, 1, 0),
+(10, 5, 1, 1),
 (11, 5, 2, 0),
 (12, 5, 2, 0),
 (13, 5, 2, 0),
-(14, 6, 1, 0),
+(14, 6, 1, 1),
 (15, 6, 2, 0),
 (16, 6, 2, 0),
 (17, 6, 2, 0),
 (18, 7, 6, 0),
-(19, 8, 1, 0),
+(19, 8, 1, 1),
 (20, 8, 3, 0),
 (21, 8, 7, 0),
 (22, 8, 8, 0),
@@ -574,7 +575,7 @@ INSERT INTO `notifications_users` (`id`, `notification_id`, `user_id`, `seen`) V
 (28, 8, 14, 0),
 (29, 8, 15, 0),
 (30, 8, 16, 0),
-(31, 9, 1, 0),
+(31, 9, 1, 1),
 (32, 9, 3, 0),
 (33, 9, 7, 0),
 (34, 9, 8, 0),
@@ -598,13 +599,13 @@ INSERT INTO `notifications_users` (`id`, `notification_id`, `user_id`, `seen`) V
 (52, 19, 6, 0),
 (53, 20, 6, 0),
 (54, 21, 6, 0),
-(55, 22, 1, 0),
+(55, 22, 1, 1),
 (56, 22, 2, 0),
 (57, 22, 2, 0),
 (58, 22, 2, 0),
 (59, 23, 2, 0),
 (60, 23, 4, 0),
-(61, 24, 1, 0),
+(61, 24, 1, 1),
 (62, 24, 3, 0),
 (63, 24, 7, 0),
 (64, 24, 8, 0),
@@ -616,7 +617,7 @@ INSERT INTO `notifications_users` (`id`, `notification_id`, `user_id`, `seen`) V
 (70, 24, 14, 0),
 (71, 24, 15, 0),
 (72, 24, 16, 0),
-(73, 25, 1, 0),
+(73, 25, 1, 1),
 (74, 25, 3, 0),
 (75, 25, 7, 0),
 (76, 25, 8, 0),
@@ -628,7 +629,7 @@ INSERT INTO `notifications_users` (`id`, `notification_id`, `user_id`, `seen`) V
 (82, 25, 14, 0),
 (83, 25, 15, 0),
 (84, 25, 16, 0),
-(85, 26, 1, 0),
+(85, 26, 1, 1),
 (86, 26, 3, 0),
 (87, 26, 7, 0),
 (88, 26, 8, 0),
@@ -640,7 +641,7 @@ INSERT INTO `notifications_users` (`id`, `notification_id`, `user_id`, `seen`) V
 (94, 26, 14, 0),
 (95, 26, 15, 0),
 (96, 26, 16, 0),
-(97, 27, 1, 0),
+(97, 27, 1, 1),
 (98, 27, 3, 0),
 (99, 27, 7, 0),
 (100, 27, 8, 0),
@@ -652,10 +653,19 @@ INSERT INTO `notifications_users` (`id`, `notification_id`, `user_id`, `seen`) V
 (106, 27, 14, 0),
 (107, 27, 15, 0),
 (108, 27, 16, 0),
-(109, 28, 1, 0),
+(109, 28, 1, 1),
 (110, 28, 2, 0),
 (111, 28, 2, 0),
-(112, 28, 2, 0);
+(112, 28, 2, 0),
+(113, 29, 1, 1),
+(114, 29, 2, 0),
+(115, 29, 2, 0),
+(116, 29, 2, 0),
+(117, 30, 1, 1),
+(118, 30, 2, 0),
+(119, 30, 2, 0),
+(120, 30, 2, 0),
+(121, 31, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -695,7 +705,7 @@ CREATE TABLE IF NOT EXISTS `question_answers` (
   `date` datetime NOT NULL,
   `made_by` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `question_answers`
@@ -707,7 +717,8 @@ INSERT INTO `question_answers` (`id`, `question_id`, `content`, `date`, `made_by
 (4, 3, 'done', '2015-06-11 00:21:12', 20),
 (5, 4, 'done answer', '2015-06-11 00:22:23', 20),
 (6, 5, 'question content', '2015-06-11 01:02:59', 20),
-(7, 15, 'alaa', '2015-06-11 02:09:14', 20);
+(7, 15, 'alaa', '2015-06-11 02:09:14', 20),
+(8, 18, 'its follla ', '2015-06-13 17:16:31', 20);
 
 -- --------------------------------------------------------
 
@@ -756,7 +767,7 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `image` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `slider`
@@ -764,8 +775,7 @@ CREATE TABLE IF NOT EXISTS `slider` (
 
 INSERT INTO `slider` (`id`, `image`) VALUES
 (2, 'sb1igf7t38cd0ah.jpeg'),
-(3, 'r2fkwho0x4jec9s.jpeg'),
-(4, 'z28g96dj41kbcil.jpeg');
+(3, 'r2fkwho0x4jec9s.jpeg');
 
 -- --------------------------------------------------------
 
@@ -785,7 +795,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
   `password` varchar(40) NOT NULL,
   `type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `staff`
@@ -802,8 +812,9 @@ INSERT INTO `staff` (`id`, `name`, `image`, `title`, `description`, `facebook`, 
 (17, 'م/ادهم شفيق ', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1),
 (18, 'م/احمد صلاح', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1),
 (19, 'م/سالي حورية', '0', 'domenestor', '0', '0', '0', 'met', 'e8943058635ed598e56df44e081d4005b98c1323', 1),
-(20, 'د/بهاء شبانه', '', '', '', '', '', 'bahaa', '8684810b776fc842d58d9fdf7bef82490434ce9b', 2),
-(21, 'علاء الجندي', '0', 'doctor', '0', '0', '0', 'alaa', '9f501154b7e5872e75704103a87b10317e86c5ac', 2);
+(20, 'د/بهاء شبانه', 'vr1qaeymd4h9k27.jpg', '', 'database and gis doctor', 'bahaa@facebook.com', 'bahaa@gmail.com', 'bahaa', '8684810b776fc842d58d9fdf7bef82490434ce9b', 2),
+(21, 'علاء الجندي', '0', 'doctor', '0', '0', '0', 'alaa', '9f501154b7e5872e75704103a87b10317e86c5ac', 2),
+(23, 'م/شيماءالصياد', '0', 'domenestor', '0', '0', '0', 'shaymaa123', '369b6c3b93655d005c6b35d613ef985a5ff3e5e9', 1);
 
 -- --------------------------------------------------------
 
@@ -859,7 +870,7 @@ CREATE TABLE IF NOT EXISTS `student_questions` (
   `answered` tinyint(4) NOT NULL DEFAULT '0',
   `q_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `student_questions`
@@ -881,7 +892,9 @@ INSERT INTO `student_questions` (`id`, `student_id`, `subject_id`, `content`, `s
 (13, 1, 28, '&lt;u&gt;asdkasldk;askda;l&lt;/u&gt;', 0, 0, '2015-05-24 17:15:23'),
 (14, 1, 28, 'some question here noq&amp;nbsp;', 0, 0, '2015-05-24 17:52:34'),
 (15, 1, 30, 'what is your name?', 0, 1, '2015-06-11 02:09:14'),
-(16, 1, 28, 'alaaaaaaa', 0, 0, '2015-06-12 20:07:09');
+(16, 1, 28, 'alaaaaaaa', 0, 0, '2015-06-12 20:07:09'),
+(17, 1, 28, 'please doctor help me ??&lt;br&gt;&lt;br&gt;', 0, 0, '2015-06-13 17:12:46'),
+(18, 1, 28, 'second test questions&amp;nbsp;', 0, 1, '2015-06-13 17:16:31');
 
 -- --------------------------------------------------------
 
@@ -927,7 +940,7 @@ INSERT INTO `subjects` (`id`, `doctor_id`, `name`, `description`, `year`, `depar
 (20, 20, 'System design', 'Systems design &amp; construction. Cross life cycle activities. Application architecture &amp; process design. Database design. Input design &amp; Output design, User interface design and prototyping. Software design. Object oriented design, Systems implementation and Systems support.', 3, 1, 'frist term'),
 (21, 20, 'Human computer interfaces', 'The relationship between people &amp; machine, the role of human factors &amp; psychology. Principles of interaction, interface design issues. Command languages, menus, windows, icons error messages, response time. Physical interaction, devises, interaction styles &amp; techniques. The design process &amp; user models. Interface evaluation; natural language &amp; voice interfaces.', 3, 1, 'frist term'),
 (22, 20, 'Elective Course (Computer modeling &amp; simulation)', 'System models &amp; simulation discrete event simulation Simulation languages. Principles of valid simulation modeling. Verification of simulation computer programs. An approach for developing valid &amp; credible simulation models.. Some practical considerations: selecting input probability distributions and random number generators. Petri net. Fuzzy models and Genetic models are used as application models.', 3, 1, 'frist term'),
-(23, 1, 'Computer networks', 'Topology, structure, &amp; architecture of computer networks. Layered protocols in point-to-point, broadcasting, &amp; local area networks. The structure of some notable &amp; public networks. Training on using LAN &amp; WAN networks.', 3, 1, 'second term'),
+(23, 20, 'Computer networks', 'Topology, structure, & architecture of computer networks. Layered protocols in point-to-point, broadcasting, & local area networks. The structure of some notable & public networks. Training on using LAN & WAN networks.', 1, 1, 'frist term'),
 (24, 20, 'Computer graphics', 'Graphics algorithms, 2D and 3D concepts are introduced, Graphics hardware, basic raster 3D transformation, synthesized camera models, curve &amp; surface representation, lightening models, shading techniques, shadows, texture mapping, and transparency.', 3, 1, 'second term'),
 (25, 1, 'Software Engineering (1)', 'The software life cycle Requirements analysis, specification &amp; validation. Software design methodologies: data structure oriented design, object oriented design &amp; Software reusability. Design quality &amp; design description languages. Rapid prototyping &amp; iterative refinements .', 3, 1, 'second term'),
 (26, 1, 'Logic Programming', 'Introduction: Facts, objects &amp; predicates. Prolog variables: Using variables, bound &amp; free variables, anonymous variables, compound goals, backtracking, variables rules. Using rules , Rules, prolog execution rules, using the trace, unification, execution control, the built in predicate. Simple I&amp;O. Controlling execution: Success through failure, the fail predicate, execution using the fail predicate, recursion &amp; the cut. Arithmetic operations. Compound objects. Dynamic database, lists. String operations.', 3, 1, 'second term'),
@@ -1016,16 +1029,18 @@ CREATE TABLE IF NOT EXISTS `tables` (
   `year_id` int(11) NOT NULL,
   `department_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `tables`
 --
 
 INSERT INTO `tables` (`id`, `table_image`, `year_id`, `department_id`) VALUES
-(1, '274ehzl091tgrsu.jpg', 4, 1),
-(2, 'qucrk50l9tpznsw.jpg', 1, 2),
-(3, 'm9o0cqb3lv57gnu.jpg', 3, 1);
+(1, 'p3tz0i4cqrbagwy.png', 3, 1),
+(2, '35pavxro60us2md.png', 2, 3),
+(3, 'y4xm7gf3dlzho5c.png', 4, 1),
+(4, '0jpk4l6na5bgfxv.png', 1, 1),
+(5, '3niyht8uk6wgbx5.png', 2, 2);
 
 -- --------------------------------------------------------
 
