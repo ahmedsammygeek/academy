@@ -58,7 +58,7 @@ $name1=$randomstring.".$type" ;
 $newName= time() . '_';
 $img=new ImageManipulator($_FILES['image1']['tmp_name']);
 	//resize image
-$newimg=$img->resample(100,100);
+$newimg=$img->resample(600,400);
 	//put image in file "image"
 $img->save('image/'.$name1);
 }
@@ -90,7 +90,7 @@ $name2=$randomstring.".$type" ;
 $newName= time() . '_';
 $img=new ImageManipulator($_FILES['image2']['tmp_name']);
 	//resize image
-$newimg=$img->resample(100,100);
+$newimg=$img->resample(600,400);
 	//put image in file "image"
 $img->save('image/'.$name2);
 }
@@ -122,7 +122,7 @@ $name3=$randomstring.".$type" ;
 $newName= time() . '_';
 $img=new ImageManipulator($_FILES['image3']['tmp_name']);
 	//resize image
-$newimg=$img->resample(100,100);
+$newimg=$img->resample(600,400);
 	//put image in file "image"
 $img->save('image/'.$name3);
 }

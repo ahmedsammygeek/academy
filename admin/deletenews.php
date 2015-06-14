@@ -13,11 +13,6 @@ if(file_exists("image/$image"))  {
 	//if this image exist in this file 
 	unlink("image/$image");
 	//remove it 
-}else{
-	//if this image not exist 
-	//go to gallery slider and show alert about this case
-	header('location: shownews.php?msg=not_exist');
-	die();
 }
 
 include 'connection.php';

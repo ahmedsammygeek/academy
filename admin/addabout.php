@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 	$newName= time() . '_';
 	$img=new ImageManipulator($_FILES['image1']['tmp_name']);
 	//resize image
-	$newimg=$img->resample(374,284);
+	$newimg=$img->resample(600,400);
 	//put image in file "image"
 	$img->save('image/'.$name1);
 	// frist image admin add 

@@ -46,7 +46,7 @@ include 'header.php';
 					<div class="team-member">
 						
 						<div class="member-photo">
-							<img alt="" src="'.$member->image.'">
+							<img alt="" src="uploaded/staff/'.$member->image.'">
 							<div class="member-name">'.$member->name.'</span></div>
 						</div>
 						

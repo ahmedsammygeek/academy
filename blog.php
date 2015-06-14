@@ -46,7 +46,7 @@ include 'header.php';
 				<?php $sql="SELECT * FROM news";
 				$news=$conn->query($sql);
 				$count = $news->rowCount();
-				echo $count;
+				
 				while ($topic=$news->fetch(PDO::FETCH_OBJ)) {
 					echo '<div class="blog-post image-post">
 					<!-- Post Thumb -->
@@ -58,7 +58,6 @@ include 'header.php';
 					<li>By <a href="#">MET Academy</a></li>
 					<li>'.$topic->date.'</li>
 
-					<li><a href="topic.php?id='.$topic->id.'">4 Comments</a></li>
 					</ul>
 					<p>'.substr($topic->content, 0,600).'</p>
 					<a class="main-button" href="topic.php?id='.$topic->id.'">Read More <i class="fa fa-angle-right"></i></a>
