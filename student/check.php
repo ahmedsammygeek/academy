@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
 	$user=$query->fetch(PDO::FETCH_OBJ);
 	extract($user);
 	if ($query->rowCount()) {
-		$_SESSION['is_system_user'] = true;
+		$_SESSION['is_student_user'] = true;
 		$_SESSION['student_user_id'] = $user->id;
 		$_SESSION['student_user_year'] = $user->year;
 		$_SESSION['student_user_name'] = $user->name;
