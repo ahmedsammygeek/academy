@@ -67,13 +67,34 @@ require 'header.php';
                                 $depart = $conn->query("SELECT name FROM departments WHERE 
                                     id=$result->department_id");
                                 $result3 = $depart->fetch(PDO::FETCH_OBJ);
+                                $checks = $conn->query("SELECT answerd , content FROM tasks_answers WHERE task_id=$task_id");
+                                $check = $checks->fetch(PDO::FETCH_OBJ);
+                                if ($checks->rowCount() != 0) {
+                                    if ($check->answerd == 0) {
+                                        $check->answerd = "waiting" ;
+                                    }
+                                   echo "
+                                <tr><td>TASK TITLE</td><td>$result->task_title</td></tr>
+                                <tr><td>TASK CONTENT</td><td>$result->task_content</td></tr>
+                                <tr><td>CREATED AT</td><td>$result->created_at</td></tr>
+                                <tr><td>DEPARTMENT</td><td>$result3->name</td></tr>
+                                <tr><td>SUBJECT</td><td>$result2->name</td></tr>
+                                <tr><td>DATE TO FINISH</td><td>$result->ex_date</td></tr>
+                                <div class='callout callout-warning'>
+                            
+                            <p> $check->content </p>
+                            <p>your mark : $check->answerd /10</p>
+                            </div>
+                                ";
+                                die();
+                                
+                                }
                                 echo "
                                 <tr><td>TASK TITLE</td><td>$result->task_title</td></tr>
                                 <tr><td>TASK CONTENT</td><td>$result->task_content</td></tr>
                                 <tr><td>CREATED AT</td><td>$result->created_at</td></tr>
                                 <tr><td>DEPARTMENT</td><td>$result3->name</td></tr>
                                 <tr><td>SUBJECT</td><td>$result2->name</td></tr>
-                                <tr><td>TERM</td><td>term $result->term</td></tr>
                                 <tr><td>DATE TO FINISH</td><td>$result->ex_date</td></tr>
                                 ";
                                 

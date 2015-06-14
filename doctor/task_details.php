@@ -68,7 +68,6 @@ require 'header.php';
                                 <tr><td>CREATED AT</td><td>$result->created_at</td></tr>
                                 <tr><td>DEPARTMENT</td><td>$result3->name</td></tr>
                                 <tr><td>SUBJECT</td><td>$result2->name</td></tr>
-                                <tr><td>TERM</td><td>term $result->term</td></tr>
                                 <tr><td>DATE TO FINISH</td><td>$result->ex_date</td></tr>
                                 ";
                                 

@@ -32,7 +32,7 @@ if(isset($_POST['task_btn'])) {
 
 
 
-	$task_content = htmlentities($_POST['task_content']);
+	$task_content = htmlspecialchars($_POST['task_content']);
 	//the end dete of task 
 	$ex_date = explode(' - ', $task_date);
 	$has_file = 0;

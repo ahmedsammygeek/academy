@@ -139,7 +139,7 @@
                         
 
                         <li class="active">
-                            <a href="index.html">
+                            <a href="notifications.php">
                                 <i class="fa fa-dashboard"></i> <span>notification</span>
                             </a>
                         </li>

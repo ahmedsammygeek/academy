@@ -42,6 +42,8 @@ if(isset($_POST['task_btn'])) {
 
 	$department = $subject_detail->department;
 	$year = $subject_detail->year;
+	$term = $subject_detail->term ;
+	
 
 
 
@@ -56,13 +58,16 @@ if(isset($_POST['task_btn'])) {
 
 	$conn->beginTransaction();
 	try {
-		$task = $conn->prepare("UPDATE tasks SET task_title = ? , task_content = ? , ex_date = ? , subject_id = ? , created_at = ?  WHERE id = ?  ");
+		$task = $conn->prepare("UPDATE tasks SET task_title = ? , task_content = ? , ex_date = ? , subject_id = ? , created_at = ? , year = ? , term = ? , department_id = ? WHERE id = ?  ");
 		$task->bindValue(1,$title , PDO::PARAM_STR);
 		$task->bindValue(2,$content , PDO::PARAM_STR);
 		$task->bindValue(3,$ex_date[1], PDO::PARAM_STR);
 		$task->bindValue(4,$subject , PDO::PARAM_INT);
 		$task->bindValue(5, $ex_date[0], PDO::PARAM_STR);
-		$task->bindValue(6, $task_id, PDO::PARAM_INT);
+		$task->bindValue(6, $year, PDO::PARAM_INT);
+		$task->bindValue(7, $term, PDO::PARAM_INT);
+		$task->bindValue(8, $department, PDO::PARAM_INT);
+		$task->bindValue(9, $task_id, PDO::PARAM_INT);
 		$task->execute();
 
 		
