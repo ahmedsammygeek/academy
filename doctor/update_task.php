@@ -35,6 +35,14 @@ if(isset($_POST['task_btn'])) {
 	extract( $inputs );
 
 
+	$subject_details = $conn->prepare("SELECT * FROM subjects WHERE id = ?");
+	$subject_details->bindValue(1,$subject , PDO::PARAM_INT);
+	$subject_details->execute();
+	$subject_detail = $subject_details->fetch(PDO::FETCH_OBJ);
+
+	$department = $subject_detail->department;
+	$year = $subject_detail->year;
+
 
 
 
