@@ -1,5 +1,5 @@
 <?php session_start();
-    if(!isset($_SESSION['is_system_user']) || $_SESSION['is_system_user'] !== true) {
+    if(!isset($_SESSION['is_student_user']) || $_SESSION['is_student_user'] !== true) {
         header("location: login.php");
         die();
     }
