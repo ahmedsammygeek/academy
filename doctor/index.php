@@ -8,6 +8,13 @@ $subjects->bindValue(1,$_SESSION['system_user_id'],PDO::PARAM_INT);
 $subjects->execute();
 
 
+$notifications = $conn->prepare("SELECT count(*) As noti_number FROM notifications_users WHERE user_id = ? AND seen = ?");
+$notifications->bindValue(1,$_SESSION['system_user_id'],PDO::PARAM_INT);
+$notifications->bindValue(2,0,PDO::PARAM_INT);
+$notifications->execute();
+
+$notification = $notifications->fetch(PDO::FETCH_OBJ);
+
 ?>
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
@@ -41,7 +48,7 @@ $subjects->execute();
                     </a> 
                     
                     <a href="notifications.php" class="btn btn-app ">
-                        <span class="badge bg-yellow">3</span>
+                        <span class="badge bg-yellow"><?php echo $notification->noti_number; ?></span>
                         <i class="fa fa-bullhorn"></i> Notifications
                     </a>      
                     

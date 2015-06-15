@@ -89,6 +89,8 @@ require 'header.php';
 			</div>
 			<!-- the end of col-md-6 -->
 
+			<div class="clear"></div>
+
 			<div class="col-md-6">
 
 				<h4 class="classic-title"><span>second Year</span></h4>
@@ -118,6 +120,7 @@ require 'header.php';
 
 			</div>
 			<!-- the end of col-md-6 -->
+	<div class="clear"></div>
 
 
 			<div class="col-md-6">
@@ -150,6 +153,7 @@ require 'header.php';
 			</div>
 			<!-- the end of col-md-6 -->
 
+	<div class="clear"></div>
 
 			<div class="col-md-6">
 
@@ -181,6 +185,7 @@ require 'header.php';
 
 			</div>
 			<!-- the end of col-md-6 -->
+	<div class="clear"></div>
 
 
 		</div>

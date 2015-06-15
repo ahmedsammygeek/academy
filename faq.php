@@ -41,21 +41,7 @@ require 'header.php';
 
 					?>
 
-					<!-- Start Toggle 3 -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#collapse-3" class="collapsed">
-									<i class="fa fa-angle-down control-icon"></i>
-									Title Without Icon
-								</a>
-							</h4>
-						</div>
-						<div id="collapse-3" class="panel-collapse collapse">
-							<div class="panel-body"> content </div>
-						</div>
-					</div>
-					<!-- End Toggle 3 -->
+
 
 				</div>
 				<!-- End Toggle -->
