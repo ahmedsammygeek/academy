@@ -58,7 +58,7 @@
                                 $info->execute();
                                 $result = $info->fetch(PDO::FETCH_OBJ); ?>
                                 <li class="user-header bg-light-blue">
-                                    <img src="../uploaded/$result->image" class="img-circle" alt="User Image" />
+                                    <img src="../uploaded/staff/<?php echo "$result->image"; ?>" class="img-circle" alt="User Image" />
                                     <p>
                                         DOCTOR
                                     </p>
@@ -95,7 +95,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                            <img src="../uploaded/staff/<?php echo "$result->image"; ?>" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
                             <p>Hello DR/ <?php echo $_SESSION['system_user_name']; ?></p>
@@ -139,7 +139,7 @@
                         
 
                         <li class="active">
-                            <a href="index.html">
+                            <a href="notifications.php">
                                 <i class="fa fa-dashboard"></i> <span>notification</span>
                             </a>
                         </li>

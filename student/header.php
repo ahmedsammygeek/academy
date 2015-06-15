@@ -56,7 +56,7 @@
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img src="<?php echo "../uploaded/$result->pic"; ?>" class="img-circle" alt="User Image" />
+                                    <img src="<?php echo "../uploaded/student/$result->pic"; ?>" class="img-circle" alt="User Image" />
                                     <?php $department = $conn->prepare("SELECT name FROM departments WHERE id=?");
                                     $department->bindValue(1,$result->department_id,PDO::PARAM_INT);
                                     $department->execute();
@@ -137,7 +137,7 @@
 
 
                         <li class="active">
-                            <a href="notification.php">
+                            <a href="notifications.php">
                                 <i class="fa fa-dashboard"></i> <span>notification</span>
                             </a>
                         </li>
