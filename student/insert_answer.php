@@ -65,8 +65,26 @@ try {
 	}
 
 
+	$query2 = $conn->prepare("SELECT made_by FROM tasks WHERE id = ?");
+	$query2->bindValue(1,$task_id , PDO::PARAM_INT);
+	$query2->execute();
+
+	$res = $query2->fetch(PDO::FETCH_OBJ);
+	$doctor_id = $res->made_by;
+
+
+		// $query3 =  $conn->prepare("SELECT * FROM staff WHERE id = ?");
+		// $query3->bindValue(1 , $doctor_id , PDO::PARAM_INT);
+		// $query3->execute();
+
+		// $res2 = $res->fetch(PDO::FETCH_OBJ);
+
+		// $name = $res2->name ; 
+
 
 	if($conn->commit()) {
+		
+		send_notification($_SESSION['student_user_id'] , " the sheet task had been answerd by  ".$_SESSION['student_user_name'] . " student " , array($doctor_id) );
 		header("Location: task_answer.php?msg=done&task_id=$task_id");
 		die();
 	}
