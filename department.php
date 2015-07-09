@@ -153,7 +153,7 @@ require 'header.php';
 			</div>
 			<!-- the end of col-md-6 -->
 
-	<div class="clear"></div>
+	<div class="clearFix"></div>
 
 			<div class="col-md-6">
 
